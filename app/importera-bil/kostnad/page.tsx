@@ -2,16 +2,21 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getCostData } from "@/lib/data";
 import { getCanonicalUrl, getBreadcrumbJsonLd } from "@/lib/seo";
+import { getRobotsForPath } from "@/lib/manifest";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
 
-export const metadata: Metadata = {
-  title: `Vad kostar det att importera bil? – Alla avgifter ${new Date().getFullYear()}`,
-  description:
-    "Komplett genomgång av alla kostnader vid bilimport: moms, tull, ursprungskontroll, registreringsbesiktning och transport.",
-  alternates: { canonical: getCanonicalUrl("/importera-bil/kostnad") },
-};
+export function generateMetadata(): Metadata {
+  const robots = getRobotsForPath("/importera-bil/kostnad");
+  return {
+    title: `Vad kostar det att importera bil? – Alla avgifter ${new Date().getFullYear()}`,
+    description:
+      "Komplett genomgång av alla kostnader vid bilimport: moms, tull, ursprungskontroll, registreringsbesiktning och transport.",
+    alternates: { canonical: getCanonicalUrl("/importera-bil/kostnad") },
+    robots,
+  };
+}
 
 export default function KostnadPage() {
   const costData = getCostData();

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getCanonicalUrl, getBreadcrumbJsonLd } from "@/lib/seo";
+import { getRobotsForPath } from "@/lib/manifest";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
@@ -31,6 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: comp.title,
     description: comp.description,
     alternates: { canonical: getCanonicalUrl(`/jamfor/${slug}`) },
+    robots: getRobotsForPath(`/jamfor/${slug}`),
   };
 }
 

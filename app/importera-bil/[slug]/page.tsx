@@ -3,7 +3,11 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getCountries, getCountryBySlug, getCarBrands, getCarBrandBySlug } from "@/lib/data";
 import { getCanonicalUrl, getBreadcrumbJsonLd } from "@/lib/seo";
+import { getRobotsForPath } from "@/lib/manifest";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { compileMDX } from "next-mdx-remote/rsc";
+import { readFile } from "fs/promises";
+import path from "path";
 
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
 
@@ -20,12 +24,14 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
 
+  const robots = getRobotsForPath(`/importera-bil/${slug}`);
   const country = getCountryBySlug(slug);
   if (country) {
     return {
       title: `Importera bil från ${country.name} – Komplett guide ${new Date().getFullYear()}`,
       description: `Allt du behöver veta för att importera bil privat från ${country.name} till Sverige. Kostnader, process och praktiska råd.`,
       alternates: { canonical: getCanonicalUrl(`/importera-bil/${slug}`) },
+      robots,
     };
   }
 
@@ -35,6 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `Importera ${brand.name} från Tyskland – Guide och kostnader`,
       description: `Hur importerar du en ${brand.name} privat från Tyskland? Guide med kostnader, tips och vanliga fallgropar.`,
       alternates: { canonical: getCanonicalUrl(`/importera-bil/${slug}`) },
+      robots,
     };
   }
 
@@ -57,6 +64,31 @@ export default async function ImporteraBilPage({ params }: Props) {
       { name: "Importera bil", href: "/importera-bil/tyskland" },
       { name: `Från ${country.name}` },
     ];
+
+    // Flagship page: render full MDX content for Germany
+    if (slug === "tyskland") {
+      const mdxPath = path.join(process.cwd(), "content/importera-bil/tyskland.mdx");
+      const source = await readFile(mdxPath, "utf-8");
+      const { content } = await compileMDX({ source, options: { parseFrontmatter: true } });
+      return (
+        <>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(getBreadcrumbJsonLd(
+                breadcrumbs.map((b) => ({ name: b.name, url: b.href ? `${SITE_URL}${b.href}` : SITE_URL }))
+              )),
+            }}
+          />
+          <div className="mx-auto max-w-3xl px-4 py-10">
+            <Breadcrumbs items={breadcrumbs} siteUrl={SITE_URL} />
+            <article className="prose prose-gray max-w-none prose-headings:font-bold prose-a:text-blue-700 prose-a:no-underline hover:prose-a:underline prose-table:text-sm">
+              {content}
+            </article>
+          </div>
+        </>
+      );
+    }
 
     return (
       <>

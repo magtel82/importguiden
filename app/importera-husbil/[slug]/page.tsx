@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getCountries, getCountryBySlug, getMotorhomeBrands } from "@/lib/data";
 import { getCanonicalUrl, getBreadcrumbJsonLd } from "@/lib/seo";
+import { getRobotsForPath } from "@/lib/manifest";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
@@ -19,12 +20,14 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
+  const robots = getRobotsForPath(`/importera-husbil/${slug}`);
   const country = getCountryBySlug(slug);
   if (country) {
     return {
       title: `Importera husbil från ${country.name} – Komplett guide ${new Date().getFullYear()}`,
       description: `Steg-för-steg guide för att importera husbil privat från ${country.name}. Kostnader, besiktning och råd.`,
       alternates: { canonical: getCanonicalUrl(`/importera-husbil/${slug}`) },
+      robots,
     };
   }
 
@@ -35,6 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `Importera ${brand.name} husbil från Tyskland – Guide`,
       description: `Allt om att importera ${brand.name} husbil privat från Tyskland.`,
       alternates: { canonical: getCanonicalUrl(`/importera-husbil/${slug}`) },
+      robots,
     };
   }
 

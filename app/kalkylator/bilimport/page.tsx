@@ -5,12 +5,17 @@ import { ImportCalculator } from "@/components/calculator/ImportCalculator";
 
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
 
-export const metadata: Metadata = {
-  title: "Importkalkylator – Räkna ut din totala importkostnad",
-  description:
-    "Räkna ut vad det kostar att importera bil från Europa. Moms, tull, transport och avgifter sammanställda.",
-  alternates: { canonical: getCanonicalUrl("/kalkylator/bilimport") },
-};
+import { getRobotsForPath } from "@/lib/manifest";
+
+export function generateMetadata(): Metadata {
+  return {
+    title: "Importkalkylator – Räkna ut din totala importkostnad",
+    description:
+      "Räkna ut vad det kostar att importera bil från Europa. Moms, tull, transport och avgifter sammanställda.",
+    alternates: { canonical: getCanonicalUrl("/kalkylator/bilimport") },
+    robots: getRobotsForPath("/kalkylator/bilimport"),
+  };
+}
 
 export default function KalkylatornPage() {
   const breadcrumbs = [

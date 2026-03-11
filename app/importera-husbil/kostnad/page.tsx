@@ -1,16 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getCanonicalUrl, getBreadcrumbJsonLd } from "@/lib/seo";
+import { getRobotsForPath } from "@/lib/manifest";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
 
-export const metadata: Metadata = {
-  title: `Vad kostar det att importera husbil? – Avgifter ${new Date().getFullYear()}`,
-  description:
-    "Komplett genomgång av kostnader vid husbilsimport: moms, besiktning, transport och registrering.",
-  alternates: { canonical: getCanonicalUrl("/importera-husbil/kostnad") },
-};
+export function generateMetadata(): Metadata {
+  const robots = getRobotsForPath("/importera-husbil/kostnad");
+  return {
+    title: `Vad kostar det att importera husbil? – Avgifter ${new Date().getFullYear()}`,
+    description:
+      "Komplett genomgång av kostnader vid husbilsimport: moms, besiktning, transport och registrering.",
+    alternates: { canonical: getCanonicalUrl("/importera-husbil/kostnad") },
+    robots,
+  };
+}
 
 export default function HusbildKostnadPage() {
   const breadcrumbs = [

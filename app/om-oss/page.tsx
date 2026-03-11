@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
 import { getCanonicalUrl } from "@/lib/seo";
+import { getRobotsForPath } from "@/lib/manifest";
 
-export const metadata: Metadata = {
-  title: "Om Importguiden – Oberoende information om fordonsimport",
-  description:
-    "Lär känna Importguiden. Vi är en oberoende informationssajt utan koppling till importföretag.",
-  alternates: { canonical: getCanonicalUrl("/om-oss") },
-};
+export function generateMetadata(): Metadata {
+  return {
+    title: "Om Importguiden – Oberoende information om fordonsimport",
+    description:
+      "Lär känna Importguiden. Vi är en oberoende informationssajt utan koppling till importföretag.",
+    alternates: { canonical: getCanonicalUrl("/om-oss") },
+    robots: getRobotsForPath("/om-oss"),
+  };
+}
 
 export default function OmOssPage() {
   return (

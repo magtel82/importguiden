@@ -26,14 +26,22 @@ export interface MotorhomeBrand {
 }
 
 export interface PageManifestEntry {
-  path: string;
+  id: string;                 // primary key: slug deriverat från path
+  path: string;               // secondary key: /importera-bil/tyskland
   title: string;
   description: string;
   sources: string[];
-  uniquePayloadScore: number;
+  uniquePayloadScore: number; // 0–100
   quality: {
-    indexable: boolean;
+    hasSources: boolean;      // har minst en källhänvisning
+    isThin: boolean;          // bedöms som tunt innehåll
+    indexable: boolean;       // styr sitemap + robots-tag
   };
+  lastEvaluated?: string;     // ISO-datum för senaste quality-gate
+  notes?: string;             // manuell fri text – bevaras alltid vid merge
+  tags?: string[];            // valfria taggar – bevaras alltid vid merge
+  manualOverride?: boolean;   // om true: batch-merge får EJ skriva över indexable
+  orphaned?: boolean;         // sätts om sidan försvinner ur batch men finns i manifest
 }
 
 export interface PageManifest {
