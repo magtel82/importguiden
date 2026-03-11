@@ -1,0 +1,67 @@
+{
+  "_version": "1.0.0",
+  "_updated": "2025-01-01",
+  "_source": "Transportstyrelsen, Tullverket, EU-förordningar",
+  "countries": [
+    {
+      "slug": "tyskland",
+      "name": "Tyskland",
+      "nameLocal": "Deutschland",
+      "code": "DE",
+      "currency": "EUR",
+      "popular": true,
+      "primaryMarket": true,
+      "euMember": true,
+      "notes": "Störst marknad för begagnade bilar i Europa. Strängare TÜV-besiktning ger generellt välskötta bilar.",
+      "sources": ["https://www.transportstyrelsen.se", "https://www.tullverket.se"]
+    },
+    {
+      "slug": "nederländerna",
+      "name": "Nederländerna",
+      "nameLocal": "Nederland",
+      "code": "NL",
+      "currency": "EUR",
+      "popular": true,
+      "primaryMarket": false,
+      "euMember": true,
+      "notes": "Känt för välskötta bilar. Hög elbilsandel gör det attraktivt för elbilsimport.",
+      "sources": ["https://www.transportstyrelsen.se"]
+    },
+    {
+      "slug": "belgien",
+      "name": "Belgien",
+      "nameLocal": "België",
+      "code": "BE",
+      "currency": "EUR",
+      "popular": false,
+      "primaryMarket": false,
+      "euMember": true,
+      "notes": "Rimliga priser. Bra urval på AutoScout24.",
+      "sources": []
+    },
+    {
+      "slug": "frankrike",
+      "name": "Frankrike",
+      "nameLocal": "France",
+      "code": "FR",
+      "currency": "EUR",
+      "popular": false,
+      "primaryMarket": false,
+      "euMember": true,
+      "notes": "Stort utbud. Var uppmärksam på rost vid köp av äldre bilar.",
+      "sources": []
+    },
+    {
+      "slug": "spanien",
+      "name": "Spanien",
+      "nameLocal": "España",
+      "code": "ES",
+      "currency": "EUR",
+      "popular": false,
+      "primaryMarket": false,
+      "euMember": true,
+      "notes": "Populärt bland skandinaver som bor i Spanien. Omvänd import förekommer.",
+      "sources": []
+    }
+  ]
+}

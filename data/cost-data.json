@@ -1,0 +1,47 @@
+{
+  "_version": "1.0.0",
+  "_updated": "2025-01-01",
+  "_source": "Transportstyrelsen, Tullverket, Skatteverket",
+  "fees": {
+    "ursprungskontroll": {
+      "amount": 1240,
+      "currency": "SEK",
+      "note": "Obligatorisk kontroll via Transportstyrelsen. Pris gäller fr.o.m. 2025.",
+      "source": "https://www.transportstyrelsen.se/sv/vagtrafik/Fordon/Importerade-fordon/"
+    },
+    "registreringsbesiktning_personbil": {
+      "amount": 1700,
+      "currency": "SEK",
+      "note": "Schablonkostnad för personbil. Varierar beroende på besiktningsstation.",
+      "source": "https://www.transportstyrelsen.se"
+    },
+    "registreringsbesiktning_husbil": {
+      "amount": 3500,
+      "currency": "SEK",
+      "note": "Schablonkostnad för husbil. Kan variera 3000–5000 kr.",
+      "source": "https://www.transportstyrelsen.se"
+    },
+    "skyltavgift": {
+      "amount": 90,
+      "currency": "SEK",
+      "note": "Ingår i registreringsavgiften hos Transportstyrelsen.",
+      "source": "https://www.transportstyrelsen.se"
+    }
+  },
+  "tax": {
+    "moms_new_vehicle_threshold_months": 6,
+    "moms_new_vehicle_threshold_km": 6000,
+    "moms_rate": 0.25,
+    "note": "Fordon anses nytt om det är yngre än 6 månader ELLER har körts färre än 6 000 km. Moms (25%) tillkommer på begagnade fordon som anses nya vid import.",
+    "source": "https://www.skatteverket.se/foretag/moms/momsvidkopochforsaljning/momsvidinternationellaaffarer/koptjansterifransverige/importavfordon.4.html"
+  },
+  "transport": {
+    "drive_self_cost_per_km": 3.5,
+    "trailer_transport_from_germany": {
+      "min": 6000,
+      "max": 12000,
+      "currency": "SEK",
+      "note": "Schablonkostnad för transportföretag, bil på trailer. Varierar med sträcka och säsong."
+    }
+  }
+}

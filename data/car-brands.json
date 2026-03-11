@@ -1,0 +1,22 @@
+{
+  "_version": "1.0.0",
+  "_updated": "2025-01-01",
+  "_source": "Branschdata",
+  "brands": [
+    { "slug": "bmw", "name": "BMW", "popular": true, "origin": "DE" },
+    { "slug": "mercedes", "name": "Mercedes-Benz", "popular": true, "origin": "DE" },
+    { "slug": "audi", "name": "Audi", "popular": true, "origin": "DE" },
+    { "slug": "volkswagen", "name": "Volkswagen", "popular": true, "origin": "DE" },
+    { "slug": "porsche", "name": "Porsche", "popular": true, "origin": "DE" },
+    { "slug": "volvo", "name": "Volvo", "popular": true, "origin": "SE" },
+    { "slug": "tesla", "name": "Tesla", "popular": true, "origin": "US" },
+    { "slug": "ford", "name": "Ford", "popular": false, "origin": "US" },
+    { "slug": "opel", "name": "Opel", "popular": false, "origin": "DE" },
+    { "slug": "skoda", "name": "Škoda", "popular": false, "origin": "CZ" },
+    { "slug": "seat", "name": "SEAT", "popular": false, "origin": "ES" },
+    { "slug": "renault", "name": "Renault", "popular": false, "origin": "FR" },
+    { "slug": "peugeot", "name": "Peugeot", "popular": false, "origin": "FR" },
+    { "slug": "toyota", "name": "Toyota", "popular": false, "origin": "JP" },
+    { "slug": "honda", "name": "Honda", "popular": false, "origin": "JP" }
+  ]
+}

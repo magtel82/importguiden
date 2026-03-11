@@ -1,65 +1,132 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { getCanonicalUrl } from "@/lib/seo";
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: "Importguiden – Oberoende guide till privat fordonsimport",
+  description:
+    "Lär dig allt om att importera bil och husbil privat från Tyskland och Europa. Gratis kalkylator, steg-för-steg-guider och aktuell information.",
+  alternates: {
+    canonical: getCanonicalUrl("/"),
+  },
+};
+
+const guides = [
+  {
+    href: "/importera-bil/tyskland",
+    title: "Importera bil från Tyskland",
+    description: "Komplett guide med kostnader, processen steg för steg och praktiska råd.",
+  },
+  {
+    href: "/importera-husbil/tyskland",
+    title: "Importera husbil från Tyskland",
+    description: "Allt om att köpa husbil i Tyskland och ta hem den till Sverige.",
+  },
+  {
+    href: "/kalkylator/bilimport",
+    title: "Importkalkylator",
+    description: "Räkna ut din totala kostnad – moms, besiktning, transport och mer.",
+  },
+  {
+    href: "/guider/registreringsbesiktning",
+    title: "Registreringsbesiktning",
+    description: "Vad som kontrolleras, var du gör det och vad det kostar.",
+  },
+  {
+    href: "/guider/coc-intyg",
+    title: "COC-intyg",
+    description: "Vad är Certificate of Conformity och hur skaffar du det?",
+  },
+  {
+    href: "/guider/ursprungskontroll",
+    title: "Ursprungskontroll",
+    description: "Obligatorisk kontroll via Transportstyrelsen – så fungerar det.",
+  },
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Importguiden",
+  url: "https://importguiden.se",
+  description: "Oberoende information om privat fordonsimport från EU till Sverige.",
+};
+
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <div className="mx-auto max-w-5xl px-4 py-12">
+        {/* Hero */}
+        <section className="text-center mb-14">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            Importera bil från Europa – oberoende guide
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+            Importguiden ger dig saklig, faktagranskad information om privat fordonsimport
+            från EU till Sverige. Vi säljer inga importtjänster.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+          <div className="flex flex-wrap gap-3 justify-center">
+            <Link
+              href="/kalkylator/bilimport"
+              className="rounded bg-blue-700 px-6 py-3 font-medium text-white hover:bg-blue-800"
+            >
+              Räkna importkostnad
+            </Link>
+            <Link
+              href="/importera-bil/tyskland"
+              className="rounded border border-gray-300 px-6 py-3 font-medium text-gray-700 hover:bg-gray-50"
+            >
+              Börja med guiden
+            </Link>
+          </div>
+        </section>
+
+        {/* Guides grid */}
+        <section aria-labelledby="guider-rubrik">
+          <h2 id="guider-rubrik" className="text-2xl font-bold text-gray-900 mb-6">
+            Populära guider
+          </h2>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {guides.map((guide) => (
+              <Link
+                key={guide.href}
+                href={guide.href}
+                className="block rounded-lg border border-gray-200 p-5 hover:border-blue-400 hover:shadow-sm transition-all"
+              >
+                <h3 className="font-semibold text-gray-900 mb-1">{guide.title}</h3>
+                <p className="text-sm text-gray-500">{guide.description}</p>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* Trust section */}
+        <section className="mt-16 bg-gray-50 rounded-xl p-8 border border-gray-100">
+          <h2 className="text-xl font-bold text-gray-900 mb-3">Varför Importguiden?</h2>
+          <ul className="space-y-2 text-sm text-gray-600">
+            <li className="flex gap-2">
+              <span className="text-green-600 font-bold">✓</span>
+              Oberoende – vi säljer inga importtjänster eller bilar
+            </li>
+            <li className="flex gap-2">
+              <span className="text-green-600 font-bold">✓</span>
+              Källhänvisad information – Transportstyrelsen, Tullverket, Skatteverket
+            </li>
+            <li className="flex gap-2">
+              <span className="text-green-600 font-bold">✓</span>
+              Regelbundet uppdaterad när lagar och avgifter ändras
+            </li>
+            <li className="flex gap-2">
+              <span className="text-green-600 font-bold">✓</span>
+              Gratis kalkylator utan registrering
+            </li>
+          </ul>
+        </section>
+      </div>
+    </>
   );
 }

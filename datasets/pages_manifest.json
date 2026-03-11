@@ -1,0 +1,158 @@
+{
+  "_version": "1.0.0",
+  "_generated": "2025-01-01T00:00:00Z",
+  "pages": [
+    {
+      "path": "/",
+      "title": "Importguiden – Oberoende guide till privat fordonsimport",
+      "description": "Lär dig allt om att importera bil och husbil privat från Tyskland och Europa. Gratis kalkylator, steg-för-steg-guider och aktuell information.",
+      "sources": ["https://www.transportstyrelsen.se", "https://www.tullverket.se"],
+      "uniquePayloadScore": 90,
+      "quality": { "indexable": true }
+    },
+    {
+      "path": "/importera-bil/tyskland",
+      "title": "Importera bil från Tyskland – Komplett guide 2025",
+      "description": "Allt du behöver veta för att importera bil privat från Tyskland till Sverige. Kostnader, process och praktiska råd.",
+      "sources": ["https://www.transportstyrelsen.se", "https://www.tullverket.se"],
+      "uniquePayloadScore": 85,
+      "quality": { "indexable": true }
+    },
+    {
+      "path": "/importera-bil/kostnad",
+      "title": "Vad kostar det att importera bil? – Alla avgifter 2025",
+      "description": "Komplett genomgång av alla kostnader vid bilimport: moms, tull, ursprungskontroll, registreringsbesiktning och transport.",
+      "sources": ["https://www.transportstyrelsen.se", "https://www.skatteverket.se"],
+      "uniquePayloadScore": 88,
+      "quality": { "indexable": true }
+    },
+    {
+      "path": "/importera-bil/bmw",
+      "title": "Importera BMW från Tyskland – Guide och kostnader",
+      "description": "Hur importerar du en BMW privat från Tyskland? Läs vår guide med kostnader, tips och vanliga fallgropar.",
+      "sources": ["https://www.transportstyrelsen.se"],
+      "uniquePayloadScore": 70,
+      "quality": { "indexable": true }
+    },
+    {
+      "path": "/importera-bil/mercedes",
+      "title": "Importera Mercedes från Tyskland – Guide och kostnader",
+      "description": "Importera Mercedes-Benz privat från Tyskland. Allt om process, kostnader och vad du bör tänka på.",
+      "sources": ["https://www.transportstyrelsen.se"],
+      "uniquePayloadScore": 70,
+      "quality": { "indexable": true }
+    },
+    {
+      "path": "/importera-bil/audi",
+      "title": "Importera Audi från Tyskland – Guide och kostnader",
+      "description": "Importera Audi privat från Tyskland till Sverige. Kostnader, steg-för-steg och tips.",
+      "sources": ["https://www.transportstyrelsen.se"],
+      "uniquePayloadScore": 70,
+      "quality": { "indexable": true }
+    },
+    {
+      "path": "/importera-bil/volkswagen",
+      "title": "Importera Volkswagen från Tyskland – Guide",
+      "description": "Allt om att importera VW privat från Tyskland. Kostnader och process.",
+      "sources": ["https://www.transportstyrelsen.se"],
+      "uniquePayloadScore": 70,
+      "quality": { "indexable": true }
+    },
+    {
+      "path": "/importera-bil/volvo",
+      "title": "Importera Volvo från Tyskland – Lönar det sig?",
+      "description": "Kan det löna sig att importera Volvo från Tyskland? Vi går igenom kostnader, process och prisskillnader.",
+      "sources": ["https://www.transportstyrelsen.se"],
+      "uniquePayloadScore": 72,
+      "quality": { "indexable": true }
+    },
+    {
+      "path": "/importera-bil/tesla",
+      "title": "Importera Tesla från Tyskland – Elbilsimport guide",
+      "description": "Importera Tesla privat från Tyskland. Grünheide-fabriken, moms-regler och bonus malus för elbil.",
+      "sources": ["https://www.transportstyrelsen.se", "https://www.skatteverket.se"],
+      "uniquePayloadScore": 78,
+      "quality": { "indexable": true }
+    },
+    {
+      "path": "/importera-bil/nederländerna",
+      "title": "Importera bil från Nederländerna – Guide 2025",
+      "description": "Allt om att importera bil privat från Nederländerna till Sverige.",
+      "sources": ["https://www.transportstyrelsen.se"],
+      "uniquePayloadScore": 65,
+      "quality": { "indexable": true }
+    },
+    {
+      "path": "/importera-husbil/tyskland",
+      "title": "Importera husbil från Tyskland – Komplett guide 2025",
+      "description": "Steg-för-steg guide för att importera husbil privat från Tyskland. Kostnader, besiktning och praktiska råd.",
+      "sources": ["https://www.transportstyrelsen.se", "https://www.tullverket.se"],
+      "uniquePayloadScore": 85,
+      "quality": { "indexable": true }
+    },
+    {
+      "path": "/importera-husbil/kostnad",
+      "title": "Vad kostar det att importera husbil? – Alla avgifter",
+      "description": "Komplett genomgång av kostnader vid husbilsimport: moms, besiktning, transport och registrering.",
+      "sources": ["https://www.transportstyrelsen.se"],
+      "uniquePayloadScore": 82,
+      "quality": { "indexable": true }
+    },
+    {
+      "path": "/guider/registreringsbesiktning",
+      "title": "Registreringsbesiktning av importerad bil – Så fungerar det",
+      "description": "Allt om registreringsbesiktning vid import: vad kontrolleras, var gör man det och vad kostar det?",
+      "sources": ["https://www.transportstyrelsen.se"],
+      "uniquePayloadScore": 88,
+      "quality": { "indexable": true }
+    },
+    {
+      "path": "/guider/coc-intyg",
+      "title": "COC-intyg – Vad är det och hur skaffar du det?",
+      "description": "Certificate of Conformity (COC) krävs vid import av bil inom EU. Läs vår guide om hur du skaffar det.",
+      "sources": ["https://www.transportstyrelsen.se", "https://ec.europa.eu"],
+      "uniquePayloadScore": 85,
+      "quality": { "indexable": true }
+    },
+    {
+      "path": "/guider/ursprungskontroll",
+      "title": "Ursprungskontroll vid bilimport – Guide och kostnader",
+      "description": "Vad är ursprungskontroll, varför behövs det och hur beställer du det hos Transportstyrelsen?",
+      "sources": ["https://www.transportstyrelsen.se"],
+      "uniquePayloadScore": 87,
+      "quality": { "indexable": true }
+    },
+    {
+      "path": "/guider/moms-vid-bilimport",
+      "title": "Moms vid bilimport från EU – Regler och undantag",
+      "description": "När betalar du moms vid import av bil från EU? Regler för nytt vs begagnat fordon förklarade.",
+      "sources": ["https://www.skatteverket.se"],
+      "uniquePayloadScore": 88,
+      "quality": { "indexable": true }
+    },
+    {
+      "path": "/kalkylator/bilimport",
+      "title": "Importkalkylator – Räkna ut din totala importkostnad",
+      "description": "Räkna ut vad det kostar att importera bil från Europa. Moms, tull, transport och avgifter.",
+      "sources": [],
+      "uniquePayloadScore": 95,
+      "quality": { "indexable": true }
+    },
+    {
+      "path": "/jamfor/tyskland-vs-sverige",
+      "title": "Bilar billigare i Tyskland? – Prisjämförelse 2025",
+      "description": "Vi jämför bilpriser i Sverige och Tyskland. Lönar det sig verkligen att importera?",
+      "sources": [],
+      "uniquePayloadScore": 80,
+      "quality": { "indexable": true }
+    },
+    {
+      "path": "/om-oss",
+      "title": "Om Importguiden – Oberoende information om fordonsimport",
+      "description": "Lär känna Importguiden. Vi är en oberoende informationssajt utan koppling till importföretag.",
+      "sources": [],
+      "uniquePayloadScore": 60,
+      "quality": { "indexable": true }
+    }
+  ]
+}

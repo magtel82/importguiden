@@ -1,0 +1,15 @@
+{
+  "_version": "1.0.0",
+  "_updated": "2025-01-01",
+  "_source": "Branschdata",
+  "brands": [
+    { "slug": "knaus", "name": "Knaus", "popular": true, "origin": "DE" },
+    { "slug": "hymer", "name": "Hymer", "popular": true, "origin": "DE" },
+    { "slug": "dethleffs", "name": "Dethleffs", "popular": true, "origin": "DE" },
+    { "slug": "eriba", "name": "Eriba", "popular": false, "origin": "DE" },
+    { "slug": "bürstner", "name": "Bürstner", "popular": false, "origin": "DE" },
+    { "slug": "carthago", "name": "Carthago", "popular": false, "origin": "DE" },
+    { "slug": "hobby", "name": "Hobby", "popular": false, "origin": "DE" },
+    { "slug": "fendt", "name": "Fendt", "popular": false, "origin": "DE" }
+  ]
+}
