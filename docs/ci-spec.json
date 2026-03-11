@@ -1,0 +1,174 @@
+{
+  "_description": "CI-vänlig specifikation för Importguiden quality gates. Används som referens för automatiserade kontroller och batch-gates.",
+  "_version": "1.0.0",
+  "_updated": "2026-03-11",
+
+  "thresholds": {
+    "content": {
+      "minWordCount": 800,
+      "minWordCountExceptions": ["kalkylator", "om-oss", "verktyg"],
+      "minUniquePayloadScore": 75,
+      "noindexBelowScore": 60
+    },
+    "seo": {
+      "minSeoScore": 0.75,
+      "noindexBelowSeoScore": 0.60,
+      "titleMinChars": 40,
+      "titleMaxChars": 65,
+      "descriptionMinChars": 120,
+      "descriptionMaxChars": 160,
+      "minInternalLinks": 2
+    },
+    "design": {
+      "minContrastNormalText": 4.5,
+      "minContrastLargeText": 3.0,
+      "minContrastUIComponents": 3.0
+    },
+    "compliance": {
+      "httpsRequired": true,
+      "consentRequiredBeforeTracking": true,
+      "maxThirdPartyScriptsWithoutConsent": 0
+    }
+  },
+
+  "autoNoindexRules": [
+    "uniquePayloadScore < 60",
+    "seoScore < 0.60",
+    "wordCount < 800 AND path NOT IN exceptions",
+    "isThin = true",
+    "hasSources = false AND path NOT IN ['kalkylator/bilimport']",
+    "duplicationRisk = true",
+    "approved = false FROM any gate"
+  ],
+
+  "exitPolicy": {
+    "description": "Om någon gate returnerar approved=false eller compliant=false → CI fail. Sidan får ej in i sitemap om indexable=false.",
+    "rules": [
+      {
+        "condition": "contentGate.approved = false",
+        "action": "CI fail – publicera inte"
+      },
+      {
+        "condition": "seoGate.approved = false",
+        "action": "CI fail – publicera inte"
+      },
+      {
+        "condition": "designGate.approved = false",
+        "action": "CI fail – leverera inte UI"
+      },
+      {
+        "condition": "complianceGate.compliant = false",
+        "action": "CI fail – eskalera till människa"
+      },
+      {
+        "condition": "any gate: indexable = false",
+        "action": "Sidan exkluderas från sitemap.xml automatiskt via manifest"
+      },
+      {
+        "condition": "complianceGate.riskLevel = high",
+        "action": "CI fail alltid – oavsett compliant-värde"
+      }
+    ]
+  },
+
+  "contracts": {
+    "contentGate": {
+      "description": "Output från quality-gate-single.md och quality-gate-batch.md",
+      "schema": {
+        "id": "string",
+        "path": "string",
+        "approved": "boolean",
+        "indexable": "boolean",
+        "uniquePayloadScore": "number (0.0–1.0)",
+        "wordCountEstimate": "integer",
+        "issues": "string[]",
+        "recommendation": "string",
+        "sourcesFound": "string[]",
+        "manifestPatch": {
+          "id": "string",
+          "path": "string",
+          "title": "string",
+          "description": "string",
+          "sources": "string[]",
+          "uniquePayloadScore": "integer (0–100)",
+          "quality": {
+            "hasSources": "boolean",
+            "isThin": "boolean",
+            "indexable": "boolean"
+          },
+          "lastEvaluated": "string (YYYY-MM-DD)"
+        }
+      }
+    },
+
+    "seoGate": {
+      "description": "Output från seo-quality-gate.md",
+      "schema": {
+        "approved": "boolean",
+        "indexable": "boolean",
+        "seoScore": "number (0.0–1.0)",
+        "checks": {
+          "h1": { "pass": "boolean", "note": "string" },
+          "headingHierarchy": { "pass": "boolean", "note": "string" },
+          "titleLength": { "pass": "boolean", "note": "string" },
+          "descriptionLength": { "pass": "boolean", "note": "string" },
+          "titleGeneric": { "pass": "boolean", "note": "string" },
+          "internalLinks": { "pass": "boolean", "note": "string" },
+          "dateUpdated": { "pass": "boolean", "note": "string" },
+          "uniqueDataPoints": { "pass": "boolean", "note": "string" },
+          "sourcesOrEstimates": { "pass": "boolean", "note": "string" },
+          "duplicationRisk": { "pass": "boolean", "note": "string" }
+        },
+        "issues": "string[]",
+        "recommendation": "string"
+      }
+    },
+
+    "designGate": {
+      "description": "Output från design-quality-gate.md",
+      "schema": {
+        "approved": "boolean",
+        "issues": "string[]",
+        "forbiddenElements": "string[]",
+        "contrastWarnings": "string[]",
+        "accessibilityIssues": "string[]",
+        "recommendation": "string"
+      }
+    },
+
+    "complianceGate": {
+      "description": "Output från compliance-gate.md",
+      "schema": {
+        "compliant": "boolean",
+        "riskLevel": "low | medium | high",
+        "issues": "string[]",
+        "requiredActions": "string[]",
+        "dataMap": {
+          "personalDataTypes": "string[]",
+          "cookiesUsed": "string[]"
+        }
+      }
+    },
+
+    "batchSummary": {
+      "description": "Ingår i batch-gate output",
+      "schema": {
+        "total": "integer",
+        "approved": "integer",
+        "rejected": "integer",
+        "overallRiskLevel": "low | medium | high"
+      }
+    },
+
+    "mergeReport": {
+      "description": "Output från lib/manifest-merge.ts",
+      "schema": {
+        "created": "string[]",
+        "updated": "string[]",
+        "unchanged": "string[]",
+        "orphanedMarked": "string[]",
+        "errors": "string[]"
+      }
+    }
+  }
+}
