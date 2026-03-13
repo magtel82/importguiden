@@ -105,6 +105,7 @@ export default async function ImporteraBilPage({ params }: Props) {
           <div className="mx-auto max-w-3xl px-4 py-10">
             <Breadcrumbs items={breadcrumbs} siteUrl={SITE_URL} />
             <article className="prose prose-gray max-w-none prose-headings:font-bold prose-a:text-blue-700 prose-a:no-underline hover:prose-a:underline prose-table:text-sm">
+              <h1>Importera bil från Tyskland – Komplett guide 2026</h1>
               {content}
             </article>
           </div>
