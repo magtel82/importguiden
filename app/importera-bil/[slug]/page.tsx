@@ -8,6 +8,7 @@ import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { compileMDX } from "next-mdx-remote/rsc";
 import { readFile } from "fs/promises";
 import path from "path";
+import remarkGfm from "remark-gfm";
 import { AffiliateLink } from "@/components/affiliate/AffiliateLink";
 
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
@@ -72,7 +73,7 @@ export default async function ImporteraBilPage({ params }: Props) {
       const source = await readFile(mdxPath, "utf-8");
       const { content } = await compileMDX({
         source,
-        options: { parseFrontmatter: true },
+        options: { parseFrontmatter: true, mdxOptions: { remarkPlugins: [remarkGfm] } },
         components: { AffiliateLink },
       });
 
