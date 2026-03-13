@@ -57,9 +57,23 @@ export default function OmOssPage() {
 
       <section className="mb-8">
         <h2 className="text-xl font-bold text-gray-900 mb-3">GDPR och cookies</h2>
+        <p className="text-gray-700 mb-3">
+          Analytiska cookies och affiliate-tracking aktiveras enbart med ditt samtycke via
+          cookie-bannern. Ingen persondata säljs vidare. Läs vår{" "}
+          <a href="/integritetspolicy" className="text-blue-700 underline hover:text-blue-800">
+            integritetspolicy
+          </a>{" "}
+          för fullständig information.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="text-xl font-bold text-gray-900 mb-3">Kontakt</h2>
         <p className="text-gray-700">
-          Vi använder analys-cookies för att förstå hur sajten används. Ingen persondata
-          säljs vidare. Affiliate-nätverk kan sätta tracking-cookies i samband med länkklick.
+          Frågor om sajten, innehållet eller våra affiliate-samarbeten?{" "}
+          <a href="mailto:info@importguiden.se" className="text-blue-700 underline hover:text-blue-800">
+            info@importguiden.se
+          </a>
         </p>
       </section>
     </div>

@@ -1,6 +1,6 @@
 # CLAUDE.md – Importguiden
-# Senast uppdaterad: 2026-03-11
-# Status: BYGGT – aktiv utveckling
+# Senast uppdaterad: 2026-03-13
+# Status: BYGGT – affiliate-redo, aktiv utveckling
 #
 # Den här filen är sanning om projektet.
 # Läs den INNAN du gör någon ändring.
@@ -78,26 +78,33 @@ Produktion: Vercel Dashboard → Settings → Environment Variables
 # ==========================================================
 
 app/
-  layout.tsx                        # Root layout, Header + Footer
+  layout.tsx                        # Root layout, Header + Footer + CookieConsent
+                                    # Innehåller skip-to-content länk (tillgänglighet)
+                                    # <main id="main-content"> för skip-to-content
   page.tsx                          # Startsida /
   globals.css                       # Tailwind + typography plugin
+  not-found.tsx                     # Custom 404-sida
   robots.ts                         # /robots.txt
   sitemap.ts                        # /sitemap.xml – läser manifest
   importera-bil/
     [slug]/page.tsx                 # Länder OCH märken i samma route
-                                    # slug=tyskland → laddar MDX-fil
+                                    # slug=tyskland → laddar MDX-fil + Article JSON-LD
                                     # slug=bmw → inline märkessida
+                                    # compileMDX får components: { AffiliateLink }
     kostnad/page.tsx                # /importera-bil/kostnad
   importera-husbil/
     [slug]/page.tsx                 # Länder + märken (husbil)
     kostnad/page.tsx                # /importera-husbil/kostnad
   guider/
+    page.tsx                        # /guider – hubsida med lista över alla guider
     [slug]/page.tsx                 # Inline-innehåll per guide
   kalkylator/
     bilimport/page.tsx              # Kalkylator (client component)
   jamfor/
     [slug]/page.tsx                 # Prisjämförelser
-  om-oss/page.tsx
+  om-oss/page.tsx                   # Om oss – inkl. kontakt info@importguiden.se
+  integritetspolicy/page.tsx        # GDPR-policy – kontakt info@importguiden.se
+  finansiering/page.tsx             # Affiliate-transparens, partners, principer
   api/
     cron/daily/route.ts             # Daglig pipeline-orchestrator
 
@@ -105,16 +112,22 @@ content/
   importera-bil/
     tyskland.mdx                    # Flagship-guide, ~900 ord
                                     # Läses via next-mdx-remote/rsc
+                                    # Använder <AffiliateLink> för Wise-länk
 
 components/
   layout/
-    Header.tsx
-    Footer.tsx
+    Header.tsx                      # "use client" – desktop nav + mobilmeny (hamburger)
+                                    # Visar aktiv sida, ARIA-attribut, fokusindikatorer
+    Footer.tsx                      # Inkl. länk till integritetspolicy, finansiering,
+                                    # kontaktmail och CookieSettingsLink
     Breadcrumbs.tsx                 # Renderar JSON-LD + visuell nav
   calculator/
     ImportCalculator.tsx            # "use client" – all logik client-side
   affiliate/
     AffiliateLink.tsx               # rel="nofollow sponsored" + märkning
+  CookieConsent.tsx                 # "use client" – bottom-banner, localStorage-baserad
+                                    # Lyssnar på "show-cookie-settings" event
+  CookieSettingsLink.tsx            # "use client" – knapp i footer som återöppnar banner
 
 data/                               # JSON-datafiler (ej databas)
   countries.json                    # EU-länder med slug, valuta, euMember
@@ -199,6 +212,7 @@ Använd next-mdx-remote/rsc:
   import { compileMDX } from "next-mdx-remote/rsc";
   import { readFile } from "fs/promises";
   import path from "path";
+  import { AffiliateLink } from "@/components/affiliate/AffiliateLink";
 
   const source = await readFile(
     path.join(process.cwd(), "content/importera-bil/tyskland.mdx"),
@@ -206,10 +220,14 @@ Använd next-mdx-remote/rsc:
   );
   const { content } = await compileMDX({
     source,
-    options: { parseFrontmatter: true }
+    options: { parseFrontmatter: true },
+    components: { AffiliateLink },   // skicka med komponenter som MDX-filen använder
   });
 
 Rendera sedan {content} i en <article className="prose ...">-tagg.
+
+Om en MDX-fil använder <AffiliateLink> måste komponenten skickas med i components-objektet.
+Aldrig plain markdown (*Annonslänk*) för affiliate-länkar – använd alltid <AffiliateLink>.
 
 # ==========================================================
 # SEO – OBLIGATORISKT PÅ ALLA SIDOR
@@ -219,8 +237,11 @@ TEKNISKT (implementerat):
 - generateMetadata() på alla routes
 - canonical URLs via getCanonicalUrl()
 - BreadcrumbList JSON-LD via getBreadcrumbJsonLd()
+- Article JSON-LD på flagship-guider (Tyskland)
 - robots-direktiv från manifest via getRobotsForPath()
 - Synligt "Uppdaterad datum" på alla guider
+- Skip-to-content länk i layout.tsx (WCAG)
+- Custom 404-sida (not-found.tsx)
 
 INNEHÅLL:
 - Minst 800 ord unikt innehåll på guider
@@ -272,8 +293,9 @@ Nytt bilmärke:
   4. Skriv märkesspecifikt innehåll → quality gate → indexable=true
 
 Ny guide:
-  1. Skapa content/guider/[slug].mdx
-  2. Lägg till slug i guides-objektet i app/guider/[slug]/page.tsx
+  1. Lägg till slug + innehåll i guides-objektet i app/guider/[slug]/page.tsx
+     (alternativt: skapa MDX-fil och läs in via compileMDX)
+  2. Lägg till guide i listan i app/guider/page.tsx (hubsidan)
   3. Lägg till post i pages_manifest.json
   4. Quality gate → indexable=true om OK
 
@@ -287,17 +309,20 @@ Ny guide:
 - Inga banners
 - Kontext före klick: förklara vad länken leder till
 - Nuvarande partner: Wise (valutaväxling)
+- Affiliate-readiness: KLAR (integritetspolicy, finansiering, consent-banner, disclosure allt på plats)
+- Kontaktmail för affiliate-ansökningar: info@importguiden.se
 
 # ==========================================================
 # DESIGN-PRINCIPER
 # ==========================================================
 
-- Mobile first
+- Mobile first (Header har hamburger-meny för mobil)
 - Läsbarhet > wow-effekt (Tailwind prose för MDX-innehåll)
 - Brödsmulor på alla sidor djupare än startsidan
 - Inga popups
 - Blå primärfärg: blue-700
 - Källhänvisningar alltid synliga i text
+- Skip-to-content länk i layout (tangentbordsanvändare)
 
 # ==========================================================
 # SPRÅK
@@ -321,6 +346,9 @@ Ny guide:
 7. getRobotsForPath() ska anropas i generateMetadata() på alla nya routes
 8. notes och tags i manifestet bevaras alltid vid merge
 9. Ny sida → börja med indexable=false tills innehållet är klart
+10. Affiliate-länkar i MDX → använd alltid <AffiliateLink>, aldrig plain markdown
+11. Ny guide → lägg till i både [slug]/page.tsx OCH app/guider/page.tsx (hubsidan)
+12. Header är "use client" – lägg inte till server-side logik där
 
 # ==========================================================
 # DEL 7 – DESIGN (BINDANDE FÖR ALLT AI-GENERERAT UI)
@@ -534,7 +562,7 @@ Privacy policy sida (/integritetspolicy):
   - Vilka tredjeparter som får data (Vercel, analytics-tjänst, affiliate-nätverk)
   - Hur länge data lagras
   - Hur användaren utövar sina rättigheter (Art. 15-22 GDPR)
-  - Kontaktuppgifter till personuppgiftsansvarig
+  - Kontaktuppgifter till personuppgiftsansvarig: info@importguiden.se
 
 ## D) COMPLIANCE QUALITY GATE
 

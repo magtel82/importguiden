@@ -108,7 +108,7 @@
       "tags": ["marke", "bil", "pseo", "elbil"]
     },
     {
-      "id": "importera-bil-nederlánderna",
+      "id": "importera-bil-nederländerna",
       "path": "/importera-bil/nederländerna",
       "title": "Importera bil från Nederländerna – Guide 2026",
       "description": "Allt om att importera bil privat från Nederländerna till Sverige.",
@@ -220,6 +220,44 @@
       "lastEvaluated": "2026-03-11",
       "notes": "Om-sidan indexeras för E-E-A-T men behöver ej rankas på sökord.",
       "tags": ["info"]
+    },
+    {
+      "id": "guider-hub",
+      "path": "/guider",
+      "title": "Guider om fordonsimport – Importguiden",
+      "description": "Steg-för-steg guider om att importera bil från Europa. Ursprungskontroll, registreringsbesiktning, COC-intyg och momsregler.",
+      "sources": [],
+      "uniquePayloadScore": 72,
+      "quality": { "hasSources": false, "isThin": false, "indexable": true },
+      "lastEvaluated": "2026-03-13",
+      "notes": "Hub-sida som listar alla guider. Indexeras för internlänkning och navigationsstruktur.",
+      "tags": ["guide", "hub"]
+    },
+    {
+      "id": "integritetspolicy",
+      "path": "/integritetspolicy",
+      "title": "Integritetspolicy – Importguiden",
+      "description": "Hur Importguiden hanterar cookies och personuppgifter. Information om dina rättigheter enligt GDPR.",
+      "sources": [],
+      "uniquePayloadScore": 70,
+      "quality": { "hasSources": false, "isThin": false, "indexable": true },
+      "lastEvaluated": "2026-03-13",
+      "notes": "Policy-sida – indexeras för E-E-A-T och affiliate-nätverkskrav. Uppdatera vid nya samarbetspartner eller tracking-tjänster. Uppdatera 'Senast uppdaterad'-datum i page.tsx vid ändringar.",
+      "tags": ["info", "gdpr"],
+      "manualOverride": true
+    },
+    {
+      "id": "finansiering",
+      "path": "/finansiering",
+      "title": "Så finansieras Importguiden – Transparens om affiliate",
+      "description": "Importguiden finansieras via affiliate-samarbeten. Här förklarar vi hur det fungerar och hur det påverkar innehållet.",
+      "sources": [],
+      "uniquePayloadScore": 70,
+      "quality": { "hasSources": false, "isThin": false, "indexable": true },
+      "lastEvaluated": "2026-03-13",
+      "notes": "Transparenssida – viktig för affiliate-nätverksansökningar. Uppdatera 'Nuvarande samarbetspartner'-listan i page.tsx vid nya avtal.",
+      "tags": ["info", "affiliate"],
+      "manualOverride": true
     }
   ]
 }

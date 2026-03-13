@@ -19,7 +19,7 @@ const guides: Record<string, GuideData> = {
     title: "Registreringsbesiktning av importerad bil – Så fungerar det",
     description:
       "Allt om registreringsbesiktning vid import: vad kontrolleras, var gör man det och vad kostar det?",
-    updatedDate: "2025-01-01",
+    updatedDate: "2026-03-13",
     content: () => (
       <>
         <p className="text-gray-700 mb-6 text-lg">
@@ -105,7 +105,7 @@ const guides: Record<string, GuideData> = {
     title: "COC-intyg – Vad är det och hur skaffar du det?",
     description:
       "Certificate of Conformity (COC) krävs vid import av bil inom EU. Läs vår guide om hur du skaffar det.",
-    updatedDate: "2025-01-01",
+    updatedDate: "2026-03-13",
     content: () => (
       <>
         <p className="text-gray-700 mb-6 text-lg">
@@ -177,7 +177,7 @@ const guides: Record<string, GuideData> = {
     title: "Ursprungskontroll vid bilimport – Guide och kostnader",
     description:
       "Vad är ursprungskontroll, varför behövs det och hur beställer du det hos Transportstyrelsen?",
-    updatedDate: "2025-01-01",
+    updatedDate: "2026-03-13",
     content: () => (
       <>
         <p className="text-gray-700 mb-6 text-lg">
@@ -231,7 +231,7 @@ const guides: Record<string, GuideData> = {
     title: "Moms vid bilimport från EU – Regler och undantag",
     description:
       "När betalar du moms vid import av bil från EU? Regler för nytt vs begagnat fordon förklarade.",
-    updatedDate: "2025-01-01",
+    updatedDate: "2026-03-13",
     content: () => (
       <>
         <p className="text-gray-700 mb-6 text-lg">
@@ -305,7 +305,7 @@ export default async function GuiderPage({ params }: Props) {
 
   const breadcrumbs = [
     { name: "Hem", href: "/" },
-    { name: "Guider", href: "/guider/registreringsbesiktning" },
+    { name: "Guider", href: "/guider" },
     { name: guide.title.split("–")[0].trim() },
   ];
 

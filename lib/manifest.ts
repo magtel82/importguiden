@@ -24,8 +24,5 @@ export function getRobotsForPath(
 ): { index: boolean; follow: boolean } {
   const entry = getPageByPath(path);
   if (!entry) return { index: false, follow: false };
-  const indexable = entry.quality.indexable && !entry.manualOverride
-    ? entry.quality.indexable
-    : entry.quality.indexable;
-  return { index: indexable, follow: true };
+  return { index: entry.quality.indexable, follow: true };
 }

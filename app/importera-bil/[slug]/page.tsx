@@ -8,6 +8,7 @@ import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { compileMDX } from "next-mdx-remote/rsc";
 import { readFile } from "fs/promises";
 import path from "path";
+import { AffiliateLink } from "@/components/affiliate/AffiliateLink";
 
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
 
@@ -69,7 +70,23 @@ export default async function ImporteraBilPage({ params }: Props) {
     if (slug === "tyskland") {
       const mdxPath = path.join(process.cwd(), "content/importera-bil/tyskland.mdx");
       const source = await readFile(mdxPath, "utf-8");
-      const { content } = await compileMDX({ source, options: { parseFrontmatter: true } });
+      const { content } = await compileMDX({
+        source,
+        options: { parseFrontmatter: true },
+        components: { AffiliateLink },
+      });
+
+      const articleJsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: "Importera bil från Tyskland – Komplett guide 2026",
+        datePublished: "2026-03-11",
+        dateModified: "2026-03-13",
+        author: { "@type": "Organization", name: "Importguiden", url: SITE_URL },
+        publisher: { "@type": "Organization", name: "Importguiden", url: SITE_URL },
+        mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/importera-bil/tyskland` },
+      };
+
       return (
         <>
           <script
@@ -79,6 +96,10 @@ export default async function ImporteraBilPage({ params }: Props) {
                 breadcrumbs.map((b) => ({ name: b.name, url: b.href ? `${SITE_URL}${b.href}` : SITE_URL }))
               )),
             }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
           />
           <div className="mx-auto max-w-3xl px-4 py-10">
             <Breadcrumbs items={breadcrumbs} siteUrl={SITE_URL} />
