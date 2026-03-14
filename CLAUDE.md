@@ -366,6 +366,8 @@ Ny guide:
 10. Affiliate-länkar i MDX → använd alltid <AffiliateLink>, aldrig plain markdown
 11. Ny guide → lägg till i både [slug]/page.tsx OCH app/guider/page.tsx (hubsidan)
 12. Header är "use client" – lägg inte till server-side logik där
+13. Efter varje avslutad uppgift: commit + push till main automatiskt (utan att fråga).
+    Vercel deployar automatiskt vid push. Skriv tydligt commit-meddelande på svenska.
 
 # ==========================================================
 # DEL 7 – DESIGN (BINDANDE FÖR ALLT AI-GENERERAT UI)
