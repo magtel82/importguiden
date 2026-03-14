@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getCanonicalUrl } from "@/lib/seo";
+import { getRobotsForPath } from "@/lib/manifest";
 
 export const metadata: Metadata = {
   title: "Importera bil privat från Europa – Oberoende guide 2025",
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: getCanonicalUrl("/"),
   },
+  robots: getRobotsForPath("/"),
 };
 
 const guides = [
