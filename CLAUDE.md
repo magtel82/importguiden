@@ -118,6 +118,7 @@ components/
   layout/
     Header.tsx                      # "use client" – desktop nav + mobilmeny (hamburger)
                                     # sticky top-0 z-50 – ligger kvar vid scroll (mobil+desktop)
+                                    # Logotyp: <Image src="/logo.svg" width=160 height=32>
                                     # Visar aktiv sida, ARIA-attribut, fokusindikatorer
     Footer.tsx                      # Inkl. länk till integritetspolicy, finansiering,
                                     # kontaktmail och CookieSettingsLink

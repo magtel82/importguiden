@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
@@ -20,9 +21,16 @@ export function Header() {
       <div className="mx-auto max-w-5xl px-4 py-4 flex items-center justify-between">
         <Link
           href="/"
-          className="text-xl font-bold text-gray-900 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded"
+          className="focus:outline-none focus:ring-2 focus:ring-blue-500 rounded"
+          aria-label="Importguiden – till startsidan"
         >
-          Importguiden
+          <Image
+            src="/logo.svg"
+            alt="Importguiden"
+            width={160}
+            height={32}
+            priority
+          />
         </Link>
 
         {/* Desktop nav */}
