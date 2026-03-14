@@ -1,0 +1,9 @@
+<svg width="240" height="48" viewBox="0 0 240 48" xmlns="http://www.w3.org/2000/svg">
+<!-- Route icon -->
+<circle cx="8" cy="24" r="5" fill="#1d4ed8"/>
+<circle cx="36" cy="24" r="5" stroke="#1d4ed8" stroke-width="2" fill="white"/>
+<path d="M14 24 C20 14, 28 34, 34 24" stroke="#1d4ed8" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+<!-- Text -->
+<text x="50" y="28" style="font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 22px; font-weight: 500; fill: #111827; letter-spacing: -0.02em">importguiden</text>
+</svg>
