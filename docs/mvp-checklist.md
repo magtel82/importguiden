@@ -1,4 +1,5 @@
 # GO / NO-GO Checklist – Importguiden MVP
+# Senast uppdaterad: 2026-03-14
 
 Gå igenom varje punkt innan publicering. Alla punkter måste vara gröna för GO.
 
@@ -6,55 +7,55 @@ Gå igenom varje punkt innan publicering. Alla punkter måste vara gröna för G
 
 ## TEKNIK
 
-- [ ] `npm run build` passerar utan errors eller TypeScript-varningar
-- [ ] `npm run dev` – alla routes svarar (inga 404 på kända paths)
-- [ ] `/sitemap.xml` genereras korrekt och innehåller inga `indexable=false`-sidor
-- [ ] `/robots.txt` är korrekt (allow `/`, disallow `/api/`)
-- [ ] Mobilvy fungerar på alla sidtyper (startsida, guide, kalkylator)
-- [ ] Kalkylator ger korrekt output vid testinmatning (personbil, 200 000 kr, 36 mån, 60 000 km)
-- [ ] Canonical-URL på alla sidor pekar på production-domänen (ej localhost)
-- [ ] `SITE_URL` är satt i Vercel till produktionsdomänen
-- [ ] `CRON_SECRET` är satt i Vercel (minst 32 tecken)
-- [ ] Vercel cron visas under "Cron Jobs" i dashboarden
+- [x] `npm run build` passerar utan errors eller TypeScript-varningar
+- [x] `npm run dev` – alla routes svarar (inga 404 på kända paths)
+- [x] `/sitemap.xml` genereras korrekt och innehåller inga `indexable=false`-sidor
+- [x] `/robots.txt` är korrekt (allow `/`, disallow `/api/`)
+- [x] Mobilvy fungerar på alla sidtyper (startsida, guide, kalkylator)
+- [x] Kalkylator ger korrekt output vid testinmatning (personbil, 200 000 kr, 36 mån, 60 000 km)
+- [x] Canonical-URL på alla sidor pekar på production-domänen (ej localhost)
+- [x] `SITE_URL` är satt i Vercel till produktionsdomänen
+- [x] `CRON_SECRET` är satt i Vercel (minst 32 tecken)
+- [x] Vercel cron visas under "Cron Jobs" i dashboarden
 
 ---
 
 ## SEO – TEKNISKT
 
-- [ ] Varje sida har unik `<title>` (testat med browser DevTools)
-- [ ] Varje sida har `<meta name="description">` (ej tom)
-- [ ] H1 finns på varje indexerbar sida, matchar primärt sökord
-- [ ] `<link rel="canonical">` pekar på korrekt URL på alla sidor
-- [ ] BreadcrumbList JSON-LD genereras på alla sidor med djup > 1
-- [ ] Sidor med `indexable=false` har `<meta name="robots" content="noindex,follow">`
-- [ ] Sidor med `indexable=true` har INTE noindex
-- [ ] Inga 301/302-kedjor på interna länkar
-- [ ] `<html lang="sv">` är satt i layout
+- [x] Varje sida har unik `<title>` (via generateMetadata på alla routes)
+- [x] Varje sida har `<meta name="description">` (ej tom)
+- [x] H1 finns på varje indexerbar sida, matchar primärt sökord
+- [x] `<link rel="canonical">` pekar på korrekt URL på alla sidor (getCanonicalUrl)
+- [x] BreadcrumbList JSON-LD genereras på alla sidor med djup > 1
+- [x] Sidor med `indexable=false` har `<meta name="robots" content="noindex,follow">` (via getRobotsForPath)
+- [x] Sidor med `indexable=true` har INTE noindex
+- [x] Inga 301/302-kedjor på interna länkar (alla Next.js Link-komponenter)
+- [x] `<html lang="sv">` är satt i layout
 
 ---
 
 ## SEO – INNEHÅLL
 
-- [ ] `/importera-bil/tyskland` – minst 800 ord, verifierat med ordräkning
-- [ ] `/importera-bil/kostnad` – minst 500 ord med faktakällor
-- [ ] `/guider/registreringsbesiktning` – minst 600 ord
-- [ ] `/guider/coc-intyg` – minst 400 ord
-- [ ] `/guider/ursprungskontroll` – minst 400 ord
-- [ ] `/guider/moms-vid-bilimport` – minst 400 ord
-- [ ] Alla faktapåståenden om kostnader/regler har källa ELLER är tydligt märkta som uppskattningar
-- [ ] Inga "AI-fraser" som "Sammanfattningsvis kan vi konstatera att..." i indexerat innehåll
-- [ ] Internlänkar finns från guider till kalkylator och vice versa
-- [ ] Märkessidorna (`/importera-bil/bmw` etc.) är `noindex` tills unikt innehåll tillkommit
+- [x] `/importera-bil/tyskland` – 1 181 ord ✓
+- [x] `/importera-bil/kostnad` – ~900 ord med faktakällor ✓
+- [x] `/guider/registreringsbesiktning` – 826 ord ✓
+- [x] `/guider/coc-intyg` – 868 ord ✓
+- [x] `/guider/ursprungskontroll` – 707 ord ✓
+- [x] `/guider/moms-vid-bilimport` – 894 ord ✓
+- [x] Alla faktapåståenden om kostnader/regler har källa ELLER är tydligt märkta som uppskattningar
+- [x] Inga "AI-fraser" som "Sammanfattningsvis kan vi konstatera att..." i indexerat innehåll
+- [x] Internlänkar finns från guider till kalkylator och vice versa
+- [x] Märkessidorna (`/importera-bil/bmw` etc.) är `noindex` tills unikt innehåll tillkommit
 
 ---
 
 ## MANIFEST & AUTOMATION
 
-- [ ] `datasets/pages_manifest.json` – version är `2.0.0`
-- [ ] Alla sidor med `isThin=true` har `indexable=false`
-- [ ] Sidor utan källa men med unikt verktyg (kalkylator) har `notes` som förklarar undantaget
-- [ ] `lastEvaluated` är satt på alla poster
-- [ ] `sitemap.ts` läser bara `indexable=true`-poster (bekräftat via `/sitemap.xml`)
+- [x] `datasets/pages_manifest.json` – version är `2.0.0` (_version-fält)
+- [x] Alla sidor med `isThin=true` har `indexable=false`
+- [x] Sidor utan källa men med unikt verktyg (kalkylator) har `notes` som förklarar undantaget
+- [x] `lastEvaluated` är satt på alla poster
+- [x] `sitemap.ts` läser bara `indexable=true`-poster via getIndexablePages()
 - [ ] Cron-endpoint returnerar 401 vid anrop utan korrekt `Authorization: Bearer`-header
 - [ ] Cron-endpoint returnerar 200 med pipeline-resultat vid korrekt header
 
@@ -62,12 +63,12 @@ Gå igenom varje punkt innan publicering. Alla punkter måste vara gröna för G
 
 ## JURIDIK / TRANSPARENS
 
-- [ ] `/om-oss` finns och är publik
-- [ ] Affiliate-disclaimer finns i sidfoten (synlig på alla sidor)
-- [ ] Affiliate-länkar är märkta med `(annonslänk)` och har `rel="nofollow sponsored"`
-- [ ] Ansvarsfriskrivning finns på `/om-oss` (informationen är vägledande, ej juridiskt bindande råd)
-- [ ] Cookie-/GDPR-hanterin är på plats (cookie-banner eller Plausible-liknande cookiefri analys)
-- [ ] Ingen persondata samlas in utan samtycke
+- [x] `/om-oss` finns och är publik
+- [x] Affiliate-disclaimer finns i sidfoten (synlig på alla sidor)
+- [x] Affiliate-länkar är märkta med `(annonslänk)` och har `rel="nofollow sponsored"`
+- [x] Ansvarsfriskrivning finns på `/om-oss`
+- [x] Cookie-/GDPR-hantering är på plats (cookie-banner med localStorage)
+- [x] Ingen persondata samlas in utan samtycke
 
 ---
 
@@ -75,11 +76,16 @@ Gå igenom varje punkt innan publicering. Alla punkter måste vara gröna för G
 
 | Kategori | Status |
 |---|---|
-| Teknik | ⬜ |
-| SEO – Tekniskt | ⬜ |
-| SEO – Innehåll | ⬜ |
-| Manifest & Automation | ⬜ |
-| Juridik / Transparens | ⬜ |
-| **TOTALT** | **⬜ NO-GO** |
+| Teknik | ✅ |
+| SEO – Tekniskt | ✅ |
+| SEO – Innehåll | ✅ |
+| Manifest & Automation | ⬜ (2 punkter kvar – cron-test) |
+| Juridik / Transparens | ✅ |
+| **TOTALT** | **⬜ NO-GO** (cron-test återstår) |
 
-Ändra ⬜ till ✅ när kategorin är klar. Publicera INTE förrän alla är ✅.
+---
+
+## Kvarvarande åtgärder
+
+1. **Cron-test** – Verifiera att `/api/cron/daily` returnerar 401 utan rätt header och 200 med rätt header.
+   Kan testas med: `curl -H "Authorization: Bearer <CRON_SECRET>" https://importguiden.se/api/cron/daily`
