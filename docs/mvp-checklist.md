@@ -56,8 +56,8 @@ Gå igenom varje punkt innan publicering. Alla punkter måste vara gröna för G
 - [x] Sidor utan källa men med unikt verktyg (kalkylator) har `notes` som förklarar undantaget
 - [x] `lastEvaluated` är satt på alla poster
 - [x] `sitemap.ts` läser bara `indexable=true`-poster via getIndexablePages()
-- [ ] Cron-endpoint returnerar 401 vid anrop utan korrekt `Authorization: Bearer`-header
-- [ ] Cron-endpoint returnerar 200 med pipeline-resultat vid korrekt header
+- [x] Cron-endpoint returnerar 401 vid anrop utan korrekt `Authorization: Bearer`-header
+- [x] Cron-endpoint returnerar 200 med pipeline-resultat vid korrekt header
 
 ---
 
@@ -79,13 +79,6 @@ Gå igenom varje punkt innan publicering. Alla punkter måste vara gröna för G
 | Teknik | ✅ |
 | SEO – Tekniskt | ✅ |
 | SEO – Innehåll | ✅ |
-| Manifest & Automation | ⬜ (2 punkter kvar – cron-test) |
+| Manifest & Automation | ✅ |
 | Juridik / Transparens | ✅ |
-| **TOTALT** | **⬜ NO-GO** (cron-test återstår) |
-
----
-
-## Kvarvarande åtgärder
-
-1. **Cron-test** – Verifiera att `/api/cron/daily` returnerar 401 utan rätt header och 200 med rätt header.
-   Kan testas med: `curl -H "Authorization: Bearer <CRON_SECRET>" https://importguiden.se/api/cron/daily`
+| **TOTALT** | **✅ GO** |
