@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { compileMDX } from "next-mdx-remote/rsc";
 import { readFile } from "fs/promises";
 import path from "path";
+import remarkGfm from "remark-gfm";
 import { getCanonicalUrl, getBreadcrumbJsonLd } from "@/lib/seo";
 import { getRobotsForPath } from "@/lib/manifest";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
@@ -39,7 +40,7 @@ async function loadGuide(slug: string) {
 
   const { content, frontmatter } = await compileMDX<GuideFrontmatter>({
     source,
-    options: { parseFrontmatter: true },
+    options: { parseFrontmatter: true, mdxOptions: { remarkPlugins: [remarkGfm] } },
   });
 
   return { content, frontmatter };
