@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { compileMDX } from "next-mdx-remote/rsc";
+import { readFile } from "fs/promises";
+import path from "path";
+import remarkGfm from "remark-gfm";
 import { getCountries, getCountryBySlug, getMotorhomeBrands } from "@/lib/data";
-import { getCanonicalUrl, getBreadcrumbJsonLd } from "@/lib/seo";
+import { getCanonicalUrl, getBreadcrumbJsonLd, getArticleJsonLd } from "@/lib/seo";
 import { getRobotsForPath } from "@/lib/manifest";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 
@@ -23,6 +27,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const robots = getRobotsForPath(`/importera-husbil/${slug}`);
   const country = getCountryBySlug(slug);
   if (country) {
+    if (slug === "tyskland") {
+      return {
+        title: "Importera husbil från Tyskland – Komplett guide 2025",
+        description: "Steg-för-steg guide för att importera husbil privat från Tyskland till Sverige. Kostnader, märken, besiktning och praktiska råd.",
+        alternates: { canonical: getCanonicalUrl("/importera-husbil/tyskland") },
+        robots,
+      };
+    }
     return {
       title: `Importera husbil från ${country.name} – Komplett guide ${new Date().getFullYear()}`,
       description: `Steg-för-steg guide för att importera husbil privat från ${country.name}. Kostnader, besiktning och råd.`,
@@ -61,6 +73,46 @@ export default async function ImporteraHusbilPage({ params }: Props) {
       { name: "Importera husbil", href: "/importera-husbil/tyskland" },
       { name: `Från ${country.name}` },
     ];
+
+    // Flagship page: render full MDX content for Germany
+    if (slug === "tyskland") {
+      const mdxPath = path.join(process.cwd(), "content/importera-husbil/tyskland.mdx");
+      const source = await readFile(mdxPath, "utf-8");
+      const { content } = await compileMDX({
+        source,
+        options: { parseFrontmatter: true, mdxOptions: { remarkPlugins: [remarkGfm] } },
+      });
+
+      const articleJsonLd = getArticleJsonLd({
+        title: "Importera husbil från Tyskland – Komplett guide 2025",
+        description: "Steg-för-steg guide för att importera husbil privat från Tyskland till Sverige.",
+        datePublished: "2026-03-14",
+        dateModified: "2026-03-14",
+        url: `${SITE_URL}/importera-husbil/tyskland`,
+      });
+
+      return (
+        <>
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(getBreadcrumbJsonLd(breadcrumbs.map((b) => ({ name: b.name, url: b.href ? `${SITE_URL}${b.href}` : SITE_URL })))) }} />
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+          <div className="mx-auto max-w-3xl px-4 py-10">
+            <Breadcrumbs items={breadcrumbs} siteUrl={SITE_URL} />
+            <article>
+              <header className="mb-8">
+                <h1 className="text-3xl font-bold text-gray-900 mb-3">
+                  Importera husbil från Tyskland – Komplett guide 2025
+                </h1>
+                <p className="text-gray-500 text-sm">
+                  Uppdaterad: <time dateTime="2026-03-14">2026-03-14</time>
+                  {" "}· Källa: Transportstyrelsen, Tullverket, Skatteverket
+                </p>
+              </header>
+              <div className="prose prose-gray max-w-none">{content}</div>
+            </article>
+          </div>
+        </>
+      );
+    }
 
     return (
       <>
