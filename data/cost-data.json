@@ -26,6 +26,18 @@
       "currency": "SEK",
       "note": "Ingår i registreringsavgiften hos Transportstyrelsen.",
       "source": "https://www.transportstyrelsen.se"
+    },
+    "importforsäkring_personbil": {
+      "amount": 1500,
+      "currency": "SEK",
+      "note": "Schablonvärde för importförsäkring personbil. Kontrollera aktuellt pris hos ditt försäkringsbolag – kan variera 1 000–2 500 kr.",
+      "source": "Schablonvärde baserat på branschpraxis – verifiera hos respektive försäkringsbolag"
+    },
+    "importforsäkring_husbil": {
+      "amount": 2500,
+      "currency": "SEK",
+      "note": "Schablonvärde för importförsäkring husbil. Kontrollera aktuellt pris hos ditt försäkringsbolag – kan variera 2 000–4 000 kr.",
+      "source": "Schablonvärde baserat på branschpraxis – verifiera hos respektive försäkringsbolag"
     }
   },
   "tax": {

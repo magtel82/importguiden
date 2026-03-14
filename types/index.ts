@@ -66,6 +66,8 @@ export interface CostData {
     registreringsbesiktning_personbil: CostFee;
     registreringsbesiktning_husbil: CostFee;
     skyltavgift: CostFee;
+    importforsäkring_personbil: CostFee;
+    importforsäkring_husbil: CostFee;
   };
   tax: {
     moms_new_vehicle_threshold_months: number;
