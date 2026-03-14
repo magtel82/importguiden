@@ -117,12 +117,24 @@ content/
 components/
   layout/
     Header.tsx                      # "use client" – desktop nav + mobilmeny (hamburger)
+                                    # sticky top-0 z-50 – ligger kvar vid scroll (mobil+desktop)
                                     # Visar aktiv sida, ARIA-attribut, fokusindikatorer
     Footer.tsx                      # Inkl. länk till integritetspolicy, finansiering,
                                     # kontaktmail och CookieSettingsLink
     Breadcrumbs.tsx                 # Renderar JSON-LD + visuell nav
   calculator/
-    ImportCalculator.tsx            # "use client" – all logik client-side
+    ImportCalculator.tsx            # "use client" – live-beräkning via useMemo (ingen knapp)
+                                    # Realtids-växelkurs: Frankfurter API (base=SEK, inverteras)
+                                    #   Fallback: EUR 11.5, USD 10.8, GBP 13.5
+                                    # Avgifter läses från data/cost-data.json (enda källa)
+                                    # Landväljare (5 länder) + redigerbart km-fält med schablon
+                                    # Trailer-transport: intervall per distans (<1000/1000-2000/>2000 km)
+                                    # Importförsäkring som kostnadsrad (schablon, cost-data.json)
+                                    # Besparing vs. svenskt pris (valfritt fält)
+                                    # Delbar URL via useSearchParams + router.replace (shallow)
+                                    # Params: price, currency, country, type, ageMonths,
+                                    #         mileageKm, transport, km, swePrice
+                                    # Suspense-wrapper krävs (useSearchParams, App Router)
   affiliate/
     AffiliateLink.tsx               # rel="nofollow sponsored" + märkning
   CookieConsent.tsx                 # "use client" – bottom-banner, localStorage-baserad
@@ -134,6 +146,10 @@ data/                               # JSON-datafiler (ej databas)
   car-brands.json                   # Bilmärken med slug
   motorhome-brands.json             # Husbilsmärken
   cost-data.json                    # Avgifter med belopp + källhänvisning
+                                    # Innehåller: ursprungskontroll, registreringsbesiktning
+                                    # (personbil/husbil), skyltavgift, importforsäkring
+                                    # (personbil 1500 kr / husbil 2500 kr, schablonvärden),
+                                    # transport.drive_self_cost_per_km, moms-regler
 
 datasets/
   pages_manifest.json               # SINGLE SOURCE OF TRUTH – se nedan
