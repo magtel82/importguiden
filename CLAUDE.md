@@ -166,6 +166,9 @@ data/                               # JSON-datafiler (ej databas)
 
 datasets/
   pages_manifest.json               # SINGLE SOURCE OF TRUTH – se nedan
+  regulation-urls.json              # 12 URL:er för regelbevakning (Fas 1 cron-pipeline)
+                                    # Innehåller id, url, description, affectsPages, priority
+                                    # Används av lib/regulation-check.ts (ej byggt än)
 
 lib/
   manifest.ts                       # getAllPages, getIndexablePages,

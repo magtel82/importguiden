@@ -1,0 +1,91 @@
+{
+  "_version": "1.0.0",
+  "_updated": "2026-03-15",
+  "_note": "URL:er som bevakas av regelbevakning i cron-pipeline. 3 URL:er fetchas per dag i rotation.",
+  "urls": [
+    {
+      "id": "transportstyrelsen-import-huvudsida",
+      "url": "https://www.transportstyrelsen.se/sv/vagtrafik/Fordon/Importerade-fordon/",
+      "description": "Transportstyrelsen – Importerade fordon (huvudsida)",
+      "affectsPages": ["/importera-bil/tyskland", "/importera-husbil/tyskland", "/"],
+      "priority": "high"
+    },
+    {
+      "id": "transportstyrelsen-registreringsbesiktning",
+      "url": "https://www.transportstyrelsen.se/sv/vagtrafik/Fordon/Importerade-fordon/registreringsbesiktning/",
+      "description": "Transportstyrelsen – Registreringsbesiktning (regler + avgifter)",
+      "affectsPages": ["/guider/registreringsbesiktning", "/importera-bil/kostnad", "/importera-husbil/kostnad"],
+      "priority": "high"
+    },
+    {
+      "id": "transportstyrelsen-ursprungskontroll",
+      "url": "https://www.transportstyrelsen.se/sv/vagtrafik/Fordon/Importerade-fordon/ursprungskontroll/",
+      "description": "Transportstyrelsen – Ursprungskontroll (1 240 kr)",
+      "affectsPages": ["/guider/ursprungskontroll", "/importera-bil/kostnad"],
+      "priority": "high"
+    },
+    {
+      "id": "skatteverket-moms-import-foretag",
+      "url": "https://www.skatteverket.se/foretag/moms/momsvidkopochforsaljning/momsvidinternationellaaffarer/koptjansterifransverige/importavfordon.4.html",
+      "description": "Skatteverket – Moms vid import av fordon (företagssidan)",
+      "affectsPages": ["/guider/moms-vid-bilimport", "/importera-bil/kostnad"],
+      "priority": "high"
+    },
+    {
+      "id": "skatteverket-moms-import-privat",
+      "url": "https://www.skatteverket.se/privat/fastigheterochbostad/bilochfordron/kopochsaljavbil/importeradbilfraneulandet.4.html",
+      "description": "Skatteverket – Importera bil från EU-land (privatsidan)",
+      "affectsPages": ["/guider/moms-vid-bilimport", "/importera-bil/tyskland"],
+      "priority": "high"
+    },
+    {
+      "id": "tullverket-fordon",
+      "url": "https://www.tullverket.se/privat/resatillochfransverige/fordon.4.html",
+      "description": "Tullverket – Fordon (tullregler vid import)",
+      "affectsPages": ["/importera-bil/tyskland", "/importera-husbil/tyskland"],
+      "priority": "medium"
+    },
+    {
+      "id": "eur-lex-momsdirektivet",
+      "url": "https://eur-lex.europa.eu/legal-content/SV/TXT/?uri=CELEX%3A32006L0112",
+      "description": "EU – Momsdirektivet (2006/112/EG)",
+      "affectsPages": ["/guider/moms-vid-bilimport"],
+      "priority": "low"
+    },
+    {
+      "id": "eur-lex-typgodkannande",
+      "url": "https://eur-lex.europa.eu/legal-content/SV/TXT/?uri=CELEX%3A32007L0046",
+      "description": "EU – Typgodkännangedirektivet (2007/46/EG, COC-intyg)",
+      "affectsPages": ["/guider/coc-intyg"],
+      "priority": "low"
+    },
+    {
+      "id": "opus-registreringsbesiktning",
+      "url": "https://opus.se/besiktning/registreringsbesiktning",
+      "description": "Opus Bilprovning – Registreringsbesiktning priser",
+      "affectsPages": ["/guider/registreringsbesiktning", "/importera-bil/kostnad"],
+      "priority": "medium"
+    },
+    {
+      "id": "bilprovningen-registreringsbesiktning",
+      "url": "https://www.bilprovningen.se/besiktning/typer/registreringsbesiktning/",
+      "description": "Bilprovningen – Registreringsbesiktning priser",
+      "affectsPages": ["/guider/registreringsbesiktning"],
+      "priority": "medium"
+    },
+    {
+      "id": "transportstyrelsen-coc",
+      "url": "https://www.transportstyrelsen.se/sv/vagtrafik/Fordon/Importerade-fordon/coc/",
+      "description": "Transportstyrelsen – COC-intyg",
+      "affectsPages": ["/guider/coc-intyg"],
+      "priority": "medium"
+    },
+    {
+      "id": "naturvardsverket-bonus-malus",
+      "url": "https://www.naturvardsverket.se/vagledning-och-stod/styrmedel/ekonomiska-styrmedel/bonus-malus/",
+      "description": "Naturvårdsverket – Bonus-malus (relevant för elbil/Tesla-sidor)",
+      "affectsPages": ["/importera-bil/tesla"],
+      "priority": "low"
+    }
+  ]
+}
