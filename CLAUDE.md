@@ -1,6 +1,6 @@
 # CLAUDE.md – Importguiden
-# Senast uppdaterad: 2026-03-13
-# Status: BYGGT – affiliate-redo, aktiv utveckling
+# Senast uppdaterad: 2026-03-14
+# Status: MVP GO – affiliate-redo, aktiv utveckling
 #
 # Den här filen är sanning om projektet.
 # Läs den INNAN du gör någon ändring.
@@ -94,10 +94,13 @@ app/
     kostnad/page.tsx                # /importera-bil/kostnad
   importera-husbil/
     [slug]/page.tsx                 # Länder + märken (husbil)
+                                    # slug=tyskland → laddar MDX-fil + Article JSON-LD
+                                    # slug=annat-land → generisk template
+                                    # compileMDX med remarkGfm
     kostnad/page.tsx                # /importera-husbil/kostnad
   guider/
     page.tsx                        # /guider – hubsida med lista över alla guider
-    [slug]/page.tsx                 # Inline-innehåll per guide
+    [slug]/page.tsx                 # Läser MDX via compileMDX + remarkGfm
   kalkylator/
     bilimport/page.tsx              # Kalkylator (client component)
   jamfor/
@@ -110,9 +113,18 @@ app/
 
 content/
   importera-bil/
-    tyskland.mdx                    # Flagship-guide, ~900 ord
-                                    # Läses via next-mdx-remote/rsc
+    tyskland.mdx                    # Flagship-guide, ~1 180 ord
+                                    # Läses via next-mdx-remote/rsc + remarkGfm
                                     # Använder <AffiliateLink> för Wise-länk
+  importera-husbil/
+    tyskland.mdx                    # Husbil-guide, ~1 100 ord
+                                    # Läses via next-mdx-remote/rsc + remarkGfm
+  guider/
+    registreringsbesiktning.mdx     # ~826 ord
+    coc-intyg.mdx                   # ~868 ord
+    ursprungskontroll.mdx           # ~707 ord
+    moms-vid-bilimport.mdx          # ~894 ord
+                                    # Alla guider: compileMDX + remarkGfm, ingen AffiliateLink
 
 components/
   layout/
@@ -167,7 +179,7 @@ types/
   index.ts                          # Alla TypeScript-interfaces
 
 docs/
-  mvp-checklist.md                  # GO/NO-GO-checklista (48 punkter)
+  mvp-checklist.md                  # GO/NO-GO-checklista – STATUS: ✅ GO (2026-03-14)
   quality-gate-single.md            # Prompt för manuell granskning
   quality-gate-batch.md             # Prompt för batch-granskning
 
@@ -310,11 +322,11 @@ Nytt bilmärke:
   4. Skriv märkesspecifikt innehåll → quality gate → indexable=true
 
 Ny guide:
-  1. Lägg till slug + innehåll i guides-objektet i app/guider/[slug]/page.tsx
-     (alternativt: skapa MDX-fil och läs in via compileMDX)
-  2. Lägg till guide i listan i app/guider/page.tsx (hubsidan)
-  3. Lägg till post i pages_manifest.json
-  4. Quality gate → indexable=true om OK
+  1. Skapa content/guider/<slug>.mdx
+  2. Lägg till slug i GUIDE_SLUGS-arrayen i app/guider/[slug]/page.tsx
+  3. Lägg till guide i listan i app/guider/page.tsx (hubsidan)
+  4. Lägg till post i pages_manifest.json med indexable=false
+  5. Quality gate → indexable=true om OK
 
 # ==========================================================
 # AFFILIATE-PRINCIPER
@@ -364,7 +376,7 @@ Ny guide:
 8. notes och tags i manifestet bevaras alltid vid merge
 9. Ny sida → börja med indexable=false tills innehållet är klart
 10. Affiliate-länkar i MDX → använd alltid <AffiliateLink>, aldrig plain markdown
-11. Ny guide → lägg till i både [slug]/page.tsx OCH app/guider/page.tsx (hubsidan)
+11. Ny guide → skapa MDX-fil i content/guider/, lägg till i GUIDE_SLUGS i [slug]/page.tsx OCH i app/guider/page.tsx (hubsidan)
 12. Header är "use client" – lägg inte till server-side logik där
 13. Efter varje avslutad uppgift: commit + push till main automatiskt (utan att fråga).
     Vercel deployar automatiskt vid push. Skriv tydligt commit-meddelande på svenska.
