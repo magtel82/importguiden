@@ -117,10 +117,11 @@ export default function HomePage() {
             ))}
           </ol>
           <p className="mt-4 text-sm text-gray-500">
-            Hela processen förklarad i detalj:{" "}
-            <Link href="/importera-bil/tyskland" className="text-blue-700 hover:underline">
-              Importera bil från Tyskland – komplett guide
+            Fördjupa dig i processen i våra{" "}
+            <Link href="/guider" className="text-blue-700 hover:underline">
+              steg-för-steg guider
             </Link>
+            .
           </p>
         </section>
 
