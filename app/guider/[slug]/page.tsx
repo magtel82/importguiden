@@ -7,6 +7,7 @@ import remarkGfm from "remark-gfm";
 import { getCanonicalUrl, getBreadcrumbJsonLd } from "@/lib/seo";
 import { getRobotsForPath } from "@/lib/manifest";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { AffiliateLink } from "@/components/affiliate/AffiliateLink";
 
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
 
@@ -15,6 +16,7 @@ const GUIDE_SLUGS = [
   "coc-intyg",
   "ursprungskontroll",
   "moms-vid-bilimport",
+  "kopa-bil-mobile-de-autoscout24",
 ] as const;
 
 type GuideSlug = (typeof GUIDE_SLUGS)[number];
@@ -41,6 +43,7 @@ async function loadGuide(slug: string) {
   const { content, frontmatter } = await compileMDX<GuideFrontmatter>({
     source,
     options: { parseFrontmatter: true, mdxOptions: { remarkPlugins: [remarkGfm] } },
+    components: { AffiliateLink },
   });
 
   return { content, frontmatter };

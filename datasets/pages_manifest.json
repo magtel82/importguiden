@@ -187,6 +187,22 @@
       "tags": ["guide", "kostnad", "moms"]
     },
     {
+      "id": "guider-kopa-bil-mobile-de-autoscout24",
+      "path": "/guider/kopa-bil-mobile-de-autoscout24",
+      "title": "Köpa bil på mobile.de och AutoScout24 – Guide för svenska köpare",
+      "description": "Så hittar du rätt bil på Tysklands största bilsajter. Lär dig tolka tyska annonser, undvika fallgropar och betala säkert vid köp från Tyskland.",
+      "sources": [
+        "https://www.mobile.de",
+        "https://www.autoscout24.de",
+        "https://www.transportstyrelsen.se",
+        "https://www.konsumenteuropa.se"
+      ],
+      "uniquePayloadScore": 85,
+      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "lastEvaluated": "2026-03-15",
+      "tags": ["guide", "köpprocess", "tyskland"]
+    },
+    {
       "id": "kalkylator-bilimport",
       "path": "/kalkylator/bilimport",
       "title": "Importkalkylator – Räkna ut din totala importkostnad",

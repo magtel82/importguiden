@@ -45,6 +45,13 @@ const guides = [
       "När betalar du moms och när slipper du? EU:s regler om nytt vs begagnat fordon.",
     time: "5 min",
   },
+  {
+    slug: "kopa-bil-mobile-de-autoscout24",
+    title: "Köpa bil på mobile.de och AutoScout24",
+    description:
+      "Hur du söker, tolkar tyska annonser och gör en trygg affär på Tysklands största bilmarknadsplatser.",
+    time: "6 min",
+  },
 ];
 
 export default function GuiderPage() {
