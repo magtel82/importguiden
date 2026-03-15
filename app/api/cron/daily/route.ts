@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { runRegulationCheck } from "@/lib/regulation-check";
 
 /**
  * Daily cron endpoint – orchestrator for manifest updates.
@@ -56,7 +57,10 @@ async function runDailyPipeline(): Promise<Record<string, unknown>> {
   const indexable = pages.filter((p: { quality: { indexable: boolean } }) => p.quality.indexable);
   const noindex = pages.length - indexable.length;
 
-  // Step 2: Revalidation (optional – requires REVALIDATE_SECRET)
+  // Step 2: Regelbevakning – fetch + hash-jämförelse + alert vid förändring
+  const regulationResult = await runRegulationCheck();
+
+  // Step 3: Revalidation (optional – requires REVALIDATE_SECRET)
   let revalidated = 0;
   const revalidateSecret = process.env.REVALIDATE_SECRET;
   const siteUrl = process.env.SITE_URL;
@@ -76,5 +80,6 @@ async function runDailyPipeline(): Promise<Record<string, unknown>> {
     pagesIndexable: indexable.length,
     pagesNoindex: noindex,
     revalidated,
+    regulationCheck: regulationResult,
   };
 }
