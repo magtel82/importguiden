@@ -17,6 +17,7 @@ const GUIDE_SLUGS = [
   "ursprungskontroll",
   "moms-vid-bilimport",
   "kopa-bil-mobile-de-autoscout24",
+  "fordonsskatt-husbil-bonus-malus",
 ] as const;
 
 type GuideSlug = (typeof GUIDE_SLUGS)[number];

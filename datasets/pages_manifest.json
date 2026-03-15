@@ -203,6 +203,22 @@
       "tags": ["guide", "köpprocess", "tyskland"]
     },
     {
+      "id": "guider-fordonsskatt-husbil-bonus-malus",
+      "path": "/guider/fordonsskatt-husbil-bonus-malus",
+      "title": "Fordonsskatt och bonus-malus för husbilar – Vad gäller 2025?",
+      "description": "Lagändringen februari 2025 tog bort malus-skatten för husbilar. Vad innebär det för dig som ska importera? Komplett guide om fordonsskatt och bonus-malus för husbilar.",
+      "sources": [
+        "https://www.naturvardsverket.se",
+        "https://www.transportstyrelsen.se",
+        "https://www.riksdagen.se",
+        "https://www.skatteverket.se"
+      ],
+      "uniquePayloadScore": 86,
+      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "lastEvaluated": "2026-03-15",
+      "tags": ["guide", "husbil", "skatt", "bonus-malus"]
+    },
+    {
       "id": "kalkylator-bilimport",
       "path": "/kalkylator/bilimport",
       "title": "Importkalkylator – Räkna ut din totala importkostnad",

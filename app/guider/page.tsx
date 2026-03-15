@@ -52,6 +52,13 @@ const guides = [
       "Hur du söker, tolkar tyska annonser och gör en trygg affär på Tysklands största bilmarknadsplatser.",
     time: "6 min",
   },
+  {
+    slug: "fordonsskatt-husbil-bonus-malus",
+    title: "Fordonsskatt och bonus-malus för husbilar 2025",
+    description:
+      "Lagändringen februari 2025 tog bort malus för husbilar. Vad gäller nu och vad innebär det för din importkalkyl?",
+    time: "5 min",
+  },
 ];
 
 export default function GuiderPage() {
