@@ -1,7 +1,7 @@
 /**
  * Regelbevakning – hämtar 3 URL:er per dag i rotation,
  * jämför innehållshash mot sparat state i Vercel Blob,
- * skickar alert via Resend om förändring detekteras.
+ * skickar alert via one.com SMTP om förändring detekteras.
  *
  * Designbeslut:
  * - 3 URL:er per dag → täcker alla 12 var 4:e dag
@@ -10,7 +10,7 @@
  */
 
 import { put, head, getDownloadUrl } from "@vercel/blob";
-import { sendAlert } from "./resend";
+import { sendAlert } from "./mailer";
 import regulationUrls from "@/datasets/regulation-urls.json";
 
 interface UrlEntry {
