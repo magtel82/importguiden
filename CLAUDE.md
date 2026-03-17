@@ -68,6 +68,8 @@ Robots:
 
 SITE_URL             # krävs – ex. https://importguiden.se
 CRON_SECRET          # krävs – generera: openssl rand -hex 32
+SMTP_USER            # krävs för alertmail – e-postadress hos one.com (info@importguiden.se)
+SMTP_PASSWORD        # krävs för alertmail – lösenord till one.com-kontot
 REVALIDATE_SECRET    # valfritt – för framtida ISR
 
 Lokalt: .env.local (gitignorerad)
