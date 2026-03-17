@@ -280,6 +280,18 @@
       "manualOverride": true
     },
     {
+      "id": "kontakta-oss",
+      "path": "/kontakta-oss",
+      "title": "Kontakta oss – Importguiden",
+      "description": "Har du frågor om fordonsimport eller sajten? Hör av dig till oss via formuläret.",
+      "sources": [],
+      "uniquePayloadScore": 60,
+      "quality": { "hasSources": false, "isThin": false, "indexable": true },
+      "lastEvaluated": "2026-03-17",
+      "notes": "Kontaktsida med formulär. Indexeras för E-E-A-T.",
+      "tags": ["info"]
+    },
+    {
       "id": "finansiering",
       "path": "/finansiering",
       "title": "Så finansieras Importguiden – Transparens om affiliate",

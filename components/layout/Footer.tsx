@@ -56,6 +56,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/kontakta-oss" className="hover:text-blue-700">
+                  Kontakta oss
+                </Link>
+              </li>
+              <li>
                 <Link href="/finansiering" className="hover:text-blue-700">
                   Så finansieras vi
                 </Link>
