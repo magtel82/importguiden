@@ -8,7 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return indexablePages.map((page) => ({
     url: `${SITE_URL}${page.path}`,
-    lastModified: new Date(),
+    lastModified: page.lastEvaluated ? new Date(page.lastEvaluated) : new Date(),
     changeFrequency: page.path === "/" ? "weekly" : "monthly",
     priority: page.path === "/" ? 1.0 : page.uniquePayloadScore / 100,
   }));
