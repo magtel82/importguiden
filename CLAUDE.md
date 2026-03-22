@@ -862,3 +862,23 @@ Regel: compliant=false blockerar deploy i CI.
 20. Uppdatera /finansiering och /integritetspolicy vid nya affiliate-partner
 21. Uppdatera "Senast uppdaterad" i toppen av CLAUDE.md vid ändringar i denna fil
 
+# ==========================================================
+# BACKLOG (ej prioriterat – görs efter trafiktillväxt)
+# ==========================================================
+
+## Extern bevakning – myndighetssidor
+Sätt upp Visualping (visualping.io) för att bevaka förändringar på:
+- transportstyrelsen.se (fordonsimport, avgifter)
+- tullverket.se (fordonsskatt, importregler)
+- skatteverket.se (moms vid fordonsköp)
+- riksdagen.se (propositioner om fordonsskatt)
+
+Notifikation via mail. Gratisnivå räcker (upp till 5 sidor, 1x/dag).
+OBS: Bygg inte detta i cron-jobbet – använd Visualping.
+
+## Annons-parser
+Låg prioritet – byggs först när sajten har stabil trafik.
+Koncept: användaren klistrar in länk till annons (mobile.de, AutoScout24),
+systemet läser ut pris, årsmodell, CO₂, vikt och gör prelberäkning
+via kalkylatorn. Kräver scraper-lösning som hanterar blockering.
+
