@@ -884,3 +884,32 @@ Koncept: användaren klistrar in länk till annons (mobile.de, AutoScout24),
 systemet läser ut pris, årsmodell, CO₂, vikt och gör prelberäkning
 via kalkylatorn. Kräver scraper-lösning som hanterar blockering.
 
+# ==========================================================
+# COMMUNITY – FORUM & FACEBOOK (länkbygge och synlighet)
+# ==========================================================
+Dessa platser är relevanta för att svara på frågor, hjälpa folk
+och naturligt länka till Importguiden. Alltid genuint hjälpsamt
+– aldrig ren länkdropping.
+
+## Flashback
+- Bilimport från Tyskland: https://www.flashback.org/t3097581
+
+## Garaget.org
+- Aktivt bilintresserat forum med flera trådar om import från Tyskland
+- https://www.garaget.org (sök på "importera bil Tyskland")
+
+## Husbilsklubben.se
+- Aktivt husbilsforum med trådar om husbilsimport
+- https://www.husbilsklubben.se (sök på "importera husbil")
+- Hög prioritet – matchar husbilsnischen direkt
+
+## Facebook-grupper (sök upp i Facebook)
+- "Husbil Sverige"
+- "Köpa och sälja husbilar i Sverige"
+- "Husbilar & husvagnar Sverige"
+
+## Strategi
+Svara genuint på frågor som redan ställts.
+Länka till relevant guide när det passar naturligt.
+Etablera trovärdighet innan sajten länkas.
+
