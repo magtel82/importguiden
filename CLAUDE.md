@@ -866,15 +866,17 @@ Regel: compliant=false blockerar deploy i CI.
 # BACKLOG (ej prioriterat – görs efter trafiktillväxt)
 # ==========================================================
 
-## Extern bevakning – myndighetssidor
-Sätt upp Visualping (visualping.io) för att bevaka förändringar på:
-- transportstyrelsen.se (fordonsimport, avgifter)
-- tullverket.se (fordonsskatt, importregler)
-- skatteverket.se (moms vid fordonsköp)
-- riksdagen.se (propositioner om fordonsskatt)
+## Extern bevakning – myndighetssidor (AKTIV – körs via Visualping)
+Visualping bevakar följande sidor dagligen och mailar vid förändringar:
 
-Notifikation via mail. Gratisnivå räcker (upp till 5 sidor, 1x/dag).
-OBS: Bygg inte detta i cron-jobbet – använd Visualping.
+1. https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/fordonsimport-och-ursprungskontroll/import-fran-ett-eu-land/
+2. https://www.skatteverket.se/privat/etjansterochblanketter/svarpavanligafragor/fleromraden/privatmomspaimportbil/jagskaimporteraenbiltillsverigemastejagbetalamomsisverige.5.2a9d99b2110b7fcf5c080008162.html
+3. https://www.tullverket.se/privat/genomtullen/bilochbatoversverigesgrans/kopaellersaljabiloversverigesgrans.4.7df61c5915510cfe9e710757.html
+4. https://www.transportstyrelsen.se/fordonsagare/importera-fordon
+
+OBS: Bygg INTE detta i cron-jobbet – Visualping sköter bevakningen.
+När mail inkommer om förändring – uppdatera relevant guide inom 24h och
+lägg till "Uppdaterad [datum] – [vad som ändrades]" högst upp på sidan.
 
 ## Annons-parser
 Låg prioritet – byggs först när sajten har stabil trafik.
