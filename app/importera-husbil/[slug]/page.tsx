@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (country) {
     if (slug === "tyskland") {
       return {
-        title: "Importera husbil från Tyskland – Komplett guide 2025",
+        title: "Importera husbil från Tyskland – Komplett guide 2026",
         description: "Steg-för-steg guide för att importera husbil privat från Tyskland till Sverige. Kostnader, märken, besiktning och praktiska råd.",
         alternates: { canonical: getCanonicalUrl("/importera-husbil/tyskland") },
         robots,
@@ -84,10 +84,10 @@ export default async function ImporteraHusbilPage({ params }: Props) {
       });
 
       const articleJsonLd = getArticleJsonLd({
-        title: "Importera husbil från Tyskland – Komplett guide 2025",
+        title: "Importera husbil från Tyskland – Komplett guide 2026",
         description: "Steg-för-steg guide för att importera husbil privat från Tyskland till Sverige.",
         datePublished: "2026-03-14",
-        dateModified: "2026-03-14",
+        dateModified: "2026-03-22",
         url: `${SITE_URL}/importera-husbil/tyskland`,
       });
 
@@ -100,10 +100,10 @@ export default async function ImporteraHusbilPage({ params }: Props) {
             <article>
               <header className="mb-8">
                 <h1 className="text-3xl font-bold text-gray-900 mb-3">
-                  Importera husbil från Tyskland – Komplett guide 2025
+                  Importera husbil från Tyskland – Komplett guide 2026
                 </h1>
                 <p className="text-gray-500 text-sm">
-                  Uppdaterad: <time dateTime="2026-03-14">2026-03-14</time>
+                  Uppdaterad: <time dateTime="2026-03-22">2026-03-22</time>
                   {" "}· Källa: Transportstyrelsen, Tullverket, Skatteverket
                 </p>
               </header>
