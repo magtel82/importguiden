@@ -4,9 +4,9 @@ import { getCanonicalUrl } from "@/lib/seo";
 import { getRobotsForPath } from "@/lib/manifest";
 
 export const metadata: Metadata = {
-  title: "Importera bil privat från Europa – Oberoende guide 2025",
+  title: "Importera bil eller husbil privat från Europa – Oberoende guide 2026",
   description:
-    "Lär dig importera bil eller husbil privat från Tyskland och EU till Sverige. Gratis kalkylator, steg-för-steg-guider och källhänvisad information om kostnader och process.",
+    "Oberoende, källhänvisad information om privat import av personbil och husbil från EU till Sverige. Gratis kalkylator, steg-för-steg-guider och aktuella kostnader.",
   alternates: {
     canonical: getCanonicalUrl("/"),
   },
@@ -74,29 +74,29 @@ export default function HomePage() {
         {/* Hero */}
         <section className="text-center mb-16">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Importera bil privat från Europa
+            Importera bil eller husbil privat från Europa
           </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-4">
-            Oberoende, källhänvisad information om privat fordonsimport från EU till Sverige.
-            Vi säljer inga importtjänster – vi hjälper dig förstå processen och räkna på kostnaderna.
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+            Oberoende, källhänvisad information om privat fordonsimport från EU till Sverige – personbilar och husbilar. Vi säljer inga importtjänster – vi hjälper dig förstå processen och räkna på kostnaderna.
           </p>
-          <p className="text-sm text-gray-500 max-w-xl mx-auto mb-8">
-            Tillkommande fasta kostnader vid bilimport: ursprungskontroll (1 240 kr),
-            registreringsbesiktning (ca 1 700 kr) och importförsäkring. Ingen tull vid köp inom EU.
-          </p>
-          <div className="flex flex-wrap gap-3 justify-center">
-            <Link
-              href="/kalkylator/bilimport"
-              className="rounded bg-blue-700 px-6 py-3 font-medium text-white hover:bg-blue-800"
-            >
-              Räkna ut din importkostnad
-            </Link>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
             <Link
               href="/importera-bil/tyskland"
-              className="rounded border border-gray-300 px-6 py-3 font-medium text-gray-700 hover:bg-gray-50"
+              className="rounded bg-blue-700 px-6 py-3 min-h-[48px] flex items-center justify-center font-medium text-white hover:bg-blue-800"
             >
               Guide: importera bil från Tyskland
             </Link>
+            <Link
+              href="/importera-husbil/tyskland"
+              className="rounded border border-gray-300 px-6 py-3 min-h-[48px] flex items-center justify-center font-medium text-gray-700 hover:bg-gray-50"
+            >
+              Guide: importera husbil från Tyskland
+            </Link>
+          </div>
+          <div className="border-l-4 border-blue-600 bg-blue-50 p-4 rounded-r text-left max-w-2xl mx-auto">
+            <p className="text-sm text-blue-900">
+              <strong>Husbilar:</strong> avskaffad malus sedan februari 2025 – importerade husbilar träffas inte längre av miljöbilsavgift.
+            </p>
           </div>
         </section>
 
