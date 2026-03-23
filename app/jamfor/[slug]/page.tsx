@@ -11,7 +11,7 @@ const UPDATED_DATE = "2026-03-14";
 
 const comparisons: Record<string, { title: string; description: string }> = {
   "tyskland-vs-sverige": {
-    title: "Bilar billigare i Tyskland? – Prisjämförelse 2025",
+    title: "Bilar billigare i Tyskland? – Prisjämförelse 2026",
     description:
       "Vi jämför bilpriser i Sverige och Tyskland per segment. Lönar det sig att importera? Break-even-analys, konkreta exempel och vilka märken som har störst prisskillnad.",
   },
@@ -128,7 +128,7 @@ export default async function JamforPage({ params }: Props) {
         <article>
           <header className="mb-8">
             <h1 className="text-3xl font-bold text-gray-900 mb-3">
-              Bilar billigare i Tyskland? – Prisjämförelse 2025
+              Bilar billigare i Tyskland? – Prisjämförelse 2026
             </h1>
             <p className="text-gray-500 text-sm">
               Uppdaterad: <time dateTime={UPDATED_DATE}>{UPDATED_DATE}</time>

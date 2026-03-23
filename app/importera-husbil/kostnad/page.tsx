@@ -11,7 +11,7 @@ const UPDATED_DATE = "2026-03-14";
 export function generateMetadata(): Metadata {
   const robots = getRobotsForPath("/importera-husbil/kostnad");
   return {
-    title: "Vad kostar det att importera husbil från EU? – Alla avgifter 2025",
+    title: "Vad kostar det att importera husbil från EU? – Alla avgifter 2026",
     description:
       "Komplett genomgång av kostnader vid husbilsimport: ursprungskontroll, registreringsbesiktning, importförsäkring, transport och moms. Med räkneexempel.",
     alternates: { canonical: getCanonicalUrl("/importera-husbil/kostnad") },
@@ -91,7 +91,7 @@ export default function HusbildKostnadPage() {
           {/* Fasta avgifter */}
           <section className="mb-10">
             <h2 className="text-xl font-bold text-gray-900 mb-4">
-              Fasta avgifter vid husbilsimport (2025)
+              Fasta avgifter vid husbilsimport (2026)
             </h2>
             <p className="text-gray-700 mb-4">
               Dessa kostnader är obligatoriska eller starkt rekommenderade

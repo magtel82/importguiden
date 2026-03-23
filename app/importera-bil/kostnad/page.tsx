@@ -11,7 +11,7 @@ const UPDATED_DATE = "2026-03-14";
 export function generateMetadata(): Metadata {
   const robots = getRobotsForPath("/importera-bil/kostnad");
   return {
-    title: "Vad kostar det att importera bil från EU? – Alla avgifter 2025",
+    title: "Vad kostar det att importera bil från EU? – Alla avgifter 2026",
     description:
       "Komplett genomgång av alla kostnader vid bilimport: ursprungskontroll, registreringsbesiktning, moms, tull och transport. Med räkneexempel och totalkostnad.",
     alternates: { canonical: getCanonicalUrl("/importera-bil/kostnad") },
@@ -92,7 +92,7 @@ export default function KostnadPage() {
           {/* Fasta avgifter */}
           <section className="mb-10">
             <h2 className="text-xl font-bold text-gray-900 mb-4">
-              Fasta avgifter (2025)
+              Fasta avgifter (2026)
             </h2>
             <p className="text-gray-700 mb-4">
               Dessa kostnader är obligatoriska eller starkt rekommenderade

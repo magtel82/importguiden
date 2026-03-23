@@ -1,6 +1,6 @@
 # CLAUDE.md – Importguiden
 
-# Senast uppdaterad: 2026-03-18
+# Senast uppdaterad: 2026-03-24
 
 # Status: MVP GO – affiliate-redo, aktiv utveckling
 
