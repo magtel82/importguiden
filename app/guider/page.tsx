@@ -47,9 +47,9 @@ const guides = [
   },
   {
     slug: "kopa-bil-mobile-de-autoscout24",
-    title: "Köpa bil på mobile.de och AutoScout24",
+    title: "Söka bil på mobile.de – guide på svenska",
     description:
-      "Hur du söker, tolkar tyska annonser och gör en trygg affär på Tysklands största bilmarknadsplatser.",
+      "Navigera sajten, filtrera rätt, kontakta säljare och undvik fallgropar. Komplett guide för svenska köpare.",
     time: "6 min",
   },
   {

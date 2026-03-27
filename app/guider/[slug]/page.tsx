@@ -4,7 +4,7 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import { readFile } from "fs/promises";
 import path from "path";
 import remarkGfm from "remark-gfm";
-import { getCanonicalUrl, getBreadcrumbJsonLd } from "@/lib/seo";
+import { getCanonicalUrl, getBreadcrumbJsonLd, getFaqJsonLd } from "@/lib/seo";
 import { getRobotsForPath } from "@/lib/manifest";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { AffiliateLink } from "@/components/affiliate/AffiliateLink";
@@ -84,6 +84,27 @@ export default async function GuiderPage({ params }: Props) {
     { name: frontmatter.title.split("–")[0].trim() },
   ];
 
+  const mobileDeFaqs =
+    slug === "kopa-bil-mobile-de-autoscout24"
+      ? getFaqJsonLd([
+          {
+            question: "Finns mobile.de på svenska?",
+            answer:
+              "Nej, mobile.de har inget officiellt svenskt gränssnitt. Använd Google Translate i Chrome för att översätta sidan automatiskt – det fungerar tillräckligt bra för att söka och läsa annonser. AutoScout24 är ett alternativ med bättre flerspråkigt stöd.",
+          },
+          {
+            question: "Är det säkrare att köpa av handlare än privatperson på mobile.de?",
+            answer:
+              "Ja, som förstagångsköpare rekommenderas återförsäljare (Händler). Du får reklamationsrätt enligt EU:s konsumentköplag, bilen är ofta servad och exportdokumentation hanteras rutinmässigt. Privata säljare säljer i befintligt skick utan garanti.",
+          },
+          {
+            question: "Hur kontaktar jag en säljare på mobile.de?",
+            answer:
+              "Via kontaktformuläret direkt på annonsen. De flesta återförsäljare svarar på engelska. Privata säljare kan variera – grundläggande engelska eller tyska fraser räcker i de flesta fall.",
+          },
+        ])
+      : null;
+
   return (
     <>
       <script
@@ -99,6 +120,12 @@ export default async function GuiderPage({ params }: Props) {
           ),
         }}
       />
+      {mobileDeFaqs && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(mobileDeFaqs) }}
+        />
+      )}
       <div className="mx-auto max-w-3xl px-4 py-10">
         <Breadcrumbs items={breadcrumbs} siteUrl={SITE_URL} />
 
