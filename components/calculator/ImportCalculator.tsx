@@ -259,6 +259,9 @@ function ImportCalculatorInner() {
             onChange={(e) => setAgeMonths(Number(e.target.value))}
             className="w-full rounded border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
+          <p className="mt-1 text-xs text-gray-400">
+            Under 6 mån eller under 6 000 km = nytt fordon → moms tillkommer.
+          </p>
         </div>
 
         {/* Miltal */}
@@ -340,7 +343,7 @@ function ImportCalculatorInner() {
         {/* Jämförelsepris Sverige */}
         <div className="sm:col-span-2">
           <label className="block text-sm font-medium text-gray-700 mb-1">
-            Uppskattat pris i Sverige för liknande fordon (SEK)
+            Jämförpris i Sverige (SEK)
           </label>
           <input
             type="number"
@@ -349,6 +352,9 @@ function ImportCalculatorInner() {
             placeholder="Lämna tomt om okänt"
             className="w-full rounded border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
+          <p className="mt-1 text-xs text-gray-400">
+            Vad kostar ett liknande fordon i Sverige? Fyll i för att se om importen lönar sig.
+          </p>
         </div>
       </div>
 

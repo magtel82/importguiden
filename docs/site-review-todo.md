@@ -38,14 +38,14 @@ Baserad på fullständig genomgång av alla sidor, komponenter och innehåll.
 
 ### Medium effekt
 - [x] **F5** Footern – lägg till mobile.de-guiden och kostnadssidorna i guide-kolumnen (gjort via SV4)
-- [ ] **F6** Kontaktsidan – lägg till breadcrumbs (saknas, inkonsekvent med resten av sajten)
-- [ ] **F7** Internlänkningsbrister i MDX-guider:
-  - [ ] F7a: `registreringsbesiktning.mdx` – lägg till länk till mobile.de-guiden
-  - [ ] F7b: `fordonsskatt-husbil-bonus-malus.mdx` – lägg till länk till mobile.de-guiden
+- [x] **F6** Kontaktsidan – lägg till breadcrumbs (saknas, inkonsekvent med resten av sajten)
+- [x] **F7** Internlänkningsbrister i MDX-guider:
+  - [x] F7a: `registreringsbesiktning.mdx` – lägg till länk till mobile.de-guiden
+  - [x] F7b: `fordonsskatt-husbil-bonus-malus.mdx` – lägg till länk till mobile.de-guiden
   - [x] F7c: `tyskland.mdx` (bil) – lägg till länk till `/importera-bil/kostnad` (gjort via SV5)
   - [x] F7d: `tyskland.mdx` (husbil) – lägg till länk till `/importera-husbil/kostnad` (gjort via SV6)
-- [ ] **F8** Kalkylatorn – förklara ålder/km-fälten (styr momsberäkning 6 mån / 6 000 km-regeln)
-- [ ] **F9** Kalkylatorn – förklara besparingsfältet ("Jämförpris i Sverige")
+- [x] **F8** Kalkylatorn – förklara ålder/km-fälten (styr momsberäkning 6 mån / 6 000 km-regeln)
+- [x] **F9** Kalkylatorn – förklara besparingsfältet ("Jämförpris i Sverige")
 
 ### Lägre effekt
 - [ ] **F10** Startsida – ge kalkylatorn visuell prioritet i guider-gridet (distinkt bakgrund/ikon)
