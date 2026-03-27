@@ -1,6 +1,6 @@
 # CLAUDE.md – Importguiden
 
-# Senast uppdaterad: 2026-03-27 (3)
+# Senast uppdaterad: 2026-03-27 (4)
 
 # Status: MVP GO – affiliate-redo, aktiv utveckling
 
@@ -40,6 +40,7 @@ SEO, förtroende och långsiktighet styr alla beslut.
 * TypeScript (strict)
 * Tailwind CSS + @tailwindcss/typography
 * MDX via next-mdx-remote/rsc (server-side, App Router-kompatibelt)
+* rehype-slug + github-slugger (heading-ID:n för ToC och ankarlänkar)
 * JSON-datafiler i data/ (driver pSEO)
 * Vercel Hobby
 * Ingen databas, inget CMS
@@ -104,7 +105,8 @@ app/
 layout.tsx                        # Root layout, Header + Footer + CookieConsent
 # Innehåller skip-to-content länk (tillgänglighet)
 # <main id="main-content"> för skip-to-content
-page.tsx                          # Startsida /
+page.tsx                          # Startsida / – hero, "Ny här?"-flöde,
+# ProcessSteps, guider-grid, CostOverview, E-E-A-T
 globals.css                       # Tailwind + typography plugin
 not-found.tsx                     # Custom 404-sida
 robots.ts                         # /robots.txt
@@ -150,7 +152,10 @@ ursprungskontroll.mdx           # \~707 ord
 moms-vid-bilimport.mdx          # \~894 ord
 kopa-bil-mobile-de-autoscout24.mdx
 fordonsskatt-husbil-bonus-malus.mdx
-# Alla guider: compileMDX + remarkGfm, ingen AffiliateLink
+hur-lang-tid-tar-bilimport.mdx  # \~900 ord – tidslinje 4–8 veckor
+transportera-bil-fran-tyskland.mdx # \~1 000 ord – egenköra/trailer/spedition
+importera-elbil.mdx             # \~1 100 ord – Tesla, BMW i4, VW ID, batteri
+# Alla guider: compileMDX + remarkGfm + rehypeSlug
 
 components/
 layout/
@@ -169,11 +174,17 @@ ImportCalculator.tsx            # "use client" – live-beräkning via useMemo (
 # Landväljare (5 länder) + redigerbart km-fält med schablon
 # Trailer-transport: intervall per distans (<1000/1000-2000/>2000 km)
 # Importförsäkring som kostnadsrad (schablon, cost-data.json)
-# Besparing vs. svenskt pris (valfritt fält)
+# Besparing vs. svenskt pris (valfritt fält) med förklaringstext
+# "Nästa steg"-ruta efter resultat (dynamisk länk bil/husbil)
+# Förklaringstext vid ålder/km-fält (momsregel 6 mån/6 000 km)
 # Delbar URL via useSearchParams + router.replace (shallow)
 # Params: price, currency, country, type, ageMonths,
 #         mileageKm, transport, km, swePrice
 # Suspense-wrapper krävs (useSearchParams, App Router)
+TableOfContents.tsx               # Renderar innehållsförteckning från headings
+# Visas på alla MDX-guider med ≥ 3 rubriker
+ProcessSteps.tsx                  # "use client" – bil/husbil-tabbar med processteg
+CostOverview.tsx                  # "use client" – bil/husbil-tabbar med kostnadstabell
 affiliate/
 AffiliateLink.tsx               # rel="nofollow sponsored" + märkning
 CookieConsent.tsx                 # "use client" – bottom-banner, localStorage-baserad
@@ -203,11 +214,14 @@ manifest-merge.ts                 # mergeManifest(), buildManifest()
 data.ts                           # getCountries, getCarBrands, getCostData
 seo.ts                            # getCanonicalUrl, getBreadcrumbJsonLd,
 # getFaqJsonLd, getArticleJsonLd
+headings.ts                       # extractHeadings() – H2:or ur MDX-källa
+# Använder github-slugger (matchar rehype-slug)
 
 types/
 index.ts                          # Alla TypeScript-interfaces
 
 docs/
+site-review-todo.md               # Sajt-genomlysning åtgärdslista – 100% avklarad
 mvp-checklist.md                  # GO/NO-GO-checklista – STATUS: ✅ GO (2026-03-14)
 quality-gate-single.md            # Prompt för manuell granskning
 quality-gate-batch.md             # Prompt för batch-granskning
@@ -291,7 +305,7 @@ path.join(process.cwd(), "content/importera-bil/tyskland.mdx"),
 );
 const { content } = await compileMDX({
 source,
-options: { parseFrontmatter: true },
+options: { parseFrontmatter: true, mdxOptions: { remarkPlugins: [remarkGfm], rehypePlugins: [rehypeSlug] } },
 components: { AffiliateLink },   // skicka med komponenter som MDX-filen använder
 });
 
@@ -312,10 +326,13 @@ TEKNISKT (implementerat):
 * canonical URLs via getCanonicalUrl()
 * BreadcrumbList JSON-LD via getBreadcrumbJsonLd()
 * Article JSON-LD på flagship-guider (Tyskland)
+* FAQPage JSON-LD på mobile.de-guiden
 * robots-direktiv från manifest via getRobotsForPath()
 * Synligt "Uppdaterad datum" på alla guider
+* Innehållsförteckning (ToC) med ankarlänkar på alla MDX-guider
 * Skip-to-content länk i layout.tsx (WCAG)
 * Custom 404-sida (not-found.tsx)
+* Breadcrumbs på alla sidor inkl. kontakta-oss
 
 INNEHÅLL:
 
@@ -634,10 +651,13 @@ Guider ska länka till varandra när ämnet är relaterat.
 
 ## CONTENT GAP – NÄSTA ATT SKRIVA
 
+Nyligen byggt (noindex – kör quality gate innan indexering):
+/guider/hur-lang-tid-tar-bilimport       – tidslinje 4–8 veckor, steg för steg
+/guider/transportera-bil-fran-tyskland   – egenköra vs trailer vs spedition, kostnader
+/guider/importera-elbil                  – Tesla, BMW i4, VW ID, batteristatus, momsregler
+
 Prioriterat (ej byggt):
 /guider/besikta-husbil                  – specifikt för husbilar, skiljer sig från personbil
-/guider/transportera-bil                 – egenköra vs trailer vs biltransport
-/guider/importera-elbil                  – Tesla, BMW i4, VW ID-serien, batteristatus
 /importera-husbil/\[märke]               – Hymer, Dethleffs, Bürstner, Knaus m.fl.
 
 Längre sikt:
