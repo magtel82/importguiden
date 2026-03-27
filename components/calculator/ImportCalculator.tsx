@@ -432,7 +432,7 @@ function ImportCalculatorInner() {
                 Kan vara relevant för dig
               </p>
               <AffiliateLink
-                href="https://wise.com"
+                href="https://wise.prf.hn/click/camref:1100l5l28j"
                 partner="wise"
                 className="block text-sm text-blue-700 hover:underline"
               >

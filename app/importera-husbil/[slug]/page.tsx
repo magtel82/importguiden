@@ -5,6 +5,7 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import { readFile } from "fs/promises";
 import path from "path";
 import remarkGfm from "remark-gfm";
+import { AffiliateLink } from "@/components/affiliate/AffiliateLink";
 import { getCountries, getCountryBySlug, getMotorhomeBrands } from "@/lib/data";
 import { getCanonicalUrl, getBreadcrumbJsonLd, getArticleJsonLd } from "@/lib/seo";
 import { getRobotsForPath } from "@/lib/manifest";
@@ -81,6 +82,7 @@ export default async function ImporteraHusbilPage({ params }: Props) {
       const { content } = await compileMDX({
         source,
         options: { parseFrontmatter: true, mdxOptions: { remarkPlugins: [remarkGfm] } },
+        components: { AffiliateLink },
       });
 
       const articleJsonLd = getArticleJsonLd({
