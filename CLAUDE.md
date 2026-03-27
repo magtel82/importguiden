@@ -1,6 +1,6 @@
 # CLAUDE.md – Importguiden
 
-# Senast uppdaterad: 2026-03-27
+# Senast uppdaterad: 2026-03-27 (2)
 
 # Status: MVP GO – affiliate-redo, aktiv utveckling
 
@@ -400,7 +400,7 @@ Ny guide:
 
 # ==========================================================
 
-* Mobile first (Header har hamburger-meny för mobil)
+* **Mobile first – alltid** (designa för 375px, skala upp till desktop)
 * Läsbarhet > wow-effekt (Tailwind prose för MDX-innehåll)
 * Brödsmulor på alla sidor djupare än startsidan
 * Inga popups
@@ -481,12 +481,18 @@ Justera aldrig prose-klasser utan att kontrollera kontrast.
 
 ## LAYOUT
 
+**MOBILE FIRST – ICKE FÖRHANDLINGSBART**
+Designa alltid från 375px och skala upp. Aldrig tvärtom.
+
 * Max-bredd för innehållskolumn: max-w-3xl (48rem)
 * Max-bredd för grid-sidor (startsida etc.): max-w-5xl (64rem)
 * Padding: px-4 py-10 (mobil), justeras uppåt på desktop
-* Mobile first – alla komponenter ska fungera på 375px
+* Alla interaktiva element: minst 48px touchyta (höjd och bredd)
+* Knappar som delar bredd: flex w-full, aldrig fast bredd i px
 * Inga horisontella scroll-effekter
 * Inga fasta höjder på innehållsblock
+* Text i knappar/tabbar: whitespace-nowrap för att undvika radbrytning på liten skärm
+* grid-cols-1 som bas, skala med sm: md: lg: – aldrig tvärtom
 
 ## CTA-REGLER
 
@@ -854,6 +860,7 @@ Regel: compliant=false blockerar deploy i CI.
 9. Ny sida → börja med indexable=false tills innehållet är klart
 10. Använd aldrig förbjudna färger eller gradients
 11. Kör design quality gate innan leverans av nytt UI
+22. Mobile first – designa alltid från 375px. Interaktiva element ≥ 48px touchyta. Knappar med delad bredd: flex w-full. Text i knappar: whitespace-nowrap.
 12. Kör SEO quality gate (docs/seo-quality-gate.md) på alla nya textsidor
 13. Kör AI self-review (docs/ai-self-review.md) innan varje leverans
 14. Ladda aldrig tredjepartsskript utan consent-gate
