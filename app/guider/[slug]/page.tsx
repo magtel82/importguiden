@@ -4,10 +4,13 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import { readFile } from "fs/promises";
 import path from "path";
 import remarkGfm from "remark-gfm";
+import rehypeSlug from "rehype-slug";
 import { getCanonicalUrl, getBreadcrumbJsonLd, getFaqJsonLd } from "@/lib/seo";
 import { getRobotsForPath } from "@/lib/manifest";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { TableOfContents } from "@/components/TableOfContents";
 import { AffiliateLink } from "@/components/affiliate/AffiliateLink";
+import { extractHeadings } from "@/lib/headings";
 
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
 
@@ -41,13 +44,15 @@ async function loadGuide(slug: string) {
     return null;
   }
 
+  const headings = extractHeadings(source);
+
   const { content, frontmatter } = await compileMDX<GuideFrontmatter>({
     source,
-    options: { parseFrontmatter: true, mdxOptions: { remarkPlugins: [remarkGfm] } },
+    options: { parseFrontmatter: true, mdxOptions: { remarkPlugins: [remarkGfm], rehypePlugins: [rehypeSlug] } },
     components: { AffiliateLink },
   });
 
-  return { content, frontmatter };
+  return { content, frontmatter, headings };
 }
 
 interface Props {
@@ -76,7 +81,7 @@ export default async function GuiderPage({ params }: Props) {
   const guide = await loadGuide(slug);
   if (!guide) notFound();
 
-  const { content, frontmatter } = guide;
+  const { content, frontmatter, headings } = guide;
 
   const breadcrumbs = [
     { name: "Hem", href: "/" },
@@ -142,6 +147,7 @@ export default async function GuiderPage({ params }: Props) {
             </p>
           </header>
 
+          <TableOfContents headings={headings} />
           <div className="prose prose-gray max-w-none">{content}</div>
         </article>
       </div>

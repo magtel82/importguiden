@@ -5,7 +5,10 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import { readFile } from "fs/promises";
 import path from "path";
 import remarkGfm from "remark-gfm";
+import rehypeSlug from "rehype-slug";
 import { AffiliateLink } from "@/components/affiliate/AffiliateLink";
+import { TableOfContents } from "@/components/TableOfContents";
+import { extractHeadings } from "@/lib/headings";
 import { getCountries, getCountryBySlug, getMotorhomeBrands } from "@/lib/data";
 import { getCanonicalUrl, getBreadcrumbJsonLd, getArticleJsonLd } from "@/lib/seo";
 import { getRobotsForPath } from "@/lib/manifest";
@@ -79,9 +82,10 @@ export default async function ImporteraHusbilPage({ params }: Props) {
     if (slug === "tyskland") {
       const mdxPath = path.join(process.cwd(), "content/importera-husbil/tyskland.mdx");
       const source = await readFile(mdxPath, "utf-8");
+      const headings = extractHeadings(source);
       const { content } = await compileMDX({
         source,
-        options: { parseFrontmatter: true, mdxOptions: { remarkPlugins: [remarkGfm] } },
+        options: { parseFrontmatter: true, mdxOptions: { remarkPlugins: [remarkGfm], rehypePlugins: [rehypeSlug] } },
         components: { AffiliateLink },
       });
 
@@ -109,6 +113,7 @@ export default async function ImporteraHusbilPage({ params }: Props) {
                   {" "}· Källa: Transportstyrelsen, Tullverket, Skatteverket
                 </p>
               </header>
+              <TableOfContents headings={headings} />
               <div className="prose prose-gray max-w-none">{content}</div>
             </article>
           </div>

@@ -31,6 +31,53 @@ export default function OmOssPage() {
       </section>
 
       <section className="mb-8">
+        <h2 className="text-xl font-bold text-gray-900 mb-3">Varför Importguiden?</h2>
+        <p className="text-gray-700 mb-3">
+          Importguiden startades för att det saknades en samlad, oberoende källa om
+          fordonsimport på svenska. Den information som finns är utspridd över myndighetssajter,
+          forum och företag som säljer importtjänster – ofta med egen agenda.
+        </p>
+        <p className="text-gray-700">
+          Vi har själva importerat fordon privat och vet hur krånglig processen kan upplevas
+          första gången. Varje guide på sajten är skriven för att ge dig det vi önskat att vi
+          hade haft: tydlig, steg-för-steg-information med källhänvisning till myndigheterna.
+        </p>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-xl font-bold text-gray-900 mb-3">Våra källor</h2>
+        <p className="text-gray-700 mb-3">
+          All information om regler, avgifter och processer grundar sig på officiella källor:
+        </p>
+        <ul className="space-y-1 text-sm text-gray-700 list-disc list-inside">
+          <li>
+            <a href="https://www.transportstyrelsen.se" className="text-blue-700 hover:underline" target="_blank" rel="noopener noreferrer">
+              Transportstyrelsen
+            </a>{" "}
+            – registrering, ursprungskontroll, besiktning
+          </li>
+          <li>
+            <a href="https://www.skatteverket.se" className="text-blue-700 hover:underline" target="_blank" rel="noopener noreferrer">
+              Skatteverket
+            </a>{" "}
+            – moms vid import, fordonsskatt
+          </li>
+          <li>
+            <a href="https://www.tullverket.se" className="text-blue-700 hover:underline" target="_blank" rel="noopener noreferrer">
+              Tullverket
+            </a>{" "}
+            – tullregler vid import inom och utanför EU
+          </li>
+          <li>
+            <a href="https://www.konsumenteuropa.se" className="text-blue-700 hover:underline" target="_blank" rel="noopener noreferrer">
+              Konsument Europa
+            </a>{" "}
+            – köpskydd vid handel inom EU
+          </li>
+        </ul>
+      </section>
+
+      <section className="mb-8">
         <h2 className="text-xl font-bold text-gray-900 mb-3">Hur finansieras Importguiden?</h2>
         <p className="text-gray-700 mb-3">
           Sajten finansieras delvis via affiliate-samarbeten. Det innebär att vi kan få en

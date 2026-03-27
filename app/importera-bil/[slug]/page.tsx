@@ -9,7 +9,10 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import { readFile } from "fs/promises";
 import path from "path";
 import remarkGfm from "remark-gfm";
+import rehypeSlug from "rehype-slug";
 import { AffiliateLink } from "@/components/affiliate/AffiliateLink";
+import { TableOfContents } from "@/components/TableOfContents";
+import { extractHeadings } from "@/lib/headings";
 
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
 
@@ -71,9 +74,10 @@ export default async function ImporteraBilPage({ params }: Props) {
     if (slug === "tyskland") {
       const mdxPath = path.join(process.cwd(), "content/importera-bil/tyskland.mdx");
       const source = await readFile(mdxPath, "utf-8");
+      const headings = extractHeadings(source);
       const { content } = await compileMDX({
         source,
-        options: { parseFrontmatter: true, mdxOptions: { remarkPlugins: [remarkGfm] } },
+        options: { parseFrontmatter: true, mdxOptions: { remarkPlugins: [remarkGfm], rehypePlugins: [rehypeSlug] } },
         components: { AffiliateLink },
       });
 
@@ -106,6 +110,7 @@ export default async function ImporteraBilPage({ params }: Props) {
             <Breadcrumbs items={breadcrumbs} siteUrl={SITE_URL} />
             <article className="prose prose-gray max-w-none prose-headings:font-bold prose-a:text-blue-700 prose-a:no-underline hover:prose-a:underline prose-table:text-sm">
               <h1>Importera bil från Tyskland – Komplett guide 2026</h1>
+              <TableOfContents headings={headings} />
               {content}
             </article>
           </div>

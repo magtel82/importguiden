@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useMemo, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
+import Link from "next/link";
 import { AffiliateLink } from "@/components/affiliate/AffiliateLink";
 import costData from "@/data/cost-data.json";
 
@@ -446,6 +447,21 @@ function ImportCalculatorInner() {
               >
                 Jämför importförsäkringar
               </AffiliateLink> */}
+            </div>
+
+            <div className="mt-4 border-t border-gray-200 pt-4">
+              <div className="rounded-lg bg-blue-50 border border-blue-200 p-4">
+                <p className="text-sm font-semibold text-gray-900 mb-2">Nästa steg</p>
+                <p className="text-xs text-gray-600 mb-3">
+                  Läs hela processen steg för steg – från sökning till svenska skyltar.
+                </p>
+                <Link
+                  href={vehicleType === "husbil" ? "/importera-husbil/tyskland" : "/importera-bil/tyskland"}
+                  className="inline-block rounded bg-blue-700 px-4 py-2 text-sm font-medium text-white hover:bg-blue-800"
+                >
+                  {vehicleType === "husbil" ? "Guide: importera husbil" : "Guide: importera bil"}
+                </Link>
+              </div>
             </div>
 
             <div className="mt-4 pt-3 border-t border-gray-200 flex items-center gap-3">

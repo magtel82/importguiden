@@ -31,19 +31,19 @@ Baserad på fullständig genomgång av alla sidor, komponenter och innehåll.
 ## FÖRBÄTTRINGSMÖJLIGHETER
 
 ### Hög effekt
-- [ ] **F1** Lägg till innehållsförteckning (ToC) med ankarlänkar på alla MDX-guider – minskar bounce rate, möjliggör Google sitelinks
-- [ ] **F2** Lägg till "Nästa steg"-ruta under kalkylatorns resultat med länk till relevant guide (bil eller husbil beroende på val)
-- [ ] **F3** Förstärk Om oss-sidan med E-E-A-T-signaler – vem driver sajten, varför, vilken erfarenhet
-- [ ] **F4** Guidernas hubsida (`/guider`) – lägg till sektion ovanför listan som lyfter flagskeppsguiderna (bil/husbil Tyskland)
+- [x] **F1** Lägg till innehållsförteckning (ToC) med ankarlänkar på alla MDX-guider – minskar bounce rate, möjliggör Google sitelinks
+- [x] **F2** Lägg till "Nästa steg"-ruta under kalkylatorns resultat med länk till relevant guide (bil eller husbil beroende på val)
+- [x] **F3** Förstärk Om oss-sidan med E-E-A-T-signaler – vem driver sajten, varför, vilken erfarenhet
+- [x] **F4** Guidernas hubsida (`/guider`) – lägg till sektion ovanför listan som lyfter flagskeppsguiderna (bil/husbil Tyskland)
 
 ### Medium effekt
-- [ ] **F5** Footern – lägg till mobile.de-guiden och kostnadssidorna i guide-kolumnen
+- [x] **F5** Footern – lägg till mobile.de-guiden och kostnadssidorna i guide-kolumnen (gjort via SV4)
 - [ ] **F6** Kontaktsidan – lägg till breadcrumbs (saknas, inkonsekvent med resten av sajten)
 - [ ] **F7** Internlänkningsbrister i MDX-guider:
   - [ ] F7a: `registreringsbesiktning.mdx` – lägg till länk till mobile.de-guiden
   - [ ] F7b: `fordonsskatt-husbil-bonus-malus.mdx` – lägg till länk till mobile.de-guiden
-  - [ ] F7c: `tyskland.mdx` (bil) – lägg till länk till `/importera-bil/kostnad`
-  - [ ] F7d: `tyskland.mdx` (husbil) – lägg till länk till `/importera-husbil/kostnad`
+  - [x] F7c: `tyskland.mdx` (bil) – lägg till länk till `/importera-bil/kostnad` (gjort via SV5)
+  - [x] F7d: `tyskland.mdx` (husbil) – lägg till länk till `/importera-husbil/kostnad` (gjort via SV6)
 - [ ] **F8** Kalkylatorn – förklara ålder/km-fälten (styr momsberäkning 6 mån / 6 000 km-regeln)
 - [ ] **F9** Kalkylatorn – förklara besparingsfältet ("Jämförpris i Sverige")
 

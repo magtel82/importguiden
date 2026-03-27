@@ -88,11 +88,32 @@ export default function GuiderPage() {
         <h1 className="text-3xl font-bold text-gray-900 mb-3">
           Guider om fordonsimport
         </h1>
-        <p className="text-gray-600 mb-10">
+        <p className="text-gray-600 mb-8">
           Sakliga steg-för-steg guider för dig som importerar bil eller husbil
           från Europa till Sverige.
         </p>
 
+        <section className="mb-10">
+          <h2 className="text-lg font-bold text-gray-900 mb-3">Kompletta steg-för-steg-guider</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <Link
+              href="/importera-bil/tyskland"
+              className="block rounded-lg border-2 border-blue-200 bg-blue-50 p-5 hover:border-blue-400 hover:shadow-sm transition-all"
+            >
+              <h3 className="font-semibold text-gray-900 mb-1">Importera bil från Tyskland</h3>
+              <p className="text-sm text-gray-600">Hela processen: sökning, besiktning, exportskyltar, ursprungskontroll och registrering.</p>
+            </Link>
+            <Link
+              href="/importera-husbil/tyskland"
+              className="block rounded-lg border-2 border-blue-200 bg-blue-50 p-5 hover:border-blue-400 hover:shadow-sm transition-all"
+            >
+              <h3 className="font-semibold text-gray-900 mb-1">Importera husbil från Tyskland</h3>
+              <p className="text-sm text-gray-600">Steg för steg: märken, fuktskador, körkortskrav, besiktning och registrering.</p>
+            </Link>
+          </div>
+        </section>
+
+        <h2 className="text-lg font-bold text-gray-900 mb-3">Fördjupningsguider</h2>
         <ul className="space-y-4">
           {guides.map((guide) => (
             <li key={guide.slug}>
