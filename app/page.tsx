@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getCanonicalUrl } from "@/lib/seo";
 import { getRobotsForPath } from "@/lib/manifest";
+import { ProcessSteps } from "@/components/ProcessSteps";
 
 export const metadata: Metadata = {
   title: "Importera bil eller husbil privat från Europa – Oberoende guide 2026",
@@ -44,14 +45,6 @@ const guides = [
     title: "Moms vid bilimport",
     description: "När betalar du 25% moms? Regler för nytt vs begagnat fordon förklarade.",
   },
-];
-
-const steps = [
-  { n: "1", title: "Hitta bilen", body: "Sök på mobile.de eller AutoScout24. Kontrollera VIN-numret och boka oberoende besiktning (TÜV/ADAC) innan köp." },
-  { n: "2", title: "Köp och papper", body: "Skriv köpekontrakt. Säkra COC-intyget. Säljaren avregistrerar bilen och lämnar avregistreringsintyg." },
-  { n: "3", title: "Hemtransport", body: "Ordna exportregistrering (röda skyltar) och importförsäkring. Kör hem eller anlita transportföretag." },
-  { n: "4", title: "Ursprungskontroll", body: "Beställ ursprungskontroll via Transportstyrelsen (1 240 kr). Handläggningstid 2–5 dagar." },
-  { n: "5", title: "Besiktning och registrering", body: "Genomför registreringsbesiktning (ca 1 700 kr för personbil). Registrera sedan bilen i Sverige." },
 ];
 
 const jsonLd = {
@@ -101,29 +94,7 @@ export default function HomePage() {
         </section>
 
         {/* Process steps */}
-        <section className="mb-16" aria-labelledby="process-rubrik">
-          <h2 id="process-rubrik" className="text-2xl font-bold text-gray-900 mb-6">
-            Så går en bilimport till
-          </h2>
-          <ol className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-            {steps.map((s) => (
-              <li key={s.n} className="rounded-lg border border-gray-200 p-4">
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-700 text-sm font-bold text-white mb-3">
-                  {s.n}
-                </span>
-                <p className="font-semibold text-gray-900 mb-1 text-sm">{s.title}</p>
-                <p className="text-xs text-gray-500 leading-relaxed">{s.body}</p>
-              </li>
-            ))}
-          </ol>
-          <p className="mt-4 text-sm text-gray-500">
-            Fördjupa dig i processen i våra{" "}
-            <Link href="/guider" className="text-blue-700 hover:underline">
-              steg-för-steg guider
-            </Link>
-            .
-          </p>
-        </section>
+        <ProcessSteps />
 
         {/* Guides grid */}
         <section className="mb-16" aria-labelledby="guider-rubrik">
