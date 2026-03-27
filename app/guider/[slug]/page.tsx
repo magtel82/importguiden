@@ -21,6 +21,9 @@ const GUIDE_SLUGS = [
   "moms-vid-bilimport",
   "kopa-bil-mobile-de-autoscout24",
   "fordonsskatt-husbil-bonus-malus",
+  "hur-lang-tid-tar-bilimport",
+  "transportera-bil-fran-tyskland",
+  "importera-elbil",
 ] as const;
 
 type GuideSlug = (typeof GUIDE_SLUGS)[number];

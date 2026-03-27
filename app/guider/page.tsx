@@ -59,6 +59,27 @@ const guides = [
       "Lagändringen februari 2025 tog bort malus för husbilar. Vad gäller nu och vad innebär det för din importkalkyl?",
     time: "5 min",
   },
+  {
+    slug: "hur-lang-tid-tar-bilimport",
+    title: "Hur lång tid tar det att importera bil?",
+    description:
+      "Realistisk tidslinje från sökning till svenska skyltar. Räkna med 4–8 veckor – här ser du varje steg.",
+    time: "5 min",
+  },
+  {
+    slug: "transportera-bil-fran-tyskland",
+    title: "Transportera bil från Tyskland",
+    description:
+      "Köra hem själv, biltransport på trailer eller spedition? Kostnader, fördelar och nackdelar.",
+    time: "6 min",
+  },
+  {
+    slug: "importera-elbil",
+    title: "Importera elbil – Tesla, BMW i4, VW ID m.fl.",
+    description:
+      "Vad skiljer elbilsimport? Batteristatus, momsregler och vad du bör kontrollera innan köp.",
+    time: "7 min",
+  },
 ];
 
 export default function GuiderPage() {

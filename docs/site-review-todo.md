@@ -56,10 +56,10 @@ Baserad på fullständig genomgång av alla sidor, komponenter och innehåll.
 
 ## INNEHÅLLSLUCKOR (nya sidor att bygga)
 
-- [ ] **IL1** "Hur länge tar det att importera bil?" – helhetstidslinje (6–8 veckor typiskt). Kan vara FAQ på startsidan eller egen kort guide.
-- [ ] **IL2** Guide om transport (`/guider/transportera-bil`) – egenköra vs trailer vs biltransport, praktiska tips
-- [ ] **IL3** Guide om elbilsimport (`/guider/importera-elbil`) – Tesla, batteristatus, laddinfrastruktur
-- [ ] **IL4** "Ny här?"-flöde – CTA på startsidan som leder förstagångsimportörer till rätt startpunkt
+- [x] **IL1** "Hur länge tar det att importera bil?" – helhetstidslinje (4–8 veckor). Ny guide: `/guider/hur-lang-tid-tar-bilimport`
+- [x] **IL2** Guide om transport (`/guider/transportera-bil-fran-tyskland`) – egenköra vs trailer vs spedition, kostnader
+- [x] **IL3** Guide om elbilsimport (`/guider/importera-elbil`) – Tesla, BMW i4, VW ID, batteristatus, momsregler
+- [x] **IL4** "Ny här?"-flöde – tre-stegs-sektion på startsidan för förstagångsimportörer
 
 ---
 

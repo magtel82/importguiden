@@ -219,6 +219,42 @@
       "tags": ["guide", "husbil", "skatt", "bonus-malus"]
     },
     {
+      "id": "guider-hur-lang-tid-tar-bilimport",
+      "path": "/guider/hur-lang-tid-tar-bilimport",
+      "title": "Hur lång tid tar det att importera bil? – Tidslinje steg för steg",
+      "description": "Realistisk tidslinje för bilimport från Tyskland till Sverige. Från sökning till svenska skyltar – räkna med 4–8 veckor totalt.",
+      "sources": ["https://www.transportstyrelsen.se"],
+      "uniquePayloadScore": 0,
+      "quality": { "hasSources": true, "isThin": false, "indexable": false },
+      "lastEvaluated": "2026-03-27",
+      "notes": "Ny guide – kör quality gate innan indexering.",
+      "tags": ["guide", "process", "tidslinje"]
+    },
+    {
+      "id": "guider-transportera-bil-fran-tyskland",
+      "path": "/guider/transportera-bil-fran-tyskland",
+      "title": "Transportera bil från Tyskland – Köra hem eller anlita transport?",
+      "description": "Tre sätt att få hem bilen från Tyskland: köra själv, biltransport på trailer eller spedition. Kostnader, fördelar och nackdelar.",
+      "sources": ["https://www.transportstyrelsen.se", "https://www.tullverket.se"],
+      "uniquePayloadScore": 0,
+      "quality": { "hasSources": true, "isThin": false, "indexable": false },
+      "lastEvaluated": "2026-03-27",
+      "notes": "Ny guide – kör quality gate innan indexering.",
+      "tags": ["guide", "transport"]
+    },
+    {
+      "id": "guider-importera-elbil",
+      "path": "/guider/importera-elbil",
+      "title": "Importera elbil från Europa – Guide för Tesla, BMW i4, VW ID och andra",
+      "description": "Vad skiljer elbilsimport från vanlig bilimport? Batteristatus, momsregler, bonus-malus och vad du bör kontrollera.",
+      "sources": ["https://www.transportstyrelsen.se", "https://www.skatteverket.se", "https://www.naturvardsverket.se"],
+      "uniquePayloadScore": 0,
+      "quality": { "hasSources": true, "isThin": false, "indexable": false },
+      "lastEvaluated": "2026-03-27",
+      "notes": "Ny guide – kör quality gate innan indexering.",
+      "tags": ["guide", "elbil"]
+    },
+    {
       "id": "kalkylator-bilimport",
       "path": "/kalkylator/bilimport",
       "title": "Importkalkylator – Räkna ut din totala importkostnad",

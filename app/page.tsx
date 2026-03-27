@@ -94,6 +94,34 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Ny här? */}
+        <section className="mb-16 rounded-lg border border-gray-200 bg-gray-50 p-6">
+          <h2 className="text-lg font-bold text-gray-900 mb-2">Ny på fordonsimport?</h2>
+          <p className="text-sm text-gray-600 mb-4">
+            Börja här – tre steg som ger dig hela bilden innan du bestämmer dig.
+          </p>
+          <ol className="space-y-3 text-sm">
+            <li className="flex gap-3">
+              <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-700 text-white flex items-center justify-center text-xs font-bold">1</span>
+              <span className="text-gray-700">
+                <Link href="/kalkylator/bilimport" className="text-blue-700 font-medium hover:underline">Räkna ut din kostnad</Link> – se om importen lönar sig
+              </span>
+            </li>
+            <li className="flex gap-3">
+              <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-700 text-white flex items-center justify-center text-xs font-bold">2</span>
+              <span className="text-gray-700">
+                Läs <Link href="/guider/hur-lang-tid-tar-bilimport" className="text-blue-700 font-medium hover:underline">hur lång tid det tar</Link> – realistisk tidslinje
+              </span>
+            </li>
+            <li className="flex gap-3">
+              <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-700 text-white flex items-center justify-center text-xs font-bold">3</span>
+              <span className="text-gray-700">
+                Följ hela guiden: <Link href="/importera-bil/tyskland" className="text-blue-700 font-medium hover:underline">bil</Link> eller <Link href="/importera-husbil/tyskland" className="text-blue-700 font-medium hover:underline">husbil</Link> – steg för steg
+              </span>
+            </li>
+          </ol>
+        </section>
+
         {/* Process steps */}
         <ProcessSteps />
 
