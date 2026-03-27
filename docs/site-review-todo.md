@@ -48,9 +48,9 @@ Baserad på fullständig genomgång av alla sidor, komponenter och innehåll.
 - [x] **F9** Kalkylatorn – förklara besparingsfältet ("Jämförpris i Sverige")
 
 ### Lägre effekt
-- [ ] **F10** Startsida – ge kalkylatorn visuell prioritet i guider-gridet (distinkt bakgrund/ikon)
-- [ ] **F11** Checklistan i bil-/husbilsguiden (- [ ]) renderas som icke-interaktiva checkboxar – byt till numrerad lista eller gör dem interaktiva
-- [ ] **F12** Guider-hubsidan – ändra ordningen så mobile.de-guiden hamnar högre (nybörjarvänligt)
+- [x] **F10** Startsida – ge kalkylatorn visuell prioritet i guider-gridet (distinkt bakgrund/ikon)
+- [x] **F11** Checklistan i bil-/husbilsguiden (- [ ]) renderas som icke-interaktiva checkboxar – byt till numrerad lista eller gör dem interaktiva
+- [x] **F12** Guider-hubsidan – ändra ordningen så mobile.de-guiden hamnar högre (nybörjarvänligt)
 
 ---
 

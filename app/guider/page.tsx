@@ -18,10 +18,17 @@ export function generateMetadata(): Metadata {
 
 const guides = [
   {
-    slug: "registreringsbesiktning",
-    title: "Registreringsbesiktning",
+    slug: "kopa-bil-mobile-de-autoscout24",
+    title: "Söka bil på mobile.de – guide på svenska",
     description:
-      "Vad kontrolleras, var du gör det och vad det kostar. Obligatoriskt för alla importerade fordon.",
+      "Navigera sajten, filtrera rätt, kontakta säljare och undvik fallgropar. Komplett guide för svenska köpare.",
+    time: "6 min",
+  },
+  {
+    slug: "moms-vid-bilimport",
+    title: "Moms vid bilimport",
+    description:
+      "När betalar du moms och när slipper du? EU:s regler om nytt vs begagnat fordon.",
     time: "5 min",
   },
   {
@@ -32,25 +39,18 @@ const guides = [
     time: "4 min",
   },
   {
+    slug: "registreringsbesiktning",
+    title: "Registreringsbesiktning",
+    description:
+      "Vad kontrolleras, var du gör det och vad det kostar. Obligatoriskt för alla importerade fordon.",
+    time: "5 min",
+  },
+  {
     slug: "coc-intyg",
     title: "COC-intyg",
     description:
       "Vad Certificate of Conformity är, varför det krävs och hur du skaffar det.",
     time: "4 min",
-  },
-  {
-    slug: "moms-vid-bilimport",
-    title: "Moms vid bilimport",
-    description:
-      "När betalar du moms och när slipper du? EU:s regler om nytt vs begagnat fordon.",
-    time: "5 min",
-  },
-  {
-    slug: "kopa-bil-mobile-de-autoscout24",
-    title: "Söka bil på mobile.de – guide på svenska",
-    description:
-      "Navigera sajten, filtrera rätt, kontakta säljare och undvik fallgropar. Komplett guide för svenska köpare.",
-    time: "6 min",
   },
   {
     slug: "fordonsskatt-husbil-bonus-malus",

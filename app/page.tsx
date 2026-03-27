@@ -107,7 +107,11 @@ export default function HomePage() {
               <Link
                 key={guide.href}
                 href={guide.href}
-                className="block rounded-lg border border-gray-200 p-5 hover:border-blue-400 hover:shadow-sm transition-all"
+                className={`block rounded-lg p-5 hover:shadow-sm transition-all ${
+                  guide.href === "/kalkylator/bilimport"
+                    ? "border-2 border-blue-200 bg-blue-50 hover:border-blue-400"
+                    : "border border-gray-200 hover:border-blue-400"
+                }`}
               >
                 <h3 className="font-semibold text-gray-900 mb-1">{guide.title}</h3>
                 <p className="text-sm text-gray-500">{guide.description}</p>
