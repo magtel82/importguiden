@@ -28,7 +28,7 @@ export function ProcessSteps() {
   return (
     <section className="mb-16" aria-labelledby="process-rubrik">
       {/* Tabs */}
-      <div className="flex w-full mb-6 gap-2">
+      <div className="flex w-full mb-6 gap-2" role="tablist" aria-label="Välj fordonstyp">
         <button
           onClick={() => setActive("bil")}
           className={`flex-1 min-h-[48px] rounded px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors ${

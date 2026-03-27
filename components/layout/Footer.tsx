@@ -45,6 +45,16 @@ export function Footer() {
                   Registreringsbesiktning
                 </Link>
               </li>
+              <li>
+                <Link href="/guider/kopa-bil-mobile-de-autoscout24" className="hover:text-blue-700">
+                  Söka bil på mobile.de
+                </Link>
+              </li>
+              <li>
+                <Link href="/importera-bil/kostnad" className="hover:text-blue-700">
+                  Vad kostar det att importera bil?
+                </Link>
+              </li>
             </ul>
           </div>
           <div>

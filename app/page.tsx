@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getCanonicalUrl } from "@/lib/seo";
 import { getRobotsForPath } from "@/lib/manifest";
 import { ProcessSteps } from "@/components/ProcessSteps";
+import { CostOverview } from "@/components/CostOverview";
 
 export const metadata: Metadata = {
   title: "Importera bil eller husbil privat från Europa – Oberoende guide 2026",
@@ -81,7 +82,7 @@ export default function HomePage() {
             </Link>
             <Link
               href="/importera-husbil/tyskland"
-              className="rounded bg-blue-700 px-6 py-3 min-h-[48px] flex items-center justify-center font-medium text-white hover:bg-blue-800"
+              className="rounded border border-gray-300 px-6 py-3 min-h-[48px] flex items-center justify-center font-medium text-gray-700 hover:bg-gray-50"
             >
               Guide: importera husbil från Tyskland
             </Link>
@@ -116,64 +117,7 @@ export default function HomePage() {
         </section>
 
         {/* Kostnadsoversikt */}
-        <section className="mb-16" aria-labelledby="kostnad-rubrik">
-          <h2 id="kostnad-rubrik" className="text-2xl font-bold text-gray-900 mb-4">
-            Vad kostar det att importera bil?
-          </h2>
-          <p className="text-gray-600 text-sm mb-4">
-            Utöver bilpriset tillkommer dessa fasta kostnader vid import av personbil från EU.
-            Ingen tull tillkommer vid köp från EU-länder.
-          </p>
-          <div className="overflow-x-auto mb-4">
-            <table className="w-full text-sm border-collapse border border-gray-200 rounded">
-              <thead>
-                <tr className="bg-gray-50">
-                  <th className="text-left p-3 font-semibold text-gray-700 border-b border-gray-200">Kostnad</th>
-                  <th className="text-right p-3 font-semibold text-gray-700 border-b border-gray-200">Belopp</th>
-                  <th className="text-left p-3 font-semibold text-gray-700 border-b border-gray-200">Källa</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-100">
-                <tr>
-                  <td className="p-3 text-gray-700">Ursprungskontroll</td>
-                  <td className="p-3 text-right font-medium">1 240 kr</td>
-                  <td className="p-3 text-gray-500 text-xs">Transportstyrelsen (2025)</td>
-                </tr>
-                <tr>
-                  <td className="p-3 text-gray-700">Registreringsbesiktning, personbil</td>
-                  <td className="p-3 text-right font-medium">~1 700 kr</td>
-                  <td className="p-3 text-gray-500 text-xs">Schablonvärde</td>
-                </tr>
-                <tr>
-                  <td className="p-3 text-gray-700">Importförsäkring</td>
-                  <td className="p-3 text-right font-medium">~1 500 kr</td>
-                  <td className="p-3 text-gray-500 text-xs">Schablonvärde</td>
-                </tr>
-                <tr>
-                  <td className="p-3 text-gray-700">Transport (kör hem från Tyskland)</td>
-                  <td className="p-3 text-right font-medium">~5 000–7 000 kr</td>
-                  <td className="p-3 text-gray-500 text-xs">Schablonvärde</td>
-                </tr>
-                <tr>
-                  <td className="p-3 text-gray-700">Tull (import inom EU)</td>
-                  <td className="p-3 text-right font-medium text-green-700">0 kr</td>
-                  <td className="p-3 text-gray-500 text-xs">Tullverket</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p className="text-sm text-gray-500">
-            Räkna ut din exakta totalkostnad i{" "}
-            <Link href="/kalkylator/bilimport" className="text-blue-700 hover:underline">
-              importkalkylatorn
-            </Link>{" "}
-            eller läs mer på sidan{" "}
-            <Link href="/importera-bil/kostnad" className="text-blue-700 hover:underline">
-              vad kostar det att importera bil
-            </Link>
-            .
-          </p>
-        </section>
+        <CostOverview />
 
         {/* Trust / E-E-A-T */}
         <section className="bg-gray-50 rounded-xl p-8 border border-gray-100">

@@ -35,7 +35,7 @@ export default function FinansieringPage() {
         <h2 className="text-xl font-bold text-gray-900 mb-3">Vad är ett affiliate-samarbete?</h2>
         <p className="text-gray-700 mb-3">
           Vi har avtal med utvalda tjänsteleverantörer inom områden som är relevanta för
-          fordonsimp – till exempel valutaväxling och fordonsförsäkring. Om du väljer att
+          fordonsimport – till exempel valutaväxling och fordonsförsäkring. Om du väljer att
           använda en av dessa tjänster via en länk på vår sajt kan vi få en liten provision,
           utan extra kostnad för dig.
         </p>
