@@ -1,6 +1,6 @@
 # CLAUDE.md – Importguiden
 
-# Senast uppdaterad: 2026-03-24
+# Senast uppdaterad: 2026-03-27
 
 # Status: MVP GO – affiliate-redo, aktiv utveckling
 
@@ -390,7 +390,7 @@ Ny guide:
 * Synlig text "(annonslänk)" renderas av komponenten
 * Inga banners
 * Kontext före klick: förklara vad länken leder till
-* Nuvarande partner: Wise (valutaväxling) – placeholder-URL, ej aktivt avtal än
+* Nuvarande partner: Wise (valutaväxling) – AKTIVT avtal, spårningslänk: https://wise.prf.hn/click/camref:1100l5I28j
 * Affiliate-readiness: KLAR (integritetspolicy, finansiering, consent-banner, disclosure allt på plats)
 * Kontaktmail för affiliate-ansökningar: info@importguiden.se
 
@@ -658,11 +658,13 @@ Om Google Analytics väljs: consent-gate obligatoriskt innan script laddas
 
 # ==========================================================
 
-## NULÄGE (2026-03-17)
+## NULÄGE (2026-03-27)
 
 Partner: Wise (valutaväxling)
-Status:  Placeholder-länk – ej aktiv affiliate-URL än
-Nätverk: Ej ansökt – välj Adtraction (rekommenderas, stark i Norden) eller Awin
+Status:  AKTIVT – spårningslänk inlagd (camref:1100l5I28j), godkänd för EUR-kampanjen
+URL:     https://wise.prf.hn/click/camref:1100l5I28j
+Placering: Kalkylatorn, bilguiden (tyskland.mdx), husbilsguiden (tyskland.mdx)
+Nätverk: Ej ansökt för övriga program – välj Adtraction (rekommenderas, stark i Norden) eller Awin
 
 ## PROGRAM ATT PRIORITERA
 
@@ -689,7 +691,8 @@ Nätverk: Ej ansökt – välj Adtraction (rekommenderas, stark i Norden) eller 
 
 ## NUVARANDE PARTNERS
 
-Wise – komponent integrerad, placeholder-URL (ersätt vid aktivt avtal)
+Wise – AKTIVT avtal (2026-03-27), EUR-kampanjen, camref:1100l5I28j
+  Placering: kalkylatorn, /importera-bil/tyskland, /importera-husbil/tyskland
 
 # ==========================================================
 
