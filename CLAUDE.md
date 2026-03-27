@@ -1,6 +1,6 @@
 # CLAUDE.md – Importguiden
 
-# Senast uppdaterad: 2026-03-27 (2)
+# Senast uppdaterad: 2026-03-27 (3)
 
 # Status: MVP GO – affiliate-redo, aktiv utveckling
 
@@ -654,9 +654,27 @@ Längre sikt:
 
 ## ANALYTICS \& GSC
 
-GSC:       Registrera importguiden.se, skicka in /sitemap.xml
+GSC:       Registrerad, sitemap inlämnad. Indexering aktiv.
 Analytics: Plausible rekommenderas (cookiefri = inget samtycke krävs)
 Om Google Analytics väljs: consent-gate obligatoriskt innan script laddas
+
+### GSC-insikter (2026-03-27) – STYR NÄSTA INNEHÅLL
+
+Sajten live sedan 2026-03-12. Efter 2 veckor: 1 670 exponeringar totalt.
+
+**mobile.de-sökord dominerar** – ~100 exponeringar på 2 veckor utan dedikerad sida:
+- "mobile de på svenska" – 29 exp
+- "mobile.de svenska" – 27 exp
+- "mobile.de på svenska" – 19 exp
+- "mobile de svenska" – 14 exp
+- "mobile de engelska" – 13 exp
+
+Åtgärd: guiden `/guider/kopa-bil-mobile-de-autoscout24` omskriven med
+ny H1 "Söka bil på mobile.de – guide på svenska..." + FAQPage JSON-LD.
+Indexering begärd 2026-03-27.
+
+**Princip: exponeringar utan klick = outfyllt informationsbehov.**
+Kontrollera GSC regelbundet och låt datan styra nästa guide att skriva.
 
 # ==========================================================
 
