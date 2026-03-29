@@ -327,6 +327,18 @@
       "tags": ["guide", "elbil"]
     },
     {
+      "id": "guider-besikta-husbil",
+      "path": "/guider/besikta-husbil",
+      "title": "Besiktning av importerad husbil – Vad som gäller och vad det kostar",
+      "description": "Allt om registreringsbesiktning av importerad husbil: fuktmätning, gaskontroll, körkortskrav och var du bokar. Kostar 3 000–5 000 kr.",
+      "sources": ["https://www.transportstyrelsen.se/sv/vagtrafik/Fordon/Importerade-fordon/registreringsbesiktning/", "https://opus.se/besiktning/registreringsbesiktning"],
+      "uniquePayloadScore": 80,
+      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "lastEvaluated": "2026-03-29",
+      "notes": "Quality gate godkänd 2026-03-29. ~1000 ord, fukt/gas/körkortsvikt, kostnadstabell, Ducato-varning.",
+      "tags": ["guide", "husbil", "besiktning"]
+    },
+    {
       "id": "kalkylator-bilimport",
       "path": "/kalkylator/bilimport",
       "title": "Importkalkylator – Räkna ut din totala importkostnad",

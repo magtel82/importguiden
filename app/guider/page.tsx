@@ -80,6 +80,13 @@ const guides = [
       "Vad skiljer elbilsimport? Batteristatus, momsregler och vad du bör kontrollera innan köp.",
     time: "7 min",
   },
+  {
+    slug: "besikta-husbil",
+    title: "Besiktning av importerad husbil",
+    description:
+      "Fuktmätning, gaskontroll, körkortskrav och var du bokar. Vad som gäller och kostar för husbilsbesiktning.",
+    time: "6 min",
+  },
 ];
 
 export default function GuiderPage() {
