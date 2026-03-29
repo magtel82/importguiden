@@ -141,6 +141,30 @@ export default function GuiderPage() {
           </div>
         </section>
 
+        <h2 className="text-lg font-bold text-gray-900 mb-3">Fördjupningsguider</h2>
+        <ul className="space-y-4 mb-10">
+          {guides.map((guide) => (
+            <li key={guide.slug}>
+              <Link
+                href={`/guider/${guide.slug}`}
+                className="block rounded-lg border border-gray-200 p-5 hover:border-blue-400 hover:shadow-sm transition-all"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <h2 className="font-semibold text-gray-900 mb-1">
+                      {guide.title}
+                    </h2>
+                    <p className="text-sm text-gray-500">{guide.description}</p>
+                  </div>
+                  <span className="flex-shrink-0 text-xs text-gray-400 mt-1">
+                    {guide.time} läsning
+                  </span>
+                </div>
+              </Link>
+            </li>
+          ))}
+        </ul>
+
         <section className="mb-10">
           <h2 className="text-lg font-bold text-gray-900 mb-1">Märkesspecifika importguider</h2>
           <p className="text-sm text-gray-600 mb-4">
@@ -192,30 +216,6 @@ export default function GuiderPage() {
             ))}
           </div>
         </section>
-
-        <h2 className="text-lg font-bold text-gray-900 mb-3">Fördjupningsguider</h2>
-        <ul className="space-y-4">
-          {guides.map((guide) => (
-            <li key={guide.slug}>
-              <Link
-                href={`/guider/${guide.slug}`}
-                className="block rounded-lg border border-gray-200 p-5 hover:border-blue-400 hover:shadow-sm transition-all"
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <h2 className="font-semibold text-gray-900 mb-1">
-                      {guide.title}
-                    </h2>
-                    <p className="text-sm text-gray-500">{guide.description}</p>
-                  </div>
-                  <span className="flex-shrink-0 text-xs text-gray-400 mt-1">
-                    {guide.time} läsning
-                  </span>
-                </div>
-              </Link>
-            </li>
-          ))}
-        </ul>
 
         <div className="mt-12 bg-gray-50 rounded-lg border border-gray-200 p-6">
           <h2 className="font-semibold text-gray-900 mb-2">
