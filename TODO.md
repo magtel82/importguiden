@@ -1,6 +1,6 @@
 # TODO – Importguiden
 
-_Senast uppdaterad: 2026-03-29 (3)_
+_Senast uppdaterad: 2026-03-30_
 
 ---
 
@@ -27,6 +27,12 @@ _Senast uppdaterad: 2026-03-29 (3)_
   - Varje kort: titel + beskrivning med märkesnamnet inbakat + "Läs guide →"
 - [x] Guide: `/guider/kopa-husbil-mobil-de` – ~900 ord, husbilsspecifik ordlista, filterinställningar, fuktkontroll, checklista. Score 78, indexable: true.
 - [x] Guide: `/guider/besiktningsfel-vid-import` – ~950 ord, 8 underkännandeorsaker med åtgärder, bil+husbil, checklista. Score 80, indexable: true.
+- [x] Märkesspecifika guider som egen sektion på `/guider` – kort med märkesnamn, tagline och badge (Bil/Husbil)
+- [x] Hero-knapp fix – husbil-knappen blå (blue-600 text-white) istället för vit med kontur
+- [x] Startsidans märkeskort länkar till `/guider#markesguider` istället för enskilt märke (BMW/Hymer)
+- [x] Filtreringssystem på `/guider` – knappar Alla/Bil/Husbil filtrerar guider och märkeskort
+  - `GuiderContent.tsx` ("use client") – guides kategoriserade generell/bil/husbil
+  - `page.tsx` behåller metadata + JSON-LD som serverkomponent
 
 ---
 

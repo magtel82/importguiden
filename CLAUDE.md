@@ -1,6 +1,6 @@
 # CLAUDE.md – Importguiden
 
-# Senast uppdaterad: 2026-03-29 (7)
+# Senast uppdaterad: 2026-03-30 (8)
 
 # Status: MVP GO – affiliate-redo, aktiv utveckling
 
@@ -133,7 +133,13 @@ importera-husbil/
 # compileMDX med remarkGfm
 kostnad/page.tsx                # /importera-husbil/kostnad
 guider/
-page.tsx                        # /guider – hubsida med lista över alla guider
+page.tsx                        # /guider – serverkomponent (metadata + JSON-LD)
+#   Renderar <GuiderContent /> – ingen logik här
+GuiderContent.tsx               # "use client" – filtreringssystem (Alla/Bil/Husbil)
+#   useState-filter, guidekort med kategoribadge, märkeskort
+#   Kategorier: generell | bil | husbil per guide
+#   Bil-filter: bil + generella guider + personbilsmärken
+#   Husbil-filter: husbil + generella guider + husbilsmärken
 \[slug]/page.tsx                 # Läser MDX via compileMDX + remarkGfm
 kalkylator/
 bilimport/page.tsx              # Kalkylator (client component)
@@ -159,12 +165,14 @@ registreringsbesiktning.mdx     # \~826 ord
 coc-intyg.mdx                   # \~868 ord
 ursprungskontroll.mdx           # \~707 ord
 moms-vid-bilimport.mdx          # \~894 ord
-kopa-bil-mobile-de-autoscout24.mdx
+kopa-bil-mobile-de-autoscout24.mdx  # \~900 ord – söka bil på mobile.de
 fordonsskatt-husbil-bonus-malus.mdx
 hur-lang-tid-tar-bilimport.mdx  # \~900 ord – tidslinje 4–8 veckor
 transportera-bil-fran-tyskland.mdx # \~1 000 ord – egenköra/trailer/spedition
 importera-elbil.mdx             # \~1 100 ord – Tesla, BMW i4, VW ID, batteri
 besikta-husbil.mdx              # \~1 000 ord – fukt, gas, körkortskrav, kostnad
+kopa-husbil-mobil-de.mdx        # \~900 ord – söka husbil på mobile.de, score 78
+besiktningsfel-vid-import.mdx   # \~950 ord – 8 underkännandeorsaker, score 80
 # Alla guider: compileMDX + remarkGfm + rehypeSlug
 
 components/
@@ -413,8 +421,8 @@ Ny guide:
 
 1. Skapa content/guider/<slug>.mdx
 2. Lägg till slug i GUIDE\_SLUGS-arrayen i app/guider/\[slug]/page.tsx
-3. Lägg till guide i listan i app/guider/page.tsx (hubsidan)
-4. Lägg till post i pages\_manifest.json med indexable=false
+3. Lägg till guide i guides-arrayen i app/guider/GuiderContent.tsx med rätt category (generell | bil | husbil)
+4. Lägg till post i datasets/pages\_manifest.json med indexable=false
 5. Quality gate → indexable=true om OK
 
 # ==========================================================
@@ -676,15 +684,11 @@ Indexerade guider (quality gate godkänd):
 /guider/hur-lang-tid-tar-bilimport       – tidslinje 4–8 veckor, steg för steg (score 78)
 /guider/transportera-bil-fran-tyskland   – egenköra vs trailer vs spedition (score 80)
 /guider/importera-elbil                  – Tesla, BMW i4, VW ID, batteristatus (score 82)
-/guider/besikta-husbil                  – fukt, gas, körkortskrav, stationsbokning (score 80)
-
-Prioriterat (ej byggt):
-/guider/kopa-husbil-mobil-de            – söka husbilar på tyska plattsajter
-/guider/besiktningsfel-vid-import       – vanliga underkännandeorsaker
+/guider/besikta-husbil                   – fukt, gas, körkortskrav, stationsbokning (score 80)
+/guider/kopa-husbil-mobil-de             – söka husbil på mobile.de, husbilsordlista (score 78)
+/guider/besiktningsfel-vid-import        – 8 underkännandeorsaker bil+husbil (score 80)
 
 Längre sikt:
-/guider/besiktningsfel-vid-import        – vanliga underkännandeorsaker
-/guider/kopa-husbil-mobil-de             – plattsajter för husbilar i Tyskland
 /jamfor/husbil-tyskland-vs-sverige       – prisjämförelse husbilar
 
 ## SGE / AI-SYNLIGHET
