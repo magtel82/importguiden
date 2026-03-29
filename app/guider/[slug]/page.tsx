@@ -25,6 +25,8 @@ const GUIDE_SLUGS = [
   "transportera-bil-fran-tyskland",
   "importera-elbil",
   "besikta-husbil",
+  "kopa-husbil-mobil-de",
+  "besiktningsfel-vid-import",
 ] as const;
 
 type GuideSlug = (typeof GUIDE_SLUGS)[number];

@@ -87,6 +87,20 @@ const guides = [
       "Fuktmätning, gaskontroll, körkortskrav och var du bokar. Vad som gäller och kostar för husbilsbesiktning.",
     time: "6 min",
   },
+  {
+    slug: "kopa-husbil-mobil-de",
+    title: "Söka husbil på mobile.de – guide på svenska",
+    description:
+      "Filtrera rätt märke och modell, tolka tyska annonser och undvik fallgropar. Komplett guide för svenska husbildsköpare.",
+    time: "6 min",
+  },
+  {
+    slug: "besiktningsfel-vid-import",
+    title: "Vanliga besiktningsfel vid bilimport",
+    description:
+      "De vanligaste orsakerna till att importerade bilar underkänns – COC, bromsar, däck, felkoder och husbilsspecifika fel.",
+    time: "6 min",
+  },
 ];
 
 export default function GuiderPage() {

@@ -339,6 +339,37 @@
       "tags": ["guide", "husbil", "besiktning"]
     },
     {
+      "id": "guider-kopa-husbil-mobil-de",
+      "path": "/guider/kopa-husbil-mobil-de",
+      "title": "Söka husbil på mobile.de – guide på svenska för svenska köpare 2026",
+      "description": "Så söker du husbil på mobile.de och AutoScout24 som svensk köpare – filtrera rätt, tolka tyska annonser och undvik vanliga fallgropar.",
+      "sources": [
+        "https://www.mobile.de",
+        "https://www.autoscout24.de",
+        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/"
+      ],
+      "uniquePayloadScore": 78,
+      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "lastEvaluated": "2026-03-29",
+      "notes": "Quality gate godkänd 2026-03-29. ~900 ord, husbilsspecifik ordlista, filtreringstips, fuktkontroll, checklista, FAQ.",
+      "tags": ["guide", "husbil", "mobile.de", "sök"]
+    },
+    {
+      "id": "guider-besiktningsfel-vid-import",
+      "path": "/guider/besiktningsfel-vid-import",
+      "title": "Vanliga besiktningsfel vid bilimport – Så undviker du underkännande",
+      "description": "De vanligaste orsakerna till att importerade bilar och husbilar underkänns vid registreringsbesiktning i Sverige – och hur du förbereder dig.",
+      "sources": [
+        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/besiktning/",
+        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/fordonsimport-och-ursprungskontroll/import-fran-ett-eu-land/"
+      ],
+      "uniquePayloadScore": 80,
+      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "lastEvaluated": "2026-03-29",
+      "notes": "Quality gate godkänd 2026-03-29. ~950 ord, 8 felkategorier med åtgärder, bil+husbil-specifika fel, checklista, FAQ.",
+      "tags": ["guide", "besiktning", "importfel"]
+    },
+    {
       "id": "kalkylator-bilimport",
       "path": "/kalkylator/bilimport",
       "title": "Importkalkylator – Räkna ut din totala importkostnad",
