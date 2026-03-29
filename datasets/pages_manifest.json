@@ -295,11 +295,11 @@
       "path": "/guider/hur-lang-tid-tar-bilimport",
       "title": "Hur lång tid tar det att importera bil? – Tidslinje steg för steg",
       "description": "Realistisk tidslinje för bilimport från Tyskland till Sverige. Från sökning till svenska skyltar – räkna med 4–8 veckor totalt.",
-      "sources": ["https://www.transportstyrelsen.se"],
-      "uniquePayloadScore": 0,
-      "quality": { "hasSources": true, "isThin": false, "indexable": false },
-      "lastEvaluated": "2026-03-27",
-      "notes": "Ny guide – kör quality gate innan indexering.",
+      "sources": ["https://www.transportstyrelsen.se", "https://www.transportstyrelsen.se/fordonsagare/importera-fordon"],
+      "uniquePayloadScore": 78,
+      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "lastEvaluated": "2026-03-29",
+      "notes": "Quality gate godkänd 2026-03-29. ~900 ord, konkreta tidsintervall och kostnader, FAQ-block.",
       "tags": ["guide", "process", "tidslinje"]
     },
     {
@@ -308,10 +308,10 @@
       "title": "Transportera bil från Tyskland – Köra hem eller anlita transport?",
       "description": "Tre sätt att få hem bilen från Tyskland: köra själv, biltransport på trailer eller spedition. Kostnader, fördelar och nackdelar.",
       "sources": ["https://www.transportstyrelsen.se", "https://www.tullverket.se"],
-      "uniquePayloadScore": 0,
-      "quality": { "hasSources": true, "isThin": false, "indexable": false },
-      "lastEvaluated": "2026-03-27",
-      "notes": "Ny guide – kör quality gate innan indexering.",
+      "uniquePayloadScore": 80,
+      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "lastEvaluated": "2026-03-29",
+      "notes": "Quality gate godkänd 2026-03-29. ~1000 ord, tre alternativ med kostnadstabeller, skattningar tydligt märkta.",
       "tags": ["guide", "transport"]
     },
     {
@@ -320,10 +320,10 @@
       "title": "Importera elbil från Europa – Guide för Tesla, BMW i4, VW ID och andra",
       "description": "Vad skiljer elbilsimport från vanlig bilimport? Batteristatus, momsregler, bonus-malus och vad du bör kontrollera.",
       "sources": ["https://www.transportstyrelsen.se", "https://www.skatteverket.se", "https://www.naturvardsverket.se"],
-      "uniquePayloadScore": 0,
-      "quality": { "hasSources": true, "isThin": false, "indexable": false },
-      "lastEvaluated": "2026-03-27",
-      "notes": "Ny guide – kör quality gate innan indexering.",
+      "uniquePayloadScore": 82,
+      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "lastEvaluated": "2026-03-29",
+      "notes": "Quality gate godkänd 2026-03-29. ~1100 ord, SoH-förklaring, momsexempel, CCS2/CHAdeMO-info, tre myndighetsbelagda källor.",
       "tags": ["guide", "elbil"]
     },
     {
