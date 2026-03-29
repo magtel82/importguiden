@@ -16,6 +16,67 @@ import { extractHeadings } from "@/lib/headings";
 
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
 
+// Guides relevant for all car brands
+const CAR_IMPORT_GUIDES: {
+  slug: string;
+  title: string;
+  desc: (brand: string) => string;
+}[] = [
+  {
+    slug: "kopa-bil-mobile-de-autoscout24",
+    title: "Söka bil på mobile.de – guide på svenska",
+    desc: (brand) =>
+      `Filtrera fram rätt ${brand}, tolka tyska annonser och undvik vanliga fallgropar på Europas största bilmarknad.`,
+  },
+  {
+    slug: "hur-lang-tid-tar-bilimport",
+    title: "Hur lång tid tar en bilimport?",
+    desc: () =>
+      "Räkna med 4–8 veckor från köp till svenska skyltar. Steg-för-steg-tidslinje så du vet vad som väntar.",
+  },
+  {
+    slug: "transportera-bil-fran-tyskland",
+    title: "Transportera bilen hem – egenköra, trailer eller spedition",
+    desc: () =>
+      "Tre alternativ med olika kostnader och risker. Vilket passar din situation och din budget bäst?",
+  },
+  {
+    slug: "coc-intyg",
+    title: "COC-intyg – vad det är och varför du behöver det",
+    desc: (brand) =>
+      `COC-intyget krävs för att registrera din ${brand} i Sverige. Kontrollera att det finns med vid köpet.`,
+  },
+  {
+    slug: "ursprungskontroll",
+    title: "Ursprungskontroll – obligatorisk efter hemkomst",
+    desc: () =>
+      "Beställ hos Transportstyrelsen (1 240 kr, 2025). Utan godkänd ursprungskontroll kan bilen inte registreras.",
+  },
+  {
+    slug: "registreringsbesiktning",
+    title: "Registreringsbesiktning – sista steget mot svenska skyltar",
+    desc: (brand) =>
+      `Ca 1 700 kr. Lär dig vad besiktningsmannen kontrollerar extra noga på en importerad ${brand}.`,
+  },
+  {
+    slug: "moms-vid-bilimport",
+    title: "Moms vid bilimport – när betalar du 25%?",
+    desc: () =>
+      "Avgörs av bilens ålder och körsträcka (6 månader / 6 000 km-regeln). Läs reglerna innan du köper.",
+  },
+];
+
+// Extra guide for electric vehicles
+const EV_GUIDE = {
+  slug: "importera-elbil",
+  title: "Importera elbil – batteristatus, laddkontakter och skillnader",
+  desc: (brand: string) =>
+    `Vad du måste kontrollera på en importerad ${brand}-elbil: batterihälsa (SoH), laddstandard och garanti.`,
+};
+
+// Slugs where the EV guide is relevant
+const EV_BRAND_SLUGS = ["tesla", "volkswagen"];
+
 interface Props {
   params: Promise<{ slug: string }>;
 }
@@ -515,16 +576,46 @@ export default async function ImporteraBilPage({ params }: Props) {
           </div>
 
           {/* Related guides */}
-          <section>
-            <h2 className="text-xl font-bold text-gray-900 mb-4">Läs mer</h2>
-            <ul className="space-y-2">
-              <li><Link href="/guider/registreringsbesiktning" className="text-blue-700 hover:underline text-sm">Guide: Registreringsbesiktning</Link></li>
-              <li><Link href="/guider/coc-intyg" className="text-blue-700 hover:underline text-sm">Guide: COC-intyg</Link></li>
-              <li><Link href="/guider/ursprungskontroll" className="text-blue-700 hover:underline text-sm">Guide: Ursprungskontroll</Link></li>
-              <li><Link href="/guider/moms-vid-bilimport" className="text-blue-700 hover:underline text-sm">Guide: Moms vid bilimport</Link></li>
-              <li><Link href="/importera-bil/kostnad" className="text-blue-700 hover:underline text-sm">Alla kostnader vid bilimport</Link></li>
-            </ul>
-          </section>
+          {(() => {
+            const guides = EV_BRAND_SLUGS.includes(brand!.slug)
+              ? [...CAR_IMPORT_GUIDES, EV_GUIDE]
+              : CAR_IMPORT_GUIDES;
+            return (
+              <section>
+                <h2 className="text-xl font-bold text-gray-900 mb-2">
+                  Guider för din {importData.name}-import
+                </h2>
+                <p className="text-sm text-gray-600 mb-5">
+                  Allt du behöver veta – från att hitta bilen i Tyskland till svenska skyltar.
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                  {guides.map((guide) => (
+                    <Link
+                      key={guide.slug}
+                      href={`/guider/${guide.slug}`}
+                      className="group flex flex-col p-4 border border-gray-200 rounded-lg bg-white hover:border-blue-300 hover:bg-blue-50 transition-colors"
+                    >
+                      <span className="font-semibold text-gray-900 text-sm group-hover:text-blue-700 mb-1 leading-snug">
+                        {guide.title}
+                      </span>
+                      <span className="text-xs text-gray-600 leading-relaxed flex-1">
+                        {guide.desc(importData.name)}
+                      </span>
+                      <span className="text-xs text-blue-700 mt-3 font-medium">
+                        Läs guide &rarr;
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+                <p className="text-sm text-gray-600">
+                  Se även:{" "}
+                  <Link href="/importera-bil/kostnad" className="text-blue-700 hover:underline">
+                    Alla kostnader vid bilimport
+                  </Link>
+                </p>
+              </section>
+            );
+          })()}
         </article>
       </div>
     </>

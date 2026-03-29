@@ -16,6 +16,62 @@ import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
 
+// Guides relevant for all motorhome brands
+const MOTORHOME_IMPORT_GUIDES: {
+  slug: string;
+  title: string;
+  desc: (brand: string) => string;
+}[] = [
+  {
+    slug: "kopa-bil-mobile-de-autoscout24",
+    title: "Söka husbil på mobile.de – guide på svenska",
+    desc: (brand) =>
+      `Filtrera fram rätt ${brand}, tolka tyska annonser och undvik vanliga fallgropar på Europas största fordonsmarknad.`,
+  },
+  {
+    slug: "besikta-husbil",
+    title: "Besiktning av importerad husbil – fukt, gas och körkortskrav",
+    desc: (brand) =>
+      `Vad besiktningsmannen kontrollerar extra noga på en importerad ${brand}: fuktskador, gasinstallation och totalvikt.`,
+  },
+  {
+    slug: "hur-lang-tid-tar-bilimport",
+    title: "Hur lång tid tar en husbilsimport?",
+    desc: () =>
+      "Räkna med 4–8 veckor från köp till svenska skyltar. Steg-för-steg-tidslinje så du vet vad som väntar.",
+  },
+  {
+    slug: "transportera-bil-fran-tyskland",
+    title: "Transportera husbilen hem – köra eller spedition?",
+    desc: () =>
+      "Tre alternativ med olika kostnader och risker. En husbil har egna förutsättningar för hemtransport.",
+  },
+  {
+    slug: "coc-intyg",
+    title: "COC-intyg – vad det är och varför du behöver det",
+    desc: (brand) =>
+      `COC-intyget krävs för att registrera din ${brand} i Sverige. Kontrollera att det finns med vid köpet.`,
+  },
+  {
+    slug: "ursprungskontroll",
+    title: "Ursprungskontroll – obligatorisk efter hemkomst",
+    desc: () =>
+      "Beställ hos Transportstyrelsen (1 240 kr, 2025). Utan godkänd ursprungskontroll kan husbilen inte registreras.",
+  },
+  {
+    slug: "registreringsbesiktning",
+    title: "Registreringsbesiktning – sista steget mot svenska skyltar",
+    desc: () =>
+      "Ca 3 000–5 000 kr för husbil. Mer omfattande än för personbil – gas, fukt och chassi kontrolleras.",
+  },
+  {
+    slug: "fordonsskatt-husbil-bonus-malus",
+    title: "Fordonsskatt för husbil – vad gäller efter 2025?",
+    desc: (brand) =>
+      `Räkna ut den årliga fordonsskatten för din ${brand}. Malus togs bort för husbilar i februari 2025.`,
+  },
+];
+
 interface Props {
   params: Promise<{ slug: string }>;
 }
@@ -467,13 +523,37 @@ export default async function ImporteraHusbilPage({ params }: Props) {
 
           {/* Related guides */}
           <section>
-            <h2 className="text-xl font-bold text-gray-900 mb-4">Läs mer</h2>
-            <ul className="space-y-2">
-              <li><Link href="/guider/registreringsbesiktning" className="text-blue-700 hover:underline text-sm">Guide: Registreringsbesiktning</Link></li>
-              <li><Link href="/guider/coc-intyg" className="text-blue-700 hover:underline text-sm">Guide: COC-intyg</Link></li>
-              <li><Link href="/guider/ursprungskontroll" className="text-blue-700 hover:underline text-sm">Guide: Ursprungskontroll</Link></li>
-              <li><Link href="/importera-husbil/kostnad" className="text-blue-700 hover:underline text-sm">Alla kostnader vid husbilsimport</Link></li>
-            </ul>
+            <h2 className="text-xl font-bold text-gray-900 mb-2">
+              Guider för din {importData.name}-import
+            </h2>
+            <p className="text-sm text-gray-600 mb-5">
+              Allt du behöver veta – från att hitta husbilen i Tyskland till svenska skyltar.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+              {MOTORHOME_IMPORT_GUIDES.map((guide) => (
+                <Link
+                  key={guide.slug}
+                  href={`/guider/${guide.slug}`}
+                  className="group flex flex-col p-4 border border-gray-200 rounded-lg bg-white hover:border-blue-300 hover:bg-blue-50 transition-colors"
+                >
+                  <span className="font-semibold text-gray-900 text-sm group-hover:text-blue-700 mb-1 leading-snug">
+                    {guide.title}
+                  </span>
+                  <span className="text-xs text-gray-600 leading-relaxed flex-1">
+                    {guide.desc(importData.name)}
+                  </span>
+                  <span className="text-xs text-blue-700 mt-3 font-medium">
+                    Läs guide &rarr;
+                  </span>
+                </Link>
+              ))}
+            </div>
+            <p className="text-sm text-gray-600">
+              Se även:{" "}
+              <Link href="/importera-husbil/kostnad" className="text-blue-700 hover:underline">
+                Alla kostnader vid husbilsimport
+              </Link>
+            </p>
           </section>
         </article>
       </div>
