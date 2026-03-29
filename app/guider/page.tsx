@@ -184,11 +184,12 @@ export default function GuiderPage() {
               <Link
                 key={brand.slug}
                 href={`/importera-bil/${brand.slug}`}
-                className="group flex flex-col p-4 border border-gray-200 rounded-lg bg-white hover:border-blue-300 hover:bg-blue-50 transition-colors"
+                className="block rounded-lg p-5 border border-gray-200 bg-gray-50 hover:border-blue-400 hover:bg-white hover:shadow-sm transition-all"
               >
-                <span className="font-semibold text-gray-900 text-sm group-hover:text-blue-700 mb-1">
-                  {brand.name}
-                </span>
+                <div className="flex items-start justify-between gap-2 mb-1">
+                  <span className="text-lg font-bold text-gray-900">{brand.name}</span>
+                  <span className="text-xs font-medium text-blue-700 bg-blue-50 px-2 py-0.5 rounded whitespace-nowrap">Bil</span>
+                </div>
                 <span className="text-xs text-gray-500 leading-relaxed">{brand.tagline}</span>
               </Link>
             ))}
@@ -206,11 +207,12 @@ export default function GuiderPage() {
               <Link
                 key={brand.slug}
                 href={`/importera-husbil/${brand.slug}`}
-                className="group flex flex-col p-4 border border-gray-200 rounded-lg bg-white hover:border-blue-300 hover:bg-blue-50 transition-colors"
+                className="block rounded-lg p-5 border border-gray-200 bg-gray-50 hover:border-blue-400 hover:bg-white hover:shadow-sm transition-all"
               >
-                <span className="font-semibold text-gray-900 text-sm group-hover:text-blue-700 mb-1">
-                  {brand.name}
-                </span>
+                <div className="flex items-start justify-between gap-2 mb-1">
+                  <span className="text-lg font-bold text-gray-900">{brand.name}</span>
+                  <span className="text-xs font-medium text-blue-700 bg-blue-50 px-2 py-0.5 rounded whitespace-nowrap">Husbil</span>
+                </div>
                 <span className="text-xs text-gray-500 leading-relaxed">{brand.tagline}</span>
               </Link>
             ))}
