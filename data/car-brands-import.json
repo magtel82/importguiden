@@ -1,0 +1,301 @@
+{
+  "_version": "1.0.0",
+  "_updated": "2026-03-28",
+  "_source": "ADAC Pannenstatistik 2025, marknadsdata mobile.de/AutoScout24",
+  "brands": [
+    {
+      "slug": "bmw",
+      "name": "BMW",
+      "type": "bil",
+      "intro": "BMW är ett av de mest populära märkena att importera från Tyskland – och av goda skäl. Prisskillnaden mellan den tyska och svenska begagnatmarknaden ligger typiskt på 15–40 procent beroende på modell och utrustningsnivå. Som BMW:s hemmamarknad har Tyskland ett enormt utbud: tusentals bilar finns till salu på mobile.de och AutoScout24 vid varje given tidpunkt.\n\nADAC Pannenstatistik 2025 bekräftar att BMW genomgående rankas högt vad gäller tillförlitlighet. Modeller som 3-serien, 5-serien och X3 tillhör de mest pålitliga i sina respektive klasser. Det gör BMW till ett tryggt val för den som importerar sin första bil från Tyskland.\n\nDen stora tillgången innebär att du kan vara kräsen – välj bilar med komplett servicehistorik (Scheckheft), färskt TÜV och alla dokument i ordning. Med rätt förarbete kan en BMW-import spara dig betydande belopp jämfört med motsvarande bil på den svenska marknaden.\n\nI den här guiden går vi igenom vilka BMW-modeller som är bäst lämpade för import, kända problem att vara uppmärksam på, vilka dokument du behöver och hur du räknar ut den totala kostnaden.",
+      "specialCase": false,
+      "priceAdvantage": "15–40 %",
+      "whereToBuy": ["mobile.de", "AutoScout24"],
+      "recommendedModels": [
+        { "model": "3-serie", "years": "2015–2021", "adacRating": "mycket bra", "notes": "Genomgående hög tillförlitlighet enligt ADAC Pannenstatistik 2025" },
+        { "model": "4-serie", "years": "2014–2021", "adacRating": "mycket bra", "notes": "Stabil och välutrustad" },
+        { "model": "X3", "years": "2014–2021", "adacRating": "mycket bra", "notes": "En av ADAC:s mest tillförlitliga SUV:ar" },
+        { "model": "5-serie", "years": "2014–2021", "adacRating": "mycket bra", "notes": "Utmärkt som importbil, stor prisskillnad mot Sverige" },
+        { "model": "X5", "years": "2015–2021", "adacRating": "bra", "notes": "Högt rankad av ADAC, bred tillgång på tyska marknaden" }
+      ],
+      "knownIssues": [
+        {
+          "issue": "N47-dieselmotor (2007–2013)",
+          "description": "Känd för att timing-kedjan kan sträcka sig i förtid och orsaka motorhaveri. Kontrollera servicehistorik noggrant och lyssna efter skramlande ljud vid kallstart. Undvik denna motor om servicebok saknas.",
+          "severity": "hög"
+        },
+        {
+          "issue": "Startbatteri (12V)",
+          "description": "Vanligaste pannenorsaken för BMW enligt ADAC 2025. Kontrollera batteristatus vid besiktning, särskilt på bilar som stått stilla länge.",
+          "severity": "låg"
+        },
+        {
+          "issue": "Elektronik och iDrive-system",
+          "description": "Äldre iDrive-versioner (CIC och NBT) kan ha programvaruproblem och frusna skärmar. Testa samtliga funktioner vid provkörning.",
+          "severity": "medel"
+        }
+      ],
+      "documentsToRequest": [
+        "Fahrzeugschein (Zulassungsbescheinigung Teil I och II) – båda delarna i original",
+        "COC-intyg (Certificate of Conformity)",
+        "Scheckheft (servicebok) – komplett och stämplad historik",
+        "TÜV-rapport – helst utfärdad inom senaste 12 månaderna",
+        "Köpekontrakt (Kaufvertrag) med VIN-nummer och kilometerstand"
+      ],
+      "adacSource": "ADAC Pannenstatistik 2025",
+      "adacSourceUrl": "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
+      "priceSEK": { "min": 150000, "max": 600000 },
+      "priceEUR": { "min": 13000, "max": 55000 }
+    },
+    {
+      "slug": "mercedes",
+      "name": "Mercedes-Benz",
+      "type": "bil",
+      "intro": "Mercedes-Benz är Tysklands kanske mest ikoniska bilmärke – och prisskillnaden mot Sverige gör det attraktivt att importera. Räkna med 10–30 procent lägre priser på den tyska begagnatmarknaden, särskilt på populära modeller som A-klass, C-klass och E-klass.\n\nEnligt ADAC Pannenstatistik 2025 utmärker sig Mercedes A-klass och B-klass som särskilt tillförlitliga – bland de bästa i sina klasser. Även C-klass och E-klass får goda betyg. Ett undantag värt att notera är Mercedes Citan som visar svagheter i samtliga årsmodeller enligt ADAC.\n\nTyskland har som Mercedes hemmamarknad ett brett utbud av välutrustade bilar, ofta med utrustningspaket som sällan ses på svenska exemplar. AMG Line, Avantgarde och andra paket är vanligare och billigare på den tyska marknaden.\n\nI den här guiden går vi igenom vilka Mercedes-modeller som lämpar sig bäst för import, specifika problem att kontrollera innan köp, vilka dokument du behöver begära och hur du beräknar den totala importkostnaden.",
+      "specialCase": false,
+      "priceAdvantage": "10–30 %",
+      "whereToBuy": ["mobile.de", "AutoScout24"],
+      "recommendedModels": [
+        { "model": "A-klass", "years": "2015–2021", "adacRating": "mycket bra", "notes": "En av de mest tillförlitliga i sin klass enligt ADAC Pannenstatistik 2025" },
+        { "model": "B-klass", "years": "2014–2021", "adacRating": "mycket bra", "notes": "Konsekvent höga ADAC-betyg i alla årsmodeller" },
+        { "model": "C-klass", "years": "2015–2021", "adacRating": "bra", "notes": "Populär importbil med bra tillgång och tydlig prisskillnad mot Sverige" },
+        { "model": "E-klass", "years": "2016–2021", "adacRating": "bra", "notes": "Stor prisskillnad mot Sverige, välutrustad på tyska marknaden" },
+        { "model": "GLE", "years": "2016–2021", "adacRating": "bra", "notes": "Bred tillgång och bra ADAC-ranking" }
+      ],
+      "knownIssues": [
+        {
+          "issue": "Citan – undvik som importbil",
+          "description": "Mercedes Citan rankas som problematisk i alla årsmodeller enligt ADAC Pannenstatistik 2025. Rekommenderas inte som importbil.",
+          "severity": "hög"
+        },
+        {
+          "issue": "CLA och GLA – äldre årsmodeller",
+          "description": "CLA och GLA visar svagheter i årsmodeller före 2018 enligt ADAC. Välj 2018 eller nyare för dessa modeller.",
+          "severity": "medel"
+        },
+        {
+          "issue": "AdBlue-system (dieselmodeller)",
+          "description": "Kontrollera att AdBlue-systemet är i ordning och att det inte finns felkoder. Kostsamt att åtgärda om det krånglar.",
+          "severity": "medel"
+        },
+        {
+          "issue": "Startbatteri (12V)",
+          "description": "Vanligaste pannenorsaken även för Mercedes enligt ADAC. Kontrollera status vid besiktning.",
+          "severity": "låg"
+        }
+      ],
+      "documentsToRequest": [
+        "Fahrzeugschein (båda delarna) i original",
+        "COC-intyg",
+        "Scheckheft – komplett servicehistorik, helst från auktoriserad Mercedes-verkstad",
+        "TÜV-rapport",
+        "Köpekontrakt med VIN och kilometerstand"
+      ],
+      "adacSource": "ADAC Pannenstatistik 2025",
+      "adacSourceUrl": "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
+      "priceSEK": { "min": 120000, "max": 700000 },
+      "priceEUR": { "min": 11000, "max": 65000 }
+    },
+    {
+      "slug": "volkswagen",
+      "name": "Volkswagen",
+      "type": "bil",
+      "intro": "Volkswagen är det mest sålda bilmärket i Tyskland och därmed det märke med störst utbud på begagnatmarknaden. Priserna ligger typiskt 10–25 procent lägre än i Sverige, och tillgången på modeller som Golf, Passat och Tiguan är enorm.\n\nADAC Pannenstatistik 2025 visar att Volkswagen genomgående presterar bra vad gäller tillförlitlighet. Golf rankas som en av de mest pålitliga bilarna i sin klass, och även Passat och Tiguan får goda betyg. Elbilen ID.4 visar lovande resultat i de första årsmodellerna.\n\nFör den som importerar för första gången är Volkswagen ett naturligt val – reservdelstillgången i Sverige är utmärkt, och alla auktoriserade verkstäder kan serva bilen oavsett var den köpts. Prisskillnaden är kanske inte lika dramatisk som för BMW eller Porsche, men den lägre ingångskostnaden gör att besparingen fortfarande är värd besväret.\n\nI den här guiden går vi igenom rekommenderade VW-modeller för import, kända problem att kontrollera (inklusive DSG-växellådan och Dieselgate-status), vilka dokument du behöver och den totala kostnadsbilden.",
+      "specialCase": false,
+      "priceAdvantage": "10–25 %",
+      "whereToBuy": ["mobile.de", "AutoScout24"],
+      "recommendedModels": [
+        { "model": "Golf", "years": "2014–2021", "adacRating": "bra", "notes": "En av ADAC:s mest konsekvent tillförlitliga modeller" },
+        { "model": "Passat", "years": "2015–2021", "adacRating": "bra", "notes": "Stor tillgång på tyska marknaden och tydligt prisläge" },
+        { "model": "Tiguan", "years": "2016–2021", "adacRating": "bra", "notes": "Populär SUV med god tillförlitlighet enligt ADAC" },
+        { "model": "ID.4", "years": "2021–2022", "adacRating": "bra", "notes": "Elbil med god ADAC-ranking, bra alternativ för elbilsimport" }
+      ],
+      "knownIssues": [
+        {
+          "issue": "DSG DQ200 (7-växlad, torkopplingslåda)",
+          "description": "Den 7-växlade DSG-växellådan i äldre Golf och Passat kan ge ryckigt beteende vid låg hastighet och i kö. Testa noggrant vid provkörning. Den 6-växlade DSG (DQ250, våtkoppling) är mer tillförlitlig.",
+          "severity": "medel"
+        },
+        {
+          "issue": "Dieselgate – kontrollera uppdateringsstatus",
+          "description": "Bilar från 2009–2015 med TDI-motor kan ha ingått i Volkswagens utsläppsskandal. Kontrollera om programvaruuppdateringen är genomförd via VIN-numret på Volkswagens webbplats.",
+          "severity": "medel"
+        },
+        {
+          "issue": "Startbatteri (12V)",
+          "description": "Vanligaste pannenorsaken. Kontrollera batteristatus vid besiktning.",
+          "severity": "låg"
+        }
+      ],
+      "documentsToRequest": [
+        "Fahrzeugschein (båda delarna) i original",
+        "COC-intyg",
+        "Scheckheft – komplett servicehistorik",
+        "TÜV-rapport",
+        "Köpekontrakt med VIN och kilometerstand",
+        "Bekräftelse på Dieselgate-uppdatering (om tillämpligt)"
+      ],
+      "adacSource": "ADAC Pannenstatistik 2025",
+      "adacSourceUrl": "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
+      "priceSEK": { "min": 80000, "max": 400000 },
+      "priceEUR": { "min": 7000, "max": 37000 }
+    },
+    {
+      "slug": "audi",
+      "name": "Audi",
+      "type": "bil",
+      "intro": "Audi tillhör de mest tillförlitliga bilmärkena i hela ADAC Pannenstatistik 2025 – och kombinationen av hög kvalitet och 15–35 procent lägre priser i Tyskland gör det till ett av de smartaste märkena att importera.\n\nModeller som A3, A4, A5, Q2 och Q3 rankas konsekvent som \"mycket bra\" av ADAC i samtliga testade årsmodeller. Det är en tillförlitlighetsnivå som få andra märken når upp till. Även elbilen Q4 e-tron får goda betyg i sina första årsmodeller.\n\nPå den tyska marknaden hittar du Audi med utrustningsnivåer som sällan förekommer i svenska annonser – S line, quattro-drivlina och Virtual Cockpit är vanligare och billigare på hemmamarknaden. Tillgången är bred på både mobile.de och AutoScout24.\n\nAudi-ägare är dessutom kända för att hålla noggrann servicebok (Scheckheft), vilket gör det enklare att verifiera bilens historik vid köp. I den här guiden går vi igenom vilka Audi-modeller som är bäst lämpade för import, kända problem att vara uppmärksam på, vilka dokument du behöver och hur du räknar ut importkostnaden.",
+      "specialCase": false,
+      "priceAdvantage": "15–35 %",
+      "whereToBuy": ["mobile.de", "AutoScout24"],
+      "recommendedModels": [
+        { "model": "A3", "years": "2014–2021", "adacRating": "mycket bra", "notes": "Konsekvent hög ADAC-ranking i alla årsmodeller" },
+        { "model": "A4", "years": "2015–2021", "adacRating": "mycket bra", "notes": "Bland de allra bästa i sin klass enligt ADAC Pannenstatistik 2025" },
+        { "model": "A5", "years": "2016–2021", "adacRating": "mycket bra", "notes": "Utmärkt tillförlitlighet och bra prisläge i Tyskland" },
+        { "model": "Q2", "years": "2016–2021", "adacRating": "mycket bra", "notes": "Hög ranking i ADAC, bred tillgång" },
+        { "model": "Q3", "years": "2015–2021", "adacRating": "mycket bra", "notes": "Tillförlitlig kompakt SUV" },
+        { "model": "Q4 e-tron", "years": "2021–2022", "adacRating": "bra", "notes": "Elbil med bra ADAC-betyg" }
+      ],
+      "knownIssues": [
+        {
+          "issue": "Oljekonsumtion – äldre TFSI-motorer (1.8 och 2.0)",
+          "description": "Äldre 1.8 och 2.0 TFSI-motorer (2008–2013) kan förbruka upp till 0,5–1 liter olja per 1 000 km. Kontrollera oljenivå vid provbesök och be om historik från verkstad.",
+          "severity": "medel"
+        },
+        {
+          "issue": "DSG DQ200 (7-växlad)",
+          "description": "Samma som VW – äldre 7-växlad DSG kan vara ryckig vid låg hastighet. Testa noggrant, välj hellre bil med 6-växlad DSG (DQ250).",
+          "severity": "medel"
+        },
+        {
+          "issue": "MMI-navigationssystem (äldre versioner)",
+          "description": "Äldre MMI 2G och 3G kan ha långsam respons och föråldrade kartor. Testa alla funktioner vid provkörning.",
+          "severity": "låg"
+        },
+        {
+          "issue": "Startbatteri (12V)",
+          "description": "Vanligaste pannenorsaken. Kontrollera status vid besiktning.",
+          "severity": "låg"
+        }
+      ],
+      "documentsToRequest": [
+        "Fahrzeugschein (båda delarna) i original",
+        "COC-intyg",
+        "Scheckheft – Audi-ägare är kända för noggrann servicebok, kräv komplett historik",
+        "TÜV-rapport",
+        "Köpekontrakt med VIN och kilometerstand"
+      ],
+      "adacSource": "ADAC Pannenstatistik 2025",
+      "adacSourceUrl": "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
+      "priceSEK": { "min": 130000, "max": 700000 },
+      "priceEUR": { "min": 12000, "max": 65000 }
+    },
+    {
+      "slug": "porsche",
+      "name": "Porsche",
+      "type": "bil",
+      "intro": "Porsche erbjuder den kanske största procentuella prisbesparingen av alla premiummärken vid import från Tyskland. Räkna med 20–40 procent lägre priser jämfört med den svenska begagnatmarknaden – på en Cayenne eller 911 kan det handla om hundratusentals kronor i besparing.\n\nSom Porsches hemmamarknad har Tyskland det överlägset största utbudet av begagnade Porsche-bilar i Europa. Modeller som Cayenne, Macan och 911 finns i stort antal på mobile.de, AutoScout24 och genom Porsche Approved – Porsches eget certifierade begagnatprogram.\n\nADAC Pannenstatistik 2025 ger Porsche-modeller genomgående goda betyg för tillförlitlighet, men det finns specifika problem att vara medveten om – särskilt det kända IMS-lagret på äldre 911, Boxster och Cayman med M96/M97-motor.\n\nVid köp av Porsche är det extra viktigt att kräva komplett servicehistorik från auktoriserad Porsche-verkstad. Den höga besparingen motiverar också att anlita en oberoende besiktningsman (DEKRA eller TÜV) innan köp. I den här guiden går vi igenom rekommenderade modeller, kända problem, nödvändiga dokument och den totala importkostnaden.",
+      "specialCase": false,
+      "priceAdvantage": "20–40 %",
+      "whereToBuy": ["mobile.de", "AutoScout24", "Porsche Approved – auktoriserade Porsche-handlare"],
+      "recommendedModels": [
+        { "model": "Cayenne", "years": "2014–2021", "adacRating": "bra", "notes": "Stor prisskillnad mot Sverige, bred tillgång i Tyskland" },
+        { "model": "Macan", "years": "2015–2021", "adacRating": "bra", "notes": "Populär importbil med bra tillgång" },
+        { "model": "911 (991 och 992)", "years": "2012–2022", "adacRating": "bra", "notes": "Entusiastbil med bred tillgång och tydlig prisskillnad mot Sverige" },
+        { "model": "Panamera", "years": "2014–2021", "adacRating": "bra", "notes": "Stor sedan med lyxutrustning till lägre pris än Sverige" }
+      ],
+      "knownIssues": [
+        {
+          "issue": "IMS-lager (911, Boxster, Cayman – M96/M97-motor 1997–2008)",
+          "description": "Intermediate Shaft-lagret på äldre Porsche-motorer (M96/M97) kan haverera utan förvarning och orsaka totalt motorhaveri. Kontrollera alltid om IMS-uppgradering (IMS Solution eller LN Engineering) är genomförd. Detta är ett absolut krav innan köp av dessa årsmodeller.",
+          "severity": "hög"
+        },
+        {
+          "issue": "Cayenne V8 diesel (4.2 och 4.8)",
+          "description": "Turboladdare och oljekylare kan ge problem på höga miltalsbilar. Be om fullständig servicehistorik från auktoriserad Porsche-verkstad.",
+          "severity": "medel"
+        },
+        {
+          "issue": "PDK-växellåda – servicekrav",
+          "description": "PDK är generellt tillförlitlig men servicekrävande. Kontrollera att växellådsservice är utförd enligt schema (normalt var 4:e år eller 60 000 km).",
+          "severity": "låg"
+        },
+        {
+          "issue": "Startbatteri (12V)",
+          "description": "Porsche-bilar som stått stilla kan få batteriproblem. Kontrollera status vid besiktning.",
+          "severity": "låg"
+        }
+      ],
+      "documentsToRequest": [
+        "Fahrzeugschein (båda delarna) i original",
+        "COC-intyg",
+        "Scheckheft – Porsche-service är noggrant dokumenterad, kräv komplett historik",
+        "TÜV-rapport",
+        "Köpekontrakt med VIN och kilometerstand",
+        "Dokumentation på IMS-uppgradering (för 911/Boxster/Cayman 1997–2008)",
+        "Porsche Certificate of Authenticity (rekommenderas för äldre och klassiska modeller)"
+      ],
+      "adacSource": "ADAC Pannenstatistik 2025",
+      "adacSourceUrl": "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
+      "priceSEK": { "min": 400000, "max": 2000000 },
+      "priceEUR": { "min": 37000, "max": 185000 }
+    },
+    {
+      "slug": "tesla",
+      "name": "Tesla",
+      "type": "bil",
+      "intro": "Tesla skiljer sig från alla andra märken i den här guiden – både vad gäller köpprocessen och vad du behöver kontrollera. Teslas bilar säljs inte via traditionella bilhandlare utan genom Teslas egna kanaler och certifierade återförsäljare. Det innebär en annan köpupplevelse, men också andra möjligheter.\n\nPrisskillnaden mot Sverige ligger på 10–25 procent, och ADAC Pannenstatistik 2025 rankar Tesla Model 3 som en av de allra mest tillförlitliga bilarna i hela statistiken. Model Y får också goda betyg i sina första årsmodeller.\n\nVid import av Tesla finns specifika faktorer som inte gäller för konventionella bilar. Batteriets State of Health (SoH) är avgörande för bilens värde och räckvidd. Laddkontaktens typ varierar beroende på tillverkningsår. Ägarbytet sker via Teslas app och kundtjänst – inte genom fysiska papper som hos andra märken.\n\nI den här guiden går vi igenom hur Tesla-köpet skiljer sig från andra märken, vad du ska kontrollera gällande batteri och laddning, kända problem att vara uppmärksam på, vilka dokument du behöver och hur du beräknar den totala importkostnaden. Vi täcker Model 3, Model Y och Model S.",
+      "specialCase": true,
+      "specialCaseNote": "Tesla säljs direkt via Tesla och certifierade återförsäljare – inte via traditionella tyska bilhandlare. Köpprocessen skiljer sig väsentligt från övriga märken.",
+      "priceAdvantage": "10–25 %",
+      "whereToBuy": [
+        "tesla.com – Teslas egna certifierade begagnatlistor",
+        "mobile.de – certifierade Tesla-återförsäljare",
+        "AutoScout24 – privatsäljare och återförsäljare"
+      ],
+      "recommendedModels": [
+        { "model": "Model 3", "years": "2019–2022", "adacRating": "mycket bra", "notes": "En av ADAC:s absolut bäst rankade bilar i Pannenstatistik 2025" },
+        { "model": "Model Y", "years": "2021–2022", "adacRating": "bra", "notes": "Hög tillförlitlighet enligt ADAC, snabbt växande begagnatmarknad" },
+        { "model": "Model S", "years": "2018–2021", "adacRating": "varierande", "notes": "Välj 2018 eller nyare – äldre årsmodeller har fler dokumenterade problem" }
+      ],
+      "teslaSpecific": {
+        "batteryCheck": "Kontrollera State of Health (SoH) via Teslas app eller begär skriftligt utdrag från Tesla Service Center. Acceptabelt SoH för en 3–5 år gammal bil: 85 % eller högre. Under 80 % bör avspeglas tydligt i priset.",
+        "chargingConnector": "Bilar tillverkade från och med 2022 har CCS2-kontakt (europeisk standard). Äldre modeller har Teslas proprietära kontakt – kräver adapter (Tesla CCS Combo 2 Adapter) för snabbladdning utanför Supercharger-nätverket.",
+        "superchargerAccess": "Kontrollera att bilen inte är spärrad från Supercharger-nätverket. Kan hända om ett företagsavtal eller ett tidigare serviceavtal inte förts över korrekt till ny ägare.",
+        "warranty": "Teslas garanti följer bilen, inte landet – kontrollera återstående garantitid direkt med Tesla via VIN-numret. Batterigarantin är 8 år eller 160 000–240 000 km beroende på modell.",
+        "softwareUpdates": "Tesla uppdateras over-the-air (OTA). Kontrollera att bilen är knuten till ett aktivt Tesla-konto och att OTA-uppdateringar fungerar normalt.",
+        "transferProcess": "Ägarbytet sker via Teslas app och kundtjänst. Be säljaren avlänka bilen från sitt konto i samband med köpet – annars kan du inte koppla upp den till ditt eget konto."
+      },
+      "knownIssues": [
+        {
+          "issue": "Karosseri och lackkvalitet (äldre Model 3 och Model S)",
+          "description": "Äldre Tesla Model 3 (2017–2020) och Model S har fått kritik för ojämna karossfogar och lackkvalitet. Inspektera kaross noggrant i bra ljus, kontrollera fogar runt dörrar, huv och bagagelucka.",
+          "severity": "medel"
+        },
+        {
+          "issue": "Vattenpumpar och kylsystem (Model S äldre årsmodeller)",
+          "description": "Model S (2012–2016) kan ha problem med kylsystemets vattenpumpar. Kontrollera servicehistorik och om pumpar bytts ut.",
+          "severity": "medel"
+        },
+        {
+          "issue": "Startbatteri (12V)",
+          "description": "Teslas 12V-batteri laddas på ett annat sätt än i konventionella bilar och kan snabbt bli utladdat om bilen stått stilla länge. Kontrollera status – byte är relativt enkelt och billigt.",
+          "severity": "låg"
+        }
+      ],
+      "documentsToRequest": [
+        "Fahrzeugschein (båda delarna) i original",
+        "COC-intyg",
+        "Servicehistorik från Tesla Service Center",
+        "Skriftlig bekräftelse på State of Health (SoH) för batteriet",
+        "Dokumentation på återstående garanti från Tesla",
+        "Köpekontrakt med VIN och kilometerstand",
+        "Bekräftelse på att bilen avlänkats från säljarens Tesla-konto vid köptillfället"
+      ],
+      "adacSource": "ADAC Pannenstatistik 2025",
+      "adacSourceUrl": "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
+      "priceSEK": { "min": 200000, "max": 800000 },
+      "priceEUR": { "min": 18000, "max": 75000 }
+    }
+  ]
+}

@@ -1,8 +1,10 @@
-import type { Country, CarBrand, MotorhomeBrand, CostData } from "@/types";
+import type { Country, CarBrand, MotorhomeBrand, CostData, CarBrandImportData, MotorhomeBrandImportData } from "@/types";
 import countriesData from "@/data/countries.json";
 import carBrandsData from "@/data/car-brands.json";
 import motorhomeBrandsData from "@/data/motorhome-brands.json";
 import costDataRaw from "@/data/cost-data.json";
+import carBrandsImportData from "@/data/car-brands-import.json";
+import motorhomeBrandsImportData from "@/data/motorhome-brands-import.json";
 
 export function getCountries(): Country[] {
   return countriesData.countries as Country[];
@@ -22,6 +24,14 @@ export function getCarBrandBySlug(slug: string): CarBrand | undefined {
 
 export function getMotorhomeBrands(): MotorhomeBrand[] {
   return motorhomeBrandsData.brands as MotorhomeBrand[];
+}
+
+export function getCarBrandImportData(slug: string): CarBrandImportData | undefined {
+  return (carBrandsImportData.brands as CarBrandImportData[]).find((b) => b.slug === slug);
+}
+
+export function getMotorhomeBrandImportData(slug: string): MotorhomeBrandImportData | undefined {
+  return (motorhomeBrandsImportData.brands as MotorhomeBrandImportData[]).find((b) => b.slug === slug);
 }
 
 export function getCostData(): CostData {

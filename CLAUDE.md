@@ -1,6 +1,6 @@
 # CLAUDE.md – Importguiden
 
-# Senast uppdaterad: 2026-03-27 (4)
+# Senast uppdaterad: 2026-03-28 (5)
 
 # Status: MVP GO – affiliate-redo, aktiv utveckling
 
@@ -114,13 +114,19 @@ sitemap.ts                        # /sitemap.xml – läser manifest
 importera-bil/
 \[slug]/page.tsx                 # Länder OCH märken i samma route
 # slug=tyskland → laddar MDX-fil + Article JSON-LD
-# slug=bmw → inline märkessida
+# slug=bmw → rikt pSEO-innehåll från car-brands-import.json
+#   (intro, modeller, kända problem, dokument, kalkylator-CTA, affiliate)
+#   Fallback: tunn sida om märket saknar importdata
+# slug=tesla → extra Tesla-specifik sektion (SoH, laddkontakt, garanti)
 # compileMDX får components: { AffiliateLink }
 kostnad/page.tsx                # /importera-bil/kostnad
 importera-husbil/
 \[slug]/page.tsx                 # Länder + märken (husbil)
 # slug=tyskland → laddar MDX-fil + Article JSON-LD
 # slug=annat-land → generisk template
+# slug=hymer → rikt pSEO-innehåll från motorhome-brands-import.json
+#   (intro, chassi-varning, modeller, problem, körkortskrav, kalkylator)
+#   Fallback: tunn sida om märket saknar importdata
 # compileMDX med remarkGfm
 kostnad/page.tsx                # /importera-husbil/kostnad
 guider/
@@ -193,8 +199,16 @@ CookieSettingsLink.tsx            # "use client" – knapp i footer som återöp
 
 data/                               # JSON-datafiler (ej databas)
 countries.json                    # EU-länder med slug, valuta, euMember
-car-brands.json                   # Bilmärken med slug
-motorhome-brands.json             # Husbilsmärken
+car-brands.json                   # Bilmärken med slug (styr generateStaticParams)
+car-brands-import.json            # pSEO-innehåll per bilmärke: intro, ADAC-data,
+# modeller, kända problem, dokument, priser
+# Märken: BMW, Mercedes, VW, Audi, Porsche, Tesla
+# Tesla har extra teslaSpecific-objekt (SoH, laddkontakt etc.)
+motorhome-brands.json             # Husbilsmärken (styr generateStaticParams)
+motorhome-brands-import.json      # pSEO-innehåll per husbilsmärke: intro, chassi-
+# varning, modeller, kända problem, dokument, priser
+# Märken: Hymer, Dethleffs, Bürstner, Knaus, Hobby
+# chassisWarning=true → Ducato-varningsruta renderas
 cost-data.json                    # Avgifter med belopp + källhänvisning
 # Innehåller: ursprungskontroll, registreringsbesiktning
 # (personbil/husbil), skyltavgift, importforsäkring
@@ -211,7 +225,8 @@ lib/
 manifest.ts                       # getAllPages, getIndexablePages,
 # getPageByPath, getRobotsForPath
 manifest-merge.ts                 # mergeManifest(), buildManifest()
-data.ts                           # getCountries, getCarBrands, getCostData
+data.ts                           # getCountries, getCarBrands, getCostData,
+# getCarBrandImportData(slug), getMotorhomeBrandImportData(slug)
 seo.ts                            # getCanonicalUrl, getBreadcrumbJsonLd,
 # getFaqJsonLd, getArticleJsonLd
 headings.ts                       # extractHeadings() – H2:or ur MDX-källa
@@ -219,6 +234,8 @@ headings.ts                       # extractHeadings() – H2:or ur MDX-källa
 
 types/
 index.ts                          # Alla TypeScript-interfaces
+# Inkl. CarBrandImportData, MotorhomeBrandImportData,
+# RecommendedModel, KnownIssue, TeslaSpecific, PriceRange
 
 docs/
 site-review-todo.md               # Sajt-genomlysning åtgärdslista – 100% avklarad

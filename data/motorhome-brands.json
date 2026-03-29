@@ -7,7 +7,7 @@
     { "slug": "hymer", "name": "Hymer", "popular": true, "origin": "DE" },
     { "slug": "dethleffs", "name": "Dethleffs", "popular": true, "origin": "DE" },
     { "slug": "eriba", "name": "Eriba", "popular": false, "origin": "DE" },
-    { "slug": "bürstner", "name": "Bürstner", "popular": false, "origin": "DE" },
+    { "slug": "burstner", "name": "Bürstner", "popular": false, "origin": "DE" },
     { "slug": "carthago", "name": "Carthago", "popular": false, "origin": "DE" },
     { "slug": "hobby", "name": "Hobby", "popular": false, "origin": "DE" },
     { "slug": "fendt", "name": "Fendt", "popular": false, "origin": "DE" }
