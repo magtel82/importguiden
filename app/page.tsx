@@ -46,6 +46,16 @@ const guides = [
     title: "Moms vid bilimport",
     description: "När betalar du 25% moms? Regler för nytt vs begagnat fordon förklarade.",
   },
+  {
+    href: "/importera-bil/bmw",
+    title: "Märkesguider – bil",
+    description: "BMW, Mercedes, VW, Audi, Porsche och Tesla – ADAC-data, kända fel och tips per märke.",
+  },
+  {
+    href: "/importera-husbil/hymer",
+    title: "Märkesguider – husbil",
+    description: "Hymer, Dethleffs, Bürstner, Knaus och Hobby – chassiinfo, Ducato-varning och kontrollpunkter.",
+  },
 ];
 
 const jsonLd = {
