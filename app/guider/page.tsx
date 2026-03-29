@@ -166,7 +166,7 @@ export default function GuiderPage() {
         </ul>
 
         <section className="mb-10">
-          <h2 className="text-lg font-bold text-gray-900 mb-1">Märkesspecifika importguider</h2>
+          <h2 id="markesguider" className="text-lg font-bold text-gray-900 mb-1">Märkesspecifika importguider</h2>
           <p className="text-sm text-gray-600 mb-4">
             ADAC-data, kända problem, rekommenderade modeller och dokument – för just det märke du funderar på.
           </p>
