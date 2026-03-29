@@ -141,6 +141,58 @@ export default function GuiderPage() {
           </div>
         </section>
 
+        <section className="mb-10">
+          <h2 className="text-lg font-bold text-gray-900 mb-1">Märkesspecifika importguider</h2>
+          <p className="text-sm text-gray-600 mb-4">
+            ADAC-data, kända problem, rekommenderade modeller och dokument – för just det märke du funderar på.
+          </p>
+
+          <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">Personbilar</h3>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6">
+            {[
+              { slug: "bmw", name: "BMW", tagline: "3-serie, 5-serie, X3 – 15–40 % lägre pris" },
+              { slug: "mercedes", name: "Mercedes-Benz", tagline: "A-klass, C-klass, E-klass – 10–30 % lägre pris" },
+              { slug: "volkswagen", name: "Volkswagen", tagline: "Golf, Passat, Tiguan – 10–25 % lägre pris" },
+              { slug: "audi", name: "Audi", tagline: "A3, A4, Q3 – ADAC bäst i klass 2025" },
+              { slug: "porsche", name: "Porsche", tagline: "Cayenne, Macan, 911 – 20–40 % lägre pris" },
+              { slug: "tesla", name: "Tesla", tagline: "Model 3, Model Y – SoH, laddkontakter, garanti" },
+            ].map((brand) => (
+              <Link
+                key={brand.slug}
+                href={`/importera-bil/${brand.slug}`}
+                className="group flex flex-col p-4 border border-gray-200 rounded-lg bg-white hover:border-blue-300 hover:bg-blue-50 transition-colors"
+              >
+                <span className="font-semibold text-gray-900 text-sm group-hover:text-blue-700 mb-1">
+                  {brand.name}
+                </span>
+                <span className="text-xs text-gray-500 leading-relaxed">{brand.tagline}</span>
+              </Link>
+            ))}
+          </div>
+
+          <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">Husbilar</h3>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            {[
+              { slug: "hymer", name: "Hymer", tagline: "B-klass, ML-T, Exsis – Fiat Ducato-chassi" },
+              { slug: "dethleffs", name: "Dethleffs", tagline: "Trend, Esprit, Globebus – prisvärd import" },
+              { slug: "burstner", name: "Bürstner", tagline: "Lyseo, Ixeo, Delfin – bred modellflora" },
+              { slug: "knaus", name: "Knaus", tagline: "Sun TI, Van TI, Sky TI – halvintegrerad" },
+              { slug: "hobby", name: "Hobby", tagline: "Optima, De Luxe – Tysklands folkligaste märke" },
+            ].map((brand) => (
+              <Link
+                key={brand.slug}
+                href={`/importera-husbil/${brand.slug}`}
+                className="group flex flex-col p-4 border border-gray-200 rounded-lg bg-white hover:border-blue-300 hover:bg-blue-50 transition-colors"
+              >
+                <span className="font-semibold text-gray-900 text-sm group-hover:text-blue-700 mb-1">
+                  {brand.name}
+                </span>
+                <span className="text-xs text-gray-500 leading-relaxed">{brand.tagline}</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+
         <h2 className="text-lg font-bold text-gray-900 mb-3">Fördjupningsguider</h2>
         <ul className="space-y-4">
           {guides.map((guide) => (
