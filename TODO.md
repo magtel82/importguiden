@@ -1,6 +1,6 @@
 # TODO – Importguiden
 
-_Senast uppdaterad: 2026-03-29_
+_Senast uppdaterad: 2026-03-29 (2)_
 
 ---
 
@@ -19,26 +19,20 @@ _Senast uppdaterad: 2026-03-29_
   - `/importera-husbil/tyskland` – ny sektion "Märkesspecifika husbilsguider" med alla 5 märken
   - Startsidan (`app/page.tsx`) – två nya kort i guider-griden
 - [x] Enhetlig styling på guide-korten (startsidan) – kalkylator-kortet stack inte längre ut
+- [x] Quality gate + indexering av 3 guider: `hur-lang-tid-tar-bilimport` (78), `transportera-bil-fran-tyskland` (80), `importera-elbil` (82)
+- [x] Guide: `/guider/besikta-husbil` – fuktmätning, gaskontroll, körkortskrav (B/C1/C), kostnad, stationsbokning. Score 80, indexable: true.
+- [x] Guidekort på alla märkessidor – ersätter länklista med kontextuella guidekort (2-kolumns-rutnät)
+  - Bil (6 märken): 7 guidekort med märkesspecifika beskrivningar. Tesla + VW får extra elbilsguide.
+  - Husbil (5 märken): 8 guidekort inkl. besikta-husbil och fordonsskatt-guide.
+  - Varje kort: titel + beskrivning med märkesnamnet inbakat + "Läs guide →"
 
 ---
 
 ## 🔴 Prioriterat nu
 
-### Innehåll – nästa guider att skriva
-- [ ] Guide: `/guider/besikta-husbil` – specifikt för husbilar, skiljer sig från personbil (nämns i CLAUDE.md som prio)
-- [ ] Guide: `/guider/kopa-husbil-mobil-de` – plattsajter för husbilar i Tyskland (analogt med befintlig mobile.de-guide för bil)
+### Innehåll – nästa guider
+- [ ] Guide: `/guider/kopa-husbil-mobil-de` – söka husbilar på mobile.de/AutoScout24, filtrera rätt, vad man ska titta på (analogt med befintlig guide för personbil)
 - [ ] Guide: `/guider/besiktningsfel-vid-import` – vanliga underkännandeorsaker, hög sökintent
-
-### Quality gate / indexering
-- [ ] Kör quality gate på de 3 nybyggda guiderna som fortfarande är `noindex`:
-  - `/guider/hur-lang-tid-tar-bilimport`
-  - `/guider/transportera-bil-fran-tyskland`
-  - `/guider/importera-elbil`
-  - Sätt `indexable: true` om score ≥ 75
-
-### Internlänkning
-- [ ] Lägg till länk till relevanta märkessidor från kalkylatorn (efter beräkning – "Läs om att importera [märke]")
-- [ ] Lägg till internlänkar från märkessidorna till relevanta guider (t.ex. bil/bmw → coc-intyg, registreringsbesiktning)
 
 ---
 

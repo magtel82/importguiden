@@ -1,6 +1,6 @@
 # CLAUDE.md – Importguiden
 
-# Senast uppdaterad: 2026-03-28 (5)
+# Senast uppdaterad: 2026-03-29 (7)
 
 # Status: MVP GO – affiliate-redo, aktiv utveckling
 
@@ -116,6 +116,8 @@ importera-bil/
 # slug=tyskland → laddar MDX-fil + Article JSON-LD
 # slug=bmw → rikt pSEO-innehåll från car-brands-import.json
 #   (intro, modeller, kända problem, dokument, kalkylator-CTA, affiliate)
+#   Avslutas med guidekort-rutnät: CAR_IMPORT_GUIDES (7 kort, märkesspecifika desc)
+#   Tesla + VW får extra EV_GUIDE (importera-elbil) via EV_BRAND_SLUGS
 #   Fallback: tunn sida om märket saknar importdata
 # slug=tesla → extra Tesla-specifik sektion (SoH, laddkontakt, garanti)
 # compileMDX får components: { AffiliateLink }
@@ -126,6 +128,7 @@ importera-husbil/
 # slug=annat-land → generisk template
 # slug=hymer → rikt pSEO-innehåll från motorhome-brands-import.json
 #   (intro, chassi-varning, modeller, problem, körkortskrav, kalkylator)
+#   Avslutas med guidekort-rutnät: MOTORHOME_IMPORT_GUIDES (8 kort, märkesspecifika desc)
 #   Fallback: tunn sida om märket saknar importdata
 # compileMDX med remarkGfm
 kostnad/page.tsx                # /importera-husbil/kostnad
@@ -161,6 +164,7 @@ fordonsskatt-husbil-bonus-malus.mdx
 hur-lang-tid-tar-bilimport.mdx  # \~900 ord – tidslinje 4–8 veckor
 transportera-bil-fran-tyskland.mdx # \~1 000 ord – egenköra/trailer/spedition
 importera-elbil.mdx             # \~1 100 ord – Tesla, BMW i4, VW ID, batteri
+besikta-husbil.mdx              # \~1 000 ord – fukt, gas, körkortskrav, kostnad
 # Alla guider: compileMDX + remarkGfm + rehypeSlug
 
 components/
@@ -668,14 +672,15 @@ Guider ska länka till varandra när ämnet är relaterat.
 
 ## CONTENT GAP – NÄSTA ATT SKRIVA
 
-Nyligen byggt (noindex – kör quality gate innan indexering):
-/guider/hur-lang-tid-tar-bilimport       – tidslinje 4–8 veckor, steg för steg
-/guider/transportera-bil-fran-tyskland   – egenköra vs trailer vs spedition, kostnader
-/guider/importera-elbil                  – Tesla, BMW i4, VW ID, batteristatus, momsregler
+Indexerade guider (quality gate godkänd):
+/guider/hur-lang-tid-tar-bilimport       – tidslinje 4–8 veckor, steg för steg (score 78)
+/guider/transportera-bil-fran-tyskland   – egenköra vs trailer vs spedition (score 80)
+/guider/importera-elbil                  – Tesla, BMW i4, VW ID, batteristatus (score 82)
+/guider/besikta-husbil                  – fukt, gas, körkortskrav, stationsbokning (score 80)
 
 Prioriterat (ej byggt):
-/guider/besikta-husbil                  – specifikt för husbilar, skiljer sig från personbil
-/importera-husbil/\[märke]               – Hymer, Dethleffs, Bürstner, Knaus m.fl.
+/guider/kopa-husbil-mobil-de            – söka husbilar på tyska plattsajter
+/guider/besiktningsfel-vid-import       – vanliga underkännandeorsaker
 
 Längre sikt:
 /guider/besiktningsfel-vid-import        – vanliga underkännandeorsaker
