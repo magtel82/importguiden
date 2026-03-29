@@ -1,6 +1,6 @@
 # TODO – Importguiden
 
-_Senast uppdaterad: 2026-03-29 (2)_
+_Senast uppdaterad: 2026-03-29 (3)_
 
 ---
 
@@ -25,14 +25,14 @@ _Senast uppdaterad: 2026-03-29 (2)_
   - Bil (6 märken): 7 guidekort med märkesspecifika beskrivningar. Tesla + VW får extra elbilsguide.
   - Husbil (5 märken): 8 guidekort inkl. besikta-husbil och fordonsskatt-guide.
   - Varje kort: titel + beskrivning med märkesnamnet inbakat + "Läs guide →"
+- [x] Guide: `/guider/kopa-husbil-mobil-de` – ~900 ord, husbilsspecifik ordlista, filterinställningar, fuktkontroll, checklista. Score 78, indexable: true.
+- [x] Guide: `/guider/besiktningsfel-vid-import` – ~950 ord, 8 underkännandeorsaker med åtgärder, bil+husbil, checklista. Score 80, indexable: true.
 
 ---
 
 ## 🔴 Prioriterat nu
 
-### Innehåll – nästa guider
-- [ ] Guide: `/guider/kopa-husbil-mobil-de` – söka husbilar på mobile.de/AutoScout24, filtrera rätt, vad man ska titta på (analogt med befintlig guide för personbil)
-- [ ] Guide: `/guider/besiktningsfel-vid-import` – vanliga underkännandeorsaker, hög sökintent
+Alla akuta punkter avklarade! Se nästa avsnitt.
 
 ---
 
