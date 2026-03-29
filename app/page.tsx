@@ -92,7 +92,7 @@ export default function HomePage() {
             </Link>
             <Link
               href="/importera-husbil/tyskland"
-              className="rounded border border-gray-300 px-6 py-3 min-h-[48px] flex items-center justify-center font-medium text-gray-700 hover:bg-gray-50"
+              className="rounded bg-blue-600 px-6 py-3 min-h-[48px] flex items-center justify-center font-medium text-white hover:bg-blue-700"
             >
               Guide: importera husbil från Tyskland
             </Link>
