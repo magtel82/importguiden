@@ -76,28 +76,43 @@ export default function HomePage() {
       <div className="mx-auto max-w-5xl px-4 py-12">
 
         {/* Hero */}
-        <section className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Importera bil eller husbil privat från Europa
+        <section className="mb-16">
+          <h1 className="text-3xl font-bold text-gray-900 mb-3 sm:text-4xl">
+            Importera fordon från Europa — steg för steg
           </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
-            Oberoende, källhänvisad information om privat fordonsimport från EU till Sverige – personbilar och husbilar. Vi säljer inga importtjänster – vi hjälper dig förstå processen och räkna på kostnaderna.
+          <p className="text-lg text-gray-600 max-w-2xl mb-8">
+            Oberoende guide med aktuella kostnader, kalkylator och praktiska råd
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 mb-8">
             <Link
-              href="/importera-bil/tyskland"
-              className="rounded bg-blue-700 px-6 py-3 min-h-[48px] flex items-center justify-center font-medium text-white hover:bg-blue-800"
+              href="/importera-bil/guide"
+              className="flex flex-col gap-2 rounded-lg border border-gray-200 bg-gray-50 p-5 hover:border-blue-400 hover:shadow-sm transition-all focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:outline-none"
+              aria-label="Importera bil – steg-för-steg-guide"
             >
-              Guide: importera bil från Tyskland
+              <span className="text-3xl" aria-hidden="true">🚗</span>
+              <span className="font-semibold text-gray-900">Importera bil</span>
+              <span className="text-sm text-gray-500">Steg-för-steg från Tyskland och Europa</span>
             </Link>
             <Link
-              href="/importera-husbil/tyskland"
-              className="rounded bg-blue-600 px-6 py-3 min-h-[48px] flex items-center justify-center font-medium text-white hover:bg-blue-700"
+              href="/importera-husbil/guide"
+              className="flex flex-col gap-2 rounded-lg border border-gray-200 bg-gray-50 p-5 hover:border-blue-400 hover:shadow-sm transition-all focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:outline-none"
+              aria-label="Importera husbil – komplett guide"
             >
-              Guide: importera husbil från Tyskland
+              <span className="text-3xl" aria-hidden="true">🚐</span>
+              <span className="font-semibold text-gray-900">Importera husbil</span>
+              <span className="text-sm text-gray-500">Komplett guide med husbilsspecifika krav</span>
+            </Link>
+            <Link
+              href="/kalkylator/bilimport"
+              className="flex flex-col gap-2 rounded-lg border border-gray-200 bg-gray-50 p-5 hover:border-blue-400 hover:shadow-sm transition-all focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:outline-none"
+              aria-label="Räkna på importkostnaden"
+            >
+              <span className="text-3xl" aria-hidden="true">🧮</span>
+              <span className="font-semibold text-gray-900">Räkna på kostnaden</span>
+              <span className="text-sm text-gray-500">Importkalkylatorn med aktuell växelkurs</span>
             </Link>
           </div>
-          <div className="border-l-4 border-blue-600 bg-blue-50 p-4 rounded-r text-left max-w-2xl mx-auto">
+          <div className="border-l-4 border-blue-600 bg-blue-50 p-4 rounded-r text-left max-w-2xl">
             <p className="text-sm text-blue-900">
               <strong>Husbilar:</strong> avskaffad malus sedan februari 2025 – importerade husbilar träffas inte längre av miljöbilsavgift.
             </p>
