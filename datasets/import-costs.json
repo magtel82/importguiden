@@ -22,8 +22,8 @@
       "isApproximate": true,
       "currency": "SEK",
       "validFrom": "2025-01-01",
-      "source": "Opus Bilprovning",
-      "sourceUrl": "https://opus.se/besiktning/registreringsbesiktning",
+      "source": "Transportstyrelsen",
+      "sourceUrl": "https://www.transportstyrelsen.se/sv/vagtrafik/Fordon/fordonsimport/",
       "note": "Pris varierar mellan besiktningsföretag (Opus, Besikta, DEKRA). Ca 1 500–2 000 kr.",
       "appliesTo": ["bil"]
     },
@@ -34,8 +34,8 @@
       "isApproximate": true,
       "currency": "SEK",
       "validFrom": "2025-01-01",
-      "source": "Opus Bilprovning",
-      "sourceUrl": "https://opus.se/besiktning/registreringsbesiktning",
+      "source": "Transportstyrelsen",
+      "sourceUrl": "https://www.transportstyrelsen.se/sv/vagtrafik/Fordon/fordonsimport/",
       "note": "Husbil har mer omfattande besiktning. Ca 3 000–5 000 kr beroende på storlek.",
       "appliesTo": ["husbil"]
     },
