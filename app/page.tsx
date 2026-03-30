@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Car, Truck, Calculator } from "lucide-react";
 import { getCanonicalUrl } from "@/lib/seo";
 import { getRobotsForPath } from "@/lib/manifest";
 import { ProcessSteps } from "@/components/ProcessSteps";
@@ -89,7 +90,7 @@ export default function HomePage() {
               className="flex flex-col gap-2 rounded-lg border border-gray-200 bg-gray-50 p-5 hover:border-blue-400 hover:shadow-sm transition-all focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:outline-none"
               aria-label="Importera bil – steg-för-steg-guide"
             >
-              <span className="text-3xl" aria-hidden="true">🚗</span>
+              <Car className="h-8 w-8 text-gray-700 stroke-[1.5]" aria-hidden="true" />
               <span className="font-semibold text-gray-900">Importera bil</span>
               <span className="text-sm text-gray-500">Steg-för-steg från Tyskland och Europa</span>
             </Link>
@@ -98,7 +99,7 @@ export default function HomePage() {
               className="flex flex-col gap-2 rounded-lg border border-gray-200 bg-gray-50 p-5 hover:border-blue-400 hover:shadow-sm transition-all focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:outline-none"
               aria-label="Importera husbil – komplett guide"
             >
-              <span className="text-3xl" aria-hidden="true">🚐</span>
+              <Truck className="h-8 w-8 text-gray-700 stroke-[1.5]" aria-hidden="true" />
               <span className="font-semibold text-gray-900">Importera husbil</span>
               <span className="text-sm text-gray-500">Komplett guide med husbilsspecifika krav</span>
             </Link>
@@ -107,7 +108,7 @@ export default function HomePage() {
               className="flex flex-col gap-2 rounded-lg border border-gray-200 bg-gray-50 p-5 hover:border-blue-400 hover:shadow-sm transition-all focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:outline-none"
               aria-label="Räkna på importkostnaden"
             >
-              <span className="text-3xl" aria-hidden="true">🧮</span>
+              <Calculator className="h-8 w-8 text-gray-700 stroke-[1.5]" aria-hidden="true" />
               <span className="font-semibold text-gray-900">Räkna på kostnaden</span>
               <span className="text-sm text-gray-500">Importkalkylatorn med aktuell växelkurs</span>
             </Link>
