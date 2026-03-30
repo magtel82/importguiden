@@ -1,0 +1,92 @@
+{
+  "_meta": {
+    "lastVerified": "2026-03-30",
+    "verifiedBy": "Importguiden"
+  },
+  "costs": [
+    {
+      "id": "ursprungskontroll",
+      "name": "Ursprungskontroll",
+      "amount": 1240,
+      "currency": "SEK",
+      "validFrom": "2025-01-01",
+      "source": "Transportstyrelsen",
+      "sourceUrl": "https://www.transportstyrelsen.se/sv/vagtrafik/Fordon/Importerade-fordon/",
+      "note": "Obligatorisk kontroll hos Transportstyrelsen innan registreringsbesiktning.",
+      "appliesTo": ["bil", "husbil"]
+    },
+    {
+      "id": "registreringsbesiktning-bil",
+      "name": "Registreringsbesiktning",
+      "amount": 1700,
+      "isApproximate": true,
+      "currency": "SEK",
+      "validFrom": "2025-01-01",
+      "source": "Opus Bilprovning",
+      "sourceUrl": "https://opus.se/besiktning/registreringsbesiktning",
+      "note": "Pris varierar mellan besiktningsföretag (Opus, Besikta, DEKRA). Ca 1 500–2 000 kr.",
+      "appliesTo": ["bil"]
+    },
+    {
+      "id": "registreringsbesiktning-husbil",
+      "name": "Registreringsbesiktning",
+      "amount": 3500,
+      "isApproximate": true,
+      "currency": "SEK",
+      "validFrom": "2025-01-01",
+      "source": "Opus Bilprovning",
+      "sourceUrl": "https://opus.se/besiktning/registreringsbesiktning",
+      "note": "Husbil har mer omfattande besiktning. Ca 3 000–5 000 kr beroende på storlek.",
+      "appliesTo": ["husbil"]
+    },
+    {
+      "id": "importforsakring-bil",
+      "name": "Importförsäkring",
+      "amount": 1500,
+      "isApproximate": true,
+      "currency": "SEK",
+      "validFrom": "2025-01-01",
+      "source": "Jämförelse av svenska försäkringsbolag",
+      "sourceUrl": null,
+      "note": "Kortförsäkring för hemtransport. Varierar 1 000–2 500 kr beroende på bolag och tid.",
+      "appliesTo": ["bil"]
+    },
+    {
+      "id": "importforsakring-husbil",
+      "name": "Importförsäkring",
+      "amount": 2500,
+      "isApproximate": true,
+      "currency": "SEK",
+      "validFrom": "2025-01-01",
+      "source": "Jämförelse av svenska försäkringsbolag",
+      "sourceUrl": null,
+      "note": "Kortförsäkring för hemtransport. Varierar 2 000–4 000 kr beroende på bolag och husbilens värde.",
+      "appliesTo": ["husbil"]
+    },
+    {
+      "id": "exportskyltar",
+      "name": "Tyska exportskyltar (Ausfuhrkennzeichen)",
+      "amount": 150,
+      "isApproximate": true,
+      "currency": "EUR",
+      "validFrom": "2025-01-01",
+      "source": "Zulassungsstelle",
+      "sourceUrl": null,
+      "note": "Krävs om du kör hem fordonet själv. Inkluderar skylt + försäkring. Ca 100–200 €.",
+      "appliesTo": ["bil", "husbil"]
+    },
+    {
+      "id": "transport-foretag",
+      "name": "Transport med biltransportföretag",
+      "amountMin": 6000,
+      "amountMax": 12000,
+      "isRange": true,
+      "currency": "SEK",
+      "validFrom": "2025-01-01",
+      "source": "Marknadsuppskattning",
+      "sourceUrl": null,
+      "note": "Beror på avstånd. Norra Tyskland → Sverige ca 6 000 kr, södra Tyskland ca 10 000–12 000 kr.",
+      "appliesTo": ["bil", "husbil"]
+    }
+  ]
+}

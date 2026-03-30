@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { CostTable } from "@/components/CostTable";
 
 interface Step {
   number: number;
@@ -171,8 +172,11 @@ export function ImportTimeline({ vehicleType, activeStep = 1 }: ImportTimelinePr
           </p>
           <h3 className="text-xl font-bold text-gray-900 mb-1">{active.title}</h3>
           <p className="text-sm text-gray-500 mb-3">{active.subtitle}</p>
-          <p className="text-sm text-gray-700 mb-5">{active.description}</p>
-          <div className="flex flex-wrap gap-3 items-center">
+          <p className="text-sm text-gray-700 mb-3">{active.description}</p>
+          {active.number === 1 && (
+            <CostTable vehicleType={vehicleType} compact showTotal={false} />
+          )}
+          <div className="flex flex-wrap gap-3 items-center mt-2">
             <Link
               href={active.cta.href}
               className="inline-flex items-center justify-center rounded bg-blue-700 px-5 py-3 text-sm font-medium text-white hover:bg-blue-800 min-h-[48px]"
@@ -268,8 +272,11 @@ export function ImportTimeline({ vehicleType, activeStep = 1 }: ImportTimelinePr
                       isActive ? "max-h-96 opacity-100 mt-3" : "max-h-0 opacity-0"
                     }`}
                   >
-                    <p className="text-sm text-gray-700 mb-4">{step.description}</p>
-                    <div className="flex flex-col gap-2">
+                    <p className="text-sm text-gray-700 mb-3">{step.description}</p>
+                    {step.number === 1 && (
+                      <CostTable vehicleType={vehicleType} compact showTotal={false} />
+                    )}
+                    <div className="flex flex-col gap-2 mt-1">
                       <Link
                         href={step.cta.href}
                         className="inline-flex items-center justify-center rounded bg-blue-700 px-4 py-3 text-sm font-medium text-white hover:bg-blue-800 min-h-[48px] w-full"

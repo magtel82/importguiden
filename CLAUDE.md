@@ -221,7 +221,7 @@ motorhome-brands-import.json      # pSEO-innehåll per husbilsmärke: intro, cha
 # varning, modeller, kända problem, dokument, priser
 # Märken: Hymer, Dethleffs, Bürstner, Knaus, Hobby
 # chassisWarning=true → Ducato-varningsruta renderas
-cost-data.json                    # Avgifter med belopp + källhänvisning
+cost-data.json                    # Avgifter med belopp + källhänvisning – används av kalkylatorn
 # Innehåller: ursprungskontroll, registreringsbesiktning
 # (personbil/husbil), skyltavgift, importforsäkring
 # (personbil 1500 kr / husbil 2500 kr, schablonvärden),
@@ -229,6 +229,10 @@ cost-data.json                    # Avgifter med belopp + källhänvisning
 
 datasets/
 pages\_manifest.json               # SINGLE SOURCE OF TRUTH – se nedan
+import-costs.json                 # KOSTNADSDATA – single source of truth för importavgifter
+# CostTable-komponenten (components/CostTable.tsx) renderar datan
+# Vid regeländring: uppdatera import-costs.json + _meta.lastVerified
+# INTE individuella sidor
 regulation-urls.json              # 12 URL:er för regelbevakning (Fas 1 cron-pipeline)
 # Innehåller id, url, description, affectsPages, priority
 # Används av lib/regulation-check.ts (ej byggt än)

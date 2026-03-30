@@ -4,6 +4,7 @@ import { getCostData } from "@/lib/data";
 import { getCanonicalUrl, getBreadcrumbJsonLd } from "@/lib/seo";
 import { getRobotsForPath } from "@/lib/manifest";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { CostTable } from "@/components/CostTable";
 
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
 const UPDATED_DATE = "2026-03-14";
@@ -84,10 +85,12 @@ export default function KostnadPage() {
             är undantagna.
           </p>
 
-          <p className="text-gray-700 mb-8">
+          <p className="text-gray-700 mb-6">
             Nedan hittar du en fullständig genomgång av alla kostnader, ett
             konkret räkneexempel och svar på de vanligaste frågorna.
           </p>
+
+          <CostTable vehicleType="bil" />
 
           {/* Fasta avgifter */}
           <section className="mb-10">
