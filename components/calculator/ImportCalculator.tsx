@@ -92,6 +92,24 @@ function formatVerifiedDate(isoDate: string): string {
   return `${parseInt(day)} ${monthNames[parseInt(month) - 1]} ${year}`;
 }
 
+const REG_YEARS = [2026, 2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018] as const;
+
+function calculateAgeMonths(registrationYear: number | "older", isUnderSixMonths: boolean): number {
+  if (registrationYear === "older") return 120;
+  if (isUnderSixMonths) return 3;
+  const now = new Date();
+  const regDate = new Date(registrationYear, 6, 1); // Juli (mittpunkt av året)
+  const diffMs = now.getTime() - regDate.getTime();
+  const diffMonths = Math.floor(diffMs / (1000 * 60 * 60 * 24 * 30.44));
+  return Math.max(0, diffMonths);
+}
+
+function parseRegYear(val: string | null): number | "older" {
+  if (!val || val === "older") return val === "older" ? "older" : 2023;
+  const n = parseInt(val);
+  return isNaN(n) ? 2023 : n;
+}
+
 function ImportCalculatorInner() {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -102,7 +120,8 @@ function ImportCalculatorInner() {
   const [vehicleType, setVehicleType] = useState<"personbil" | "husbil">(
     () => (searchParams.get("type") as "personbil" | "husbil") || "personbil"
   );
-  const [ageMonths, setAgeMonths] = useState(() => Number(searchParams.get("ageMonths") || 36));
+  const [regYear, setRegYear] = useState<number | "older">(() => parseRegYear(searchParams.get("regYear")));
+  const [isUnderSixMonths, setIsUnderSixMonths] = useState(() => searchParams.get("newVehicle") === "true");
   const [mileageKm, setMileageKm] = useState(() => Number(searchParams.get("mileageKm") || 60000));
   const [transportMethod, setTransportMethod] = useState<"self" | "trailer">(
     () => (searchParams.get("transport") as "self" | "trailer") || "self"
@@ -151,7 +170,8 @@ function ImportCalculatorInner() {
     params.set("currency", currency);
     params.set("country", country);
     params.set("type", vehicleType);
-    params.set("ageMonths", String(ageMonths));
+    params.set("regYear", String(regYear));
+    if (isUnderSixMonths) params.set("newVehicle", "true");
     params.set("mileageKm", String(mileageKm));
     params.set("transport", transportMethod);
     params.set("km", String(distanceKm));
@@ -159,7 +179,7 @@ function ImportCalculatorInner() {
     if (co2gkm > 0) params.set("co2", String(co2gkm));
     if (fuelType !== "bensin") params.set("fuel", fuelType);
     router.replace(`?${params.toString()}`, { scroll: false });
-  }, [price, currency, country, vehicleType, ageMonths, mileageKm, transportMethod, distanceKm, swePrice, co2gkm, fuelType, router]);
+  }, [price, currency, country, vehicleType, regYear, isUnderSixMonths, mileageKm, transportMethod, distanceKm, swePrice, co2gkm, fuelType, router]);
 
   function handleCountryChange(newCountry: string) {
     setCountry(newCountry);
@@ -184,8 +204,9 @@ function ImportCalculatorInner() {
     const rate = rates[currency] ?? FALLBACK_RATES[currency] ?? 11.5;
     const vehiclePriceSEK = price * rate;
 
+    const ageMonths = calculateAgeMonths(regYear, isUnderSixMonths);
     const isNew =
-      ageMonths < costData.tax.moms_new_vehicle_threshold_months ||
+      isUnderSixMonths ||
       mileageKm < costData.tax.moms_new_vehicle_threshold_km;
     const moms = isNew ? vehiclePriceSEK * costData.tax.moms_rate : 0;
     const tull = 0;
@@ -237,7 +258,7 @@ function ImportCalculatorInner() {
       savingsPct,
       malusResult,
     };
-  }, [price, currency, vehicleType, ageMonths, mileageKm, transportMethod, distanceKm, rates, swePrice, showCO2, co2gkm, fuelType, besiktningId, forsäkringId]);
+  }, [price, currency, vehicleType, regYear, isUnderSixMonths, mileageKm, transportMethod, distanceKm, rates, swePrice, showCO2, co2gkm, fuelType, besiktningId, forsäkringId]);
 
   async function handleCopyLink() {
     await navigator.clipboard.writeText(window.location.href);
@@ -300,20 +321,46 @@ function ImportCalculatorInner() {
           </select>
         </div>
 
-        {/* Ålder */}
-        <div>
+        {/* Registreringsår */}
+        <div className="sm:col-span-2">
           <label className="block text-sm font-medium text-gray-700 mb-1">
-            Ålder (månader)
+            Första registrering
           </label>
-          <input
-            type="number"
-            value={ageMonths || ""}
-            onChange={(e) => setAgeMonths(Number(e.target.value))}
+          <select
+            value={String(regYear)}
+            onChange={(e) => {
+              const val = e.target.value === "older" ? "older" : parseInt(e.target.value);
+              setRegYear(val);
+              // Dölj checkbox om år 2024 eller äldre väljs
+              if (val !== 2025 && val !== 2026) setIsUnderSixMonths(false);
+            }}
             className="w-full rounded border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          <p className="mt-1 text-xs text-gray-400">
-            Under 6 mån eller under 6 000 km = nytt fordon → moms tillkommer.
-          </p>
+          >
+            {REG_YEARS.map((y) => (
+              <option key={y} value={y}>{y}</option>
+            ))}
+            <option value="older">Äldre</option>
+          </select>
+
+          {/* Villkorlig checkbox – visas bara för 2025 och 2026 */}
+          {(regYear === 2025 || regYear === 2026) && (
+            <div className="mt-3">
+              <label className="flex items-start gap-2 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={isUnderSixMonths}
+                  onChange={(e) => setIsUnderSixMonths(e.target.checked)}
+                  className="mt-0.5 accent-blue-700 w-4 h-4 flex-shrink-0"
+                />
+                <span className="text-sm text-gray-700">
+                  Bilen registrerades för mindre än 6 månader sedan
+                </span>
+              </label>
+              <p className="mt-1 text-xs text-gray-400 ml-6">
+                Fordon under 6 månader eller under 6 000 km räknas som nytt — då tillkommer svensk moms.
+              </p>
+            </div>
+          )}
         </div>
 
         {/* Miltal */}
@@ -668,16 +715,21 @@ function ImportCalculatorInner() {
             </div>
 
             {/* Kopiera länk */}
-            <div className="mt-4 pt-3 border-t border-gray-200 flex items-center gap-3">
-              <button
-                onClick={handleCopyLink}
-                className="rounded border border-gray-300 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              >
-                Kopiera länk
-              </button>
-              {linkCopied && (
-                <span className="text-sm text-gray-600">Länk kopierad!</span>
-              )}
+            <div className="mt-4 pt-3 border-t border-gray-200">
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={handleCopyLink}
+                  className="rounded border border-gray-300 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  Kopiera länk
+                </button>
+                {linkCopied && (
+                  <span className="text-sm text-gray-600">Länk kopierad!</span>
+                )}
+              </div>
+              <p className="mt-2 text-sm text-gray-500">
+                Spara din beräkning — länken innehåller alla dina val. Bokmärk den eller skicka till någon som ska hjälpa dig.
+              </p>
             </div>
           </>
         )}
