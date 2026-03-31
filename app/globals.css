@@ -8,3 +8,8 @@
 body {
   font-family: var(--font-inter, Arial, sans-serif);
 }
+
+h2[id],
+h3[id] {
+  scroll-margin-top: 5rem;
+}
