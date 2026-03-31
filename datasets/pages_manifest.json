@@ -228,7 +228,7 @@
     {
       "id": "guider-coc-intyg",
       "path": "/guider/coc-intyg",
-      "title": "COC-intyg (Certificate of Conformity) – Så skaffar du det | Importguiden",
+      "title": "COC-intyg (Certificate of Conformity) – Så skaffar du det",
       "description": "COC-intyg (Certificate of Conformity) behövs vid import av bil till Sverige. Så beställer du det från tillverkaren, vad det kostar och vad du gör om det saknas.",
       "sources": ["https://www.transportstyrelsen.se", "https://eur-lex.europa.eu"],
       "uniquePayloadScore": 84,
@@ -239,7 +239,7 @@
     {
       "id": "guider-ursprungskontroll",
       "path": "/guider/ursprungskontroll",
-      "title": "Ursprungskontroll 2026 – Kostnad, handläggningstid och ansökan | Importguiden",
+      "title": "Ursprungskontroll 2026 – Kostnad, handläggningstid och ansökan",
       "description": "Ursprungskontroll kostar 1 240 kr och tar ca 2–5 arbetsdagar. Här förklarar vi hur du ansöker hos Transportstyrelsen, vilka dokument som behövs och vad du gör om den inte godkänns.",
       "sources": ["https://www.transportstyrelsen.se"],
       "uniquePayloadScore": 85,
@@ -261,7 +261,7 @@
     {
       "id": "guider-kopa-bil-mobile-de-autoscout24",
       "path": "/guider/kopa-bil-mobile-de-autoscout24",
-      "title": "Mobile.de på svenska – Så söker du bil i Tyskland | Importguiden",
+      "title": "Mobile.de på svenska – Så söker du bil i Tyskland",
       "description": "Komplett guide till mobile.de på svenska. Så navigerar du Tysklands största bilsajt, undviker bedrägerier och hittar rätt bil. Med ordlista tyska–svenska biltermer.",
       "sources": [
         "https://www.mobile.de",
