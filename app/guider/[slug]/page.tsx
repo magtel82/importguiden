@@ -95,13 +95,23 @@ export default async function GuiderPage({ params }: Props) {
     { name: frontmatter.title.split("–")[0].trim() },
   ];
 
-  const mobileDeFaqs =
+  const faqSchema =
     slug === "kopa-bil-mobile-de-autoscout24"
       ? getFaqJsonLd([
           {
             question: "Finns mobile.de på svenska?",
             answer:
-              "Nej, mobile.de har inget officiellt svenskt gränssnitt. Använd Google Translate i Chrome för att översätta sidan automatiskt – det fungerar tillräckligt bra för att söka och läsa annonser. AutoScout24 är ett alternativ med bättre flerspråkigt stöd.",
+              "Nej, mobile.de finns bara på tyska och delvis engelska. Med ordlistan på sidan och Google Translate i Chrome klarar du dig utmärkt. AutoScout24 är ett alternativ med mer genomarbetat flerspråkigt stöd.",
+          },
+          {
+            question: "Finns mobile.de på engelska?",
+            answer:
+              "Ja, delvis. Scrolla längst ned på mobile.de och välj engelska som språk. Observera att inte alla annonser översätts och att viss terminologi kan vara missvisande i översättningen.",
+          },
+          {
+            question: "Är mobile.de säkert?",
+            answer:
+              "Mobile.de är Tysklands största bilsajt med över 1,4 miljoner annonser. Sajten i sig är seriös, men som på alla marknadsplatser finns det bedragare. Köp alltid av en registrerad återförsäljare (Händler) som förstagångsköpare och boka en oberoende besiktning via DEKRA, TÜV eller ADAC.",
           },
           {
             question: "Är det säkrare att köpa av handlare än privatperson på mobile.de?",
@@ -112,6 +122,52 @@ export default async function GuiderPage({ params }: Props) {
             question: "Hur kontaktar jag en säljare på mobile.de?",
             answer:
               "Via kontaktformuläret direkt på annonsen. De flesta återförsäljare svarar på engelska. Privata säljare kan variera – grundläggande engelska eller tyska fraser räcker i de flesta fall.",
+          },
+        ])
+      : slug === "ursprungskontroll"
+      ? getFaqJsonLd([
+          {
+            question: "Vad kostar ursprungskontroll 2026?",
+            answer:
+              "Avgiften är 1 240 kr (källa: Transportstyrelsen). Betalas vid beställning och återbetalas inte oavsett utfall.",
+          },
+          {
+            question: "Hur lång tid tar ursprungskontroll?",
+            answer:
+              "Vanligtvis 2–5 arbetsdagar från det att betalning är registrerad. I perioder med hög belastning kan det ta längre tid – räkna med upp till 1–2 veckor som säkerhetsplan.",
+          },
+          {
+            question: "Kan jag köra bilen innan ursprungskontrollen är klar?",
+            answer:
+              "Nej, bilen får inte användas i trafik i Sverige innan ursprungskontrollen är godkänd, med undantag för körning till registreringsbesiktning under vissa förutsättningar. Kontakta Transportstyrelsen för detaljer.",
+          },
+          {
+            question: "Vad händer om ursprungskontrollen inte godkänns?",
+            answer:
+              "Du får ett beslut med förklaring. Vanliga orsaker är saknade dokument eller att bilen finns i ett stöldregister. Du kan komplettera och ansöka igen, eller kontakta säljaren för att lösa den underliggande frågan.",
+          },
+        ])
+      : slug === "coc-intyg"
+      ? getFaqJsonLd([
+          {
+            question: "Vad är ett COC-intyg?",
+            answer:
+              "COC är en förkortning av Certificate of Conformity – ett officiellt dokument utfärdat av fordonstillverkaren som intygar att fordonet uppfyller alla tillämpliga EU-direktiv vid tillverkningstillfället. Det är knutet till fordonets chassinummer (VIN) och gäller i alla EU-länder.",
+          },
+          {
+            question: "Hur får man ett COC-intyg?",
+            answer:
+              "Beställ direkt från biltillverkaren med bilens VIN-nummer, via den officiella märkesimportören i Sverige, eller via tredjepartstjänster som EuroCOC. Fråga alltid säljaren först – många nyare bilar levereras med COC i dokumentmappen.",
+          },
+          {
+            question: "Vad kostar ett COC-intyg?",
+            answer:
+              "Det varierar per märke: normalt €100–300 via tillverkaren. Tesla utfärdar ofta COC utan kostnad. Tredjepartstjänster tar vanligtvis €150–350.",
+          },
+          {
+            question: "Behöver jag COC-intyg för att importera bil?",
+            answer:
+              "Det är inte alltid formellt obligatoriskt, men det underlättar registreringen avsevärt. Utan COC kan besiktningsstationen kräva alternativ dokumentation eller hänvisa till enskilt godkännande via Transportstyrelsen – en process som kan ta månader och kosta 5 000–15 000 kr extra.",
           },
         ])
       : null;
@@ -131,10 +187,10 @@ export default async function GuiderPage({ params }: Props) {
           ),
         }}
       />
-      {mobileDeFaqs && (
+      {faqSchema && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(mobileDeFaqs) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       )}
       <div className="mx-auto max-w-3xl px-4 py-10">
