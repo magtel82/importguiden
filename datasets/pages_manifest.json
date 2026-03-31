@@ -458,7 +458,7 @@
     {
       "id": "importera-bil-guide",
       "path": "/importera-bil/guide",
-      "title": "Importera bil — Steg för steg | Importguiden",
+      "title": "Importera bil — Steg för steg",
       "description": "Följ vår steg-för-steg-guide för att importera bil privat från Europa till Sverige. Från kalkyl till registrering.",
       "sources": ["https://www.transportstyrelsen.se", "https://www.tullverket.se", "https://www.skatteverket.se"],
       "uniquePayloadScore": 80,
@@ -469,7 +469,7 @@
     {
       "id": "importera-husbil-guide",
       "path": "/importera-husbil/guide",
-      "title": "Importera husbil — Steg för steg | Importguiden",
+      "title": "Importera husbil — Steg för steg",
       "description": "Steg-för-steg-guide för att importera husbil privat från Tyskland och Europa. Kalkylator, kostnader och registrering.",
       "sources": ["https://www.transportstyrelsen.se", "https://www.tullverket.se", "https://www.skatteverket.se"],
       "uniquePayloadScore": 80,

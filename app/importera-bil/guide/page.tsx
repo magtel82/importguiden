@@ -8,7 +8,7 @@ import Link from "next/link";
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
 
 export const metadata: Metadata = {
-  title: "Importera bil — Steg för steg | Importguiden",
+  title: "Importera bil — Steg för steg",
   description:
     "Följ vår steg-för-steg-guide för att importera bil privat från Europa till Sverige. Från kalkyl till registrering.",
   alternates: {
