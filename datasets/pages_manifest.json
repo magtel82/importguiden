@@ -41,11 +41,11 @@
       "path": "/importera-bil/bmw",
       "title": "Importera BMW från Tyskland – Guide 2026 (ADAC-data, kostnader)",
       "description": "Importera BMW privat från Tyskland. Rekommenderade modeller, kända problem (ADAC Pannenstatistik 2025), dokument att begära och kalkylator.",
-      "sources": ["https://www.transportstyrelsen.se", "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/"],
-      "uniquePayloadScore": 78,
+      "sources": ["https://www.transportstyrelsen.se", "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/", "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"],
+      "uniquePayloadScore": 82,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
-      "lastEvaluated": "2026-03-28",
-      "notes": "pSEO med ADAC-data, ~1800 ord. Quality gate godkänd 2026-03-28.",
+      "lastEvaluated": "2026-04-01",
+      "notes": "pSEO med ADAC-data, garanti-sektion, fordonsskatt-tabell, Fahrzeugbrief-guide, CostTable och FAQ-schema. Fördjupat 2026-04-01.",
       "tags": ["marke", "bil", "pseo"]
     },
     {
@@ -159,11 +159,11 @@
       "path": "/importera-husbil/hymer",
       "title": "Importera Hymer husbil från Tyskland – Guide 2026 (chassi, kostnader)",
       "description": "Importera Hymer husbil privat från Tyskland. Chassiinformation, Ducato-varning (ADAC 2025), rekommenderade modeller och kalkylator.",
-      "sources": ["https://www.transportstyrelsen.se", "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/"],
-      "uniquePayloadScore": 78,
+      "sources": ["https://www.transportstyrelsen.se", "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/", "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"],
+      "uniquePayloadScore": 82,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
-      "lastEvaluated": "2026-03-28",
-      "notes": "pSEO med Ducato-varning + Sprinter-alternativ, ~1890 ord. Quality gate godkänd 2026-03-28.",
+      "lastEvaluated": "2026-04-01",
+      "notes": "pSEO med Ducato-varning + Sprinter-alternativ, garanti-sektion, malus-info (feb 2025), CostTable och FAQ-schema. Fördjupat 2026-04-01.",
       "tags": ["marke", "husbil", "pseo"]
     },
     {

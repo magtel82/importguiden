@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getCountries, getCountryBySlug, getCarBrands, getCarBrandBySlug, getCarBrandImportData, formatSEK } from "@/lib/data";
-import { getCanonicalUrl, getBreadcrumbJsonLd } from "@/lib/seo";
+import { getCanonicalUrl, getBreadcrumbJsonLd, getFaqJsonLd } from "@/lib/seo";
 import { getRobotsForPath } from "@/lib/manifest";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { compileMDX } from "next-mdx-remote/rsc";
@@ -13,6 +13,7 @@ import rehypeSlug from "rehype-slug";
 import { AffiliateLink } from "@/components/affiliate/AffiliateLink";
 import { TableOfContents } from "@/components/TableOfContents";
 import { extractHeadings } from "@/lib/headings";
+import { CostTable } from "@/components/CostTable";
 
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
 
@@ -351,6 +352,27 @@ export default async function ImporteraBilPage({ params }: Props) {
           )),
         }}
       />
+      {brand!.slug === "bmw" && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(getFaqJsonLd([
+              {
+                question: "Gäller BMW-garanti i Sverige vid import?",
+                answer: "Ja, BMW har internationell EU-garanti. Kontakta en svensk BMW-återförsäljare efter importen för att registrera bilen i det svenska systemet. Ta med köpehandling, servicehistorik och COC-intyg.",
+              },
+              {
+                question: "Vad kostar det att importera en BMW från Tyskland?",
+                answer: "Utöver bilpriset tillkommer ca 4 440 kr i fasta avgifter (ursprungskontroll 1 240 kr + registreringsbesiktning ca 1 700 kr + skyltavgift 500 kr) plus transport. Använd vår kalkylator för en exakt beräkning.",
+              },
+              {
+                question: "Vilka BMW-modeller är bäst att importera?",
+                answer: "3-serien, 5-serien och X3 har bäst ADAC-betyg och störst prisskillnad mot Sverige. Undvik N47-dieselmotorn (2007–2013) på grund av kända timing-kedjeproblematik.",
+              },
+            ])),
+          }}
+        />
+      )}
       <div className="mx-auto max-w-3xl px-4 py-10">
         <Breadcrumbs items={breadcrumbs} siteUrl={SITE_URL} />
 
@@ -468,6 +490,119 @@ export default async function ImporteraBilPage({ params }: Props) {
             </p>
           </section>
 
+          {/* BMW-specific: Garanti, Fordonsskatt, Fahrzeugbrief */}
+          {brand!.slug === "bmw" && (
+            <>
+              <section className="mb-8">
+                <h2 className="text-xl font-bold text-gray-900 mb-4">Garanti vid BMW-import</h2>
+                <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+                  BMW har internationell garanti inom EU — men det finns viktiga detaljer att känna till.
+                </p>
+                <div className="space-y-4 text-sm text-gray-700">
+                  <div>
+                    <p className="font-semibold text-gray-900 mb-1">Nybilsgaranti</p>
+                    <p className="leading-relaxed">BMW:s standardgaranti (vanligtvis 2 år utan milbegränsning) gäller inom hela EU. När du importerar en BMW som fortfarande har garanti kvar kan du använda vilken auktoriserad BMW-verkstad som helst i Sverige.</p>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900 mb-1">Vad du måste göra</p>
+                    <p className="mb-2 leading-relaxed">Kontakta en svensk BMW-återförsäljare efter importen och be dem registrera bilen i det svenska BMW-systemet. Ta med dig:</p>
+                    <ul className="list-disc list-inside space-y-1 ml-2">
+                      <li>Köpehandling med VIN</li>
+                      <li>Servicehistorik (digital eller Scheckheft)</li>
+                      <li>COC-intyg</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900 mb-1">Batterigaranti (laddhybrider/elbilar)</p>
+                    <p className="leading-relaxed">BMW ger vanligtvis 8 år eller 160 000 km på högvoltsbatteriet. Denna garanti gäller internationellt inom EU — kontrollera alltid det specifika garantibeviset med säljaren före köp.</p>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900 mb-1">Serviceavtal</p>
+                    <p className="leading-relaxed">BMW Service Inclusive (BSI) eller liknande serviceavtal kan vara landsbundna. Kontrollera med BMW Sverige om ett tyskt serviceavtal kan överföras innan du räknar det som en fördel.</p>
+                  </div>
+                </div>
+                <p className="text-xs text-gray-400 mt-3">Källa: Kontrollera alltid aktuella villkor direkt med BMW Sverige (bmw.se) eller din lokala BMW-återförsäljare.</p>
+              </section>
+
+              <section className="mb-8">
+                <h2 className="text-xl font-bold text-gray-900 mb-3">Fordonsskatt — populära BMW-modeller</h2>
+                <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+                  Vid import till Sverige gäller svensk fordonsskatt. Under de tre första åren från första registrering (var som helst i världen) kan malus-tillägget bli betydande — särskilt för bensin- och dieselmodeller.
+                </p>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-sm border-collapse">
+                    <thead>
+                      <tr className="bg-gray-100">
+                        <th className="text-left p-3 font-semibold text-gray-700">Modell</th>
+                        <th className="text-left p-3 font-semibold text-gray-700">CO₂ (g/km)</th>
+                        <th className="text-left p-3 font-semibold text-gray-700">Bränsle</th>
+                        <th className="text-left p-3 font-semibold text-gray-700">Malus år 1–3</th>
+                        <th className="text-left p-3 font-semibold text-gray-700">Efter 3 år</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-100">
+                      {[
+                        { model: "320i (G20)", co2: "ca 142", fuel: "Bensin", malus: "ca 7 534 kr/år", after: "360 kr/år" },
+                        { model: "330e (G20)", co2: "ca 21", fuel: "Bensin/El (PHEV)", malus: "360 kr/år", after: "360 kr/år" },
+                        { model: "520d (G30)", co2: "ca 127", fuel: "Diesel", malus: "ca 8 917 kr/år", after: "ca 2 467 kr/år" },
+                        { model: "530e (G60)", co2: "ca 21", fuel: "Bensin/El (PHEV)", malus: "360 kr/år", after: "360 kr/år" },
+                        { model: "X3 xDrive30e", co2: "ca 27", fuel: "Bensin/El (PHEV)", malus: "360 kr/år", after: "360 kr/år" },
+                        { model: "X5 xDrive40i", co2: "ca 195", fuel: "Bensin", malus: "ca 16 590 kr/år", after: "360 kr/år" },
+                        { model: "i4 eDrive40", co2: "0", fuel: "El", malus: "360 kr/år", after: "360 kr/år" },
+                        { model: "iX xDrive40", co2: "0", fuel: "El", malus: "360 kr/år", after: "360 kr/år" },
+                      ].map((row, i) => (
+                        <tr key={i}>
+                          <td className="p-3 font-medium text-gray-900">{row.model}</td>
+                          <td className="p-3 text-gray-700">{row.co2}</td>
+                          <td className="p-3 text-gray-700">{row.fuel}</td>
+                          <td className="p-3 text-gray-700">{row.malus}</td>
+                          <td className="p-3 text-gray-700">{row.after}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+                <p className="text-xs text-gray-400 mt-2">
+                  Beräkning baserad på regler gällande fr.o.m. 1 juni 2022. Grundbelopp 360 kr + koldioxidbelopp enligt Transportstyrelsens malus-regler. CO₂-värden är typiska WLTP-uppskattningar — kontrollera alltid det exakta värdet i bilens COC-intyg.{" "}
+                  Källa:{" "}
+                  <a href="https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-600">
+                    Transportstyrelsen
+                  </a>
+                </p>
+              </section>
+
+              <section className="mb-8">
+                <h2 className="text-xl font-bold text-gray-900 mb-3">Hitta rätt i tyska handlingar (Fahrzeugbrief)</h2>
+                <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+                  När du köper en BMW i Tyskland får du registreringsbeviset (Zulassungsbescheinigung Teil I och Teil II). Här hittar du de viktigaste uppgifterna du behöver för svensk registrering.
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-3">
+                  <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                    <p className="font-semibold text-gray-900 text-sm mb-2">Teil I (Fahrzeugschein)</p>
+                    <ul className="text-xs text-gray-700 space-y-1.5">
+                      <li><span className="font-medium">Fält V.7:</span> CO₂-utsläpp (g/km) — behövs för fordonsskatt-beräkning</li>
+                      <li><span className="font-medium">Fält P.2:</span> Motoreffekt (kW)</li>
+                      <li><span className="font-medium">Fält D.2:</span> Fordonstyp/variant</li>
+                      <li><span className="font-medium">Fält B:</span> Datum för första registrering</li>
+                      <li><span className="font-medium">Fält F.1/F.2:</span> Maxvikt/tjänstevikt</li>
+                    </ul>
+                  </div>
+                  <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                    <p className="font-semibold text-gray-900 text-sm mb-2">Teil II (Fahrzeugbrief)</p>
+                    <p className="text-xs text-gray-700 mb-2">
+                      Detta är ägarbeviset — du <strong>måste</strong> få originalet vid köp.
+                      Utan Teil II i original kan du inte bevisa ägande.
+                    </p>
+                    <p className="text-xs text-gray-500">
+                      Tips: Fotografera alla sidor av Teil I och Teil II innan du lämnar säljaren.
+                      Du behöver uppgifterna för ansökan om ursprungskontroll.
+                    </p>
+                  </div>
+                </div>
+              </section>
+            </>
+          )}
+
           {/* Known issues */}
           <section className="mb-8">
             <h2 className="text-xl font-bold text-gray-900 mb-4">
@@ -541,6 +676,14 @@ export default async function ImporteraBilPage({ params }: Props) {
               </Link>
             </p>
           </section>
+
+          {/* CostTable for BMW */}
+          {brand!.slug === "bmw" && (
+            <section className="mb-8">
+              <h2 className="text-xl font-bold text-gray-900 mb-4">Alla importavgifter</h2>
+              <CostTable vehicleType="bil" compact />
+            </section>
+          )}
 
           {/* Calculator CTA */}
           <div className="bg-gray-50 rounded-lg p-6 border border-gray-200 text-center mb-8">

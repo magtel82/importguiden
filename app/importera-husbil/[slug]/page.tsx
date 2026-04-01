@@ -10,9 +10,10 @@ import { AffiliateLink } from "@/components/affiliate/AffiliateLink";
 import { TableOfContents } from "@/components/TableOfContents";
 import { extractHeadings } from "@/lib/headings";
 import { getCountries, getCountryBySlug, getMotorhomeBrands, getMotorhomeBrandImportData, formatSEK } from "@/lib/data";
-import { getCanonicalUrl, getBreadcrumbJsonLd, getArticleJsonLd } from "@/lib/seo";
+import { getCanonicalUrl, getBreadcrumbJsonLd, getArticleJsonLd, getFaqJsonLd } from "@/lib/seo";
 import { getRobotsForPath } from "@/lib/manifest";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { CostTable } from "@/components/CostTable";
 
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
 
@@ -303,6 +304,27 @@ export default async function ImporteraHusbilPage({ params }: Props) {
           )),
         }}
       />
+      {brand!.slug === "hymer" && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(getFaqJsonLd([
+              {
+                question: "Betalar man malus på importerad husbil?",
+                answer: "Nej, husbilar är undantagna från malus sedan 1 februari 2025. Du betalar bara ordinarie fordonsskatt oavsett CO₂-utsläpp.",
+              },
+              {
+                question: "Vilken Hymer-modell är mest pålitlig?",
+                answer: "Modeller på Mercedes Sprinter-chassi (ML-T, B-ML) rankas högre av ADAC än Ducato-baserade modeller. Fiat Ducato rankas sämst av alla fordon i ADAC Pannenstatistik 2025 med 49 pannar per 1 000 fordon.",
+              },
+              {
+                question: "Vad kostar det att importera en Hymer-husbil?",
+                answer: "Fasta avgifter ca 6 240 kr (ursprungskontroll 1 240 kr + registreringsbesiktning ca 3 000–5 000 kr + skyltavgift 500 kr) plus transport. Prisbesparingen mot Sverige ligger typiskt på 20–40 %.",
+              },
+            ])),
+          }}
+        />
+      )}
       <div className="mx-auto max-w-3xl px-4 py-10">
         <Breadcrumbs items={breadcrumbs} siteUrl={SITE_URL} />
 
@@ -344,6 +366,23 @@ export default async function ImporteraHusbilPage({ params }: Props) {
                 >
                   Källa: {importData.adacSource}
                 </a>
+              </div>
+            )}
+            {brand!.slug === "hymer" && importData.chassisWarning && (
+              <div className="space-y-4 text-sm text-gray-700 mt-4">
+                <div>
+                  <p className="font-semibold text-gray-900 mb-1">Vad det innebär för dig som köpare</p>
+                  <ul className="space-y-1 list-disc list-inside ml-2">
+                    <li>Prioritera nyare årsmodeller (2019+) där Fiat åtgärdat kända brister</li>
+                    <li>Begär komplett servicehistorik inklusive chassiservice</li>
+                    <li>Kontrollera att alla återkallelser (Rückruf) är utförda — sök på bilens VIN hos kba.de (tyska trafikverket)</li>
+                    <li>Överväg modeller på Mercedes Sprinter-chassi (ML-T, B-ML) om budget tillåter</li>
+                  </ul>
+                </div>
+                <div>
+                  <p className="font-semibold text-gray-900 mb-1">Sprinter-alternativet</p>
+                  <p className="leading-relaxed">Hymer ML-T och B-ML bygger på Mercedes Sprinter som rankas betydligt högre av ADAC. Prisskillnaden är ca 20–30 % högre men motiveras av bättre driftsäkerhet och högre andrahandsvärde.</p>
+                </div>
               </div>
             )}
           </section>
@@ -402,6 +441,62 @@ export default async function ImporteraHusbilPage({ params }: Props) {
                 </tbody>
               </table>
             </div>
+          </section>
+
+          {/* Hymer-specific: Garanti */}
+          {brand!.slug === "hymer" && (
+            <section className="mb-8">
+              <h2 className="text-xl font-bold text-gray-900 mb-4">Garanti vid Hymer-import</h2>
+              <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+                Hymers garantivillkor skiljer sig från personbilar — det finns separata garantier för chassi och påbyggnad.
+              </p>
+              <div className="space-y-4 text-sm text-gray-700">
+                <div>
+                  <p className="font-semibold text-gray-900 mb-1">Chassigaranti (Fiat Ducato / Mercedes Sprinter)</p>
+                  <p className="leading-relaxed">Fiat ger vanligtvis 2 års garanti på Ducato-chassit. Mercedes ger liknande på Sprinter. Garantin gäller internationellt inom EU men kräver att service utförts enligt tillverkarens intervall.</p>
+                </div>
+                <div>
+                  <p className="font-semibold text-gray-900 mb-1">Påbyggnadsgaranti (Hymer)</p>
+                  <p className="leading-relaxed">Hymer ger vanligtvis 2 år på påbyggnaden (möbler, elsystem, VVS) plus ofta 6–10 års garanti mot vatteninträngning (fuktskada) — detta varierar mellan modeller och årsmodeller. Kontrollera det exakta garantibeviset.</p>
+                </div>
+                <div>
+                  <p className="font-semibold text-gray-900 mb-1">Vad du måste göra efter import</p>
+                  <ul className="list-disc list-inside space-y-1 ml-2">
+                    <li>Kontakta en svensk Hymer-auktoriserad verkstad för att registrera husbilen i det svenska systemet</li>
+                    <li>Ta med garantibevis, servicehistorik och köpehandling</li>
+                    <li>Kontrollera att eventuell fuktgaranti överförs vid ägarbyte</li>
+                  </ul>
+                </div>
+                <div>
+                  <p className="font-semibold text-gray-900 mb-1">Gasbesiktning</p>
+                  <p className="leading-relaxed">Husbilar med gasol (de flesta) kräver gasbesiktning vid registreringsbesiktning i Sverige. Kontrollera att gasolinstallationen uppfyller svenska krav — detta kan kräva anpassning.</p>
+                </div>
+              </div>
+              <p className="text-xs text-gray-400 mt-3">Källa: Kontrollera aktuella villkor med Hymer Sverige eller din lokala Hymer-återförsäljare.</p>
+            </section>
+          )}
+
+          {/* Malus borttagen för husbilar – gäller alla märken */}
+          <section className="mb-8">
+            <h2 className="text-xl font-bold text-gray-900 mb-3">Malus borttagen för husbilar sedan februari 2025</h2>
+            <div className="bg-blue-50 border-l-4 border-blue-600 p-4 rounded-r mb-4">
+              <p className="text-sm text-blue-800 leading-relaxed">
+                Från 1 februari 2025 är husbilar undantagna från malus-skatten. Du betalar bara ordinarie fordonsskatt — ingen förhöjd skatt under de tre första åren oavsett CO₂-utsläpp.
+              </p>
+            </div>
+            <p className="text-sm text-gray-700 leading-relaxed mb-3">
+              En {importData.name} på Fiat Ducato-chassi med t.ex. 200 g/km CO₂ hade tidigare fått en malus-skatt på ca 13 000–17 000 kr/år de tre första åren. Nu betalar du istället ordinarie fordonsskatt, som vanligtvis ligger på ca 2 000–4 000 kr/år beroende på modell.
+            </p>
+            <p className="text-sm text-gray-700 leading-relaxed">
+              Det här gör import av nyare husbilar (under 3 år) betydligt mer ekonomiskt attraktivt än tidigare.
+            </p>
+            <p className="text-xs text-gray-400 mt-3">
+              Källa:{" "}
+              <a href="https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-600">
+                Transportstyrelsen
+              </a>
+              {" "}· Gäller fr.o.m. 1 februari 2025
+            </p>
           </section>
 
           {/* Known issues */}
@@ -487,6 +582,14 @@ export default async function ImporteraHusbilPage({ params }: Props) {
               </Link>
             </p>
           </section>
+
+          {/* CostTable for Hymer */}
+          {brand!.slug === "hymer" && (
+            <section className="mb-8">
+              <h2 className="text-xl font-bold text-gray-900 mb-4">Alla importavgifter</h2>
+              <CostTable vehicleType="husbil" compact />
+            </section>
+          )}
 
           {/* Calculator CTA */}
           <div className="bg-gray-50 rounded-lg p-6 border border-gray-200 text-center mb-8">
