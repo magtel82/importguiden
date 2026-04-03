@@ -17,6 +17,118 @@ import { CostTable } from "@/components/CostTable";
 
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
 
+// === Brand-specific data: Garanti, Chassi, FAQ ===
+
+interface GarantiItem { title: string; text: string; list?: string[] }
+interface FaqItem { question: string; answer: string }
+
+const MH_GARANTI: Record<string, { intro: string; items: GarantiItem[]; source: string }> = {
+  hymer: {
+    intro: "Hymers garantivillkor skiljer sig från personbilar — det finns separata garantier för chassi och påbyggnad.",
+    items: [
+      { title: "Chassigaranti (Fiat Ducato / Mercedes Sprinter)", text: "Fiat ger vanligtvis 2 års garanti på Ducato-chassit. Mercedes ger liknande på Sprinter. Garantin gäller internationellt inom EU men kräver att service utförts enligt tillverkarens intervall." },
+      { title: "Påbyggnadsgaranti (Hymer)", text: "Hymer ger vanligtvis 2 år på påbyggnaden (möbler, elsystem, VVS) plus ofta 6–10 års garanti mot vatteninträngning (fuktskada) — detta varierar mellan modeller och årsmodeller. Kontrollera det exakta garantibeviset." },
+      { title: "Vad du måste göra efter import", text: "Kontakta en Hymer-auktoriserad verkstad i Sverige för registrering:", list: ["Ta med garantibevis, servicehistorik och köpehandling", "Kontrollera att eventuell fuktgaranti överförs vid ägarbyte"] },
+      { title: "Gasbesiktning", text: "Husbilar med gasol (de flesta) kräver gasbesiktning vid registreringsbesiktning i Sverige. Kontrollera att gasolinstallationen uppfyller svenska krav — detta kan kräva anpassning." },
+    ],
+    source: "Kontrollera aktuella villkor med Hymer Sverige eller din lokala Hymer-återförsäljare.",
+  },
+  dethleffs: {
+    intro: "Dethleffs (del av Erwin Hymer Group) har separata garantier för chassi och påbyggnad — liknande villkor som Hymer.",
+    items: [
+      { title: "Chassigaranti (Fiat Ducato)", text: "Fiat ger vanligtvis 2 års garanti på Ducato-chassit. Garantin gäller internationellt inom EU men kräver att service utförts enligt tillverkarens intervall." },
+      { title: "Påbyggnadsgaranti (Dethleffs)", text: "Dethleffs ger vanligtvis 2 år på påbyggnaden (möbler, elsystem, VVS)." },
+      { title: "Fuktgaranti", text: "Dethleffs erbjuder vanligtvis 6 års fuktgaranti — kontrollera det specifika garantibeviset för din modell och årsmodell." },
+      { title: "Servicenät i Sverige", text: "Dethleffs har ett begränsat auktoriserat servicenät i Sverige. Kontrollera närmaste auktoriserade verkstad innan köp.", list: ["Ta med garantibevis och servicehistorik vid registrering", "Gasbesiktning krävs vid svensk registrering"] },
+    ],
+    source: "Kontrollera aktuella villkor med Dethleffs eller din lokala Erwin Hymer Group-återförsäljare.",
+  },
+  burstner: {
+    intro: "Bürstner (del av Erwin Hymer Group) erbjuder liknande garantivillkor som Hymer och Dethleffs.",
+    items: [
+      { title: "Chassigaranti (Fiat Ducato / Mercedes Sprinter)", text: "Fiat ger vanligtvis 2 års garanti på Ducato-chassit. Bürstners Lyseo-serie bygger på Mercedes Sprinter med motsvarande garanti." },
+      { title: "Påbyggnadsgaranti (Bürstner)", text: "Bürstner ger vanligtvis 2 år på påbyggnaden. Bürstner har modeller i både budget- och premiumsegmentet — garantivillkoren kan variera." },
+      { title: "Fuktgaranti", text: "Bürstner erbjuder vanligtvis 6 års fuktgaranti. Kontrollera det specifika garantibeviset." },
+      { title: "Servicenät i Sverige", text: "Bürstner har ett begränsat svenskt servicenät. Kontrollera närmaste auktoriserade verkstad innan köp.", list: ["Ta med garantibevis och servicehistorik vid registrering", "Gasbesiktning krävs vid svensk registrering"] },
+    ],
+    source: "Kontrollera aktuella villkor med Bürstner eller din lokala Erwin Hymer Group-återförsäljare.",
+  },
+  knaus: {
+    intro: "Knaus (del av Knaus Tabbert-koncernen, separat från Erwin Hymer Group) har konkurrenskraftiga garantivillkor — särskilt vad gäller fuktskydd.",
+    items: [
+      { title: "Chassigaranti (Fiat Ducato)", text: "Fiat ger vanligtvis 2 års garanti på Ducato-chassit. Garantin gäller internationellt inom EU men kräver att service utförts enligt tillverkarens intervall." },
+      { title: "Påbyggnadsgaranti (Knaus)", text: "Knaus ger vanligtvis 2 år på påbyggnaden (möbler, elsystem, VVS)." },
+      { title: "Fuktgaranti", text: "Knaus marknadsför aktivt sin fuktgaranti — vanligtvis 10 år på vissa modeller. Det är en av marknadens bästa. Kontrollera att den specifika modellen omfattas och att garantin överförs vid ägarbyte." },
+      { title: "Knaus Tabbert-koncernen", text: "Knaus Tabbert har även märkena Weinsberg (budget) och Tabbert (husvagnar) i sin portfölj. Servicenätet delas delvis.", list: ["Ta med garantibevis och servicehistorik vid registrering", "Gasbesiktning krävs vid svensk registrering"] },
+    ],
+    source: "Kontrollera aktuella villkor med Knaus Tabbert eller din lokala återförsäljare.",
+  },
+  hobby: {
+    intro: "Hobby är en oberoende tillverkare (inte del av Erwin Hymer Group eller Knaus Tabbert) med ett av marknadens bästa fuktskydd.",
+    items: [
+      { title: "Chassigaranti (Fiat Ducato)", text: "Fiat ger vanligtvis 2 års garanti på Ducato-chassit. Hobby bygger uteslutande på Ducato — inga Sprinter-alternativ finns." },
+      { title: "Påbyggnadsgaranti (Hobby)", text: "Hobby ger vanligtvis 2 år på påbyggnaden (möbler, elsystem, VVS)." },
+      { title: "Fuktgaranti", text: "Hobby har en av marknadens bästa fuktgarantier: vanligtvis 10 år. Detta är en av Hobbys starkaste försäljningsargument. Kontrollera att garantin överförs vid ägarbyte." },
+      { title: "Servicenät i Skandinavien", text: "Hobby har ett relativt brett servicenät i Skandinavien via sin svenska importör. Det gör garantiservice enklare jämfört med vissa andra tyska märken.", list: ["Ta med garantibevis och servicehistorik vid registrering", "Gasbesiktning krävs vid svensk registrering"] },
+    ],
+    source: "Kontrollera aktuella villkor med Hobby Sverige (via importör) eller din lokala återförsäljare.",
+  },
+};
+
+const MH_CHASSI_EXTRA: Record<string, { sprinterInfo: string; tip: string }> = {
+  dethleffs: {
+    sprinterInfo: "Dethleffs har inga Sprinter-modeller i standardsortimentet — samtliga modeller bygger på Fiat Ducato. Det innebär att chassikvaliteten helt beror på Ducato-plattformen.",
+    tip: "Prioritera nyare årsmodeller (2019+) där Fiat åtgärdat kända brister. Begär alltid komplett servicehistorik inklusive chassiservice.",
+  },
+  burstner: {
+    sprinterInfo: "Bürstner erbjuder Lyseo-serien på Mercedes Sprinter-chassi (premium). Övriga modeller bygger på Fiat Ducato. Sprinter-alternativet ger bättre driftsäkerhet men kostar ca 20–30 % mer.",
+    tip: "Prioritera nyare Ducato-årsmodeller (2019+) eller välj Lyseo-serien om budget tillåter.",
+  },
+  knaus: {
+    sprinterInfo: "Knaus har inga Sprinter-modeller i standardsortimentet — samtliga modeller bygger på Fiat Ducato.",
+    tip: "Prioritera nyare årsmodeller (2019+). Knaus kompenserar delvis chassisvagheten med sin starka 10-åriga fuktgaranti.",
+  },
+  hobby: {
+    sprinterInfo: "Hobby bygger uteslutande på Fiat Ducato — inga Sprinter-alternativ finns i sortimentet.",
+    tip: "Prioritera nyare årsmodeller (2019+). Hobbys starka fuktgaranti (10 år) och konkurrenskraftiga priser kompenserar delvis för Ducatos kända svagheter.",
+  },
+};
+
+const MH_FAQ: Record<string, FaqItem[]> = {
+  hymer: [
+    { question: "Betalar man malus på importerad Hymer-husbil?", answer: "Nej, husbilar är undantagna från malus sedan 1 februari 2025. Du betalar bara ordinarie fordonsskatt oavsett CO₂-utsläpp." },
+    { question: "Vilken Hymer-modell är mest pålitlig?", answer: "Modeller på Mercedes Sprinter-chassi (ML-T, B-ML) rankas högre av ADAC än Ducato-baserade modeller. Fiat Ducato rankas sämst av alla fordon i ADAC Pannenstatistik 2025 med 49 pannar per 1 000 fordon." },
+    { question: "Vad kostar det att importera en Hymer-husbil?", answer: "Fasta avgifter ca 6 240 kr (ursprungskontroll 1 240 kr + registreringsbesiktning ca 3 000–5 000 kr + skyltavgift 500 kr) plus transport. Prisbesparingen mot Sverige ligger typiskt på 20–40 %." },
+  ],
+  dethleffs: [
+    { question: "Betalar man malus på importerad Dethleffs-husbil?", answer: "Nej, husbilar är undantagna från malus sedan 1 februari 2025. Du betalar bara ordinarie fordonsskatt oavsett CO₂-utsläpp." },
+    { question: "Vilken Dethleffs-modell är mest pålitlig?", answer: "Globebus och Trend-serierna är populära val. Alla bygger på Fiat Ducato — prioritera nyare årsmodeller (2019+) för bättre chassikvalitet." },
+    { question: "Är Dethleffs samma kvalitet som Hymer?", answer: "Dethleffs och Hymer tillhör samma koncern (Erwin Hymer Group) och delar viss teknik. Hymer positionerar sig dock i ett något högre prissegment. Dethleffs erbjuder utmärkt pris-prestanda med liknande grundkvalitet." },
+  ],
+  burstner: [
+    { question: "Betalar man malus på importerad Bürstner-husbil?", answer: "Nej, husbilar är undantagna från malus sedan 1 februari 2025. Du betalar bara ordinarie fordonsskatt oavsett CO₂-utsläpp." },
+    { question: "Vilken Bürstner-modell är mest pålitlig?", answer: "Lyseo-serien på Mercedes Sprinter-chassi är det mest driftsäkra alternativet. Ducato-baserade modeller som Lyseo TD och Nexxo är populära men påverkas av Ducatos kända svagheter." },
+    { question: "Finns Bürstner på Mercedes Sprinter-chassi?", answer: "Ja, Bürstner erbjuder Lyseo-serien på Mercedes Sprinter-chassi. Det ger bättre driftsäkerhet men kostar ca 20–30 % mer än Ducato-baserade modeller." },
+  ],
+  knaus: [
+    { question: "Betalar man malus på importerad Knaus-husbil?", answer: "Nej, husbilar är undantagna från malus sedan 1 februari 2025. Du betalar bara ordinarie fordonsskatt oavsett CO₂-utsläpp." },
+    { question: "Vilken Knaus-modell är mest pålitlig?", answer: "Van TI och Live I är populära val. Alla bygger på Fiat Ducato — prioritera nyare årsmodeller (2019+). Knaus kompenserar med en av marknadens bästa fuktgarantier (10 år på vissa modeller)." },
+    { question: "Har Knaus bättre fuktgaranti än Hymer?", answer: "Ja, Knaus erbjuder vanligtvis 10 års fuktgaranti på vissa modeller, jämfört med Hymers 6–10 år. Kontrollera alltid att den specifika modellen omfattas och att garantin överförs vid ägarbyte." },
+  ],
+  hobby: [
+    { question: "Betalar man malus på importerad Hobby-husbil?", answer: "Nej, husbilar är undantagna från malus sedan 1 februari 2025. Du betalar bara ordinarie fordonsskatt oavsett CO₂-utsläpp." },
+    { question: "Vilken Hobby-modell är mest pålitlig?", answer: "Optima och De Luxe-serierna är populära val. Alla bygger på Fiat Ducato — prioritera nyare årsmodeller (2019+). Hobbys 10-åriga fuktgaranti ger extra trygghet." },
+    { question: "Är Hobby ett bra val för förstagångsköpare av husbil?", answer: "Ja, Hobby erbjuder ofta bästa pris-prestanda bland tyska husbilsmärken. Kombinationen av konkurrenskraftigt pris, 10 års fuktgaranti och relativt brett servicenät i Skandinavien gör dem till ett populärt val för förstagångsköpare." },
+  ],
+};
+
+const MH_TITLES: Record<string, { title: string; description: string }> = {
+  dethleffs: { title: "Importera Dethleffs husbil från Tyskland – Guide och kostnader 2026", description: "Importera Dethleffs husbil privat från Tyskland. Garanti, Ducato-chassi, fuktskydd och importkalkylator." },
+  burstner: { title: "Importera Bürstner husbil från Tyskland – Chassi, garanti och kostnader 2026", description: "Importera Bürstner husbil privat från Tyskland. Sprinter-alternativ (Lyseo), Ducato-varning och importkalkylator." },
+  knaus: { title: "Importera Knaus husbil från Tyskland – Guide med ADAC-data 2026", description: "Importera Knaus husbil privat från Tyskland. 10 års fuktgaranti, Ducato-chassi och importkalkylator." },
+  hobby: { title: "Importera Hobby husbil från Tyskland – Bästa pris-prestanda? Guide 2026", description: "Importera Hobby husbil privat från Tyskland. 10 års fuktgaranti, konkurrenskraftigt pris och importkalkylator." },
+};
+
 // Guides relevant for all motorhome brands
 const MOTORHOME_IMPORT_GUIDES: {
   slug: string;
@@ -109,13 +221,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (brand) {
     const importData = getMotorhomeBrandImportData(slug);
     const year = new Date().getFullYear();
+    const customTitle = MH_TITLES[slug];
     return {
-      title: importData
-        ? `Importera ${brand.name} husbil från Tyskland – Guide ${year} (chassi, kostnader)`
-        : `Importera ${brand.name} husbil från Tyskland – Guide`,
-      description: importData
-        ? `Importera ${brand.name} husbil privat från Tyskland. Chassiinformation, Ducato-varning (ADAC 2025), rekommenderade modeller och kalkylator.`
-        : `Allt om att importera ${brand.name} husbil privat från Tyskland.`,
+      title: customTitle
+        ? customTitle.title
+        : importData
+          ? `Importera ${brand.name} husbil från Tyskland – Guide ${year} (chassi, kostnader)`
+          : `Importera ${brand.name} husbil från Tyskland – Guide`,
+      description: customTitle
+        ? customTitle.description
+        : importData
+          ? `Importera ${brand.name} husbil privat från Tyskland. Chassiinformation, Ducato-varning (ADAC 2025), rekommenderade modeller och kalkylator.`
+          : `Allt om att importera ${brand.name} husbil privat från Tyskland.`,
       alternates: { canonical: getCanonicalUrl(`/importera-husbil/${slug}`) },
       robots,
     };
@@ -304,24 +421,11 @@ export default async function ImporteraHusbilPage({ params }: Props) {
           )),
         }}
       />
-      {brand!.slug === "hymer" && (
+      {MH_FAQ[brand!.slug] && (
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(getFaqJsonLd([
-              {
-                question: "Betalar man malus på importerad husbil?",
-                answer: "Nej, husbilar är undantagna från malus sedan 1 februari 2025. Du betalar bara ordinarie fordonsskatt oavsett CO₂-utsläpp.",
-              },
-              {
-                question: "Vilken Hymer-modell är mest pålitlig?",
-                answer: "Modeller på Mercedes Sprinter-chassi (ML-T, B-ML) rankas högre av ADAC än Ducato-baserade modeller. Fiat Ducato rankas sämst av alla fordon i ADAC Pannenstatistik 2025 med 49 pannar per 1 000 fordon.",
-              },
-              {
-                question: "Vad kostar det att importera en Hymer-husbil?",
-                answer: "Fasta avgifter ca 6 240 kr (ursprungskontroll 1 240 kr + registreringsbesiktning ca 3 000–5 000 kr + skyltavgift 500 kr) plus transport. Prisbesparingen mot Sverige ligger typiskt på 20–40 %.",
-              },
-            ])),
+            __html: JSON.stringify(getFaqJsonLd(MH_FAQ[brand!.slug])),
           }}
         />
       )}
@@ -368,7 +472,23 @@ export default async function ImporteraHusbilPage({ params }: Props) {
                 </a>
               </div>
             )}
-            {brand!.slug === "hymer" && importData.chassisWarning && (
+            {importData.chassisWarning && MH_CHASSI_EXTRA[brand!.slug] && (
+              <div className="space-y-4 text-sm text-gray-700 mt-4">
+                <div>
+                  <p className="font-semibold text-gray-900 mb-1">Chassi och tillförlitlighet</p>
+                  <p className="leading-relaxed">{MH_CHASSI_EXTRA[brand!.slug].sprinterInfo}</p>
+                </div>
+                <div>
+                  <p className="font-semibold text-gray-900 mb-1">Köpråd</p>
+                  <p className="leading-relaxed">{MH_CHASSI_EXTRA[brand!.slug].tip}</p>
+                  <ul className="space-y-1 list-disc list-inside ml-2 mt-2">
+                    <li>Begär komplett servicehistorik inklusive chassiservice</li>
+                    <li>Kontrollera att alla återkallelser (Rückruf) är utförda — sök på VIN hos kba.de</li>
+                  </ul>
+                </div>
+              </div>
+            )}
+            {importData.chassisWarning && brand!.slug === "hymer" && (
               <div className="space-y-4 text-sm text-gray-700 mt-4">
                 <div>
                   <p className="font-semibold text-gray-900 mb-1">Vad det innebär för dig som köpare</p>
@@ -443,36 +563,27 @@ export default async function ImporteraHusbilPage({ params }: Props) {
             </div>
           </section>
 
-          {/* Hymer-specific: Garanti */}
-          {brand!.slug === "hymer" && (
+          {/* Brand-specific: Garanti */}
+          {MH_GARANTI[brand!.slug] && (
             <section className="mb-8">
-              <h2 className="text-xl font-bold text-gray-900 mb-4">Garanti vid Hymer-import</h2>
+              <h2 className="text-xl font-bold text-gray-900 mb-4">Garanti vid {importData.name}-import</h2>
               <p className="text-sm text-gray-700 mb-4 leading-relaxed">
-                Hymers garantivillkor skiljer sig från personbilar — det finns separata garantier för chassi och påbyggnad.
+                {MH_GARANTI[brand!.slug].intro}
               </p>
               <div className="space-y-4 text-sm text-gray-700">
-                <div>
-                  <p className="font-semibold text-gray-900 mb-1">Chassigaranti (Fiat Ducato / Mercedes Sprinter)</p>
-                  <p className="leading-relaxed">Fiat ger vanligtvis 2 års garanti på Ducato-chassit. Mercedes ger liknande på Sprinter. Garantin gäller internationellt inom EU men kräver att service utförts enligt tillverkarens intervall.</p>
-                </div>
-                <div>
-                  <p className="font-semibold text-gray-900 mb-1">Påbyggnadsgaranti (Hymer)</p>
-                  <p className="leading-relaxed">Hymer ger vanligtvis 2 år på påbyggnaden (möbler, elsystem, VVS) plus ofta 6–10 års garanti mot vatteninträngning (fuktskada) — detta varierar mellan modeller och årsmodeller. Kontrollera det exakta garantibeviset.</p>
-                </div>
-                <div>
-                  <p className="font-semibold text-gray-900 mb-1">Vad du måste göra efter import</p>
-                  <ul className="list-disc list-inside space-y-1 ml-2">
-                    <li>Kontakta en svensk Hymer-auktoriserad verkstad för att registrera husbilen i det svenska systemet</li>
-                    <li>Ta med garantibevis, servicehistorik och köpehandling</li>
-                    <li>Kontrollera att eventuell fuktgaranti överförs vid ägarbyte</li>
-                  </ul>
-                </div>
-                <div>
-                  <p className="font-semibold text-gray-900 mb-1">Gasbesiktning</p>
-                  <p className="leading-relaxed">Husbilar med gasol (de flesta) kräver gasbesiktning vid registreringsbesiktning i Sverige. Kontrollera att gasolinstallationen uppfyller svenska krav — detta kan kräva anpassning.</p>
-                </div>
+                {MH_GARANTI[brand!.slug].items.map((item, i) => (
+                  <div key={i}>
+                    <p className="font-semibold text-gray-900 mb-1">{item.title}</p>
+                    <p className="leading-relaxed">{item.text}</p>
+                    {item.list && (
+                      <ul className="list-disc list-inside space-y-1 ml-2 mt-2">
+                        {item.list.map((li, j) => <li key={j}>{li}</li>)}
+                      </ul>
+                    )}
+                  </div>
+                ))}
               </div>
-              <p className="text-xs text-gray-400 mt-3">Källa: Kontrollera aktuella villkor med Hymer Sverige eller din lokala Hymer-återförsäljare.</p>
+              <p className="text-xs text-gray-400 mt-3">{MH_GARANTI[brand!.slug].source}</p>
             </section>
           )}
 
@@ -583,8 +694,8 @@ export default async function ImporteraHusbilPage({ params }: Props) {
             </p>
           </section>
 
-          {/* CostTable for Hymer */}
-          {brand!.slug === "hymer" && (
+          {/* CostTable for all brands with enriched content */}
+          {MH_GARANTI[brand!.slug] && (
             <section className="mb-8">
               <h2 className="text-xl font-bold text-gray-900 mb-4">Alla importavgifter</h2>
               <CostTable vehicleType="husbil" compact />
