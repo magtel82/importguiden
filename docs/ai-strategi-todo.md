@@ -1,5 +1,5 @@
 # AI-strategi – Implementation TODO
-# Senast uppdaterad: 2026-03-14
+# Senast uppdaterad: 2026-03-22
 # Prioritetsordning: Fas 1 → Fas 2 → Fas 3
 
 ---
@@ -14,15 +14,13 @@
 - [ ] **Vercel Blob Storage** – aktivera i Vercel Dashboard → Storage → Create Database → Blob
       Genererar automatiskt BLOB_READ_WRITE_TOKEN i miljövariablerna.
 
-- [ ] **Resend-konto** – skapa gratis konto på resend.com
-      → Settings → API Keys → Create API Key
-      → Lägg till i Vercel: RESEND_API_KEY
-      → Lägg till i .env.local: RESEND_API_KEY=...
-      → Verifiera domänen info@importguiden.se (följ Resend-guiden)
+- [x] **SMTP via one.com** – redan konfigurerat (bytt från Resend 2026-03-18)
+      → Miljövariabler redan satta: SMTP_USER, SMTP_PASSWORD
+      → Avsändaradress: info@importguiden.se
 
 ### Kod att bygga (Claude gör detta)
 
-- [ ] `lib/resend.ts` – wrapper för sendAlert(subject, body)
+- [ ] `lib/smtp.ts` – wrapper för sendAlert(subject, body) via nodemailer + one.com SMTP
 - [ ] `lib/regulation-check.ts` – fetch + hash-jämförelse + stripDynamicContent()
 - [ ] `datasets/regulation-urls.json` – lista med 12 URL:er att bevaka (du fyller i)
 - [ ] Uppdatera `app/api/cron/daily/route.ts` – lägg till runRegulationCheck() som steg 3
@@ -152,6 +150,6 @@ Användaren installerar via claude_desktop_config.json:
 
 | Fas | Vad | Kostnad | Miljövariabler |
 |-----|-----|---------|----------------|
-| 1 | Regelbevakning | 0 kr | RESEND_API_KEY, BLOB_READ_WRITE_TOKEN |
+| 1 | Regelbevakning | 0 kr | SMTP_USER, SMTP_PASSWORD, BLOB_READ_WRITE_TOKEN |
 | 2 | AI-chat | ~100 kr/mån | ANTHROPIC_API_KEY |
 | 3 | MCP-server | 0 kr | — |

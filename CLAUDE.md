@@ -1,6 +1,6 @@
 # CLAUDE.md – Importguiden
 
-# Senast uppdaterad: 2026-03-30 (8)
+# Senast uppdaterad: 2026-04-04 (9)
 
 # Status: MVP GO – affiliate-redo, aktiv utveckling
 
@@ -302,9 +302,7 @@ REGLER:
 
 NULÄGE (märkessidor):
 
-* /importera-bil/bmw, /audi, /mercedes, /volkswagen, /volvo, /tesla
-→ indexable=false, isThin=true
-→ Sätt indexable=true FÖRST när unikt märkesspecifikt innehåll finns
+* Alla 11 märkessidor (6 bil + 5 husbil) är indexable=true med score 80–85
 
 # ==========================================================
 
@@ -746,6 +744,7 @@ Nätverk: Ej ansökt för övriga program – välj Adtraction (rekommenderas, s
 2. Lendo/Zmarta  – billån / finansiering
 3. Försäkring    – Hedvig, If eller Trygg-Hansa (importförsäkring)
 4. Bilhistorik   – t.ex. carVertical (fordonshistorik-rapport)
+5. Adtraction    – ansök igen juni 2026 (nekad mars 2026, kräver mer trafik)
 
 ## IMPLEMENTERINGSREGLER
 
