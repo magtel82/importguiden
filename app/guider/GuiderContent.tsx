@@ -59,6 +59,13 @@ const guides: {
     category: "generell",
   },
   {
+    slug: "exportforsakring",
+    title: "Exportförsäkring i Tyskland",
+    description: "Vad en exportförsäkring (Ausfuhrkennzeichen) är, vad den kostar och när du behöver den för att köra hem bilen.",
+    time: "5 min",
+    category: "generell",
+  },
+  {
     slug: "kopa-bil-mobile-de-autoscout24",
     title: "Söka bil på mobile.de – guide på svenska",
     description: "Navigera sajten, filtrera rätt, kontakta säljare och undvik fallgropar. Komplett guide för svenska köpare.",

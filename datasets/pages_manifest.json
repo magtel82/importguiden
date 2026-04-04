@@ -275,6 +275,21 @@
       "tags": ["guide", "köpprocess", "tyskland"]
     },
     {
+      "id": "guider-exportforsakring",
+      "path": "/guider/exportforsakring",
+      "title": "Exportförsäkring i Tyskland – Ausfuhrkennzeichen för bilimport",
+      "description": "Vad är en exportförsäkring? Kostnad, giltighetstid, var du tecknar och när du behöver Ausfuhrkennzeichen för att köra hem bilen från Tyskland.",
+      "sources": [
+        "https://www.adac.de",
+        "https://www.tuev-nord.de",
+        "https://www.transportstyrelsen.se"
+      ],
+      "uniquePayloadScore": 0,
+      "quality": { "hasSources": true, "isThin": false, "indexable": false },
+      "lastEvaluated": "2026-04-04",
+      "tags": ["guide", "försäkring", "tyskland", "export"]
+    },
+    {
       "id": "guider-fordonsskatt-husbil-bonus-malus",
       "path": "/guider/fordonsskatt-husbil-bonus-malus",
       "title": "Fordonsskatt och bonus-malus för husbilar – Vad gäller 2025?",

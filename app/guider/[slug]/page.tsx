@@ -27,6 +27,7 @@ const GUIDE_SLUGS = [
   "besikta-husbil",
   "kopa-husbil-mobil-de",
   "besiktningsfel-vid-import",
+  "exportforsakring",
 ] as const;
 
 type GuideSlug = (typeof GUIDE_SLUGS)[number];
@@ -178,6 +179,24 @@ export default async function GuiderPage({ params }: Props) {
             question: "Behöver jag COC-intyg för att importera bil?",
             answer:
               "Det är inte alltid formellt obligatoriskt, men det underlättar registreringen avsevärt. Utan COC kan besiktningsstationen kräva alternativ dokumentation eller hänvisa till enskilt godkännande via Transportstyrelsen – en process som kan ta månader och kosta 5 000–15 000 kr extra.",
+          },
+        ])
+      : slug === "exportforsakring"
+      ? getFaqJsonLd([
+          {
+            question: "Vad kostar en exportförsäkring i Tyskland?",
+            answer:
+              "Typiskt 50–150 EUR för personbil, beroende på giltighetstid (5–30 dagar) och försäkringsbolag. Husbilar kan kosta 80–200 EUR beroende på totalvikt.",
+          },
+          {
+            question: "Hur länge gäller en exportförsäkring?",
+            answer:
+              "Du väljer giltighetstid vid ansökan: 5 till 30 dagar. Utgångsdatumet trycks direkt på exportskyltarna och kan inte förlängas i efterhand.",
+          },
+          {
+            question: "Behöver jag exportförsäkring om jag kör bilen på släp?",
+            answer:
+              "Om bilen rullar på egna hjul på vägen räknas den som fordon i trafik och behöver exportskyltar. Om bilen lastats helt på ett släp eller en biltransport räknas den som last och behöver ingen exportförsäkring.",
           },
         ])
       : null;
