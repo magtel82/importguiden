@@ -115,6 +115,29 @@ const categoryLabel: Record<Category, string> = {
   husbil: "Husbil",
 };
 
+const sections: { title: string; slugs: string[] }[] = [
+  {
+    title: "Hitta fordonet",
+    slugs: ["kopa-bil-mobile-de-autoscout24", "kopa-husbil-mobil-de"],
+  },
+  {
+    title: "Köp och ta hem",
+    slugs: ["exportforsakring", "transportera-bil-fran-tyskland"],
+  },
+  {
+    title: "Importprocessen i Sverige",
+    slugs: ["ursprungskontroll", "registreringsbesiktning", "coc-intyg", "besiktningsfel-vid-import"],
+  },
+  {
+    title: "Kostnader och skatt",
+    slugs: ["moms-vid-bilimport", "fordonsskatt-husbil-bonus-malus", "hur-lang-tid-tar-bilimport"],
+  },
+  {
+    title: "Specialguider",
+    slugs: ["importera-elbil", "besikta-husbil"],
+  },
+];
+
 const carBrands = [
   { slug: "bmw", name: "BMW", tagline: "3-serie, 5-serie, X3 – 15–40 % lägre pris" },
   { slug: "mercedes", name: "Mercedes-Benz", tagline: "A-klass, C-klass, E-klass – 10–30 % lägre pris" },
@@ -140,12 +163,14 @@ export function GuiderContent() {
     { name: "Guider" },
   ];
 
-  const filteredGuides = guides.filter((g) => {
+  function guideMatchesFilter(slug: string) {
+    const guide = guides.find((g) => g.slug === slug);
+    if (!guide) return false;
     if (filter === "alla") return true;
-    if (filter === "bil") return g.category === "bil" || g.category === "generell";
-    if (filter === "husbil") return g.category === "husbil" || g.category === "generell";
-    return true;
-  });
+    if (filter === "bil") return guide.category === "bil" || guide.category === "generell";
+    if (filter === "husbil") return guide.category === "husbil" || guide.category === "generell";
+    return false;
+  }
 
   const showCarBrands = filter === "alla" || filter === "bil";
   const showMotorhomeBrands = filter === "alla" || filter === "husbil";
@@ -203,33 +228,44 @@ export function GuiderContent() {
         </div>
       </section>
 
-      {/* Fördjupningsguider */}
-      <h2 className="text-lg font-bold text-gray-900 mb-3">Fördjupningsguider</h2>
-      <ul className="space-y-4 mb-10">
-        {filteredGuides.map((guide) => (
-          <li key={guide.slug}>
-            <Link
-              href={`/guider/${guide.slug}`}
-              className="block rounded-lg border border-gray-200 p-5 hover:border-blue-400 hover:shadow-sm transition-all"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <h2 className="font-semibold text-gray-900">{guide.title}</h2>
-                    <span className="text-xs font-medium text-blue-700 bg-blue-50 px-2 py-0.5 rounded whitespace-nowrap">
-                      {categoryLabel[guide.category]}
-                    </span>
-                  </div>
-                  <p className="text-sm text-gray-500">{guide.description}</p>
-                </div>
-                <span className="flex-shrink-0 text-xs text-gray-400 mt-1 whitespace-nowrap">
-                  {guide.time} läsning
-                </span>
-              </div>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      {/* Fördjupningsguider – grupperade i sektioner */}
+      {sections.map((section) => {
+        const visibleSlugs = section.slugs.filter(guideMatchesFilter);
+        if (visibleSlugs.length === 0) return null;
+        return (
+          <section key={section.title} className="mb-8">
+            <h2 className="text-lg font-bold text-gray-900 mb-3">{section.title}</h2>
+            <ul className="space-y-4">
+              {visibleSlugs.map((slug) => {
+                const guide = guides.find((g) => g.slug === slug)!;
+                return (
+                  <li key={guide.slug}>
+                    <Link
+                      href={`/guider/${guide.slug}`}
+                      className="block rounded-lg border border-gray-200 p-5 hover:border-blue-400 hover:shadow-sm transition-all"
+                    >
+                      <div className="flex items-start justify-between gap-4">
+                        <div>
+                          <div className="flex items-center gap-2 mb-1">
+                            <h3 className="font-semibold text-gray-900">{guide.title}</h3>
+                            <span className="text-xs font-medium text-blue-700 bg-blue-50 px-2 py-0.5 rounded whitespace-nowrap">
+                              {categoryLabel[guide.category]}
+                            </span>
+                          </div>
+                          <p className="text-sm text-gray-500">{guide.description}</p>
+                        </div>
+                        <span className="flex-shrink-0 text-xs text-gray-400 mt-1 whitespace-nowrap">
+                          {guide.time} läsning
+                        </span>
+                      </div>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        );
+      })}
 
       {/* Märkesspecifika guider */}
       {(showCarBrands || showMotorhomeBrands) && (
