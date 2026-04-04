@@ -11,6 +11,7 @@ import path from "path";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import { AffiliateLink } from "@/components/affiliate/AffiliateLink";
+import { BrandGrid } from "@/components/BrandGrid";
 import { TableOfContents } from "@/components/TableOfContents";
 import { extractHeadings } from "@/lib/headings";
 import { CostTable } from "@/components/CostTable";
@@ -313,7 +314,7 @@ export default async function ImporteraBilPage({ params }: Props) {
       const { content } = await compileMDX({
         source,
         options: { parseFrontmatter: true, mdxOptions: { remarkPlugins: [remarkGfm], rehypePlugins: [rehypeSlug] } },
-        components: { AffiliateLink },
+        components: { AffiliateLink, BrandGrid },
       });
 
       const articleJsonLd = {
