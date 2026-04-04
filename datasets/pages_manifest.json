@@ -284,8 +284,8 @@
         "https://www.tuev-nord.de",
         "https://www.transportstyrelsen.se"
       ],
-      "uniquePayloadScore": 0,
-      "quality": { "hasSources": true, "isThin": false, "indexable": false },
+      "uniquePayloadScore": 82,
+      "quality": { "hasSources": true, "isThin": false, "indexable": true },
       "lastEvaluated": "2026-04-04",
       "tags": ["guide", "försäkring", "tyskland", "export"]
     },
