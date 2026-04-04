@@ -261,8 +261,8 @@
     {
       "id": "guider-kopa-bil-mobile-de-autoscout24",
       "path": "/guider/kopa-bil-mobile-de-autoscout24",
-      "title": "Mobile.de på svenska – Så söker du bil i Tyskland",
-      "description": "Komplett guide till mobile.de på svenska. Så navigerar du Tysklands största bilsajt, undviker bedrägerier och hittar rätt bil. Med ordlista tyska–svenska biltermer.",
+      "title": "Mobile.de på svenska – guide för att söka bil i Tyskland",
+      "description": "Steg-för-steg guide till mobile.de på svenska. Sökfilter, betalning, exportförsäkring och vad du ska tänka på innan du köper bil i Tyskland.",
       "sources": [
         "https://www.mobile.de",
         "https://www.autoscout24.de",
@@ -271,7 +271,7 @@
       ],
       "uniquePayloadScore": 88,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
-      "lastEvaluated": "2026-03-31",
+      "lastEvaluated": "2026-04-04",
       "tags": ["guide", "köpprocess", "tyskland"]
     },
     {

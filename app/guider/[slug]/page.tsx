@@ -123,6 +123,16 @@ export default async function GuiderPage({ params }: Props) {
             answer:
               "Via kontaktformuläret direkt på annonsen. De flesta återförsäljare svarar på engelska. Privata säljare kan variera – grundläggande engelska eller tyska fraser räcker i de flesta fall.",
           },
+          {
+            question: "Hur ändrar man språk på mobile.de?",
+            answer:
+              "Scrolla längst ned på mobile.de och välj engelska i språkväljaren. Alternativt kan du använda Google Chromes inbyggda översättningsfunktion för att få sidan översatt till svenska automatiskt. Det finns inget officiellt svenskt gränssnitt.",
+          },
+          {
+            question: "Vad betyder Fahrzeugbrief på mobile.de?",
+            answer:
+              "Fahrzeugbrief, eller Zulassungsbescheinigung Teil II, är den tyska motsvarigheten till det svenska registreringsbeviset. Det är ett viktigt dokument som bevisar ägarskap och behövs vid avregistrering och export av bilen.",
+          },
         ])
       : slug === "ursprungskontroll"
       ? getFaqJsonLd([
