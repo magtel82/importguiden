@@ -66,6 +66,13 @@ const guides: {
     category: "generell",
   },
   {
+    slug: "importforsakring",
+    title: "Importförsäkring bil – Tillfälligt trafikskydd i Sverige",
+    description: "Vad en importförsäkring är, varför du behöver den, vad den kostar (~1 500 kr) och hur du tecknar den innan registreringsbesiktningen.",
+    time: "4 min",
+    category: "generell",
+  },
+  {
     slug: "kopa-bil-mobile-de-autoscout24",
     title: "Söka bil på mobile.de – guide på svenska",
     description: "Navigera sajten, filtrera rätt, kontakta säljare och undvik fallgropar. Komplett guide för svenska köpare.",
@@ -122,7 +129,7 @@ const sections: { title: string; slugs: string[] }[] = [
   },
   {
     title: "Köp och ta hem",
-    slugs: ["exportforsakring", "transportera-bil-fran-tyskland"],
+    slugs: ["exportforsakring", "importforsakring", "transportera-bil-fran-tyskland"],
   },
   {
     title: "Importprocessen i Sverige",

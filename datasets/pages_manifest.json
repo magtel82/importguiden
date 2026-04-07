@@ -482,6 +482,21 @@
       "tags": ["guide", "bil", "flöde"]
     },
     {
+      "id": "guider-importforsakring",
+      "path": "/guider/importforsakring",
+      "title": "Importförsäkring bil – Vad det är, vad det kostar och hur du tecknar",
+      "description": "Importförsäkring är ett tillfälligt trafikskydd för oregistrerade importerade fordon i Sverige. Kostnad ~1 500 kr för bil, ~2 500 kr för husbil. Så tecknar du den.",
+      "sources": [
+        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/fordonsimport-och-ursprungskontroll/import-fran-ett-eu-land/",
+        "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/trafikskadelag-1975103_sfs-1975-103/"
+      ],
+      "uniquePayloadScore": 0,
+      "quality": { "hasSources": true, "isThin": false, "indexable": false },
+      "lastEvaluated": "2026-04-07",
+      "notes": "Ny guide 2026-04-07. GSC: 17 exponeringar för 'importförsäkring bil' utan dedikerad sida. Kör quality gate innan indexable=true.",
+      "tags": ["guide", "försäkring", "process"]
+    },
+    {
       "id": "importera-husbil-guide",
       "path": "/importera-husbil/guide",
       "title": "Importera husbil — Steg för steg",

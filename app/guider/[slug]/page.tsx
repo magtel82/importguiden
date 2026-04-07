@@ -28,6 +28,7 @@ const GUIDE_SLUGS = [
   "kopa-husbil-mobil-de",
   "besiktningsfel-vid-import",
   "exportforsakring",
+  "importforsakring",
 ] as const;
 
 type GuideSlug = (typeof GUIDE_SLUGS)[number];
@@ -184,6 +185,24 @@ export default async function GuiderPage({ params }: Props) {
             question: "Behöver jag COC-intyg för att importera bil?",
             answer:
               "Det är inte alltid formellt obligatoriskt, men det underlättar registreringen avsevärt. Utan COC kan besiktningsstationen kräva alternativ dokumentation eller hänvisa till enskilt godkännande via Transportstyrelsen – en process som kan ta månader och kosta 5 000–15 000 kr extra.",
+          },
+        ])
+      : slug === "importforsakring"
+      ? getFaqJsonLd([
+          {
+            question: "Vad kostar importförsäkring för bil?",
+            answer:
+              "Schablonkostnaden för importförsäkring på personbil är cirka 1 500 kr, med ett intervall på 1 000–2 500 kr beroende på bolag och giltighetstid. Kontrollera aktuella priser hos IF, Folksam eller Länsförsäkringar.",
+          },
+          {
+            question: "Hur länge gäller en importförsäkring?",
+            answer:
+              "Vanligen 1 till 3 månader. Giltighetstiden väljer du vid ansökan och ska täcka hela perioden från hemkomst till registrering i Sverige.",
+          },
+          {
+            question: "Måste man ha importförsäkring?",
+            answer:
+              "Ja. Enligt trafikskadelagen (1975:103) är det obligatoriskt med giltig trafikförsäkring för att framföra ett motorfordon på allmän väg i Sverige – oavsett om fordonet är registrerat eller inte.",
           },
         ])
       : slug === "exportforsakring"
