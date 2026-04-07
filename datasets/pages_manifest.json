@@ -490,10 +490,10 @@
         "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/fordonsimport-och-ursprungskontroll/import-fran-ett-eu-land/",
         "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/trafikskadelag-1975103_sfs-1975-103/"
       ],
-      "uniquePayloadScore": 0,
-      "quality": { "hasSources": true, "isThin": false, "indexable": false },
+      "uniquePayloadScore": 78,
+      "quality": { "hasSources": true, "isThin": false, "indexable": true },
       "lastEvaluated": "2026-04-07",
-      "notes": "Ny guide 2026-04-07. GSC: 17 exponeringar för 'importförsäkring bil' utan dedikerad sida. Kör quality gate innan indexable=true.",
+      "notes": "Ny guide 2026-04-07. GSC: 17 exponeringar för 'importförsäkring bil' utan dedikerad sida. Quality gate godkänd 2026-04-07, score 78.",
       "tags": ["guide", "försäkring", "process"]
     },
     {
