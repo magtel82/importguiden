@@ -157,6 +157,11 @@ export default async function GuiderPage({ params }: Props) {
             answer:
               "Du får ett beslut med förklaring. Vanliga orsaker är saknade dokument eller att bilen finns i ett stöldregister. Du kan komplettera och ansöka igen, eller kontakta säljaren för att lösa den underliggande frågan.",
           },
+          {
+            question: "Vad kontrollerar Transportstyrelsen vid ursprungskontroll?",
+            answer:
+              "Transportstyrelsen kontrollerar fordonet mot internationella register för stulna fordon (via Interpol, Europol och nationella polisregister) samt mot kreditbelastningsregister i hemlandet för att se om bilen har kvarstående leasingskulder, panträtter eller är belagd med kvarstad. Kontrollen verifierar även att VIN-numret stämmer med registreringsdokumenten.",
+          },
         ])
       : slug === "coc-intyg"
       ? getFaqJsonLd([

@@ -239,12 +239,12 @@
     {
       "id": "guider-ursprungskontroll",
       "path": "/guider/ursprungskontroll",
-      "title": "Ursprungskontroll 2026 – Kostnad, handläggningstid och ansökan",
+      "title": "Ursprungskontroll – vad det kostar och hur det fungerar",
       "description": "Ursprungskontroll kostar 1 240 kr och tar ca 2–5 arbetsdagar. Här förklarar vi hur du ansöker hos Transportstyrelsen, vilka dokument som behövs och vad du gör om den inte godkänns.",
       "sources": ["https://www.transportstyrelsen.se"],
       "uniquePayloadScore": 85,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
-      "lastEvaluated": "2026-03-31",
+      "lastEvaluated": "2026-04-07",
       "tags": ["guide", "process"]
     },
     {
