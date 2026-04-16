@@ -328,6 +328,25 @@ export default async function ImporteraBilPage({ params }: Props) {
         mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/importera-bil/tyskland` },
       };
 
+      const tysklandFaqSchema = getFaqJsonLd([
+        {
+          question: "Är det lönsamt att importera bil från Tyskland?",
+          answer: "Det kan vara lönsamt, framför allt för premiumbilar och elbilar där prisskillnaden mot Sverige kan vara 30 000–100 000 kr. Du behöver räkna in transport, ursprungskontroll, besiktning och eventuell fordonsskatt.",
+        },
+        {
+          question: "Hur lång tid tar det att importera bil från Tyskland?",
+          answer: "Räkna med 3–6 veckor från köp till registrering i Sverige. Ursprungskontroll tar 2–5 dagar och registreringsbesiktning bokas normalt inom 1–2 veckor.",
+        },
+        {
+          question: "Behöver man betala tull vid import från Tyskland?",
+          answer: "Nej, inom EU gäller fri rörlighet för varor. Du betalar ingen tull vid import från Tyskland till Sverige.",
+        },
+        {
+          question: "Kan man importera bil från Tyskland utan att åka dit?",
+          answer: "Ja, det är möjligt att anlita en professionell biltransport. Du behöver dock ordna köpekontraktet och betalningen på distans, och du bör anlita en lokal besiktningsman innan köpet.",
+        },
+      ]);
+
       return (
         <>
           <script
@@ -341,6 +360,10 @@ export default async function ImporteraBilPage({ params }: Props) {
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(tysklandFaqSchema) }}
           />
           <div className="mx-auto max-w-3xl px-4 py-10">
             <Breadcrumbs items={breadcrumbs} siteUrl={SITE_URL} />

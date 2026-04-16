@@ -139,14 +139,19 @@ export default async function GuiderPage({ params }: Props) {
       : slug === "ursprungskontroll"
       ? getFaqJsonLd([
           {
-            question: "Vad kostar ursprungskontroll 2026?",
+            question: "Vad kostar ursprungskontroll?",
             answer:
-              "Avgiften är 1 240 kr (källa: Transportstyrelsen). Betalas vid beställning och återbetalas inte oavsett utfall.",
+              "Ursprungskontroll kostar 1 240 kr (2025, källa: Transportstyrelsen). Betalas vid beställning och återbetalas inte oavsett utfall.",
           },
           {
             question: "Hur lång tid tar ursprungskontroll?",
             answer:
-              "Vanligtvis 2–5 arbetsdagar från det att betalning är registrerad. I perioder med hög belastning kan det ta längre tid – räkna med upp till 1–2 veckor som säkerhetsplan.",
+              "Ursprungskontroll tar normalt 2–5 arbetsdagar hos Transportstyrelsen. I perioder med hög belastning kan det ta längre tid – räkna med upp till 1–2 veckor som säkerhetsplan.",
+          },
+          {
+            question: "Hur följer jag status på min ursprungskontroll?",
+            answer:
+              "Du kan följa statusen via Transportstyrelsens e-tjänst efter att du loggat in med BankID.",
           },
           {
             question: "Kan jag köra bilen innan ursprungskontrollen är klar?",
@@ -162,6 +167,24 @@ export default async function GuiderPage({ params }: Props) {
             question: "Vad kontrollerar Transportstyrelsen vid ursprungskontroll?",
             answer:
               "Transportstyrelsen kontrollerar fordonet mot internationella register för stulna fordon (via Interpol, Europol och nationella polisregister) samt mot kreditbelastningsregister i hemlandet för att se om bilen har kvarstående leasingskulder, panträtter eller är belagd med kvarstad. Kontrollen verifierar även att VIN-numret stämmer med registreringsdokumenten.",
+          },
+        ])
+      : slug === "moms-vid-bilimport"
+      ? getFaqJsonLd([
+          {
+            question: "Betalar man moms när man importerar bil från Tyskland?",
+            answer:
+              "Vid köp av begagnad bil från privatperson i EU betalar du normalt ingen moms i Sverige. Moms tillkommer endast om bilen räknas som ett 'nytt transportmedel' (under 6 månader gammal eller under 6 000 km).",
+          },
+          {
+            question: "Vad räknas som nytt transportmedel vid bilimport?",
+            answer:
+              "En bil räknas som ny om den är yngre än 6 månader eller har körts färre än 6 000 km. Då ska du betala svensk moms (25%) vid importen.",
+          },
+          {
+            question: "Hur redovisar man moms vid bilimport till Skatteverket?",
+            answer:
+              "Om moms ska betalas redovisar du det i en momsdeklaration till Skatteverket. Som privatperson görs detta via blankett SKV 5740.",
           },
         ])
       : slug === "coc-intyg"
