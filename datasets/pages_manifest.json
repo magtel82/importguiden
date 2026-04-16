@@ -497,6 +497,18 @@
       "tags": ["guide", "försäkring", "process"]
     },
     {
+      "id": "guider-eeg-intyg",
+      "path": "/guider/eeg-intyg",
+      "title": "EEG-intyg vid bilimport – Vad det är och när du behöver det",
+      "description": "EEG-intyg krävs vid import av vissa fordon till Sverige, bland annat elbilar och fordon som saknar COC-intyg.",
+      "sources": ["https://www.transportstyrelsen.se"],
+      "uniquePayloadScore": 80,
+      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "lastEvaluated": "2026-04-16",
+      "notes": "Ny guide 2026-04-16. GSC: position 6 på 'eeg intyg bil' utan dedikerad sida.",
+      "tags": ["guide", "process", "elbil"]
+    },
+    {
       "id": "importera-husbil-guide",
       "path": "/importera-husbil/guide",
       "title": "Importera husbil — Steg för steg",

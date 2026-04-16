@@ -38,6 +38,13 @@ const guides: {
     category: "generell",
   },
   {
+    slug: "eeg-intyg",
+    title: "EEG-intyg vid bilimport",
+    description: "När Transportstyrelsen kräver EEG-typintyg, hur du beställer det och vad det kostar (50–200 EUR).",
+    time: "4 min",
+    category: "generell",
+  },
+  {
     slug: "hur-lang-tid-tar-bilimport",
     title: "Hur lång tid tar det att importera bil?",
     description: "Realistisk tidslinje från sökning till svenska skyltar. Räkna med 4–8 veckor – här ser du varje steg.",
