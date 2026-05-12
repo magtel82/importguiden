@@ -214,7 +214,7 @@ const CAR_IMPORT_GUIDES: {
     slug: "ursprungskontroll",
     title: "Ursprungskontroll – obligatorisk efter hemkomst",
     desc: () =>
-      "Beställ hos Transportstyrelsen (1 240 kr, 2025). Utan godkänd ursprungskontroll kan bilen inte registreras.",
+      "Beställ hos Transportstyrelsen (1 240 kr, 2026). Utan godkänd ursprungskontroll kan bilen inte registreras.",
   },
   {
     slug: "registreringsbesiktning",
@@ -421,7 +421,7 @@ export default async function ImporteraBilPage({ params }: Props) {
                   { title: "Hitta bilen", desc: `Sök på mobile.de, AutoScout24 eller liknande plattformar. Kontrollera att bilen inte är märkt som exportsåld.` },
                   { title: "Besiktiga och köp bilen", desc: "Resa ner för besiktning rekommenderas alltid. Kontrollera servicehistorik, COC-intyg och att bilen är fri från belastningar." },
                   { title: "Exportregistrering och hemtransport", desc: "Säljaren avregistrerar bilen. Du kan köra hem på röda exportskyltar eller anlita transport." },
-                  { title: "Ursprungskontroll", desc: "Beställ ursprungskontroll hos Transportstyrelsen (1 240 kr, 2025)." },
+                  { title: "Ursprungskontroll", desc: "Beställ ursprungskontroll hos Transportstyrelsen (1 240 kr, 2026)." },
                   { title: "Registreringsbesiktning", desc: "Boka registreringsbesiktning hos godkänd station. Ca 1 700 kr för personbil." },
                   { title: "Registrering i Sverige", desc: "När besiktningen är godkänd registrerar Transportstyrelsen bilen och du får svenska skyltar." },
                 ].map((item, i) => (
@@ -451,7 +451,7 @@ export default async function ImporteraBilPage({ params }: Props) {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-100">
-                  <tr><td className="p-3">Ursprungskontroll</td><td className="p-3 text-right font-medium">1 240 kr</td><td className="p-3 text-xs text-gray-500">Transportstyrelsen (2025)</td></tr>
+                  <tr><td className="p-3">Ursprungskontroll</td><td className="p-3 text-right font-medium">1 240 kr</td><td className="p-3 text-xs text-gray-500">Transportstyrelsen (2026)</td></tr>
                   <tr><td className="p-3">Registreringsbesiktning</td><td className="p-3 text-right font-medium">~1 700 kr</td><td className="p-3 text-xs text-gray-500">Schablonvärde</td></tr>
                   <tr><td className="p-3">Transport (kör hem)</td><td className="p-3 text-right font-medium">~2 000 kr</td><td className="p-3 text-xs text-gray-500">Bränslekostnad</td></tr>
                   <tr><td className="p-3">Moms (om fordon anses nytt)</td><td className="p-3 text-right font-medium">25% av priset</td><td className="p-3 text-xs text-gray-500">Skatteverket</td></tr>

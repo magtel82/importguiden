@@ -48,7 +48,7 @@ export default function KalkylatornPage() {
           <ul className="space-y-1 list-disc list-inside">
             <li>Moms (25%) tillkommer om fordonet är yngre än 6 månader eller under 6 000 mil</li>
             <li>Tull är 0% vid import från EU-land</li>
-            <li>Ursprungskontroll: 1 240 kr (Transportstyrelsen, 2025)</li>
+            <li>Ursprungskontroll: 1 240 kr (Transportstyrelsen, 2026)</li>
             <li>Transportkostnad är ett schablonvärde</li>
           </ul>
           <p className="mt-2 text-xs">

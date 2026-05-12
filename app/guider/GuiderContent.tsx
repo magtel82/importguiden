@@ -102,7 +102,7 @@ const guides: {
   },
   {
     slug: "fordonsskatt-husbil-bonus-malus",
-    title: "Fordonsskatt och bonus-malus för husbilar 2025",
+    title: "Fordonsskatt och bonus-malus för husbilar 2026",
     description: "Lagändringen februari 2025 tog bort malus för husbilar. Vad gäller nu och vad innebär det för din importkalkyl?",
     time: "5 min",
     category: "husbil",

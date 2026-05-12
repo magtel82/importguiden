@@ -169,7 +169,7 @@ const MOTORHOME_IMPORT_GUIDES: {
     slug: "ursprungskontroll",
     title: "Ursprungskontroll – obligatorisk efter hemkomst",
     desc: () =>
-      "Beställ hos Transportstyrelsen (1 240 kr, 2025). Utan godkänd ursprungskontroll kan husbilen inte registreras.",
+      "Beställ hos Transportstyrelsen (1 240 kr, 2026). Utan godkänd ursprungskontroll kan husbilen inte registreras.",
   },
   {
     slug: "registreringsbesiktning",
@@ -179,7 +179,7 @@ const MOTORHOME_IMPORT_GUIDES: {
   },
   {
     slug: "fordonsskatt-husbil-bonus-malus",
-    title: "Fordonsskatt för husbil – vad gäller efter 2025?",
+    title: "Fordonsskatt för husbil – vad gäller 2026?",
     desc: (brand) =>
       `Räkna ut den årliga fordonsskatten för din ${brand}. Malus togs bort för husbilar i februari 2025.`,
   },

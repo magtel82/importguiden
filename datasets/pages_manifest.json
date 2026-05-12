@@ -22,18 +22,18 @@
       "sources": ["https://www.transportstyrelsen.se", "https://www.tullverket.se", "https://www.skatteverket.se"],
       "uniquePayloadScore": 87,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
-      "lastEvaluated": "2026-03-14",
+      "lastEvaluated": "2026-05-13",
       "tags": ["land", "bil"]
     },
     {
       "id": "importera-bil-kostnad",
       "path": "/importera-bil/kostnad",
-      "title": "Vad kostar det att importera bil från EU? – Alla avgifter 2025",
+      "title": "Vad kostar det att importera bil från EU? – Alla avgifter 2026",
       "description": "Komplett genomgång av alla kostnader vid bilimport: ursprungskontroll, registreringsbesiktning, moms, tull och transport. Med räkneexempel och totalkostnad.",
       "sources": ["https://www.transportstyrelsen.se", "https://www.skatteverket.se", "https://www.tullverket.se"],
       "uniquePayloadScore": 86,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
-      "lastEvaluated": "2026-03-14",
+      "lastEvaluated": "2026-05-13",
       "tags": ["kostnad", "bil"]
     },
     {
@@ -135,23 +135,23 @@
     {
       "id": "importera-husbil-tyskland",
       "path": "/importera-husbil/tyskland",
-      "title": "Importera husbil från Tyskland – Komplett guide 2025",
+      "title": "Importera husbil från Tyskland – Komplett guide 2026",
       "description": "Steg-för-steg guide för att importera husbil privat från Tyskland till Sverige. Kostnader, märken, besiktning och praktiska råd.",
       "sources": ["https://www.transportstyrelsen.se", "https://www.tullverket.se", "https://www.skatteverket.se"],
       "uniquePayloadScore": 85,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
-      "lastEvaluated": "2026-03-14",
+      "lastEvaluated": "2026-05-13",
       "tags": ["land", "husbil"]
     },
     {
       "id": "importera-husbil-kostnad",
       "path": "/importera-husbil/kostnad",
-      "title": "Vad kostar det att importera husbil från EU? – Alla avgifter 2025",
+      "title": "Vad kostar det att importera husbil från EU? – Alla avgifter 2026",
       "description": "Komplett genomgång av kostnader vid husbilsimport: ursprungskontroll, registreringsbesiktning, importförsäkring, transport och moms. Med räkneexempel.",
       "sources": ["https://www.transportstyrelsen.se", "https://www.skatteverket.se", "https://www.tullverket.se"],
       "uniquePayloadScore": 85,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
-      "lastEvaluated": "2026-03-14",
+      "lastEvaluated": "2026-05-13",
       "tags": ["kostnad", "husbil"]
     },
     {
@@ -222,7 +222,7 @@
       "sources": ["https://www.transportstyrelsen.se"],
       "uniquePayloadScore": 86,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
-      "lastEvaluated": "2026-03-14",
+      "lastEvaluated": "2026-05-13",
       "tags": ["guide", "process"]
     },
     {
@@ -255,7 +255,7 @@
       "sources": ["https://www.skatteverket.se", "https://eur-lex.europa.eu"],
       "uniquePayloadScore": 87,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
-      "lastEvaluated": "2026-03-14",
+      "lastEvaluated": "2026-05-13",
       "tags": ["guide", "kostnad", "moms"]
     },
     {
@@ -271,7 +271,7 @@
       ],
       "uniquePayloadScore": 88,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
-      "lastEvaluated": "2026-04-04",
+      "lastEvaluated": "2026-05-13",
       "tags": ["guide", "köpprocess", "tyskland"]
     },
     {
@@ -292,7 +292,7 @@
     {
       "id": "guider-fordonsskatt-husbil-bonus-malus",
       "path": "/guider/fordonsskatt-husbil-bonus-malus",
-      "title": "Fordonsskatt och bonus-malus för husbilar – Vad gäller 2025?",
+      "title": "Fordonsskatt och bonus-malus för husbilar – Vad gäller 2026?",
       "description": "Lagändringen februari 2025 tog bort malus-skatten för husbilar. Vad innebär det för dig som ska importera? Komplett guide om fordonsskatt och bonus-malus för husbilar.",
       "sources": [
         "https://www.naturvardsverket.se",
@@ -302,7 +302,7 @@
       ],
       "uniquePayloadScore": 86,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
-      "lastEvaluated": "2026-03-15",
+      "lastEvaluated": "2026-05-13",
       "tags": ["guide", "husbil", "skatt", "bonus-malus"]
     },
     {
@@ -313,8 +313,8 @@
       "sources": ["https://www.transportstyrelsen.se", "https://www.transportstyrelsen.se/fordonsagare/importera-fordon"],
       "uniquePayloadScore": 78,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
-      "lastEvaluated": "2026-03-29",
-      "notes": "Quality gate godkänd 2026-03-29. ~900 ord, konkreta tidsintervall och kostnader, FAQ-block.",
+      "lastEvaluated": "2026-05-13",
+      "notes": "Quality gate godkänd 2026-03-29. ~900 ord, konkreta tidsintervall och kostnader, FAQ-block. 2025→2026 datum-sweep 2026-05-13.",
       "tags": ["guide", "process", "tidslinje"]
     },
     {
@@ -365,8 +365,8 @@
       ],
       "uniquePayloadScore": 78,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
-      "lastEvaluated": "2026-03-29",
-      "notes": "Quality gate godkänd 2026-03-29. ~900 ord, husbilsspecifik ordlista, filtreringstips, fuktkontroll, checklista, FAQ.",
+      "lastEvaluated": "2026-05-13",
+      "notes": "Quality gate godkänd 2026-03-29. ~900 ord, husbilsspecifik ordlista, filtreringstips, fuktkontroll, checklista, FAQ. 2025→2026 datum-sweep 2026-05-13.",
       "tags": ["guide", "husbil", "mobile.de", "sök"]
     },
     {
@@ -399,12 +399,12 @@
     {
       "id": "jamfor-tyskland-vs-sverige",
       "path": "/jamfor/tyskland-vs-sverige",
-      "title": "Bilar billigare i Tyskland? – Prisjämförelse 2025",
+      "title": "Bilar billigare i Tyskland? – Prisjämförelse 2026",
       "description": "Vi jämför bilpriser i Sverige och Tyskland per segment. Lönar det sig att importera? Break-even-analys, konkreta exempel och vilka märken som har störst prisskillnad.",
       "sources": ["https://www.mobile.de", "https://www.bytbil.com", "https://www.blocket.se"],
       "uniquePayloadScore": 82,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
-      "lastEvaluated": "2026-03-14",
+      "lastEvaluated": "2026-05-13",
       "notes": "Prisjämförelse per segment med schablonvärden. Källor: mobile.de, Bytbil, Blocket. Break-even-kalkyl med data från cost-data.json.",
       "tags": ["jamfor"]
     },

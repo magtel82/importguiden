@@ -142,7 +142,7 @@ export default async function GuiderPage({ params }: Props) {
           {
             question: "Vad kostar ursprungskontroll?",
             answer:
-              "Ursprungskontroll kostar 1 240 kr (2025, källa: Transportstyrelsen). Betalas vid beställning och återbetalas inte oavsett utfall.",
+              "Ursprungskontroll kostar 1 240 kr (2026, källa: Transportstyrelsen). Betalas vid beställning och återbetalas inte oavsett utfall.",
           },
           {
             question: "Hur lång tid tar ursprungskontroll?",

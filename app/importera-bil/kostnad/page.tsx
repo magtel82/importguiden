@@ -128,7 +128,7 @@ export default function KostnadPage() {
                       {costData.fees.ursprungskontroll.amount.toLocaleString("sv-SE")} kr
                     </td>
                     <td className="p-3 text-gray-500 text-xs">
-                      Transportstyrelsen (2025)
+                      Transportstyrelsen (2026)
                     </td>
                   </tr>
                   <tr>
