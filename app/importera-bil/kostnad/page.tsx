@@ -12,9 +12,9 @@ const UPDATED_DATE = "2026-03-14";
 export function generateMetadata(): Metadata {
   const robots = getRobotsForPath("/importera-bil/kostnad");
   return {
-    title: "Vad kostar det att importera bil från EU? – Alla avgifter 2026",
+    title: "Vad kostar det att registrera en importerad bil i Sverige 2026?",
     description:
-      "Komplett genomgång av alla kostnader vid bilimport: ursprungskontroll, registreringsbesiktning, moms, tull och transport. Med räkneexempel och totalkostnad.",
+      "Komplett kostnadslista för bilimport: ursprungskontroll 1 240 kr, registreringsbesiktning ~1 700 kr, skyltavgift, importförsäkring, moms och transport. Räkneexempel och totalkostnad.",
     alternates: { canonical: getCanonicalUrl("/importera-bil/kostnad") },
     robots,
   };

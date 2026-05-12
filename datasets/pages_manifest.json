@@ -28,8 +28,8 @@
     {
       "id": "importera-bil-kostnad",
       "path": "/importera-bil/kostnad",
-      "title": "Vad kostar det att importera bil från EU? – Alla avgifter 2026",
-      "description": "Komplett genomgång av alla kostnader vid bilimport: ursprungskontroll, registreringsbesiktning, moms, tull och transport. Med räkneexempel och totalkostnad.",
+      "title": "Vad kostar det att registrera en importerad bil i Sverige 2026?",
+      "description": "Komplett kostnadslista för bilimport: ursprungskontroll 1 240 kr, registreringsbesiktning ~1 700 kr, skyltavgift, importförsäkring, moms och transport. Räkneexempel och totalkostnad.",
       "sources": ["https://www.transportstyrelsen.se", "https://www.skatteverket.se", "https://www.tullverket.se"],
       "uniquePayloadScore": 86,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
@@ -239,12 +239,13 @@
     {
       "id": "guider-ursprungskontroll",
       "path": "/guider/ursprungskontroll",
-      "title": "Ursprungskontroll – vad det kostar och hur det fungerar",
-      "description": "Ursprungskontroll kostar 1 240 kr och tar ca 2–5 arbetsdagar. Här förklarar vi hur du ansöker hos Transportstyrelsen, vilka dokument som behövs och vad du gör om den inte godkänns.",
+      "title": "Ursprungskontroll 2026 – Status, handläggningstid och kostnad",
+      "description": "Hur lång tid tar ursprungskontroll? Hur kollar du status på ditt ärende? Komplett guide med kostnad (1 240 kr), handläggningstid (2–5 dagar) och länk till Transportstyrelsens statustjänst.",
       "sources": ["https://www.transportstyrelsen.se"],
       "uniquePayloadScore": 85,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
-      "lastEvaluated": "2026-04-07",
+      "lastEvaluated": "2026-05-13",
+      "notes": "CTR-optimerad title/desc 2026-05-13 för GSC-frasen 'ursprungskontroll status' (621 exp, 1,0% CTR).",
       "tags": ["guide", "process"]
     },
     {
@@ -261,8 +262,8 @@
     {
       "id": "guider-kopa-bil-mobile-de-autoscout24",
       "path": "/guider/kopa-bil-mobile-de-autoscout24",
-      "title": "Mobile.de på svenska – guide för att söka bil i Tyskland",
-      "description": "Steg-för-steg guide till mobile.de på svenska. Sökfilter, betalning, exportförsäkring och vad du ska tänka på innan du köper bil i Tyskland.",
+      "title": "Köpa bil på mobile.de – Guide för svenska köpare 2026",
+      "description": "Så använder du mobile.de och AutoScout24 som svensk köpare. Tyska bilbegrepp översatta, fallgropar att undvika och säker betalning från Sverige.",
       "sources": [
         "https://www.mobile.de",
         "https://www.autoscout24.de",
