@@ -314,8 +314,8 @@
       "sources": ["https://www.transportstyrelsen.se", "https://www.transportstyrelsen.se/fordonsagare/importera-fordon"],
       "uniquePayloadScore": 78,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
-      "lastEvaluated": "2026-05-13",
-      "notes": "Quality gate godkänd 2026-03-29. ~900 ord, konkreta tidsintervall och kostnader, FAQ-block. 2025→2026 datum-sweep 2026-05-13.",
+      "lastEvaluated": "2026-05-14",
+      "notes": "Quality gate godkänd 2026-03-29. ~900 ord, konkreta tidsintervall och kostnader, FAQ-block. 2025→2026 datum-sweep 2026-05-13. Skyltavgift 130 kr → 198 kr (verifierat 2026-05-14).",
       "tags": ["guide", "process", "tidslinje"]
     },
     {

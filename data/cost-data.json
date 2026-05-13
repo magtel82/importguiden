@@ -1,6 +1,6 @@
 {
   "_version": "1.0.0",
-  "_updated": "2025-01-01",
+  "_updated": "2026-05-14",
   "_source": "Transportstyrelsen, Tullverket, Skatteverket",
   "fees": {
     "ursprungskontroll": {
@@ -22,9 +22,9 @@
       "source": "https://www.transportstyrelsen.se"
     },
     "skyltavgift": {
-      "amount": 90,
+      "amount": 198,
       "currency": "SEK",
-      "note": "Ingår i registreringsavgiften hos Transportstyrelsen.",
+      "note": "2×62 kr för registreringsskyltar + 74 kr vägtrafikregisteravgift. Källa: Transportstyrelsens prislista 2026.",
       "source": "https://www.transportstyrelsen.se"
     },
     "importforsäkring_personbil": {

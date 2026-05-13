@@ -98,7 +98,7 @@ const MH_FAQ: Record<string, FaqItem[]> = {
   hymer: [
     { question: "Betalar man malus på importerad Hymer-husbil?", answer: "Nej, husbilar är undantagna från malus sedan 1 februari 2025. Du betalar bara ordinarie fordonsskatt oavsett CO₂-utsläpp." },
     { question: "Vilken Hymer-modell är mest pålitlig?", answer: "Modeller på Mercedes Sprinter-chassi (ML-T, B-ML) rankas högre av ADAC än Ducato-baserade modeller. Fiat Ducato rankas sämst av alla fordon i ADAC Pannenstatistik 2025 med 49 pannar per 1 000 fordon." },
-    { question: "Vad kostar det att importera en Hymer-husbil?", answer: "Fasta avgifter ca 6 240 kr (ursprungskontroll 1 240 kr + registreringsbesiktning ca 3 000–5 000 kr + skyltavgift 500 kr) plus transport. Prisbesparingen mot Sverige ligger typiskt på 20–40 %." },
+    { question: "Vad kostar det att importera en Hymer-husbil?", answer: "Fasta avgifter ca 4 440–6 440 kr (ursprungskontroll 1 240 kr + registreringsbesiktning ca 3 000–5 000 kr + skyltavgift 198 kr) plus transport. Prisbesparingen mot Sverige ligger typiskt på 20–40 %." },
   ],
   dethleffs: [
     { question: "Betalar man malus på importerad Dethleffs-husbil?", answer: "Nej, husbilar är undantagna från malus sedan 1 februari 2025. Du betalar bara ordinarie fordonsskatt oavsett CO₂-utsläpp." },

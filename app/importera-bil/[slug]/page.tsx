@@ -143,7 +143,7 @@ const BRAND_FAQ: Record<string, FaqItem[]> = {
   bmw: [
     { question: "Gäller BMW-garanti i Sverige vid import?", answer: "Ja, BMW har internationell EU-garanti. Kontakta en svensk BMW-återförsäljare efter importen för att registrera bilen i det svenska systemet. Ta med köpehandling, servicehistorik och COC-intyg." },
     { question: "Vilka BMW-modeller är bäst att importera?", answer: "3-serien, 5-serien och X3 har bäst ADAC-betyg och störst prisskillnad mot Sverige. Undvik N47-dieselmotorn (2007–2013) på grund av kända timing-kedjeproblematik." },
-    { question: "Vad kostar det att importera en BMW från Tyskland?", answer: "Utöver bilpriset tillkommer ca 4 440 kr i fasta avgifter (ursprungskontroll 1 240 kr + registreringsbesiktning ca 1 700 kr + skyltavgift 500 kr) plus transport. Använd vår kalkylator för en exakt beräkning." },
+    { question: "Vad kostar det att importera en BMW från Tyskland?", answer: "Utöver bilpriset tillkommer ca 3 140 kr i fasta avgifter (ursprungskontroll 1 240 kr + registreringsbesiktning ca 1 700 kr + skyltavgift 198 kr) plus transport. Använd vår kalkylator för en exakt beräkning." },
   ],
   mercedes: [
     { question: "Gäller Mercedes-garanti i Sverige vid import?", answer: "Ja, Mercedes-Benz har internationell EU-garanti (2 år utan milbegränsning). Kontakta en auktoriserad Mercedes-verkstad i Sverige för att registrera bilen. Mercedes har ett av de bredaste verkstadsnätverken i Sverige." },
