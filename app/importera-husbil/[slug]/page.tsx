@@ -97,7 +97,7 @@ const MH_CHASSI_EXTRA: Record<string, { sprinterInfo: string; tip: string }> = {
 const MH_FAQ: Record<string, FaqItem[]> = {
   hymer: [
     { question: "Betalar man malus på importerad Hymer-husbil?", answer: "Nej, husbilar är undantagna från malus sedan 1 februari 2025. Du betalar bara ordinarie fordonsskatt oavsett CO₂-utsläpp." },
-    { question: "Vilken Hymer-modell är mest pålitlig?", answer: "Modeller på Mercedes Sprinter-chassi (ML-T, B-ML) rankas högre av ADAC än Ducato-baserade modeller. Fiat Ducato rankas sämst av alla fordon i ADAC Pannenstatistik 2025 med 49 pannar per 1 000 fordon." },
+    { question: "Vilken Hymer-modell är mest pålitlig?", answer: "Modeller på Mercedes Sprinter-chassi (ML-T, B-ML) rankas högre av ADAC än Ducato-baserade modeller. Fiat Ducato uppvisar 27,9–39,1 pannar per 1 000 fordon (årgångar 2016–2021 och 2023) enligt ADAC Pannenstatistik 2026." },
     { question: "Vad kostar det att importera en Hymer-husbil?", answer: "Fasta avgifter ca 4 440–6 440 kr (ursprungskontroll 1 240 kr + registreringsbesiktning ca 3 000–5 000 kr + skyltavgift 198 kr) plus transport. Prisbesparingen mot Sverige ligger typiskt på 20–40 %." },
   ],
   dethleffs: [
@@ -231,7 +231,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: customTitle
         ? customTitle.description
         : importData
-          ? `Importera ${brand.name} husbil privat från Tyskland. Chassiinformation, Ducato-varning (ADAC 2025), rekommenderade modeller och kalkylator.`
+          ? `Importera ${brand.name} husbil privat från Tyskland. Chassiinformation, Ducato-varning (ADAC 2026), rekommenderade modeller och kalkylator.`
           : `Allt om att importera ${brand.name} husbil privat från Tyskland.`,
       alternates: { canonical: getCanonicalUrl(`/importera-husbil/${slug}`) },
       robots,
