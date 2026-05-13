@@ -104,8 +104,8 @@
       "sources": ["https://www.transportstyrelsen.se", "https://www.skatteverket.se", "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/", "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"],
       "uniquePayloadScore": 85,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
-      "lastEvaluated": "2026-04-02",
-      "notes": "pSEO med Tesla-specifik sektion (SoH, laddkontakt) + garanti, fordonsskatt, Fahrzeugbrief, CostTable och FAQ-schema. Fördjupat 2026-04-02.",
+      "lastEvaluated": "2026-05-14",
+      "notes": "pSEO med Tesla-specifik sektion (SoH, laddkontakt) + garanti, fordonsskatt, Fahrzeugbrief, CostTable och FAQ-schema. Fördjupat 2026-04-02. ADAC 2025→2026 + elbil-stat (40% färre pannor) tillagd 2026-05-14.",
       "tags": ["marke", "bil", "pseo", "elbil"]
     },
     {
@@ -338,8 +338,8 @@
       "sources": ["https://www.transportstyrelsen.se", "https://www.skatteverket.se", "https://www.naturvardsverket.se"],
       "uniquePayloadScore": 82,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
-      "lastEvaluated": "2026-03-29",
-      "notes": "Quality gate godkänd 2026-03-29. ~1100 ord, SoH-förklaring, momsexempel, CCS2/CHAdeMO-info, tre myndighetsbelagda källor.",
+      "lastEvaluated": "2026-05-14",
+      "notes": "Quality gate godkänd 2026-03-29. ~1100 ord, SoH-förklaring, momsexempel, CCS2/CHAdeMO-info, tre myndighetsbelagda källor. ADAC 2026-data + Ioniq 5 ICCU-varning tillagd 2026-05-14.",
       "tags": ["guide", "elbil"]
     },
     {

@@ -244,7 +244,7 @@
       "slug": "tesla",
       "name": "Tesla",
       "type": "bil",
-      "intro": "Tesla skiljer sig från alla andra märken i den här guiden – både vad gäller köpprocessen och vad du behöver kontrollera. Teslas bilar säljs inte via traditionella bilhandlare utan genom Teslas egna kanaler och certifierade återförsäljare. Det innebär en annan köpupplevelse, men också andra möjligheter.\n\nPrisskillnaden mot Sverige ligger på 10–25 procent, och ADAC Pannenstatistik 2025 rankar Tesla Model 3 som en av de allra mest tillförlitliga bilarna i hela statistiken. Model Y får också goda betyg i sina första årsmodeller.\n\nVid import av Tesla finns specifika faktorer som inte gäller för konventionella bilar. Batteriets State of Health (SoH) är avgörande för bilens värde och räckvidd. Laddkontaktens typ varierar beroende på tillverkningsår. Ägarbytet sker via Teslas app och kundtjänst – inte genom fysiska papper som hos andra märken.\n\nI den här guiden går vi igenom hur Tesla-köpet skiljer sig från andra märken, vad du ska kontrollera gällande batteri och laddning, kända problem att vara uppmärksam på, vilka dokument du behöver och hur du beräknar den totala importkostnaden. Vi täcker Model 3, Model Y och Model S.",
+      "intro": "Tesla skiljer sig från alla andra märken i den här guiden – både vad gäller köpprocessen och vad du behöver kontrollera. Teslas bilar säljs inte via traditionella bilhandlare utan genom Teslas egna kanaler och certifierade återförsäljare. Det innebär en annan köpupplevelse, men också andra möjligheter.\n\nPrisskillnaden mot Sverige ligger på 10–25 procent, och ADAC Pannenstatistik 2026 rankar Tesla Model 3 som en av de allra mest tillförlitliga bilarna i hela statistiken. Model Y får också goda betyg i sina första årsmodeller. Elbilar generellt presterar starkt: enligt ADAC Pannenstatistik 2026 har 5-åriga elbilar ca 40% färre pannor än jämnåriga förbrännare (10,3 vs 17,4 per 1 000 fordon).\n\nVid import av Tesla finns specifika faktorer som inte gäller för konventionella bilar. Batteriets State of Health (SoH) är avgörande för bilens värde och räckvidd. Laddkontaktens typ varierar beroende på tillverkningsår. Ägarbytet sker via Teslas app och kundtjänst – inte genom fysiska papper som hos andra märken.\n\nI den här guiden går vi igenom hur Tesla-köpet skiljer sig från andra märken, vad du ska kontrollera gällande batteri och laddning, kända problem att vara uppmärksam på, vilka dokument du behöver och hur du beräknar den totala importkostnaden. Vi täcker Model 3, Model Y och Model S.",
       "specialCase": true,
       "specialCaseNote": "Tesla säljs direkt via Tesla och certifierade återförsäljare – inte via traditionella tyska bilhandlare. Köpprocessen skiljer sig väsentligt från övriga märken.",
       "priceAdvantage": "10–25 %",
@@ -254,7 +254,7 @@
         "AutoScout24 – privatsäljare och återförsäljare"
       ],
       "recommendedModels": [
-        { "model": "Model 3", "years": "2019–2022", "adacRating": "mycket bra", "notes": "En av ADAC:s absolut bäst rankade bilar i Pannenstatistik 2025" },
+        { "model": "Model 3", "years": "2019–2022", "adacRating": "mycket bra", "notes": "En av ADAC:s absolut bäst rankade bilar i Pannenstatistik 2026" },
         { "model": "Model Y", "years": "2021–2022", "adacRating": "bra", "notes": "Hög tillförlitlighet enligt ADAC, snabbt växande begagnatmarknad" },
         { "model": "Model S", "years": "2018–2021", "adacRating": "varierande", "notes": "Välj 2018 eller nyare – äldre årsmodeller har fler dokumenterade problem" }
       ],
@@ -292,7 +292,7 @@
         "Köpekontrakt med VIN och kilometerstand",
         "Bekräftelse på att bilen avlänkats från säljarens Tesla-konto vid köptillfället"
       ],
-      "adacSource": "ADAC Pannenstatistik 2025",
+      "adacSource": "ADAC Pannenstatistik 2026",
       "adacSourceUrl": "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
       "priceSEK": { "min": 200000, "max": 800000 },
       "priceEUR": { "min": 18000, "max": 75000 }
