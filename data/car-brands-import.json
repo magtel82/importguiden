@@ -1,18 +1,18 @@
 {
   "_version": "1.0.0",
   "_updated": "2026-03-28",
-  "_source": "ADAC Pannenstatistik 2025, marknadsdata mobile.de/AutoScout24",
+  "_source": "ADAC Pannenstatistik 2026, marknadsdata mobile.de/AutoScout24",
   "brands": [
     {
       "slug": "bmw",
       "name": "BMW",
       "type": "bil",
-      "intro": "BMW är ett av de mest populära märkena att importera från Tyskland – och av goda skäl. Prisskillnaden mellan den tyska och svenska begagnatmarknaden ligger typiskt på 15–40 procent beroende på modell och utrustningsnivå. Som BMW:s hemmamarknad har Tyskland ett enormt utbud: tusentals bilar finns till salu på mobile.de och AutoScout24 vid varje given tidpunkt.\n\nADAC Pannenstatistik 2025 bekräftar att BMW genomgående rankas högt vad gäller tillförlitlighet. Modeller som 3-serien, 5-serien och X3 tillhör de mest pålitliga i sina respektive klasser. Det gör BMW till ett tryggt val för den som importerar sin första bil från Tyskland.\n\nDen stora tillgången innebär att du kan vara kräsen – välj bilar med komplett servicehistorik (Scheckheft), färskt TÜV och alla dokument i ordning. Med rätt förarbete kan en BMW-import spara dig betydande belopp jämfört med motsvarande bil på den svenska marknaden.\n\nI den här guiden går vi igenom vilka BMW-modeller som är bäst lämpade för import, kända problem att vara uppmärksam på, vilka dokument du behöver och hur du räknar ut den totala kostnaden.",
+      "intro": "BMW är ett av de mest populära märkena att importera från Tyskland – och av goda skäl. Prisskillnaden mellan den tyska och svenska begagnatmarknaden ligger typiskt på 15–40 procent beroende på modell och utrustningsnivå. Som BMW:s hemmamarknad har Tyskland ett enormt utbud: tusentals bilar finns till salu på mobile.de och AutoScout24 vid varje given tidpunkt.\n\nADAC Pannenstatistik 2026 bekräftar att BMW genomgående rankas högt vad gäller tillförlitlighet. Modeller som 3-serien, 5-serien och X3 tillhör de mest pålitliga i sina respektive klasser. Det gör BMW till ett tryggt val för den som importerar sin första bil från Tyskland.\n\nDen stora tillgången innebär att du kan vara kräsen – välj bilar med komplett servicehistorik (Scheckheft), färskt TÜV och alla dokument i ordning. Med rätt förarbete kan en BMW-import spara dig betydande belopp jämfört med motsvarande bil på den svenska marknaden.\n\nI den här guiden går vi igenom vilka BMW-modeller som är bäst lämpade för import, kända problem att vara uppmärksam på, vilka dokument du behöver och hur du räknar ut den totala kostnaden.",
       "specialCase": false,
       "priceAdvantage": "15–40 %",
       "whereToBuy": ["mobile.de", "AutoScout24"],
       "recommendedModels": [
-        { "model": "3-serie", "years": "2015–2021", "adacRating": "mycket bra", "notes": "Genomgående hög tillförlitlighet enligt ADAC Pannenstatistik 2025" },
+        { "model": "3-serie", "years": "2015–2021", "adacRating": "mycket bra", "notes": "Genomgående hög tillförlitlighet enligt ADAC Pannenstatistik 2026" },
         { "model": "4-serie", "years": "2014–2021", "adacRating": "mycket bra", "notes": "Stabil och välutrustad" },
         { "model": "X3", "years": "2014–2021", "adacRating": "mycket bra", "notes": "En av ADAC:s mest tillförlitliga SUV:ar" },
         { "model": "5-serie", "years": "2014–2021", "adacRating": "mycket bra", "notes": "Utmärkt som importbil, stor prisskillnad mot Sverige" },
@@ -26,7 +26,7 @@
         },
         {
           "issue": "Startbatteri (12V)",
-          "description": "Vanligaste pannenorsaken för BMW enligt ADAC 2025. Kontrollera batteristatus vid besiktning, särskilt på bilar som stått stilla länge.",
+          "description": "Vanligaste pannenorsaken för BMW enligt ADAC 2026. Kontrollera batteristatus vid besiktning, särskilt på bilar som stått stilla länge.",
           "severity": "låg"
         },
         {
@@ -42,7 +42,7 @@
         "TÜV-rapport – helst utfärdad inom senaste 12 månaderna",
         "Köpekontrakt (Kaufvertrag) med VIN-nummer och kilometerstand"
       ],
-      "adacSource": "ADAC Pannenstatistik 2025",
+      "adacSource": "ADAC Pannenstatistik 2026",
       "adacSourceUrl": "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
       "priceSEK": { "min": 150000, "max": 600000 },
       "priceEUR": { "min": 13000, "max": 55000 }
@@ -51,12 +51,12 @@
       "slug": "mercedes",
       "name": "Mercedes-Benz",
       "type": "bil",
-      "intro": "Mercedes-Benz är Tysklands kanske mest ikoniska bilmärke – och prisskillnaden mot Sverige gör det attraktivt att importera. Räkna med 10–30 procent lägre priser på den tyska begagnatmarknaden, särskilt på populära modeller som A-klass, C-klass och E-klass.\n\nEnligt ADAC Pannenstatistik 2025 utmärker sig Mercedes A-klass och B-klass som särskilt tillförlitliga – bland de bästa i sina klasser. Även C-klass och E-klass får goda betyg. Ett undantag värt att notera är Mercedes Citan som visar svagheter i samtliga årsmodeller enligt ADAC.\n\nTyskland har som Mercedes hemmamarknad ett brett utbud av välutrustade bilar, ofta med utrustningspaket som sällan ses på svenska exemplar. AMG Line, Avantgarde och andra paket är vanligare och billigare på den tyska marknaden.\n\nI den här guiden går vi igenom vilka Mercedes-modeller som lämpar sig bäst för import, specifika problem att kontrollera innan köp, vilka dokument du behöver begära och hur du beräknar den totala importkostnaden.",
+      "intro": "Mercedes-Benz är Tysklands kanske mest ikoniska bilmärke – och prisskillnaden mot Sverige gör det attraktivt att importera. Räkna med 10–30 procent lägre priser på den tyska begagnatmarknaden, särskilt på populära modeller som A-klass, C-klass och E-klass.\n\nEnligt ADAC Pannenstatistik 2026 utmärker sig Mercedes A-klass och B-klass som särskilt tillförlitliga – bland de bästa i sina klasser. Även C-klass och E-klass får goda betyg. Ett undantag värt att notera är Mercedes Citan som visar svagheter i samtliga årsmodeller enligt ADAC.\n\nTyskland har som Mercedes hemmamarknad ett brett utbud av välutrustade bilar, ofta med utrustningspaket som sällan ses på svenska exemplar. AMG Line, Avantgarde och andra paket är vanligare och billigare på den tyska marknaden.\n\nI den här guiden går vi igenom vilka Mercedes-modeller som lämpar sig bäst för import, specifika problem att kontrollera innan köp, vilka dokument du behöver begära och hur du beräknar den totala importkostnaden.",
       "specialCase": false,
       "priceAdvantage": "10–30 %",
       "whereToBuy": ["mobile.de", "AutoScout24"],
       "recommendedModels": [
-        { "model": "A-klass", "years": "2015–2021", "adacRating": "mycket bra", "notes": "En av de mest tillförlitliga i sin klass enligt ADAC Pannenstatistik 2025" },
+        { "model": "A-klass", "years": "2015–2021", "adacRating": "mycket bra", "notes": "En av de mest tillförlitliga i sin klass enligt ADAC Pannenstatistik 2026" },
         { "model": "B-klass", "years": "2014–2021", "adacRating": "mycket bra", "notes": "Konsekvent höga ADAC-betyg i alla årsmodeller" },
         { "model": "C-klass", "years": "2015–2021", "adacRating": "bra", "notes": "Populär importbil med bra tillgång och tydlig prisskillnad mot Sverige" },
         { "model": "E-klass", "years": "2016–2021", "adacRating": "bra", "notes": "Stor prisskillnad mot Sverige, välutrustad på tyska marknaden" },
@@ -65,7 +65,7 @@
       "knownIssues": [
         {
           "issue": "Citan – undvik som importbil",
-          "description": "Mercedes Citan rankas som problematisk i alla årsmodeller enligt ADAC Pannenstatistik 2025. Rekommenderas inte som importbil.",
+          "description": "Mercedes Citan rankas som problematisk i alla årsmodeller enligt ADAC Pannenstatistik 2026. Rekommenderas inte som importbil.",
           "severity": "hög"
         },
         {
@@ -91,7 +91,7 @@
         "TÜV-rapport",
         "Köpekontrakt med VIN och kilometerstand"
       ],
-      "adacSource": "ADAC Pannenstatistik 2025",
+      "adacSource": "ADAC Pannenstatistik 2026",
       "adacSourceUrl": "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
       "priceSEK": { "min": 120000, "max": 700000 },
       "priceEUR": { "min": 11000, "max": 65000 }
@@ -100,7 +100,7 @@
       "slug": "volkswagen",
       "name": "Volkswagen",
       "type": "bil",
-      "intro": "Volkswagen är det mest sålda bilmärket i Tyskland och därmed det märke med störst utbud på begagnatmarknaden. Priserna ligger typiskt 10–25 procent lägre än i Sverige, och tillgången på modeller som Golf, Passat och Tiguan är enorm.\n\nADAC Pannenstatistik 2025 visar att Volkswagen genomgående presterar bra vad gäller tillförlitlighet. Golf rankas som en av de mest pålitliga bilarna i sin klass, och även Passat och Tiguan får goda betyg. Elbilen ID.4 visar lovande resultat i de första årsmodellerna.\n\nFör den som importerar för första gången är Volkswagen ett naturligt val – reservdelstillgången i Sverige är utmärkt, och alla auktoriserade verkstäder kan serva bilen oavsett var den köpts. Prisskillnaden är kanske inte lika dramatisk som för BMW eller Porsche, men den lägre ingångskostnaden gör att besparingen fortfarande är värd besväret.\n\nI den här guiden går vi igenom rekommenderade VW-modeller för import, kända problem att kontrollera (inklusive DSG-växellådan och Dieselgate-status), vilka dokument du behöver och den totala kostnadsbilden.",
+      "intro": "Volkswagen är det mest sålda bilmärket i Tyskland och därmed det märke med störst utbud på begagnatmarknaden. Priserna ligger typiskt 10–25 procent lägre än i Sverige, och tillgången på modeller som Golf, Passat och Tiguan är enorm.\n\nADAC Pannenstatistik 2026 visar att Volkswagen genomgående presterar bra vad gäller tillförlitlighet. Golf rankas som en av de mest pålitliga bilarna i sin klass, och även Passat och Tiguan får goda betyg. Elbilen ID.4 visar lovande resultat i de första årsmodellerna.\n\nFör den som importerar för första gången är Volkswagen ett naturligt val – reservdelstillgången i Sverige är utmärkt, och alla auktoriserade verkstäder kan serva bilen oavsett var den köpts. Prisskillnaden är kanske inte lika dramatisk som för BMW eller Porsche, men den lägre ingångskostnaden gör att besparingen fortfarande är värd besväret.\n\nI den här guiden går vi igenom rekommenderade VW-modeller för import, kända problem att kontrollera (inklusive DSG-växellådan och Dieselgate-status), vilka dokument du behöver och den totala kostnadsbilden.",
       "specialCase": false,
       "priceAdvantage": "10–25 %",
       "whereToBuy": ["mobile.de", "AutoScout24"],
@@ -135,7 +135,7 @@
         "Köpekontrakt med VIN och kilometerstand",
         "Bekräftelse på Dieselgate-uppdatering (om tillämpligt)"
       ],
-      "adacSource": "ADAC Pannenstatistik 2025",
+      "adacSource": "ADAC Pannenstatistik 2026",
       "adacSourceUrl": "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
       "priceSEK": { "min": 80000, "max": 400000 },
       "priceEUR": { "min": 7000, "max": 37000 }
@@ -144,13 +144,13 @@
       "slug": "audi",
       "name": "Audi",
       "type": "bil",
-      "intro": "Audi tillhör de mest tillförlitliga bilmärkena i hela ADAC Pannenstatistik 2025 – och kombinationen av hög kvalitet och 15–35 procent lägre priser i Tyskland gör det till ett av de smartaste märkena att importera.\n\nModeller som A3, A4, A5, Q2 och Q3 rankas konsekvent som \"mycket bra\" av ADAC i samtliga testade årsmodeller. Det är en tillförlitlighetsnivå som få andra märken når upp till. Även elbilen Q4 e-tron får goda betyg i sina första årsmodeller.\n\nPå den tyska marknaden hittar du Audi med utrustningsnivåer som sällan förekommer i svenska annonser – S line, quattro-drivlina och Virtual Cockpit är vanligare och billigare på hemmamarknaden. Tillgången är bred på både mobile.de och AutoScout24.\n\nAudi-ägare är dessutom kända för att hålla noggrann servicebok (Scheckheft), vilket gör det enklare att verifiera bilens historik vid köp. I den här guiden går vi igenom vilka Audi-modeller som är bäst lämpade för import, kända problem att vara uppmärksam på, vilka dokument du behöver och hur du räknar ut importkostnaden.",
+      "intro": "Audi tillhör de mest tillförlitliga bilmärkena i hela ADAC Pannenstatistik 2026 – och kombinationen av hög kvalitet och 15–35 procent lägre priser i Tyskland gör det till ett av de smartaste märkena att importera.\n\nModeller som A3, A4, A5, Q2 och Q3 rankas konsekvent som \"mycket bra\" av ADAC i samtliga testade årsmodeller. Det är en tillförlitlighetsnivå som få andra märken når upp till. Även elbilen Q4 e-tron får goda betyg i sina första årsmodeller.\n\nPå den tyska marknaden hittar du Audi med utrustningsnivåer som sällan förekommer i svenska annonser – S line, quattro-drivlina och Virtual Cockpit är vanligare och billigare på hemmamarknaden. Tillgången är bred på både mobile.de och AutoScout24.\n\nAudi-ägare är dessutom kända för att hålla noggrann servicebok (Scheckheft), vilket gör det enklare att verifiera bilens historik vid köp. I den här guiden går vi igenom vilka Audi-modeller som är bäst lämpade för import, kända problem att vara uppmärksam på, vilka dokument du behöver och hur du räknar ut importkostnaden.",
       "specialCase": false,
       "priceAdvantage": "15–35 %",
       "whereToBuy": ["mobile.de", "AutoScout24"],
       "recommendedModels": [
         { "model": "A3", "years": "2014–2021", "adacRating": "mycket bra", "notes": "Konsekvent hög ADAC-ranking i alla årsmodeller" },
-        { "model": "A4", "years": "2015–2021", "adacRating": "mycket bra", "notes": "Bland de allra bästa i sin klass enligt ADAC Pannenstatistik 2025" },
+        { "model": "A4", "years": "2015–2021", "adacRating": "mycket bra", "notes": "Bland de allra bästa i sin klass enligt ADAC Pannenstatistik 2026" },
         { "model": "A5", "years": "2016–2021", "adacRating": "mycket bra", "notes": "Utmärkt tillförlitlighet och bra prisläge i Tyskland" },
         { "model": "Q2", "years": "2016–2021", "adacRating": "mycket bra", "notes": "Hög ranking i ADAC, bred tillgång" },
         { "model": "Q3", "years": "2015–2021", "adacRating": "mycket bra", "notes": "Tillförlitlig kompakt SUV" },
@@ -185,7 +185,7 @@
         "TÜV-rapport",
         "Köpekontrakt med VIN och kilometerstand"
       ],
-      "adacSource": "ADAC Pannenstatistik 2025",
+      "adacSource": "ADAC Pannenstatistik 2026",
       "adacSourceUrl": "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
       "priceSEK": { "min": 130000, "max": 700000 },
       "priceEUR": { "min": 12000, "max": 65000 }
@@ -194,7 +194,7 @@
       "slug": "porsche",
       "name": "Porsche",
       "type": "bil",
-      "intro": "Porsche erbjuder den kanske största procentuella prisbesparingen av alla premiummärken vid import från Tyskland. Räkna med 20–40 procent lägre priser jämfört med den svenska begagnatmarknaden – på en Cayenne eller 911 kan det handla om hundratusentals kronor i besparing.\n\nSom Porsches hemmamarknad har Tyskland det överlägset största utbudet av begagnade Porsche-bilar i Europa. Modeller som Cayenne, Macan och 911 finns i stort antal på mobile.de, AutoScout24 och genom Porsche Approved – Porsches eget certifierade begagnatprogram.\n\nADAC Pannenstatistik 2025 ger Porsche-modeller genomgående goda betyg för tillförlitlighet, men det finns specifika problem att vara medveten om – särskilt det kända IMS-lagret på äldre 911, Boxster och Cayman med M96/M97-motor.\n\nVid köp av Porsche är det extra viktigt att kräva komplett servicehistorik från auktoriserad Porsche-verkstad. Den höga besparingen motiverar också att anlita en oberoende besiktningsman (DEKRA eller TÜV) innan köp. I den här guiden går vi igenom rekommenderade modeller, kända problem, nödvändiga dokument och den totala importkostnaden.",
+      "intro": "Porsche erbjuder den kanske största procentuella prisbesparingen av alla premiummärken vid import från Tyskland. Räkna med 20–40 procent lägre priser jämfört med den svenska begagnatmarknaden – på en Cayenne eller 911 kan det handla om hundratusentals kronor i besparing.\n\nSom Porsches hemmamarknad har Tyskland det överlägset största utbudet av begagnade Porsche-bilar i Europa. Modeller som Cayenne, Macan och 911 finns i stort antal på mobile.de, AutoScout24 och genom Porsche Approved – Porsches eget certifierade begagnatprogram.\n\nADAC Pannenstatistik 2026 ger Porsche-modeller genomgående goda betyg för tillförlitlighet, men det finns specifika problem att vara medveten om – särskilt det kända IMS-lagret på äldre 911, Boxster och Cayman med M96/M97-motor.\n\nVid köp av Porsche är det extra viktigt att kräva komplett servicehistorik från auktoriserad Porsche-verkstad. Den höga besparingen motiverar också att anlita en oberoende besiktningsman (DEKRA eller TÜV) innan köp. I den här guiden går vi igenom rekommenderade modeller, kända problem, nödvändiga dokument och den totala importkostnaden.",
       "specialCase": false,
       "priceAdvantage": "20–40 %",
       "whereToBuy": ["mobile.de", "AutoScout24", "Porsche Approved – auktoriserade Porsche-handlare"],
@@ -235,7 +235,7 @@
         "Dokumentation på IMS-uppgradering (för 911/Boxster/Cayman 1997–2008)",
         "Porsche Certificate of Authenticity (rekommenderas för äldre och klassiska modeller)"
       ],
-      "adacSource": "ADAC Pannenstatistik 2025",
+      "adacSource": "ADAC Pannenstatistik 2026",
       "adacSourceUrl": "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
       "priceSEK": { "min": 400000, "max": 2000000 },
       "priceEUR": { "min": 37000, "max": 185000 }

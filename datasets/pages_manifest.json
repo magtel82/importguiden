@@ -40,12 +40,12 @@
       "id": "importera-bil-bmw",
       "path": "/importera-bil/bmw",
       "title": "Importera BMW från Tyskland – Guide 2026 (ADAC-data, kostnader)",
-      "description": "Importera BMW privat från Tyskland. Rekommenderade modeller, kända problem (ADAC Pannenstatistik 2025), dokument att begära och kalkylator.",
+      "description": "Importera BMW privat från Tyskland. Rekommenderade modeller, kända problem (ADAC Pannenstatistik 2026), dokument att begära och kalkylator.",
       "sources": ["https://www.transportstyrelsen.se", "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/", "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"],
       "uniquePayloadScore": 82,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
-      "lastEvaluated": "2026-04-01",
-      "notes": "pSEO med ADAC-data, garanti-sektion, fordonsskatt-tabell, Fahrzeugbrief-guide, CostTable och FAQ-schema. Fördjupat 2026-04-01.",
+      "lastEvaluated": "2026-05-14",
+      "notes": "pSEO med ADAC-data, garanti-sektion, fordonsskatt-tabell, Fahrzeugbrief-guide, CostTable och FAQ-schema. Fördjupat 2026-04-01. ADAC-källår 2025→2026 (2026-05-14).",
       "tags": ["marke", "bil", "pseo"]
     },
     {
@@ -56,8 +56,8 @@
       "sources": ["https://www.transportstyrelsen.se", "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/", "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"],
       "uniquePayloadScore": 82,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
-      "lastEvaluated": "2026-04-02",
-      "notes": "pSEO med ADAC-data, garanti-sektion, fordonsskatt-tabell, Fahrzeugbrief-guide, CostTable och FAQ-schema. Fördjupat 2026-04-02.",
+      "lastEvaluated": "2026-05-14",
+      "notes": "pSEO med ADAC-data, garanti-sektion, fordonsskatt-tabell, Fahrzeugbrief-guide, CostTable och FAQ-schema. Fördjupat 2026-04-02. ADAC-källår 2025→2026 (2026-05-14).",
       "tags": ["marke", "bil", "pseo"]
     },
     {
@@ -68,8 +68,8 @@
       "sources": ["https://www.transportstyrelsen.se", "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/", "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"],
       "uniquePayloadScore": 82,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
-      "lastEvaluated": "2026-04-02",
-      "notes": "pSEO med ADAC-data, garanti-sektion, fordonsskatt-tabell, Fahrzeugbrief-guide, CostTable och FAQ-schema. Fördjupat 2026-04-02.",
+      "lastEvaluated": "2026-05-14",
+      "notes": "pSEO med ADAC-data, garanti-sektion, fordonsskatt-tabell, Fahrzeugbrief-guide, CostTable och FAQ-schema. Fördjupat 2026-04-02. ADAC-källår 2025→2026 (2026-05-14).",
       "tags": ["marke", "bil", "pseo"]
     },
     {
@@ -80,8 +80,8 @@
       "sources": ["https://www.transportstyrelsen.se", "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/", "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"],
       "uniquePayloadScore": 82,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
-      "lastEvaluated": "2026-04-02",
-      "notes": "pSEO med ADAC-data, garanti-sektion, fordonsskatt-tabell, Fahrzeugbrief-guide, CostTable och FAQ-schema. Fördjupat 2026-04-02.",
+      "lastEvaluated": "2026-05-14",
+      "notes": "pSEO med ADAC-data, garanti-sektion, fordonsskatt-tabell, Fahrzeugbrief-guide, CostTable och FAQ-schema. Fördjupat 2026-04-02. ADAC-källår 2025→2026 (2026-05-14).",
       "tags": ["marke", "bil", "pseo"]
     },
     {
@@ -116,8 +116,8 @@
       "sources": ["https://www.transportstyrelsen.se", "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/", "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"],
       "uniquePayloadScore": 82,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
-      "lastEvaluated": "2026-04-02",
-      "notes": "pSEO med ADAC-data + IMS-varning, garanti-sektion, fordonsskatt-tabell, Fahrzeugbrief-guide, CostTable och FAQ-schema. Fördjupat 2026-04-02.",
+      "lastEvaluated": "2026-05-14",
+      "notes": "pSEO med ADAC-data + IMS-varning, garanti-sektion, fordonsskatt-tabell, Fahrzeugbrief-guide, CostTable och FAQ-schema. Fördjupat 2026-04-02. ADAC-källår 2025→2026 (2026-05-14).",
       "tags": ["marke", "bil", "pseo"]
     },
     {

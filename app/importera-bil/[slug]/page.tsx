@@ -279,7 +279,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: customTitle
         ? customTitle.description
         : importData
-          ? `Importera ${brand.name} privat från Tyskland. Rekommenderade modeller, kända problem (ADAC Pannenstatistik 2025), dokument att begära och kalkylator.`
+          ? `Importera ${brand.name} privat från Tyskland. Rekommenderade modeller, kända problem (ADAC Pannenstatistik 2026), dokument att begära och kalkylator.`
           : `Hur importerar du en ${brand.name} privat från Tyskland? Guide med kostnader, tips och vanliga fallgropar.`,
       alternates: { canonical: getCanonicalUrl(`/importera-bil/${slug}`) },
       robots,

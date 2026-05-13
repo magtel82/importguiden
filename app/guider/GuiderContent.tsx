@@ -156,7 +156,7 @@ const carBrands = [
   { slug: "bmw", name: "BMW", tagline: "3-serie, 5-serie, X3 – 15–40 % lägre pris" },
   { slug: "mercedes", name: "Mercedes-Benz", tagline: "A-klass, C-klass, E-klass – 10–30 % lägre pris" },
   { slug: "volkswagen", name: "Volkswagen", tagline: "Golf, Passat, Tiguan – 10–25 % lägre pris" },
-  { slug: "audi", name: "Audi", tagline: "A3, A4, Q3 – ADAC bäst i klass 2025" },
+  { slug: "audi", name: "Audi", tagline: "A3, A4, Q3 – ADAC bäst i klass 2026" },
   { slug: "porsche", name: "Porsche", tagline: "Cayenne, Macan, 911 – 20–40 % lägre pris" },
   { slug: "tesla", name: "Tesla", tagline: "Model 3, Model Y – SoH, laddkontakter, garanti" },
 ];
