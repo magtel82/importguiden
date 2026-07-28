@@ -139,11 +139,11 @@
       "title": "Importera husbil från Tyskland – Komplett guide 2026",
       "description": "Steg-för-steg guide för att importera husbil privat från Tyskland till Sverige. Kostnader, märken, besiktning och praktiska råd.",
       "sources": ["https://www.transportstyrelsen.se", "https://www.tullverket.se", "https://www.skatteverket.se"],
-      "uniquePayloadScore": 84,
+      "uniquePayloadScore": 86,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
       "lastEvaluated": "2026-07-28",
       "tags": ["land", "husbil"],
-      "notes": "2026-07-28: 66 %-påståendet utrett och rättat. Siffran är verklig men avser januari–april 2025 mot samma period 2024 (källa: Vroom), inte helåret, och kom inte från Transportstyrelsen som tidigare angavs. Ersatt med helårssiffran 3 711 mot 2 673 nyregistrerade husbilar (ca 39 %), med delårssiffran kvar och korrekt kontextualiserad. KVARSTÅR: referensen prop. 2024/25:27 är fortfarande overifierad – ändringen gick via budgetpropositionen för 2025."
+      "notes": "2026-07-28: 66 %-påståendet utrett och rättat. Siffran är verklig men avser januari–april 2025 mot samma period 2024 (källa: Vroom), inte helåret, och kom inte från Transportstyrelsen som tidigare angavs. Ersatt med helårssiffran 3 711 mot 2 673 nyregistrerade husbilar (ca 39 %), med delårssiffran kvar och korrekt kontextualiserad. Referensen prop. 2024/25:27 var dessutom fel dokument – den propositionen handlar om tillstånd för hotell- och pensionatsrörelser. Ändringen föreslogs i budgetpropositionen för 2025 (prop. 2024/25:1). Rättat 2026-07-28. Inga öppna punkter kvar på sidan."
     },
     {
       "id": "importera-husbil-kostnad",

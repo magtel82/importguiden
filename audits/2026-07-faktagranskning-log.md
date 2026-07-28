@@ -185,9 +185,18 @@ Sajten presenterade alltså ett delårstal som helårstal, med felaktig
 källattribuering. Ersatt med helårssiffrorna, och delårssiffran står kvar
 korrekt kontextualiserad. Se commit i avsnittet Commits.
 
-**prop. 2024/25:27** som referens på samma sida. Sakinnehållet stämmer, men
-propositionsbeteckningen kunde inte bekräftas – ändringen gick via
-budgetpropositionen för 2025.
+**prop. 2024/25:27** som referens på samma sida.
+**UTRETT OCH RÄTTAT 2026-07-28.** Referensen pekade på fel dokument helt och
+hållet: prop. 2024/25:27 heter "Avskaffat krav på tillstånd för hotell- och
+pensionatsrörelser" och har ingenting med husbilar att göra. Även länken i
+frontmatter gick till samma felaktiga dokument.
+
+Ändringen föreslogs i **budgetpropositionen för 2025 (prop. 2024/25:1)** och
+trädde i kraft 1 februari 2025. Verifierat mot regeringens pressmeddelande
+"Skatten för husbilar sänks" (2024-09). Källorna på sidan pekar nu dit.
+
+Efter rättelsen finns inga öppna punkter kvar på `/importera-husbil/tyskland`.
+Score återställd 84 → 86.
 
 ---
 
