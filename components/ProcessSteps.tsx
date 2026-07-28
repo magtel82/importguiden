@@ -7,7 +7,7 @@ const bilSteps = [
   { n: "1", title: "Hitta bilen", body: "Sök på mobile.de, AutoScout24 eller liknande europeisk bilsajt. Kontrollera VIN-numret och boka oberoende besiktning (TÜV/ADAC) innan köp." },
   { n: "2", title: "Köp och papper", body: "Skriv köpekontrakt. Säkra COC-intyget. Säljaren avregistrerar bilen och lämnar avregistreringsintyg." },
   { n: "3", title: "Hemtransport", body: "Ordna exportregistrering (röda skyltar) och importförsäkring. Kör hem eller anlita transportföretag." },
-  { n: "4", title: "Ursprungskontroll", body: "Beställ ursprungskontroll via Transportstyrelsen (1 240 kr). Handläggningstid 2–5 dagar." },
+  { n: "4", title: "Ursprungskontroll", body: "Ansök om ursprungskontroll via Transportstyrelsen (1 240 kr). Väntetiden varierar – kontrollera aktuellt ködatum hos Transportstyrelsen." },
   { n: "5", title: "Besiktning och registrering", body: "Genomför registreringsbesiktning (ca 1 700 kr för personbil). Registrera sedan bilen i Sverige." },
 ];
 

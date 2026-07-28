@@ -191,8 +191,10 @@ export default function KostnadPage() {
                   Ursprungskontrollen är obligatorisk för alla importerade
                   fordon och utförs av Transportstyrelsen. Den kontrollerar att
                   bilen inte är stulen och inte belastad med kvarstående skulder
-                  i hemlandet. Handläggningstid: normalt 2–5 arbetsdagar.
-                  Beställ tidigt – du kan inte besikta bilen utan godkänt
+                  i hemlandet. Transportstyrelsen anger ingen fast
+                  handläggningstid – väntetiden varierar och aktuellt ködatum
+                  visas i myndighetens e-tjänst för ärendestatus. Ansök tidigt –
+                  du kan inte besikta bilen utan godkänt
                   resultat. Läs mer i guiden om{" "}
                   <Link
                     href="/guider/ursprungskontroll"

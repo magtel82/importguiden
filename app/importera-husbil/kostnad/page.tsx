@@ -189,7 +189,9 @@ export default function HusbildKostnadPage() {
                   fordon och gäller lika för husbil som för personbil.
                   Transportstyrelsen kontrollerar att husbilen inte är stulen
                   och inte belastad med kvarstående skulder i hemlandet.
-                  Handläggningstid: normalt 2–5 arbetsdagar. Beställ tidigt –
+                  Transportstyrelsen anger ingen fast handläggningstid –
+                  väntetiden varierar och aktuellt ködatum visas i myndighetens
+                  e-tjänst för ärendestatus. Ansök tidigt –
                   du kan inte genomföra registreringsbesiktningen utan godkänt
                   resultat. Läs mer i guiden om{" "}
                   <Link

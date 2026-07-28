@@ -35,7 +35,7 @@ const guides = [
   {
     href: "/guider/ursprungskontroll",
     title: "Ursprungskontroll",
-    description: "Obligatorisk kontroll via Transportstyrelsen. 1 240 kr, 2–5 dagars handläggningstid.",
+    description: "Obligatorisk kontroll via Transportstyrelsen. 1 240 kr. Väntetiden varierar – se aktuellt ködatum hos Transportstyrelsen.",
   },
   {
     href: "/guider/registreringsbesiktning",

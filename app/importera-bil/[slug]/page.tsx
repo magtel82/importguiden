@@ -335,7 +335,7 @@ export default async function ImporteraBilPage({ params }: Props) {
         },
         {
           question: "Hur lång tid tar det att importera bil från Tyskland?",
-          answer: "Räkna med 3–6 veckor från köp till registrering i Sverige. Ursprungskontroll tar 2–5 dagar och registreringsbesiktning bokas normalt inom 1–2 veckor.",
+          answer: "Räkna med minst 3–6 veckor från köp till registrering i Sverige. Registreringsbesiktning bokas normalt inom 1–2 veckor, men kötiden för ursprungskontroll varierar över tid – kontrollera aktuellt ködatum hos Transportstyrelsen innan du planerar.",
         },
         {
           question: "Behöver man betala tull vid import från Tyskland?",
