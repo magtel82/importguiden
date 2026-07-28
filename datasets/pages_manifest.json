@@ -143,7 +143,7 @@
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
       "lastEvaluated": "2026-07-28",
       "tags": ["land", "husbil"],
-      "notes": "Quality gate 2026-07-28: Påståendet om ca 66 % fler husbilsregistreringar 2025 (angiven källa: Transportstyrelsen) gick INTE att verifiera. Även referensen prop. 2024/25:27 är overifierad. Kräver beslut: verifiera eller ta bort."
+      "notes": "2026-07-28: 66 %-påståendet utrett och rättat. Siffran är verklig men avser januari–april 2025 mot samma period 2024 (källa: Vroom), inte helåret, och kom inte från Transportstyrelsen som tidigare angavs. Ersatt med helårssiffran 3 711 mot 2 673 nyregistrerade husbilar (ca 39 %), med delårssiffran kvar och korrekt kontextualiserad. KVARSTÅR: referensen prop. 2024/25:27 är fortfarande overifierad – ändringen gick via budgetpropositionen för 2025."
     },
     {
       "id": "importera-husbil-kostnad",

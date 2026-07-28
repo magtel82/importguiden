@@ -175,9 +175,15 @@ på sajten är schabloner utan myndighetsstöd. De är märkta som schabloner oc
 siffrorna är numera samstämmiga över alla sidor, men de saknar källa.
 Noterat i `import-costs.json._meta.verificationNote`.
 
-**"66 % fler husbilsregistreringar 2025"** i `/importera-husbil/tyskland`,
-angiven källa Transportstyrelsen. Inget stöd hittat. Ligger kvar, flaggat i
-manifestets `notes`. **Kräver beslut: verifiera eller ta bort.**
+**"66 % fler husbilsregistreringar 2025"** i `/importera-husbil/tyskland`.
+**UTRETT OCH RÄTTAT 2026-07-28** efter påpekande från Magnus. Siffran är verklig
+men avser januari–april 2025 mot samma period 2024, och kommer från Vroom – inte
+från Transportstyrelsen som sajten angav. Helåret 2025 landade på 3 711
+nyregistrerade husbilar mot 2 673 år 2024, alltså cirka 39 procent.
+
+Sajten presenterade alltså ett delårstal som helårstal, med felaktig
+källattribuering. Ersatt med helårssiffrorna, och delårssiffran står kvar
+korrekt kontextualiserad. Se commit i avsnittet Commits.
 
 **prop. 2024/25:27** som referens på samma sida. Sakinnehållet stämmer, men
 propositionsbeteckningen kunde inte bekräftas – ändringen gick via
