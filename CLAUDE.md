@@ -1,6 +1,6 @@
 # CLAUDE.md – Importguiden
 
-# Senast uppdaterad: 2026-04-04 (9)
+# Senast uppdaterad: 2026-07-28 (10)
 
 # Status: MVP GO – affiliate-redo, aktiv utveckling
 
@@ -793,7 +793,15 @@ Wise – AKTIVT avtal (2026-03-27), EUR-kampanjen, camref:1100l5I28j
 Tullverket eller Skatteverket
 * Hellre "cirka X kr (källa: Transportstyrelsen, 2025)" än exakt siffra utan stöd
 * Kontrollera att siffror i cost-data.json stämmer vid ny information
-OBS: ursprungskontroll höjdes till 1 240 kr 2025 – verifiera mot Transportstyrelsen
+OBS: ursprungskontroll 1 240 kr – VERIFIERAD 2026-07-28 mot Transportstyrelsens
+prislista (avgifter för fordonsregistrering). Oförändrad sedan 2025.
+OBS: Transportstyrelsen anger INGEN fast handläggningstid för ursprungskontroll.
+Skriv aldrig ut ett antal dagar – hänvisa till e-tjänsten "Visa ärendestatus för
+ursprungskontroll", som publicerar aktuellt ködatum. Tjänsten kräver ingen
+inloggning (referensnummer, ej BankID/Mina sidor).
+OBS: Registreringsbesiktningens pris går INTE att källverifiera – Opus och
+Besikta publicerar inte prislista för registreringsbesiktning online. Alla
+belopp är schabloner och ska märkas som sådana.
 
 ## UPPDATERINGSRUTIN
 
