@@ -298,7 +298,7 @@
       "id": "guider-hur-lang-tid-tar-bilimport",
       "path": "/guider/hur-lang-tid-tar-bilimport",
       "title": "Hur lång tid tar det att importera bil? – Tidslinje steg för steg",
-      "description": "Realistisk tidslinje för bilimport från Tyskland till Sverige. Från sökning till svenska skyltar – räkna med 4–8 veckor totalt.",
+      "description": "Realistisk tidslinje för bilimport från Tyskland till Sverige. Stegen du själv styr tar 2–6 veckor – plus väntetiden för ursprungskontrollen, som varierar.",
       "sources": ["https://www.transportstyrelsen.se", "https://www.transportstyrelsen.se/fordonsagare/importera-fordon", "https://www.transportstyrelsen.se/sv/vagtrafik/e-tjanster-och-blanketter/e-tjanster-inom-vagtrafik/fordon/ursprungskontroll--arendestatus/"],
       "uniquePayloadScore": 80,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },

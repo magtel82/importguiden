@@ -196,7 +196,7 @@ const CAR_IMPORT_GUIDES: {
     slug: "hur-lang-tid-tar-bilimport",
     title: "Hur lång tid tar en bilimport?",
     desc: () =>
-      "Räkna med 4–8 veckor från köp till svenska skyltar. Steg-för-steg-tidslinje så du vet vad som väntar.",
+      "Stegen du själv styr tar 2–6 veckor, plus kötiden för ursprungskontrollen. Steg-för-steg-tidslinje så du vet vad som väntar.",
   },
   {
     slug: "transportera-bil-fran-tyskland",
