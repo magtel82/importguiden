@@ -1,6 +1,6 @@
 {
   "_version": "2.0.0",
-  "_generated": "2026-03-11T00:00:00Z",
+  "_generated": "2026-07-28T00:00:00Z",
   "pages": [
     {
       "id": "home",
@@ -10,7 +10,7 @@
       "sources": ["https://www.transportstyrelsen.se", "https://www.tullverket.se"],
       "uniquePayloadScore": 75,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
-      "lastEvaluated": "2026-03-14",
+      "lastEvaluated": "2026-07-28",
       "notes": "Startsida/hub – kortare innehåll är OK. Score 75 reflekterar att sidan är en navigations-hub, inte en guide.",
       "tags": ["startsida"]
     },
@@ -20,10 +20,11 @@
       "title": "Importera bil från Tyskland – Komplett guide 2026",
       "description": "Allt du behöver veta för att importera bil privat från Tyskland till Sverige. Kostnader, process steg för steg och vanliga fallgropar.",
       "sources": ["https://www.transportstyrelsen.se", "https://www.tullverket.se", "https://www.skatteverket.se"],
-      "uniquePayloadScore": 87,
+      "uniquePayloadScore": 84,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
-      "lastEvaluated": "2026-05-13",
-      "tags": ["land", "bil"]
+      "lastEvaluated": "2026-07-28",
+      "tags": ["land", "bil"],
+      "notes": "Quality gate 2026-07-28: OLÖST motstridighet mellan sidans två kostnadstabeller – registreringsbesiktning anges både som ~1 500–1 900 kr och 900–1 500 kr, COC-intyg både som 500–1 500 kr/1–2 v och 50–150 EUR/2–4 v, transport både som 6 000–12 000 kr och 4 000–8 000 kr. Ingen siffra gick att källverifiera. Kräver redaktionellt beslut."
     },
     {
       "id": "importera-bil-kostnad",
@@ -33,7 +34,7 @@
       "sources": ["https://www.transportstyrelsen.se", "https://www.skatteverket.se", "https://www.tullverket.se"],
       "uniquePayloadScore": 86,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
-      "lastEvaluated": "2026-05-13",
+      "lastEvaluated": "2026-07-28",
       "tags": ["kostnad", "bil"]
     },
     {
@@ -138,10 +139,11 @@
       "title": "Importera husbil från Tyskland – Komplett guide 2026",
       "description": "Steg-för-steg guide för att importera husbil privat från Tyskland till Sverige. Kostnader, märken, besiktning och praktiska råd.",
       "sources": ["https://www.transportstyrelsen.se", "https://www.tullverket.se", "https://www.skatteverket.se"],
-      "uniquePayloadScore": 85,
+      "uniquePayloadScore": 84,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
-      "lastEvaluated": "2026-05-13",
-      "tags": ["land", "husbil"]
+      "lastEvaluated": "2026-07-28",
+      "tags": ["land", "husbil"],
+      "notes": "Quality gate 2026-07-28: Påståendet om ca 66 % fler husbilsregistreringar 2025 (angiven källa: Transportstyrelsen) gick INTE att verifiera. Även referensen prop. 2024/25:27 är overifierad. Kräver beslut: verifiera eller ta bort."
     },
     {
       "id": "importera-husbil-kostnad",
@@ -151,7 +153,7 @@
       "sources": ["https://www.transportstyrelsen.se", "https://www.skatteverket.se", "https://www.tullverket.se"],
       "uniquePayloadScore": 85,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
-      "lastEvaluated": "2026-05-13",
+      "lastEvaluated": "2026-07-28",
       "tags": ["kostnad", "husbil"]
     },
     {
@@ -222,7 +224,7 @@
       "sources": ["https://www.transportstyrelsen.se"],
       "uniquePayloadScore": 86,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
-      "lastEvaluated": "2026-05-13",
+      "lastEvaluated": "2026-07-28",
       "tags": ["guide", "process"]
     },
     {
@@ -241,10 +243,10 @@
       "path": "/guider/ursprungskontroll",
       "title": "Ursprungskontroll 2026 – Status, handläggningstid och kostnad",
       "description": "Hur lång tid tar ursprungskontroll? Hur kollar du status på ditt ärende? Komplett guide med kostnad (1 240 kr), handläggningstid (2–5 dagar) och länk till Transportstyrelsens statustjänst.",
-      "sources": ["https://www.transportstyrelsen.se"],
-      "uniquePayloadScore": 85,
+      "sources": ["https://www.transportstyrelsen.se", "https://www.transportstyrelsen.se/sv/om-oss/avgifter/avgifter-inom-vagtrafik/avgifter-for-tillstands--och-andra-provningar/fordonsregistrering/", "https://www.transportstyrelsen.se/sv/vagtrafik/e-tjanster-och-blanketter/e-tjanster-inom-vagtrafik/fordon/ursprungskontroll--arendestatus/"],
+      "uniquePayloadScore": 88,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
-      "lastEvaluated": "2026-05-13",
+      "lastEvaluated": "2026-07-28",
       "notes": "CTR-optimerad title/desc 2026-05-13 för GSC-frasen 'ursprungskontroll status' (621 exp, 1,0% CTR).",
       "tags": ["guide", "process"]
     },
@@ -253,10 +255,10 @@
       "path": "/guider/moms-vid-bilimport",
       "title": "Moms vid bilimport från EU – Regler och undantag",
       "description": "När betalar du moms vid import av bil från EU? Regler för nytt vs begagnat fordon, räkneexempel och vad som gäller vid köp från privatperson.",
-      "sources": ["https://www.skatteverket.se", "https://eur-lex.europa.eu"],
-      "uniquePayloadScore": 87,
+      "sources": ["https://www.skatteverket.se", "https://eur-lex.europa.eu", "https://skatteverket.se/foretag/moms/sarskildamomsregler/handelmedandralander/inkopavnytttransportmedelfranettannateuland.4.361dc8c15312eff6fd1209a.html"],
+      "uniquePayloadScore": 89,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
-      "lastEvaluated": "2026-05-13",
+      "lastEvaluated": "2026-07-28",
       "tags": ["guide", "kostnad", "moms"]
     },
     {
@@ -264,12 +266,7 @@
       "path": "/guider/kopa-bil-mobile-de-autoscout24",
       "title": "Köpa bil på mobile.de – Guide för svenska köpare 2026",
       "description": "Så använder du mobile.de och AutoScout24 som svensk köpare. Tyska bilbegrepp översatta, fallgropar att undvika och säker betalning från Sverige.",
-      "sources": [
-        "https://www.mobile.de",
-        "https://www.autoscout24.de",
-        "https://www.transportstyrelsen.se",
-        "https://www.konsumenteuropa.se"
-      ],
+      "sources": ["https://www.mobile.de", "https://www.autoscout24.de", "https://www.transportstyrelsen.se", "https://www.konsumenteuropa.se"],
       "uniquePayloadScore": 88,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
       "lastEvaluated": "2026-05-13",
@@ -280,11 +277,7 @@
       "path": "/guider/exportforsakring",
       "title": "Exportförsäkring i Tyskland – Ausfuhrkennzeichen för bilimport",
       "description": "Vad är en exportförsäkring? Kostnad, giltighetstid, var du tecknar och när du behöver Ausfuhrkennzeichen för att köra hem bilen från Tyskland.",
-      "sources": [
-        "https://www.adac.de",
-        "https://www.tuev-nord.de",
-        "https://www.transportstyrelsen.se"
-      ],
+      "sources": ["https://www.adac.de", "https://www.tuev-nord.de", "https://www.transportstyrelsen.se"],
       "uniquePayloadScore": 82,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
       "lastEvaluated": "2026-04-04",
@@ -295,15 +288,10 @@
       "path": "/guider/fordonsskatt-husbil-bonus-malus",
       "title": "Fordonsskatt och bonus-malus för husbilar – Vad gäller 2026?",
       "description": "Lagändringen februari 2025 tog bort malus-skatten för husbilar. Vad innebär det för dig som ska importera? Komplett guide om fordonsskatt och bonus-malus för husbilar.",
-      "sources": [
-        "https://www.naturvardsverket.se",
-        "https://www.transportstyrelsen.se",
-        "https://www.riksdagen.se",
-        "https://www.skatteverket.se"
-      ],
-      "uniquePayloadScore": 86,
+      "sources": ["https://www.naturvardsverket.se", "https://www.transportstyrelsen.se", "https://www.riksdagen.se", "https://www.skatteverket.se", "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/skatter-och-avgifter/malus/", "https://www.transportstyrelsen.se/sv/om-oss/pressrum/nyhetsarkiv/2025/nyare-husbilar-far-sankt-fordonsskatt/"],
+      "uniquePayloadScore": 88,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
-      "lastEvaluated": "2026-05-13",
+      "lastEvaluated": "2026-07-28",
       "tags": ["guide", "husbil", "skatt", "bonus-malus"]
     },
     {
@@ -311,10 +299,10 @@
       "path": "/guider/hur-lang-tid-tar-bilimport",
       "title": "Hur lång tid tar det att importera bil? – Tidslinje steg för steg",
       "description": "Realistisk tidslinje för bilimport från Tyskland till Sverige. Från sökning till svenska skyltar – räkna med 4–8 veckor totalt.",
-      "sources": ["https://www.transportstyrelsen.se", "https://www.transportstyrelsen.se/fordonsagare/importera-fordon"],
-      "uniquePayloadScore": 78,
+      "sources": ["https://www.transportstyrelsen.se", "https://www.transportstyrelsen.se/fordonsagare/importera-fordon", "https://www.transportstyrelsen.se/sv/vagtrafik/e-tjanster-och-blanketter/e-tjanster-inom-vagtrafik/fordon/ursprungskontroll--arendestatus/"],
+      "uniquePayloadScore": 80,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
-      "lastEvaluated": "2026-05-14",
+      "lastEvaluated": "2026-07-28",
       "notes": "Quality gate godkänd 2026-03-29. ~900 ord, konkreta tidsintervall och kostnader, FAQ-block. 2025→2026 datum-sweep 2026-05-13. Skyltavgift 130 kr → 198 kr (verifierat 2026-05-14).",
       "tags": ["guide", "process", "tidslinje"]
     },
@@ -350,7 +338,7 @@
       "sources": ["https://www.transportstyrelsen.se/sv/vagtrafik/Fordon/Importerade-fordon/registreringsbesiktning/", "https://opus.se/besiktning/registreringsbesiktning"],
       "uniquePayloadScore": 80,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
-      "lastEvaluated": "2026-05-14",
+      "lastEvaluated": "2026-07-28",
       "notes": "Quality gate godkänd 2026-03-29. ~1000 ord, fukt/gas/körkortsvikt, kostnadstabell, Ducato-varning. ADAC 2025→2026: 49 → 27,9–39,1 per 1 000 (2026-05-14).",
       "tags": ["guide", "husbil", "besiktning"]
     },
@@ -359,11 +347,7 @@
       "path": "/guider/kopa-husbil-mobil-de",
       "title": "Söka husbil på mobile.de – guide på svenska för svenska köpare 2026",
       "description": "Så söker du husbil på mobile.de och AutoScout24 som svensk köpare – filtrera rätt, tolka tyska annonser och undvik vanliga fallgropar.",
-      "sources": [
-        "https://www.mobile.de",
-        "https://www.autoscout24.de",
-        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/"
-      ],
+      "sources": ["https://www.mobile.de", "https://www.autoscout24.de", "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/"],
       "uniquePayloadScore": 78,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
       "lastEvaluated": "2026-05-13",
@@ -375,10 +359,7 @@
       "path": "/guider/besiktningsfel-vid-import",
       "title": "Vanliga besiktningsfel vid bilimport – Så undviker du underkännande",
       "description": "De vanligaste orsakerna till att importerade bilar och husbilar underkänns vid registreringsbesiktning i Sverige – och hur du förbereder dig.",
-      "sources": [
-        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/besiktning/",
-        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/fordonsimport-och-ursprungskontroll/import-fran-ett-eu-land/"
-      ],
+      "sources": ["https://www.transportstyrelsen.se/sv/vagtrafik/fordon/besiktning/", "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/fordonsimport-och-ursprungskontroll/import-fran-ett-eu-land/"],
       "uniquePayloadScore": 80,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
       "lastEvaluated": "2026-03-29",
@@ -487,13 +468,10 @@
       "path": "/guider/importforsakring",
       "title": "Importförsäkring bil – Vad det är, vad det kostar och hur du tecknar",
       "description": "Importförsäkring är ett tillfälligt trafikskydd för oregistrerade importerade fordon i Sverige. Kostnad ~1 500 kr för bil, ~2 500 kr för husbil. Så tecknar du den.",
-      "sources": [
-        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/fordonsimport-och-ursprungskontroll/import-fran-ett-eu-land/",
-        "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/trafikskadelag-1975103_sfs-1975-103/"
-      ],
+      "sources": ["https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/fordonsimport-och-ursprungskontroll/import-fran-ett-eu-land/", "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/trafikskadelag-1975103_sfs-1975-103/"],
       "uniquePayloadScore": 78,
       "quality": { "hasSources": true, "isThin": false, "indexable": true },
-      "lastEvaluated": "2026-04-07",
+      "lastEvaluated": "2026-07-28",
       "notes": "Ny guide 2026-04-07. GSC: 17 exponeringar för 'importförsäkring bil' utan dedikerad sida. Quality gate godkänd 2026-04-07, score 78.",
       "tags": ["guide", "försäkring", "process"]
     },
