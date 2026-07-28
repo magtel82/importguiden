@@ -142,22 +142,22 @@ export default async function GuiderPage({ params }: Props) {
           {
             question: "Vad kostar ursprungskontroll?",
             answer:
-              "Ursprungskontroll kostar 1 240 kr (2026, källa: Transportstyrelsen). Betalas vid beställning och återbetalas inte oavsett utfall.",
+              "Ursprungskontroll kostar 1 240 kr (källa: Transportstyrelsen). Du får en faktura per post och handläggningen startar när betalningen registrerats.",
           },
           {
             question: "Hur lång tid tar ursprungskontroll?",
             answer:
-              "Ursprungskontroll tar normalt 2–5 arbetsdagar hos Transportstyrelsen. I perioder med hög belastning kan det ta längre tid – räkna med upp till 1–2 veckor som säkerhetsplan.",
+              "Transportstyrelsen anger ingen fast handläggningstid. Myndigheten publicerar i stället löpande vilket ködatum som handläggs just nu i e-tjänsten Visa ärendestatus för ursprungskontroll. Väntetiden varierar över tid – kontrollera aktuellt läge där innan du planerar.",
           },
           {
             question: "Hur följer jag status på min ursprungskontroll?",
             answer:
-              "Du kan följa statusen via Transportstyrelsens e-tjänst efter att du loggat in med BankID.",
+              "Via Transportstyrelsens e-tjänst Visa ärendestatus för ursprungskontroll. Du anger ditt referensnummer och behöver ingen inloggning.",
           },
           {
             question: "Kan jag köra bilen innan ursprungskontrollen är klar?",
             answer:
-              "Nej, bilen får inte användas i trafik i Sverige innan ursprungskontrollen är godkänd, med undantag för körning till registreringsbesiktning under vissa förutsättningar. Kontakta Transportstyrelsen för detaljer.",
+              "Enligt Transportstyrelsen får ett importerat fordon användas i trafik i högst sju dagar från den dag det fördes in i landet, förutsatt giltig utländsk registrering och gällande utländsk trafikförsäkring. Därefter krävs tillfällig registrering. Undantag: du får köra kortast lämpliga väg till och från besiktningsföretaget med skriftlig kallelse och giltig trafikförsäkring.",
           },
           {
             question: "Vad händer om ursprungskontrollen inte godkänns?",
