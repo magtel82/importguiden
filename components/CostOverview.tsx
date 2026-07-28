@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 
 const bilCosts = [
-  { label: "Ursprungskontroll", amount: "1 240 kr", source: "Transportstyrelsen (2025)" },
+  { label: "Ursprungskontroll", amount: "1 240 kr", source: "Transportstyrelsen (2026)" },
   { label: "Registreringsbesiktning, personbil", amount: "~1 700 kr", source: "Schablonvärde" },
   { label: "Importförsäkring", amount: "~1 500 kr", source: "Schablonvärde" },
   { label: "Transport (kör hem från Tyskland)", amount: "~5 000–7 000 kr", source: "Schablonvärde" },
@@ -12,7 +12,7 @@ const bilCosts = [
 ];
 
 const husbilCosts = [
-  { label: "Ursprungskontroll", amount: "1 240 kr", source: "Transportstyrelsen (2025)" },
+  { label: "Ursprungskontroll", amount: "1 240 kr", source: "Transportstyrelsen (2026)" },
   { label: "Registreringsbesiktning, husbil", amount: "~3 000–5 000 kr", source: "Schablonvärde" },
   { label: "Importförsäkring", amount: "~2 000–4 000 kr", source: "Schablonvärde" },
   { label: "Transport (kör hem från Tyskland)", amount: "~7 000–12 000 kr", source: "Schablonvärde" },

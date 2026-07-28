@@ -1,13 +1,14 @@
 {
-  "_version": "1.0.0",
-  "_updated": "2026-05-14",
+  "_version": "1.0.1",
+  "_updated": "2026-07-28",
   "_source": "Transportstyrelsen, Tullverket, Skatteverket",
   "fees": {
     "ursprungskontroll": {
       "amount": 1240,
       "currency": "SEK",
-      "note": "Obligatorisk kontroll via Transportstyrelsen. Pris gäller fr.o.m. 2025.",
-      "source": "https://www.transportstyrelsen.se/sv/vagtrafik/Fordon/Importerade-fordon/"
+      "verified": "2026-07-28",
+      "note": "Obligatorisk kontroll via Transportstyrelsen. Beloppet verifierat mot Transportstyrelsens prislista 2026-07-28. Faktura skickas per post; handläggningen startar när betalningen registrerats.",
+      "source": "https://www.transportstyrelsen.se/sv/om-oss/avgifter/avgifter-inom-vagtrafik/avgifter-for-tillstands--och-andra-provningar/fordonsregistrering/"
     },
     "registreringsbesiktning_personbil": {
       "amount": 1700,
@@ -24,8 +25,9 @@
     "skyltavgift": {
       "amount": 198,
       "currency": "SEK",
-      "note": "2×62 kr för registreringsskyltar + 74 kr vägtrafikregisteravgift. Källa: Transportstyrelsens prislista 2026.",
-      "source": "https://www.transportstyrelsen.se"
+      "verified": "2026-07-28",
+      "note": "2×62 kr för registreringsskyltar + 74 kr vägtrafikregisteravgift. Vägtrafikregisteravgiften är en årlig avgift (höjd från 69 kr till 74 kr 2026-01-01), inte en engångskostnad. Verifierat mot Transportstyrelsen 2026-07-28.",
+      "source": "https://www.transportstyrelsen.se/avgifter-for-registerhallning"
     },
     "importforsäkring_personbil": {
       "amount": 1500,
@@ -44,8 +46,9 @@
     "moms_new_vehicle_threshold_months": 6,
     "moms_new_vehicle_threshold_km": 6000,
     "moms_rate": 0.25,
-    "note": "Fordon anses nytt om det är yngre än 6 månader ELLER har körts färre än 6 000 km. Moms (25%) tillkommer på begagnade fordon som anses nya vid import.",
-    "source": "https://www.skatteverket.se/foretag/moms/momsvidkopochforsaljning/momsvidinternationellaaffarer/koptjansterifransverige/importavfordon.4.html"
+    "verified": "2026-07-28",
+    "note": "Fordon anses nytt om det köps inom sex månader efter första ibruktagande ELLER har körts högst 6 000 km före köpet. Moms (25%) betalas i Sverige på fordon som anses nya. Deklareras på blankett SKV 5282 senast 35 dagar efter köpet.",
+    "source": "https://skatteverket.se/foretag/moms/sarskildamomsregler/handelmedandralander/inkopavnytttransportmedelfranettannateuland.4.361dc8c15312eff6fd1209a.html"
   },
   "transport": {
     "drive_self_cost_per_km": 3.5,

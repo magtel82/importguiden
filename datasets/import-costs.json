@@ -1,7 +1,8 @@
 {
   "_meta": {
-    "lastVerified": "2026-03-30",
-    "verifiedBy": "Importguiden"
+    "lastVerified": "2026-07-28",
+    "verifiedBy": "Importguiden",
+    "verificationNote": "2026-07-28: ursprungskontroll (1 240 kr) verifierad mot Transportstyrelsens prislista. Registreringsbesiktning och importförsäkring är schablonvärden som INTE gått att verifiera mot publicerad prislista – Opus och Besikta publicerar inte pris för registreringsbesiktning online."
   },
   "costs": [
     {
@@ -10,9 +11,10 @@
       "amount": 1240,
       "currency": "SEK",
       "validFrom": "2025-01-01",
+      "verified": "2026-07-28",
       "source": "Transportstyrelsen",
-      "sourceUrl": "https://www.transportstyrelsen.se/sv/vagtrafik/Fordon/Importerade-fordon/",
-      "note": "Obligatorisk kontroll hos Transportstyrelsen innan registreringsbesiktning.",
+      "sourceUrl": "https://www.transportstyrelsen.se/sv/om-oss/avgifter/avgifter-inom-vagtrafik/avgifter-for-tillstands--och-andra-provningar/fordonsregistrering/",
+      "note": "Obligatorisk kontroll hos Transportstyrelsen innan registreringsbesiktning. Beloppet oförändrat och verifierat 2026-07-28. Godkännande giltigt i 5 år.",
       "appliesTo": ["bil", "husbil"]
     },
     {
