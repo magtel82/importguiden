@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getCostData } from "@/lib/data";
 import { getCanonicalUrl, getBreadcrumbJsonLd } from "@/lib/seo";
-import { getRobotsForPath } from "@/lib/manifest";
+import { getRobotsForPath, getLastUpdatedForPath } from "@/lib/manifest";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { CostTable } from "@/components/CostTable";
 
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
-const UPDATED_DATE = "2026-03-14";
+const UPDATED_DATE = getLastUpdatedForPath("/importera-husbil/kostnad");
 
 export function generateMetadata(): Metadata {
   const robots = getRobotsForPath("/importera-husbil/kostnad");
@@ -62,8 +62,13 @@ export default function HusbildKostnadPage() {
               Vad kostar det att importera husbil från EU?
             </h1>
             <p className="text-gray-500 text-sm">
-              Uppdaterad: <time dateTime={UPDATED_DATE}>{UPDATED_DATE}</time>
-              {" "}· Källa: Transportstyrelsen, Tullverket, Skatteverket
+              {UPDATED_DATE && (
+                <>
+                  Uppdaterad: <time dateTime={UPDATED_DATE}>{UPDATED_DATE}</time>
+                  {" "}·{" "}
+                </>
+              )}
+              Källa: Transportstyrelsen, Tullverket, Skatteverket
             </p>
           </header>
 

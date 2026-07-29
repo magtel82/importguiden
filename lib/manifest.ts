@@ -16,6 +16,16 @@ export function getPageByPath(path: string): PageManifestEntry | undefined {
 }
 
 /**
+ * Returnerar datumet då sidans innehåll senast granskades, enligt manifestet.
+ * Används för synligt "Uppdaterad"-datum på sidor utan MDX-frontmatter.
+ * Okänd path → undefined, och anropande sida ska då dölja datumraden hellre
+ * än att gissa. Sätt aldrig byggdatum här – det ger falsk färskhet.
+ */
+export function getLastUpdatedForPath(path: string): string | undefined {
+  return getPageByPath(path)?.lastEvaluated;
+}
+
+/**
  * Returnerar robots-direktiv baserat på manifestet.
  * Okända sidor får noindex som fallback (säker default).
  */

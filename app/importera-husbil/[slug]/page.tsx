@@ -11,7 +11,7 @@ import { TableOfContents } from "@/components/TableOfContents";
 import { extractHeadings } from "@/lib/headings";
 import { getCountries, getCountryBySlug, getMotorhomeBrands, getMotorhomeBrandImportData, formatSEK } from "@/lib/data";
 import { getCanonicalUrl, getBreadcrumbJsonLd, getArticleJsonLd, getFaqJsonLd } from "@/lib/seo";
-import { getRobotsForPath } from "@/lib/manifest";
+import { getRobotsForPath, getLastUpdatedForPath } from "@/lib/manifest";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { CostTable } from "@/components/CostTable";
 
@@ -249,7 +249,7 @@ export default async function ImporteraHusbilPage({ params }: Props) {
 
   if (!country && !brand) notFound();
 
-  const updatedDate = new Date().toISOString().split("T")[0];
+  const updatedDate = getLastUpdatedForPath(`/importera-husbil/${slug}`);
 
   if (country) {
     const breadcrumbs = [
@@ -263,7 +263,7 @@ export default async function ImporteraHusbilPage({ params }: Props) {
       const mdxPath = path.join(process.cwd(), "content/importera-husbil/tyskland.mdx");
       const source = await readFile(mdxPath, "utf-8");
       const headings = extractHeadings(source);
-      const { content } = await compileMDX({
+      const { content, frontmatter } = await compileMDX<{ dateUpdated: string }>({
         source,
         options: { parseFrontmatter: true, mdxOptions: { remarkPlugins: [remarkGfm], rehypePlugins: [rehypeSlug] } },
         components: { AffiliateLink },
@@ -273,7 +273,7 @@ export default async function ImporteraHusbilPage({ params }: Props) {
         title: "Importera husbil från Tyskland – Komplett guide 2026",
         description: "Steg-för-steg guide för att importera husbil privat från Tyskland till Sverige.",
         datePublished: "2026-03-14",
-        dateModified: "2026-03-22",
+        dateModified: frontmatter.dateUpdated,
         url: `${SITE_URL}/importera-husbil/tyskland`,
       });
 
@@ -289,7 +289,10 @@ export default async function ImporteraHusbilPage({ params }: Props) {
                   Importera husbil från Tyskland – Komplett guide 2026
                 </h1>
                 <p className="text-gray-500 text-sm">
-                  Uppdaterad: <time dateTime="2026-03-22">2026-03-22</time>
+                  Uppdaterad:{" "}
+                  <time dateTime={frontmatter.dateUpdated}>
+                    {frontmatter.dateUpdated}
+                  </time>
                   {" "}· Källa: Transportstyrelsen, Tullverket, Skatteverket
                 </p>
               </header>
@@ -319,9 +322,11 @@ export default async function ImporteraHusbilPage({ params }: Props) {
               <h1 className="text-3xl font-bold text-gray-900 mb-3">
                 Importera husbil från {country.name} – Komplett guide {new Date().getFullYear()}
               </h1>
-              <p className="text-gray-500 text-sm">
-                Uppdaterad: <time dateTime={updatedDate}>{updatedDate}</time>
-              </p>
+              {updatedDate && (
+                <p className="text-gray-500 text-sm">
+                  Uppdaterad: <time dateTime={updatedDate}>{updatedDate}</time>
+                </p>
+              )}
             </header>
 
             <p className="text-gray-700 mb-6 text-lg">
@@ -439,8 +444,13 @@ export default async function ImporteraHusbilPage({ params }: Props) {
               Importera {importData.name} husbil från Tyskland – Guide {new Date().getFullYear()}
             </h1>
             <p className="text-gray-500 text-sm">
-              Uppdaterad: <time dateTime={updatedDate}>{updatedDate}</time>
-              {" "}· Källa: {importData.adacSource}
+              {updatedDate && (
+                <>
+                  Uppdaterad: <time dateTime={updatedDate}>{updatedDate}</time>
+                  {" "}·{" "}
+                </>
+              )}
+              Källa: {importData.adacSource}
             </p>
           </header>
 

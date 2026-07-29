@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getCountries, getCountryBySlug, getCarBrands, getCarBrandBySlug, getCarBrandImportData, formatSEK } from "@/lib/data";
 import { getCanonicalUrl, getBreadcrumbJsonLd, getFaqJsonLd } from "@/lib/seo";
-import { getRobotsForPath } from "@/lib/manifest";
+import { getRobotsForPath, getLastUpdatedForPath } from "@/lib/manifest";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { compileMDX } from "next-mdx-remote/rsc";
 import { readFile } from "fs/promises";
@@ -297,7 +297,7 @@ export default async function ImporteraBilPage({ params }: Props) {
 
   if (!country && !brand) notFound();
 
-  const updatedDate = new Date().toISOString().split("T")[0];
+  const updatedDate = getLastUpdatedForPath(`/importera-bil/${slug}`);
 
   if (country) {
     const breadcrumbs = [
@@ -311,7 +311,7 @@ export default async function ImporteraBilPage({ params }: Props) {
       const mdxPath = path.join(process.cwd(), "content/importera-bil/tyskland.mdx");
       const source = await readFile(mdxPath, "utf-8");
       const headings = extractHeadings(source);
-      const { content } = await compileMDX({
+      const { content, frontmatter } = await compileMDX<{ dateUpdated: string }>({
         source,
         options: { parseFrontmatter: true, mdxOptions: { remarkPlugins: [remarkGfm], rehypePlugins: [rehypeSlug] } },
         components: { AffiliateLink, BrandGrid },
@@ -322,7 +322,7 @@ export default async function ImporteraBilPage({ params }: Props) {
         "@type": "Article",
         headline: "Importera bil från Tyskland – Komplett guide 2026",
         datePublished: "2026-03-11",
-        dateModified: "2026-03-13",
+        dateModified: frontmatter.dateUpdated,
         author: { "@type": "Organization", name: "Importguiden", url: SITE_URL },
         publisher: { "@type": "Organization", name: "Importguiden", url: SITE_URL },
         mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/importera-bil/tyskland` },
@@ -369,6 +369,12 @@ export default async function ImporteraBilPage({ params }: Props) {
             <Breadcrumbs items={breadcrumbs} siteUrl={SITE_URL} />
             <article className="prose prose-gray max-w-none prose-headings:font-bold prose-a:text-blue-700 prose-a:no-underline hover:prose-a:underline prose-table:text-sm">
               <h1>Importera bil från Tyskland – Komplett guide 2026</h1>
+              <p className="not-prose text-gray-500 text-sm">
+                Uppdaterad:{" "}
+                <time dateTime={frontmatter.dateUpdated}>
+                  {frontmatter.dateUpdated}
+                </time>
+              </p>
               <TableOfContents headings={headings} />
               {content}
             </article>
@@ -395,9 +401,11 @@ export default async function ImporteraBilPage({ params }: Props) {
               <h1 className="text-3xl font-bold text-gray-900 mb-3">
                 Importera bil från {country.name} – Komplett guide {new Date().getFullYear()}
               </h1>
-              <p className="text-gray-500 text-sm">
-                Uppdaterad: <time dateTime={updatedDate}>{updatedDate}</time>
-              </p>
+              {updatedDate && (
+                <p className="text-gray-500 text-sm">
+                  Uppdaterad: <time dateTime={updatedDate}>{updatedDate}</time>
+                </p>
+              )}
             </header>
 
             <p className="text-gray-700 mb-6 text-lg">
@@ -561,8 +569,13 @@ export default async function ImporteraBilPage({ params }: Props) {
               Importera {importData.name} från Tyskland – Guide {new Date().getFullYear()}
             </h1>
             <p className="text-gray-500 text-sm">
-              Uppdaterad: <time dateTime={updatedDate}>{updatedDate}</time>
-              {" "}· Källa: {importData.adacSource}
+              {updatedDate && (
+                <>
+                  Uppdaterad: <time dateTime={updatedDate}>{updatedDate}</time>
+                  {" "}·{" "}
+                </>
+              )}
+              Källa: {importData.adacSource}
             </p>
           </header>
 

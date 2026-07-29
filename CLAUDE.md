@@ -1,6 +1,6 @@
 # CLAUDE.md – Importguiden
 
-# Senast uppdaterad: 2026-07-28 (10)
+# Senast uppdaterad: 2026-07-29 (11)
 
 # Status: MVP GO – affiliate-redo, aktiv utveckling
 
@@ -818,6 +818,28 @@ Vid uppdatering:
 * Uppdatera lastEvaluated i pages\_manifest.json
 * Commit med tydligt meddelande: "Uppdatera \[sida] – \[anledning]"
 * Uppdatera "Senast uppdaterad" i toppen av denna fil
+
+## SYNLIGT "UPPDATERAD"-DATUM – VAR DET KOMMER IFRÅN
+
+Hårdkoda ALDRIG datumet i en .tsx-sida, och stämpla det ALDRIG med
+`new Date()` – då visar sidan byggdatum och daterar om sig vid varje deploy
+även när inget innehåll ändrats. Det är falsk färskhet och en negativ
+SEO-signal. Åtgärdat 2026-07-29; låt det inte återkomma.
+
+Två godkända källor:
+
+1. Sidor med MDX → `frontmatter.dateUpdated` (guider, båda Tyskland-sidorna).
+   Samma värde ska även gå till `dateModified` i Article JSON-LD.
+2. Sidor utan MDX → `getLastUpdatedForPath(path)` i lib/manifest.ts, som läser
+   `lastEvaluated` ur manifestet (märkessidor, kostnadssidorna).
+
+OBS om (2): `lastEvaluated` betyder "quality gate kördes", inte "innehållet
+ändrades". Kör du bara om en gate utan att röra texten – bumpa inte datumet,
+då blir det synliga datumet felaktigt färskt. Undantaget är
+`/jamfor/tyskland-vs-sverige`, som därför har kvar ett hårdkodat 2026-03-14:
+manifestets 2026-05-13 speglar en omvärdering, inte en innehållsändring.
+
+Saknas datum ska datumraden döljas – gissa aldrig.
 
 ## SPRÅK \& TON
 
