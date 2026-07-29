@@ -45,6 +45,13 @@ const guides: {
     category: "generell",
   },
   {
+    slug: "elbilspremie-importerad-bil",
+    title: "Elbilspremie för importerad elbil",
+    description: "Naturvårdsverket bekräftar att premien gäller lika vid privatimport. Villkoren, beloppet och vad som krävs.",
+    time: "3 min",
+    category: "bil",
+  },
+  {
     slug: "hur-lang-tid-tar-bilimport",
     title: "Hur lång tid tar det att importera bil?",
     description: "Realistisk tidslinje från sökning till svenska skyltar. Stegen du själv styr tar 2–6 veckor – plus kötiden för ursprungskontrollen.",

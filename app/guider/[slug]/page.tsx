@@ -30,6 +30,7 @@ const GUIDE_SLUGS = [
   "exportforsakring",
   "importforsakring",
   "eeg-intyg",
+  "elbilspremie-importerad-bil",
 ] as const;
 
 type GuideSlug = (typeof GUIDE_SLUGS)[number];
