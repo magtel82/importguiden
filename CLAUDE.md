@@ -1,6 +1,6 @@
 # CLAUDE.md – Importguiden
 
-# Senast uppdaterad: 2026-07-29 (11)
+# Senast uppdaterad: 2026-07-29 (12)
 
 # Status: MVP GO – affiliate-redo, aktiv utveckling
 
@@ -135,12 +135,17 @@ kostnad/page.tsx                # /importera-husbil/kostnad
 guider/
 page.tsx                        # /guider – serverkomponent (metadata + JSON-LD)
 #   Renderar <GuiderContent /> – ingen logik här
+#   Kastar vid bygge om en guide saknas i GUIDE_SECTIONS
 GuiderContent.tsx               # "use client" – filtreringssystem (Alla/Bil/Husbil)
+#   Guidedata importeras från lib/guides.ts – ingen egen kopia
 #   useState-filter, guidekort med kategoribadge, märkeskort
 #   Kategorier: generell | bil | husbil per guide
 #   Bil-filter: bil + generella guider + personbilsmärken
 #   Husbil-filter: husbil + generella guider + husbilsmärken
 \[slug]/page.tsx                 # Läser MDX via compileMDX + remarkGfm
+#   Avslutas med <GuideFooter slug={slug} />
+opengraph-image.tsx               # Standard og:image 1200x630, genereras via next/og
+#   Ingen statisk bildfil – ändra layout här
 kalkylator/
 bilimport/page.tsx              # Kalkylator (client component)
 jamfor/
@@ -423,9 +428,18 @@ Ny guide:
 
 1. Skapa content/guider/<slug>.mdx
 2. Lägg till slug i GUIDE\_SLUGS-arrayen i app/guider/\[slug]/page.tsx
-3. Lägg till guide i guides-arrayen i app/guider/GuiderContent.tsx med rätt category (generell | bil | husbil)
-4. Lägg till post i datasets/pages\_manifest.json med indexable=false
-5. Quality gate → indexable=true om OK
+3. Lägg till guide i GUIDES i lib/guides.ts med rätt category (generell | bil | husbil)
+4. Lägg till slug i en sektion i GUIDE\_SECTIONS (lib/guides.ts)
+   – annars renderas guiden aldrig på /guider och blir föräldralös.
+   Bygget stoppar med fel om detta glöms.
+5. Lägg till slug i RELATED\_GUIDES (lib/guides.ts) och peka minst en
+   befintlig guide tillbaka mot den – annars saknar den inlänkar.
+6. Lägg till post i datasets/pages\_manifest.json med indexable=false
+7. Quality gate → indexable=true om OK
+
+OBS: skriv INTE "Läs mer"-listor eller relaterade länkar i MDX-filen.
+<GuideFooter> renderar relaterade guider + kalkylator-CTA på alla
+guidesidor automatiskt, styrt av RELATED\_GUIDES.
 
 # ==========================================================
 
@@ -963,7 +977,8 @@ Regel: compliant=false blockerar deploy i CI.
 14. Ladda aldrig tredjepartsskript utan consent-gate
 15. Nya routes som samlar data kräver compliance-genomgång först
 16. Affiliate-länkar i MDX → använd alltid <AffiliateLink>, aldrig plain markdown
-17. Ny guide → skapa MDX, lägg till i GUIDE\_SLUGS och i guider/page.tsx (hubsidan)
+17. Ny guide → skapa MDX, lägg till i GUIDE\_SLUGS, samt i GUIDES, GUIDE\_SECTIONS
+och RELATED\_GUIDES i lib/guides.ts (se "Ny guide" ovan)
 18. Header är "use client" – lägg inte till server-side logik där
 19. Efter varje avslutad uppgift: commit + push till main med tydligt commit-meddelande på svenska
 20. Uppdatera /finansiering och /integritetspolicy vid nya affiliate-partner

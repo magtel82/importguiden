@@ -9,6 +9,7 @@ import { getCanonicalUrl, getBreadcrumbJsonLd, getFaqJsonLd } from "@/lib/seo";
 import { getRobotsForPath } from "@/lib/manifest";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { TableOfContents } from "@/components/TableOfContents";
+import { GuideFooter } from "@/components/GuideFooter";
 import { AffiliateLink } from "@/components/affiliate/AffiliateLink";
 import { extractHeadings } from "@/lib/headings";
 
@@ -290,6 +291,8 @@ export default async function GuiderPage({ params }: Props) {
           <TableOfContents headings={headings} />
           <div className="prose prose-gray max-w-none">{content}</div>
         </article>
+
+        <GuideFooter slug={slug} />
       </div>
     </>
   );

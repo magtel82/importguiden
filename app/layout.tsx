@@ -26,6 +26,11 @@ export const metadata: Metadata = {
     locale: "sv_SE",
     siteName: "Importguiden",
   },
+  // Bilden kommer från app/opengraph-image.tsx (Next.js filkonvention).
+  // summary_large_image krävs för att X ska rendera den i stort format.
+  twitter: {
+    card: "summary_large_image",
+  },
   robots: {
     index: true,
     follow: true,
