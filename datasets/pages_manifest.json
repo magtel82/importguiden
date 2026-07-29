@@ -493,10 +493,10 @@
       "title": "Elbilspremie för importerad elbil – gäller den vid privatimport?",
       "description": "Naturvårdsverket bekräftar: elbilspremien gäller lika vid privatimport. Avgörande är att bilen är registrerad i Sverige på dig – inte var den köptes.",
       "sources": ["https://www.naturvardsverket.se/bidrag/elbilspremien/villkor-for-elbilspremien/", "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/forordning-20251574-om-elbilspremie_sfs-2025-1574/", "https://www.naturvardsverket.se/bidrag/elbilspremien/"],
-      "uniquePayloadScore": 72,
-      "quality": { "hasSources": true, "isThin": false, "indexable": false },
+      "uniquePayloadScore": 84,
+      "quality": { "hasSources": true, "isThin": false, "indexable": true },
       "lastEvaluated": "2026-07-29",
-      "notes": "Ny guide 2026-07-29. Primärkälla: Naturvårdsverkets e-postsvar på ärende NV202635943 (2026-05-13) om att elbilspremien gäller vid privatimport – unikt innehåll som saknas hos konkurrenter. Quality gate: 539 ord, under 800-ordskravet, därav score 72 och noindex. Bygg ut ca 260 ord för indexering. Belopp verifierade mot förordning 2025:1574 på riksdagen.se 2026-07-29.",
+      "notes": "Ny guide 2026-07-29. Primärkälla: Naturvårdsverkets e-postsvar på ärende NV202635943 (2026-05-13) om att elbilspremien gäller vid privatimport – unikt innehåll som saknas hos konkurrenter. Quality gate godkänd 2026-07-29, score 84, 1 038 ord. Avsnitten 'Villkor som är lätta att missa' och 'Tidsplanera ansökan mot importens ledtid' är tillagda av Claude 2026-07-29 mot Naturvårdsverkets villkorssida (granskad 5 juni 2026) – ej del av den ursprungligt faktagranskade texten. Samtliga belopp verifierade mot förordning 2025:1574 och Naturvårdsverkets villkorssida 2026-07-29.",
       "tags": ["guide", "bil", "elbil", "bidrag"]
     },
     {
