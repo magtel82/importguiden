@@ -47,7 +47,7 @@
     "moms_new_vehicle_threshold_km": 6000,
     "moms_rate": 0.25,
     "verified": "2026-07-28",
-    "note": "Fordon anses nytt om det köps inom sex månader efter första ibruktagande ELLER har körts högst 6 000 km före köpet. Moms (25%) betalas i Sverige på fordon som anses nya. Deklareras på blankett SKV 5282 senast 35 dagar efter köpet.",
+    "note": "Fordon anses nytt om det köps inom sex månader efter första ibruktagande ELLER har körts högst 6 000 km före köpet. Moms (25 %) betalas i Sverige på fordon som anses nya. Deklareras på blankett SKV 5282 senast 35 dagar efter köpet.",
     "source": "https://skatteverket.se/foretag/moms/sarskildamomsregler/handelmedandralander/inkopavnytttransportmedelfranettannateuland.4.361dc8c15312eff6fd1209a.html"
   },
   "transport": {

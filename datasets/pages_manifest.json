@@ -7,23 +7,43 @@
       "path": "/",
       "title": "Importguiden – Oberoende guide till privat fordonsimport",
       "description": "Lär dig allt om att importera bil och husbil privat från Tyskland och Europa. Gratis kalkylator, steg-för-steg-guider och aktuell information.",
-      "sources": ["https://www.transportstyrelsen.se", "https://www.tullverket.se"],
+      "sources": [
+        "https://www.transportstyrelsen.se",
+        "https://www.tullverket.se"
+      ],
       "uniquePayloadScore": 75,
-      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-07-28",
       "notes": "Startsida/hub – kortare innehåll är OK. Score 75 reflekterar att sidan är en navigations-hub, inte en guide.",
-      "tags": ["startsida"]
+      "tags": [
+        "startsida"
+      ]
     },
     {
       "id": "importera-bil-tyskland",
       "path": "/importera-bil/tyskland",
       "title": "Importera bil från Tyskland – Komplett guide 2026",
       "description": "Allt du behöver veta för att importera bil privat från Tyskland till Sverige. Kostnader, process steg för steg och vanliga fallgropar.",
-      "sources": ["https://www.transportstyrelsen.se", "https://www.tullverket.se", "https://www.skatteverket.se"],
+      "sources": [
+        "https://www.transportstyrelsen.se",
+        "https://www.tullverket.se",
+        "https://www.skatteverket.se"
+      ],
       "uniquePayloadScore": 84,
-      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-07-28",
-      "tags": ["land", "bil"],
+      "tags": [
+        "land",
+        "bil"
+      ],
       "notes": "Quality gate 2026-07-28: OLÖST motstridighet mellan sidans två kostnadstabeller – registreringsbesiktning anges både som ~1 500–1 900 kr och 900–1 500 kr, COC-intyg både som 500–1 500 kr/1–2 v och 50–150 EUR/2–4 v, transport både som 6 000–12 000 kr och 4 000–8 000 kr. Ingen siffra gick att källverifiera. Kräver redaktionellt beslut."
     },
     {
@@ -31,118 +51,233 @@
       "path": "/importera-bil/kostnad",
       "title": "Vad kostar det att registrera en importerad bil i Sverige 2026?",
       "description": "Komplett kostnadslista för bilimport: ursprungskontroll 1 240 kr, registreringsbesiktning ~1 700 kr, skyltavgift, importförsäkring, moms och transport. Räkneexempel och totalkostnad.",
-      "sources": ["https://www.transportstyrelsen.se", "https://www.skatteverket.se", "https://www.tullverket.se"],
+      "sources": [
+        "https://www.transportstyrelsen.se",
+        "https://www.skatteverket.se",
+        "https://www.tullverket.se"
+      ],
       "uniquePayloadScore": 86,
-      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-07-28",
-      "tags": ["kostnad", "bil"]
+      "tags": [
+        "kostnad",
+        "bil"
+      ]
     },
     {
       "id": "importera-bil-bmw",
       "path": "/importera-bil/bmw",
       "title": "Importera BMW från Tyskland – Guide 2026 (ADAC-data, kostnader)",
       "description": "Importera BMW privat från Tyskland. Rekommenderade modeller, kända problem (ADAC Pannenstatistik 2026), dokument att begära och kalkylator.",
-      "sources": ["https://www.transportstyrelsen.se", "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/", "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"],
+      "sources": [
+        "https://www.transportstyrelsen.se",
+        "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
+        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"
+      ],
       "uniquePayloadScore": 82,
-      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-05-14",
       "notes": "pSEO med ADAC-data, garanti-sektion, fordonsskatt-tabell, Fahrzeugbrief-guide, CostTable och FAQ-schema. Fördjupat 2026-04-01. ADAC-källår 2025→2026 (2026-05-14).",
-      "tags": ["marke", "bil", "pseo"]
+      "tags": [
+        "marke",
+        "bil",
+        "pseo"
+      ]
     },
     {
       "id": "importera-bil-mercedes",
       "path": "/importera-bil/mercedes",
       "title": "Importera Mercedes från Tyskland – Kostnader, garanti och modeller 2026",
       "description": "Importera Mercedes-Benz privat från Tyskland. Garanti, fordonsskatt per modell, ADAC-data och kalkylator.",
-      "sources": ["https://www.transportstyrelsen.se", "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/", "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"],
+      "sources": [
+        "https://www.transportstyrelsen.se",
+        "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
+        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"
+      ],
       "uniquePayloadScore": 82,
-      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-05-14",
       "notes": "pSEO med ADAC-data, garanti-sektion, fordonsskatt-tabell, Fahrzeugbrief-guide, CostTable och FAQ-schema. Fördjupat 2026-04-02. ADAC-källår 2025→2026 (2026-05-14).",
-      "tags": ["marke", "bil", "pseo"]
+      "tags": [
+        "marke",
+        "bil",
+        "pseo"
+      ]
     },
     {
       "id": "importera-bil-audi",
       "path": "/importera-bil/audi",
       "title": "Importera Audi från Tyskland – Kostnader, ADAC-data och garanti 2026",
       "description": "Importera Audi privat från Tyskland. Garanti, fordonsskatt per modell, ADAC-data och kalkylator.",
-      "sources": ["https://www.transportstyrelsen.se", "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/", "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"],
+      "sources": [
+        "https://www.transportstyrelsen.se",
+        "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
+        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"
+      ],
       "uniquePayloadScore": 82,
-      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-05-14",
       "notes": "pSEO med ADAC-data, garanti-sektion, fordonsskatt-tabell, Fahrzeugbrief-guide, CostTable och FAQ-schema. Fördjupat 2026-04-02. ADAC-källår 2025→2026 (2026-05-14).",
-      "tags": ["marke", "bil", "pseo"]
+      "tags": [
+        "marke",
+        "bil",
+        "pseo"
+      ]
     },
     {
       "id": "importera-bil-volkswagen",
       "path": "/importera-bil/volkswagen",
       "title": "Importera Volkswagen från Tyskland – Guide med kostnader och tips 2026",
       "description": "Importera Volkswagen privat från Tyskland. ADAC-data, garanti, fordonsskatt per modell och kalkylator.",
-      "sources": ["https://www.transportstyrelsen.se", "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/", "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"],
+      "sources": [
+        "https://www.transportstyrelsen.se",
+        "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
+        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"
+      ],
       "uniquePayloadScore": 82,
-      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-05-14",
       "notes": "pSEO med ADAC-data, garanti-sektion, fordonsskatt-tabell, Fahrzeugbrief-guide, CostTable och FAQ-schema. Fördjupat 2026-04-02. ADAC-källår 2025→2026 (2026-05-14).",
-      "tags": ["marke", "bil", "pseo"]
+      "tags": [
+        "marke",
+        "bil",
+        "pseo"
+      ]
     },
     {
       "id": "importera-bil-volvo",
       "path": "/importera-bil/volvo",
       "title": "Importera Volvo från Tyskland – Lönar det sig?",
       "description": "Kan det löna sig att importera Volvo från Tyskland? Vi går igenom kostnader, process och prisskillnader.",
-      "sources": ["https://www.transportstyrelsen.se"],
+      "sources": [
+        "https://www.transportstyrelsen.se"
+      ],
       "uniquePayloadScore": 58,
-      "quality": { "hasSources": true, "isThin": true, "indexable": false },
+      "quality": {
+        "hasSources": true,
+        "isThin": true,
+        "indexable": false
+      },
       "lastEvaluated": "2026-03-11",
       "notes": "Märkessida – noindex tills märkesspecifikt innehåll är klart.",
-      "tags": ["marke", "bil", "pseo"]
+      "tags": [
+        "marke",
+        "bil",
+        "pseo"
+      ]
     },
     {
       "id": "importera-bil-tesla",
       "path": "/importera-bil/tesla",
       "title": "Importera Tesla från Tyskland – Elbilsimport, garanti och kostnader 2026",
       "description": "Importera Tesla privat från Tyskland. Garanti, batterigaranti, fordonsskatt och importkalkylator.",
-      "sources": ["https://www.transportstyrelsen.se", "https://www.skatteverket.se", "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/", "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"],
+      "sources": [
+        "https://www.transportstyrelsen.se",
+        "https://www.skatteverket.se",
+        "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
+        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"
+      ],
       "uniquePayloadScore": 85,
-      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-05-14",
       "notes": "pSEO med Tesla-specifik sektion (SoH, laddkontakt) + garanti, fordonsskatt, Fahrzeugbrief, CostTable och FAQ-schema. Fördjupat 2026-04-02. ADAC 2025→2026 + elbil-stat (40% färre pannor) tillagd 2026-05-14.",
-      "tags": ["marke", "bil", "pseo", "elbil"]
+      "tags": [
+        "marke",
+        "bil",
+        "pseo",
+        "elbil"
+      ]
     },
     {
       "id": "importera-bil-porsche",
       "path": "/importera-bil/porsche",
       "title": "Importera Porsche från Tyskland – Lönar det sig? Guide 2026",
       "description": "Importera Porsche privat från Tyskland. Garanti, fordonsskatt per modell, ADAC-data och kalkylator.",
-      "sources": ["https://www.transportstyrelsen.se", "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/", "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"],
+      "sources": [
+        "https://www.transportstyrelsen.se",
+        "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
+        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"
+      ],
       "uniquePayloadScore": 82,
-      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-05-14",
       "notes": "pSEO med ADAC-data + IMS-varning, garanti-sektion, fordonsskatt-tabell, Fahrzeugbrief-guide, CostTable och FAQ-schema. Fördjupat 2026-04-02. ADAC-källår 2025→2026 (2026-05-14).",
-      "tags": ["marke", "bil", "pseo"]
+      "tags": [
+        "marke",
+        "bil",
+        "pseo"
+      ]
     },
     {
       "id": "importera-bil-nederländerna",
       "path": "/importera-bil/nederländerna",
       "title": "Importera bil från Nederländerna – Guide 2026",
       "description": "Allt om att importera bil privat från Nederländerna till Sverige.",
-      "sources": ["https://www.transportstyrelsen.se"],
+      "sources": [
+        "https://www.transportstyrelsen.se"
+      ],
       "uniquePayloadScore": 50,
-      "quality": { "hasSources": true, "isThin": true, "indexable": false },
+      "quality": {
+        "hasSources": true,
+        "isThin": true,
+        "indexable": false
+      },
       "lastEvaluated": "2026-03-11",
       "notes": "Landssida saknar tillräckligt unikt innehåll. Bygg ut med NL-specifika tips (elbilar, plattformar) för att indexeras.",
-      "tags": ["land", "bil"]
+      "tags": [
+        "land",
+        "bil"
+      ]
     },
     {
       "id": "importera-husbil-tyskland",
       "path": "/importera-husbil/tyskland",
       "title": "Importera husbil från Tyskland – Komplett guide 2026",
       "description": "Steg-för-steg guide för att importera husbil privat från Tyskland till Sverige. Kostnader, märken, besiktning och praktiska råd.",
-      "sources": ["https://www.transportstyrelsen.se", "https://www.tullverket.se", "https://www.skatteverket.se"],
+      "sources": [
+        "https://www.transportstyrelsen.se",
+        "https://www.tullverket.se",
+        "https://www.skatteverket.se"
+      ],
       "uniquePayloadScore": 86,
-      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-07-28",
-      "tags": ["land", "husbil"],
+      "tags": [
+        "land",
+        "husbil"
+      ],
       "notes": "2026-07-28: 66 %-påståendet utrett och rättat. Siffran är verklig men avser januari–april 2025 mot samma period 2024 (källa: Vroom), inte helåret, och kom inte från Transportstyrelsen som tidigare angavs. Ersatt med helårssiffran 3 711 mot 2 673 nyregistrerade husbilar (ca 39 %), med delårssiffran kvar och korrekt kontextualiserad. Referensen prop. 2024/25:27 var dessutom fel dokument – den propositionen handlar om tillstånd för hotell- och pensionatsrörelser. Ändringen föreslogs i budgetpropositionen för 2025 (prop. 2024/25:1). Rättat 2026-07-28. Inga öppna punkter kvar på sidan."
     },
     {
@@ -150,221 +285,444 @@
       "path": "/importera-husbil/kostnad",
       "title": "Vad kostar det att importera husbil från EU? – Alla avgifter 2026",
       "description": "Komplett genomgång av kostnader vid husbilsimport: ursprungskontroll, registreringsbesiktning, importförsäkring, transport och moms. Med räkneexempel.",
-      "sources": ["https://www.transportstyrelsen.se", "https://www.skatteverket.se", "https://www.tullverket.se"],
+      "sources": [
+        "https://www.transportstyrelsen.se",
+        "https://www.skatteverket.se",
+        "https://www.tullverket.se"
+      ],
       "uniquePayloadScore": 85,
-      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-07-28",
-      "tags": ["kostnad", "husbil"]
+      "tags": [
+        "kostnad",
+        "husbil"
+      ]
     },
     {
       "id": "importera-husbil-hymer",
       "path": "/importera-husbil/hymer",
       "title": "Importera Hymer husbil från Tyskland – Guide 2026 (chassi, kostnader)",
       "description": "Importera Hymer husbil privat från Tyskland. Chassiinformation, Ducato-varning (ADAC 2025), rekommenderade modeller och kalkylator.",
-      "sources": ["https://www.transportstyrelsen.se", "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/", "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"],
+      "sources": [
+        "https://www.transportstyrelsen.se",
+        "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
+        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"
+      ],
       "uniquePayloadScore": 82,
-      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-04-01",
       "notes": "pSEO med Ducato-varning + Sprinter-alternativ, garanti-sektion, malus-info (feb 2025), CostTable och FAQ-schema. Fördjupat 2026-04-01.",
-      "tags": ["marke", "husbil", "pseo"]
+      "tags": [
+        "marke",
+        "husbil",
+        "pseo"
+      ]
     },
     {
       "id": "importera-husbil-dethleffs",
       "path": "/importera-husbil/dethleffs",
       "title": "Importera Dethleffs husbil från Tyskland – Guide och kostnader 2026",
       "description": "Importera Dethleffs husbil privat från Tyskland. Garanti, Ducato-chassi, fuktskydd och importkalkylator.",
-      "sources": ["https://www.transportstyrelsen.se", "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/", "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"],
+      "sources": [
+        "https://www.transportstyrelsen.se",
+        "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
+        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"
+      ],
       "uniquePayloadScore": 80,
-      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-04-02",
       "notes": "pSEO med Ducato-varning, garanti (Erwin Hymer Group), malus-info, chassi-extra, CostTable och FAQ-schema. Fördjupat 2026-04-02.",
-      "tags": ["marke", "husbil", "pseo"]
+      "tags": [
+        "marke",
+        "husbil",
+        "pseo"
+      ]
     },
     {
       "id": "importera-husbil-burstner",
       "path": "/importera-husbil/burstner",
       "title": "Importera Bürstner husbil från Tyskland – Chassi, garanti och kostnader 2026",
       "description": "Importera Bürstner husbil privat från Tyskland. Sprinter-alternativ (Lyseo), Ducato-varning och importkalkylator.",
-      "sources": ["https://www.transportstyrelsen.se", "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/", "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"],
+      "sources": [
+        "https://www.transportstyrelsen.se",
+        "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
+        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"
+      ],
       "uniquePayloadScore": 81,
-      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-04-02",
       "notes": "pSEO med Ducato-varning + Lyseo/Sprinter, garanti, malus-info, chassi-extra, CostTable och FAQ-schema. Fördjupat 2026-04-02.",
-      "tags": ["marke", "husbil", "pseo"]
+      "tags": [
+        "marke",
+        "husbil",
+        "pseo"
+      ]
     },
     {
       "id": "importera-husbil-knaus",
       "path": "/importera-husbil/knaus",
       "title": "Importera Knaus husbil från Tyskland – Guide med ADAC-data 2026",
       "description": "Importera Knaus husbil privat från Tyskland. 10 års fuktgaranti, Ducato-chassi och importkalkylator.",
-      "sources": ["https://www.transportstyrelsen.se", "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/", "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"],
+      "sources": [
+        "https://www.transportstyrelsen.se",
+        "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
+        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"
+      ],
       "uniquePayloadScore": 80,
-      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-04-02",
       "notes": "pSEO med Ducato-varning, garanti (10 år fukt), malus-info, chassi-extra, CostTable och FAQ-schema. Fördjupat 2026-04-02.",
-      "tags": ["marke", "husbil", "pseo"]
+      "tags": [
+        "marke",
+        "husbil",
+        "pseo"
+      ]
     },
     {
       "id": "importera-husbil-hobby",
       "path": "/importera-husbil/hobby",
       "title": "Importera Hobby husbil från Tyskland – Bästa pris-prestanda? Guide 2026",
       "description": "Importera Hobby husbil privat från Tyskland. 10 års fuktgaranti, konkurrenskraftigt pris och importkalkylator.",
-      "sources": ["https://www.transportstyrelsen.se", "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/", "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"],
+      "sources": [
+        "https://www.transportstyrelsen.se",
+        "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
+        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"
+      ],
       "uniquePayloadScore": 80,
-      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-04-02",
       "notes": "pSEO med Ducato-varning, garanti (10 år fukt), malus-info, chassi-extra, CostTable och FAQ-schema. Fördjupat 2026-04-02.",
-      "tags": ["marke", "husbil", "pseo"]
+      "tags": [
+        "marke",
+        "husbil",
+        "pseo"
+      ]
     },
     {
       "id": "guider-registreringsbesiktning",
       "path": "/guider/registreringsbesiktning",
       "title": "Registreringsbesiktning av importerad bil – Så fungerar det",
       "description": "Allt om registreringsbesiktning vid import: vad kontrolleras, var gör man det och vad kostar det?",
-      "sources": ["https://www.transportstyrelsen.se"],
+      "sources": [
+        "https://www.transportstyrelsen.se"
+      ],
       "uniquePayloadScore": 86,
-      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-07-28",
-      "tags": ["guide", "process"]
+      "tags": [
+        "guide",
+        "process"
+      ]
     },
     {
       "id": "guider-coc-intyg",
       "path": "/guider/coc-intyg",
       "title": "COC-intyg (Certificate of Conformity) – Så skaffar du det",
       "description": "COC-intyg (Certificate of Conformity) behövs vid import av bil till Sverige. Så beställer du det från tillverkaren, vad det kostar och vad du gör om det saknas.",
-      "sources": ["https://www.transportstyrelsen.se", "https://eur-lex.europa.eu"],
+      "sources": [
+        "https://www.transportstyrelsen.se",
+        "https://eur-lex.europa.eu"
+      ],
       "uniquePayloadScore": 84,
-      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-03-31",
-      "tags": ["guide", "process"]
+      "tags": [
+        "guide",
+        "process"
+      ]
     },
     {
       "id": "guider-ursprungskontroll",
       "path": "/guider/ursprungskontroll",
       "title": "Ursprungskontroll 2026 – Status, handläggningstid och kostnad",
       "description": "Hur lång tid tar ursprungskontroll? Hur kollar du status på ditt ärende? Komplett guide med kostnad (1 240 kr), handläggningstid (2–5 dagar) och länk till Transportstyrelsens statustjänst.",
-      "sources": ["https://www.transportstyrelsen.se", "https://www.transportstyrelsen.se/sv/om-oss/avgifter/avgifter-inom-vagtrafik/avgifter-for-tillstands--och-andra-provningar/fordonsregistrering/", "https://www.transportstyrelsen.se/sv/vagtrafik/e-tjanster-och-blanketter/e-tjanster-inom-vagtrafik/fordon/ursprungskontroll--arendestatus/"],
+      "sources": [
+        "https://www.transportstyrelsen.se",
+        "https://www.transportstyrelsen.se/sv/om-oss/avgifter/avgifter-inom-vagtrafik/avgifter-for-tillstands--och-andra-provningar/fordonsregistrering/",
+        "https://www.transportstyrelsen.se/sv/vagtrafik/e-tjanster-och-blanketter/e-tjanster-inom-vagtrafik/fordon/ursprungskontroll--arendestatus/"
+      ],
       "uniquePayloadScore": 88,
-      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-07-28",
       "notes": "CTR-optimerad title/desc 2026-05-13 för GSC-frasen 'ursprungskontroll status' (621 exp, 1,0% CTR).",
-      "tags": ["guide", "process"]
+      "tags": [
+        "guide",
+        "process"
+      ]
     },
     {
       "id": "guider-moms-vid-bilimport",
       "path": "/guider/moms-vid-bilimport",
       "title": "Moms vid bilimport från EU – Regler och undantag",
       "description": "När betalar du moms vid import av bil från EU? Regler för nytt vs begagnat fordon, räkneexempel och vad som gäller vid köp från privatperson.",
-      "sources": ["https://www.skatteverket.se", "https://eur-lex.europa.eu", "https://skatteverket.se/foretag/moms/sarskildamomsregler/handelmedandralander/inkopavnytttransportmedelfranettannateuland.4.361dc8c15312eff6fd1209a.html"],
+      "sources": [
+        "https://www.skatteverket.se",
+        "https://eur-lex.europa.eu",
+        "https://skatteverket.se/foretag/moms/sarskildamomsregler/handelmedandralander/inkopavnytttransportmedelfranettannateuland.4.361dc8c15312eff6fd1209a.html"
+      ],
       "uniquePayloadScore": 89,
-      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-07-28",
-      "tags": ["guide", "kostnad", "moms"]
+      "tags": [
+        "guide",
+        "kostnad",
+        "moms"
+      ]
     },
     {
       "id": "guider-kopa-bil-mobile-de-autoscout24",
       "path": "/guider/kopa-bil-mobile-de-autoscout24",
       "title": "Köpa bil på mobile.de – Guide för svenska köpare 2026",
       "description": "Så använder du mobile.de och AutoScout24 som svensk köpare. Tyska bilbegrepp översatta, fallgropar att undvika och säker betalning från Sverige.",
-      "sources": ["https://www.mobile.de", "https://www.autoscout24.de", "https://www.transportstyrelsen.se", "https://www.konsumenteuropa.se"],
+      "sources": [
+        "https://www.mobile.de",
+        "https://www.autoscout24.de",
+        "https://www.transportstyrelsen.se",
+        "https://www.konsumenteuropa.se"
+      ],
       "uniquePayloadScore": 88,
-      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-05-13",
-      "tags": ["guide", "köpprocess", "tyskland"]
+      "tags": [
+        "guide",
+        "köpprocess",
+        "tyskland"
+      ]
     },
     {
       "id": "guider-exportforsakring",
       "path": "/guider/exportforsakring",
       "title": "Exportförsäkring i Tyskland – Ausfuhrkennzeichen för bilimport",
       "description": "Vad är en exportförsäkring? Kostnad, giltighetstid, var du tecknar och när du behöver Ausfuhrkennzeichen för att köra hem bilen från Tyskland.",
-      "sources": ["https://www.adac.de", "https://www.tuev-nord.de", "https://www.transportstyrelsen.se"],
+      "sources": [
+        "https://www.adac.de",
+        "https://www.tuev-nord.de",
+        "https://www.transportstyrelsen.se"
+      ],
       "uniquePayloadScore": 82,
-      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-04-04",
-      "tags": ["guide", "försäkring", "tyskland", "export"]
+      "tags": [
+        "guide",
+        "försäkring",
+        "tyskland",
+        "export"
+      ]
     },
     {
       "id": "guider-fordonsskatt-husbil-bonus-malus",
       "path": "/guider/fordonsskatt-husbil-bonus-malus",
       "title": "Fordonsskatt och bonus-malus för husbilar – Vad gäller 2026?",
       "description": "Lagändringen februari 2025 tog bort malus-skatten för husbilar. Vad innebär det för dig som ska importera? Komplett guide om fordonsskatt och bonus-malus för husbilar.",
-      "sources": ["https://www.naturvardsverket.se", "https://www.transportstyrelsen.se", "https://www.riksdagen.se", "https://www.skatteverket.se", "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/skatter-och-avgifter/malus/", "https://www.transportstyrelsen.se/sv/om-oss/pressrum/nyhetsarkiv/2025/nyare-husbilar-far-sankt-fordonsskatt/"],
+      "sources": [
+        "https://www.naturvardsverket.se",
+        "https://www.transportstyrelsen.se",
+        "https://www.riksdagen.se",
+        "https://www.skatteverket.se",
+        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/skatter-och-avgifter/malus/",
+        "https://www.transportstyrelsen.se/sv/om-oss/pressrum/nyhetsarkiv/2025/nyare-husbilar-far-sankt-fordonsskatt/"
+      ],
       "uniquePayloadScore": 88,
-      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-07-28",
-      "tags": ["guide", "husbil", "skatt", "bonus-malus"]
+      "tags": [
+        "guide",
+        "husbil",
+        "skatt",
+        "bonus-malus"
+      ]
     },
     {
       "id": "guider-hur-lang-tid-tar-bilimport",
       "path": "/guider/hur-lang-tid-tar-bilimport",
       "title": "Hur lång tid tar det att importera bil? – Tidslinje steg för steg",
       "description": "Realistisk tidslinje för bilimport från Tyskland till Sverige. Stegen du själv styr tar 2–6 veckor – plus väntetiden för ursprungskontrollen, som varierar.",
-      "sources": ["https://www.transportstyrelsen.se", "https://www.transportstyrelsen.se/fordonsagare/importera-fordon", "https://www.transportstyrelsen.se/sv/vagtrafik/e-tjanster-och-blanketter/e-tjanster-inom-vagtrafik/fordon/ursprungskontroll--arendestatus/"],
+      "sources": [
+        "https://www.transportstyrelsen.se",
+        "https://www.transportstyrelsen.se/fordonsagare/importera-fordon",
+        "https://www.transportstyrelsen.se/sv/vagtrafik/e-tjanster-och-blanketter/e-tjanster-inom-vagtrafik/fordon/ursprungskontroll--arendestatus/"
+      ],
       "uniquePayloadScore": 80,
-      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-07-28",
       "notes": "Quality gate godkänd 2026-03-29. ~900 ord, konkreta tidsintervall och kostnader, FAQ-block. 2025→2026 datum-sweep 2026-05-13. Skyltavgift 130 kr → 198 kr (verifierat 2026-05-14).",
-      "tags": ["guide", "process", "tidslinje"]
+      "tags": [
+        "guide",
+        "process",
+        "tidslinje"
+      ]
     },
     {
       "id": "guider-transportera-bil-fran-tyskland",
       "path": "/guider/transportera-bil-fran-tyskland",
       "title": "Transportera bil från Tyskland – Köra hem eller anlita transport?",
       "description": "Tre sätt att få hem bilen från Tyskland: köra själv, biltransport på trailer eller spedition. Kostnader, fördelar och nackdelar.",
-      "sources": ["https://www.transportstyrelsen.se", "https://www.tullverket.se"],
+      "sources": [
+        "https://www.transportstyrelsen.se",
+        "https://www.tullverket.se"
+      ],
       "uniquePayloadScore": 80,
-      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-03-29",
       "notes": "Quality gate godkänd 2026-03-29. ~1000 ord, tre alternativ med kostnadstabeller, skattningar tydligt märkta.",
-      "tags": ["guide", "transport"]
+      "tags": [
+        "guide",
+        "transport"
+      ]
     },
     {
       "id": "guider-importera-elbil",
       "path": "/guider/importera-elbil",
       "title": "Importera elbil från Europa – Guide för Tesla, BMW i4, VW ID och andra",
       "description": "Vad skiljer elbilsimport från vanlig bilimport? Batteristatus, momsregler, bonus-malus och vad du bör kontrollera.",
-      "sources": ["https://www.transportstyrelsen.se", "https://www.skatteverket.se", "https://www.naturvardsverket.se"],
+      "sources": [
+        "https://www.transportstyrelsen.se",
+        "https://www.skatteverket.se",
+        "https://www.naturvardsverket.se"
+      ],
       "uniquePayloadScore": 82,
-      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-05-14",
       "notes": "Quality gate godkänd 2026-03-29. ~1100 ord, SoH-förklaring, momsexempel, CCS2/CHAdeMO-info, tre myndighetsbelagda källor. ADAC 2026-data + Ioniq 5 ICCU-varning tillagd 2026-05-14.",
-      "tags": ["guide", "elbil"]
+      "tags": [
+        "guide",
+        "elbil"
+      ]
     },
     {
       "id": "guider-besikta-husbil",
       "path": "/guider/besikta-husbil",
       "title": "Besiktning av importerad husbil – Vad som gäller och vad det kostar",
       "description": "Allt om registreringsbesiktning av importerad husbil: fuktmätning, gaskontroll, körkortskrav och var du bokar. Kostar 3 000–5 000 kr.",
-      "sources": ["https://www.transportstyrelsen.se/sv/vagtrafik/Fordon/Importerade-fordon/registreringsbesiktning/", "https://opus.se/besiktning/registreringsbesiktning"],
+      "sources": [
+        "https://www.transportstyrelsen.se/sv/vagtrafik/Fordon/Importerade-fordon/registreringsbesiktning/",
+        "https://opus.se/besiktning/registreringsbesiktning"
+      ],
       "uniquePayloadScore": 80,
-      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-07-28",
       "notes": "Quality gate godkänd 2026-03-29. ~1000 ord, fukt/gas/körkortsvikt, kostnadstabell, Ducato-varning. ADAC 2025→2026: 49 → 27,9–39,1 per 1 000 (2026-05-14).",
-      "tags": ["guide", "husbil", "besiktning"]
+      "tags": [
+        "guide",
+        "husbil",
+        "besiktning"
+      ]
     },
     {
       "id": "guider-kopa-husbil-mobil-de",
       "path": "/guider/kopa-husbil-mobil-de",
       "title": "Söka husbil på mobile.de – guide på svenska för svenska köpare 2026",
       "description": "Så söker du husbil på mobile.de och AutoScout24 som svensk köpare – filtrera rätt, tolka tyska annonser och undvik vanliga fallgropar.",
-      "sources": ["https://www.mobile.de", "https://www.autoscout24.de", "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/"],
+      "sources": [
+        "https://www.mobile.de",
+        "https://www.autoscout24.de",
+        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/"
+      ],
       "uniquePayloadScore": 78,
-      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-05-13",
       "notes": "Quality gate godkänd 2026-03-29. ~900 ord, husbilsspecifik ordlista, filtreringstips, fuktkontroll, checklista, FAQ. 2025→2026 datum-sweep 2026-05-13.",
-      "tags": ["guide", "husbil", "mobile.de", "sök"]
+      "tags": [
+        "guide",
+        "husbil",
+        "mobile.de",
+        "sök"
+      ]
     },
     {
       "id": "guider-besiktningsfel-vid-import",
       "path": "/guider/besiktningsfel-vid-import",
       "title": "Vanliga besiktningsfel vid bilimport – Så undviker du underkännande",
       "description": "De vanligaste orsakerna till att importerade bilar och husbilar underkänns vid registreringsbesiktning i Sverige – och hur du förbereder dig.",
-      "sources": ["https://www.transportstyrelsen.se/sv/vagtrafik/fordon/besiktning/", "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/fordonsimport-och-ursprungskontroll/import-fran-ett-eu-land/"],
+      "sources": [
+        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/besiktning/",
+        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/fordonsimport-och-ursprungskontroll/import-fran-ett-eu-land/"
+      ],
       "uniquePayloadScore": 80,
-      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-03-29",
       "notes": "Quality gate godkänd 2026-03-29. ~950 ord, 8 felkategorier med åtgärder, bil+husbil-specifika fel, checklista, FAQ.",
-      "tags": ["guide", "besiktning", "importfel"]
+      "tags": [
+        "guide",
+        "besiktning",
+        "importfel"
+      ]
     },
     {
       "id": "kalkylator-bilimport",
@@ -373,22 +731,38 @@
       "description": "Räkna ut vad det kostar att importera bil från Europa. Moms, tull, transport och avgifter.",
       "sources": [],
       "uniquePayloadScore": 92,
-      "quality": { "hasSources": false, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": false,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-03-14",
       "notes": "Interaktivt verktyg – hasSources=false är OK, verktyget är det unika värdet.",
-      "tags": ["verktyg"]
+      "tags": [
+        "verktyg"
+      ]
     },
     {
       "id": "jamfor-tyskland-vs-sverige",
       "path": "/jamfor/tyskland-vs-sverige",
       "title": "Bilar billigare i Tyskland? – Prisjämförelse 2026",
       "description": "Vi jämför bilpriser i Sverige och Tyskland per segment. Lönar det sig att importera? Break-even-analys, konkreta exempel och vilka märken som har störst prisskillnad.",
-      "sources": ["https://www.mobile.de", "https://www.bytbil.com", "https://www.blocket.se"],
+      "sources": [
+        "https://www.mobile.de",
+        "https://www.bytbil.com",
+        "https://www.blocket.se"
+      ],
       "uniquePayloadScore": 82,
-      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-05-13",
       "notes": "Prisjämförelse per segment med schablonvärden. Källor: mobile.de, Bytbil, Blocket. Break-even-kalkyl med data från cost-data.json.",
-      "tags": ["jamfor"]
+      "tags": [
+        "jamfor"
+      ]
     },
     {
       "id": "om-oss",
@@ -397,10 +771,16 @@
       "description": "Lär känna Importguiden. Vi är en oberoende informationssajt utan koppling till importföretag.",
       "sources": [],
       "uniquePayloadScore": 60,
-      "quality": { "hasSources": false, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": false,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-03-14",
       "notes": "Om-sidan indexeras för E-E-A-T men behöver ej rankas på sökord.",
-      "tags": ["info"]
+      "tags": [
+        "info"
+      ]
     },
     {
       "id": "guider-hub",
@@ -409,10 +789,17 @@
       "description": "Steg-för-steg guider om att importera bil från Europa. Ursprungskontroll, registreringsbesiktning, COC-intyg och momsregler.",
       "sources": [],
       "uniquePayloadScore": 72,
-      "quality": { "hasSources": false, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": false,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-03-13",
       "notes": "Hub-sida som listar alla guider. Indexeras för internlänkning och navigationsstruktur.",
-      "tags": ["guide", "hub"]
+      "tags": [
+        "guide",
+        "hub"
+      ]
     },
     {
       "id": "integritetspolicy",
@@ -421,10 +808,17 @@
       "description": "Hur Importguiden hanterar cookies och personuppgifter. Information om dina rättigheter enligt GDPR.",
       "sources": [],
       "uniquePayloadScore": 70,
-      "quality": { "hasSources": false, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": false,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-03-13",
       "notes": "Policy-sida – indexeras för E-E-A-T och affiliate-nätverkskrav. Uppdatera vid nya samarbetspartner eller tracking-tjänster. Uppdatera 'Senast uppdaterad'-datum i page.tsx vid ändringar.",
-      "tags": ["info", "gdpr"],
+      "tags": [
+        "info",
+        "gdpr"
+      ],
       "manualOverride": true
     },
     {
@@ -434,10 +828,16 @@
       "description": "Har du frågor om fordonsimport eller sajten? Hör av dig till oss via formuläret.",
       "sources": [],
       "uniquePayloadScore": 60,
-      "quality": { "hasSources": false, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": false,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-03-17",
       "notes": "Kontaktsida med formulär. Indexeras för E-E-A-T.",
-      "tags": ["info"]
+      "tags": [
+        "info"
+      ]
     },
     {
       "id": "finansiering",
@@ -446,10 +846,17 @@
       "description": "Importguiden finansieras via affiliate-samarbeten. Här förklarar vi hur det fungerar och hur det påverkar innehållet.",
       "sources": [],
       "uniquePayloadScore": 70,
-      "quality": { "hasSources": false, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": false,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-03-13",
       "notes": "Transparenssida – viktig för affiliate-nätverksansökningar. Uppdatera 'Nuvarande samarbetspartner'-listan i page.tsx vid nya avtal.",
-      "tags": ["info", "affiliate"],
+      "tags": [
+        "info",
+        "affiliate"
+      ],
       "manualOverride": true
     },
     {
@@ -457,58 +864,259 @@
       "path": "/importera-bil/guide",
       "title": "Importera bil — Steg för steg",
       "description": "Följ vår steg-för-steg-guide för att importera bil privat från Europa till Sverige. Från kalkyl till registrering.",
-      "sources": ["https://www.transportstyrelsen.se", "https://www.tullverket.se", "https://www.skatteverket.se"],
+      "sources": [
+        "https://www.transportstyrelsen.se",
+        "https://www.tullverket.se",
+        "https://www.skatteverket.se"
+      ],
       "uniquePayloadScore": 80,
-      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-03-30",
-      "tags": ["guide", "bil", "flöde"]
+      "tags": [
+        "guide",
+        "bil",
+        "flöde"
+      ]
     },
     {
       "id": "guider-importforsakring",
       "path": "/guider/importforsakring",
       "title": "Importförsäkring bil – Vad det är, vad det kostar och hur du tecknar",
       "description": "Importförsäkring är ett tillfälligt trafikskydd för oregistrerade importerade fordon i Sverige. Kostnad ~1 500 kr för bil, ~2 500 kr för husbil. Så tecknar du den.",
-      "sources": ["https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/fordonsimport-och-ursprungskontroll/import-fran-ett-eu-land/", "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/trafikskadelag-1975103_sfs-1975-103/"],
+      "sources": [
+        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/fordonsimport-och-ursprungskontroll/import-fran-ett-eu-land/",
+        "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/trafikskadelag-1975103_sfs-1975-103/"
+      ],
       "uniquePayloadScore": 78,
-      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-07-28",
       "notes": "Ny guide 2026-04-07. GSC: 17 exponeringar för 'importförsäkring bil' utan dedikerad sida. Quality gate godkänd 2026-04-07, score 78.",
-      "tags": ["guide", "försäkring", "process"]
+      "tags": [
+        "guide",
+        "försäkring",
+        "process"
+      ]
     },
     {
       "id": "guider-eeg-intyg",
       "path": "/guider/eeg-intyg",
       "title": "EEG-intyg vid bilimport – Vad det är och när du behöver det",
       "description": "EEG-intyg krävs vid import av vissa fordon till Sverige, bland annat elbilar och fordon som saknar COC-intyg.",
-      "sources": ["https://www.transportstyrelsen.se"],
+      "sources": [
+        "https://www.transportstyrelsen.se"
+      ],
       "uniquePayloadScore": 80,
-      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-04-16",
       "notes": "Ny guide 2026-04-16. GSC: position 6 på 'eeg intyg bil' utan dedikerad sida.",
-      "tags": ["guide", "process", "elbil"]
+      "tags": [
+        "guide",
+        "process",
+        "elbil"
+      ]
     },
     {
       "id": "guider-elbilspremie-importerad-bil",
       "path": "/guider/elbilspremie-importerad-bil",
       "title": "Elbilspremie för importerad elbil – gäller den vid privatimport?",
       "description": "Naturvårdsverket bekräftar: elbilspremien gäller lika vid privatimport. Avgörande är att bilen är registrerad i Sverige på dig – inte var den köptes.",
-      "sources": ["https://www.naturvardsverket.se/bidrag/elbilspremien/villkor-for-elbilspremien/", "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/forordning-20251574-om-elbilspremie_sfs-2025-1574/", "https://www.naturvardsverket.se/bidrag/elbilspremien/"],
+      "sources": [
+        "https://www.naturvardsverket.se/bidrag/elbilspremien/villkor-for-elbilspremien/",
+        "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/forordning-20251574-om-elbilspremie_sfs-2025-1574/",
+        "https://www.naturvardsverket.se/bidrag/elbilspremien/"
+      ],
       "uniquePayloadScore": 84,
-      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-07-29",
       "notes": "Ny guide 2026-07-29. Primärkälla: Naturvårdsverkets e-postsvar på ärende NV202635943 (2026-05-13) om att elbilspremien gäller vid privatimport – unikt innehåll som saknas hos konkurrenter. Quality gate godkänd 2026-07-29, score 84, 1 038 ord. Avsnitten 'Villkor som är lätta att missa' och 'Tidsplanera ansökan mot importens ledtid' är tillagda av Claude 2026-07-29 mot Naturvårdsverkets villkorssida (granskad 5 juni 2026) – ej del av den ursprungligt faktagranskade texten. Samtliga belopp verifierade mot förordning 2025:1574 och Naturvårdsverkets villkorssida 2026-07-29.",
-      "tags": ["guide", "bil", "elbil", "bidrag"]
+      "tags": [
+        "guide",
+        "bil",
+        "elbil",
+        "bidrag"
+      ]
     },
     {
       "id": "importera-husbil-guide",
       "path": "/importera-husbil/guide",
       "title": "Importera husbil — Steg för steg",
       "description": "Steg-för-steg-guide för att importera husbil privat från Tyskland och Europa. Kalkylator, kostnader och registrering.",
-      "sources": ["https://www.transportstyrelsen.se", "https://www.tullverket.se", "https://www.skatteverket.se"],
+      "sources": [
+        "https://www.transportstyrelsen.se",
+        "https://www.tullverket.se",
+        "https://www.skatteverket.se"
+      ],
       "uniquePayloadScore": 80,
-      "quality": { "hasSources": true, "isThin": false, "indexable": true },
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": true
+      },
       "lastEvaluated": "2026-03-30",
-      "tags": ["guide", "husbil", "flöde"]
+      "tags": [
+        "guide",
+        "husbil",
+        "flöde"
+      ]
+    },
+    {
+      "id": "guider-tysk-bilordlista",
+      "path": "/guider/tysk-bilordlista",
+      "title": "Tysk bilordlista – förkortningar i annonser på mobile.de",
+      "description": "Vad betyder unfallfrei, Scheckheftgepflegt, HU, AHK och zGM? Sökbar ordlista med över 100 tyska fordonstermer och förkortningar översatta till svenska.",
+      "sources": [
+        "https://www.mobile.de/",
+        "https://www.adac.de/rund-ums-fahrzeug/auto-kaufen-verkaufen/gebrauchtwagenkauf/",
+        "https://www.autoscout24.de/informieren/ratgeber/autorecht/gewaehrleistung-fuer-gebrauchtwagen/"
+      ],
+      "uniquePayloadScore": 0,
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": false
+      },
+      "lastEvaluated": "2026-07-29",
+      "notes": "NY 2026-07-29, ca 964 ord. Quality gate ej körd – score 0 och indexable=false tills den är det. Sökbar ordlista, 100+ termer i data/german-car-terms.json. Renderas via <GlossaryTable>. Riktar sig mot mobile.de-sökorden som dominerar GSC-exponeringarna.",
+      "tags": [
+        "guide",
+        "ordlista",
+        "tyskland",
+        "mobile.de"
+      ]
+    },
+    {
+      "id": "guider-matarmanipulation",
+      "path": "/guider/matarmanipulation",
+      "title": "Manipulerad mätarställning – så kontrollerar du en tysk bil",
+      "description": "Hur vanligt är manipulerad mätarställning på tyska begagnatbilar, vad säger ADAC och carVertical, och hur kontrollerar du mätarställningen med servicebok, HU-protokoll och VIN-historik?",
+      "sources": [
+        "https://www.adac.de/rund-ums-fahrzeug/auto-kaufen-verkaufen/gebrauchtwagenkauf/tacho-manipulation/",
+        "https://presse.adac.de/meldungen/adac-ev/technik/tacho-manipulation-immer-noch-kein-wirksamer-schutz.html",
+        "https://www.gesetze-im-internet.de/stvg/__22b.html"
+      ],
+      "uniquePayloadScore": 0,
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": false
+      },
+      "lastEvaluated": "2026-07-29",
+      "notes": "NY 2026-07-29, ca 1110 ord. Quality gate ej körd – score 0 och indexable=false tills den är det. Redovisar spannet 2–30 % från tre olika källor med motstridiga incitament i stället för en enskild siffra. Uppskattningarna får inte presenteras som fakta.",
+      "tags": [
+        "guide",
+        "köpprocess",
+        "risk"
+      ]
+    },
+    {
+      "id": "guider-garanti-vid-bilimport",
+      "path": "/guider/garanti-vid-bilimport",
+      "title": "Garanti vid bilimport – gäller nybilsgarantin i Sverige?",
+      "description": "Gäller tillverkarens nybilsgaranti om du köper bilen i Tyskland? Vad är skillnaden mellan Gewährleistung och Garantie, och vilket skydd har du vid köp av handlare respektive privatperson?",
+      "sources": [
+        "https://europa.eu/youreurope/citizens/vehicles/cars/buying-leasing-car-abroad/faq/index_en.htm",
+        "https://www.autoscout24.de/informieren/ratgeber/autorecht/gewaehrleistung-fuer-gebrauchtwagen/",
+        "https://www.evz.de/en/topics/internet-shopping/guarantees-warranties/"
+      ],
+      "uniquePayloadScore": 0,
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": false
+      },
+      "lastEvaluated": "2026-07-29",
+      "notes": "NY 2026-07-29, ca 1148 ord. Quality gate ej körd – score 0 och indexable=false tills den är det. Reder ut nybilsgaranti / Gewährleistung / Garantie. EU-regeln källbelagd hos Your Europe. Innehåller vagnskadegaranti-gapet.",
+      "tags": [
+        "guide",
+        "garanti",
+        "juridik"
+      ]
+    },
+    {
+      "id": "guider-krockhistorik-unfallfrei",
+      "path": "/guider/krockhistorik-unfallfrei",
+      "title": "Unfallfrei och krockhistorik – vad tyska säljare måste berätta",
+      "description": "Vad betyder unfallfrei juridiskt, vad räknas som bagatellskada enligt BGH, och vilken upplysningsskyldighet har en tysk säljare? Så kontrollerar du krockhistoriken före köp.",
+      "sources": [
+        "https://www.mobile.de/magazin/artikel/-unfallfreiheit-unfallschaden-verschwiegen-haendler-54228",
+        "https://www.bussgeldkatalog.org/unfallfreiheit/",
+        "https://www.adac.de/rund-ums-fahrzeug/auto-kaufen-verkaufen/gebrauchtwagenkauf/"
+      ],
+      "uniquePayloadScore": 0,
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": false
+      },
+      "lastEvaluated": "2026-07-29",
+      "notes": "NY 2026-07-29, ca 967 ord. Quality gate ej körd – score 0 och indexable=false tills den är det. BGH-praxis om bagatellskada och upplysningsplikt. Skillnaden unfallfrei vs 'laut Vorbesitzer' är kärnan.",
+      "tags": [
+        "guide",
+        "köpprocess",
+        "juridik"
+      ]
+    },
+    {
+      "id": "guider-forsakra-importerad-bil",
+      "path": "/guider/forsakra-importerad-bil",
+      "title": "Försäkra importerad bil – premie, vagnskadegaranti och 30-dagarsregeln",
+      "description": "Blir försäkringen dyrare på en importerad bil? Vad innebär det att vagnskadegarantin saknas, och när måste du teckna svensk trafikförsäkring? Guide för EU-importerade fordon.",
+      "sources": [
+        "https://www.if.se/privat/forsakringar/bilforsakring/importera-bil/forsakra-importerad-bil",
+        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/fordonsimport-och-ursprungskontroll/import-fran-ett-eu-land/",
+        "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/trafikskadelag-1975103_sfs-1975-103/"
+      ],
+      "uniquePayloadScore": 0,
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": false
+      },
+      "lastEvaluated": "2026-07-29",
+      "notes": "NY 2026-07-29, ca 1052 ord. Quality gate ej körd – score 0 och indexable=false tills den är det. Skiljer EU-import från USA/Japan-import vad gäller premie. Huvudpoängen är att vagnskadegarantin saknas, inte premienivån.",
+      "tags": [
+        "guide",
+        "försäkring"
+      ]
+    },
+    {
+      "id": "regelandringar",
+      "path": "/regelandringar",
+      "title": "Regeländringar vid fordonsimport – logg",
+      "description": "Logg över regel- och avgiftsändringar som påverkar import av bil och husbil till Sverige. Vi bevakar Transportstyrelsen, Skatteverket och Tullverket och noterar även när inget ändrats.",
+      "sources": [
+        "https://www.transportstyrelsen.se",
+        "https://www.skatteverket.se",
+        "https://www.tullverket.se"
+      ],
+      "uniquePayloadScore": 0,
+      "quality": {
+        "hasSources": true,
+        "isThin": true,
+        "indexable": false
+      },
+      "lastEvaluated": "2026-07-29",
+      "notes": "NY 2026-07-29. Tunn med 3 poster – ska växa i takt med att Visualping larmar. Sätt indexable=true först när loggen har substans. Data i data/regulation-changes.json.",
+      "tags": [
+        "logg",
+        "transparens"
+      ]
     }
   ]
 }

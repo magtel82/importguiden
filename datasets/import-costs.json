@@ -1,8 +1,8 @@
 {
   "_meta": {
-    "lastVerified": "2026-07-28",
+    "lastVerified": "2026-07-29",
     "verifiedBy": "Importguiden",
-    "verificationNote": "2026-07-28: ursprungskontroll (1 240 kr) verifierad mot Transportstyrelsens prislista. Registreringsbesiktning och importförsäkring är schablonvärden som INTE gått att verifiera mot publicerad prislista – Opus och Besikta publicerar inte pris för registreringsbesiktning online."
+    "verificationNote": "2026-07-28: ursprungskontroll (1 240 kr) verifierad mot Transportstyrelsens prislista. Registreringsbesiktning och importförsäkring är schablonvärden som INTE gått att verifiera mot publicerad prislista – Opus och Besikta publicerar inte pris för registreringsbesiktning online. 2026-07-29: lagt till importfirma-bil/-husbil som jämförelseposter (comparisonOnly=true) – ingår aldrig i totalsumman."
   },
   "costs": [
     {
@@ -15,7 +15,10 @@
       "source": "Transportstyrelsen",
       "sourceUrl": "https://www.transportstyrelsen.se/sv/om-oss/avgifter/avgifter-inom-vagtrafik/avgifter-for-tillstands--och-andra-provningar/fordonsregistrering/",
       "note": "Obligatorisk kontroll hos Transportstyrelsen innan registreringsbesiktning. Beloppet oförändrat och verifierat 2026-07-28. Godkännande giltigt i 5 år.",
-      "appliesTo": ["bil", "husbil"]
+      "appliesTo": [
+        "bil",
+        "husbil"
+      ]
     },
     {
       "id": "registreringsbesiktning-bil",
@@ -27,7 +30,9 @@
       "source": "Transportstyrelsen",
       "sourceUrl": "https://www.transportstyrelsen.se/sv/vagtrafik/Fordon/fordonsimport/",
       "note": "Pris varierar mellan besiktningsföretag (Opus, Besikta, DEKRA). Ca 1 500–2 000 kr.",
-      "appliesTo": ["bil"]
+      "appliesTo": [
+        "bil"
+      ]
     },
     {
       "id": "registreringsbesiktning-husbil",
@@ -39,7 +44,9 @@
       "source": "Transportstyrelsen",
       "sourceUrl": "https://www.transportstyrelsen.se/sv/vagtrafik/Fordon/fordonsimport/",
       "note": "Husbil har mer omfattande besiktning. Ca 3 000–5 000 kr beroende på storlek.",
-      "appliesTo": ["husbil"]
+      "appliesTo": [
+        "husbil"
+      ]
     },
     {
       "id": "importforsakring-bil",
@@ -51,7 +58,9 @@
       "source": "Jämförelse av svenska försäkringsbolag",
       "sourceUrl": null,
       "note": "Kortförsäkring för hemtransport. Varierar 1 000–2 500 kr beroende på bolag och tid.",
-      "appliesTo": ["bil"]
+      "appliesTo": [
+        "bil"
+      ]
     },
     {
       "id": "importforsakring-husbil",
@@ -63,7 +72,9 @@
       "source": "Jämförelse av svenska försäkringsbolag",
       "sourceUrl": null,
       "note": "Kortförsäkring för hemtransport. Varierar 2 000–4 000 kr beroende på bolag och husbilens värde.",
-      "appliesTo": ["husbil"]
+      "appliesTo": [
+        "husbil"
+      ]
     },
     {
       "id": "exportskyltar",
@@ -75,7 +86,10 @@
       "source": "Zulassungsstelle",
       "sourceUrl": null,
       "note": "Krävs om du kör hem fordonet själv. Inkluderar skylt + försäkring. Ca 100–200 €.",
-      "appliesTo": ["bil", "husbil"]
+      "appliesTo": [
+        "bil",
+        "husbil"
+      ]
     },
     {
       "id": "transport-foretag",
@@ -88,7 +102,40 @@
       "source": "Marknadsuppskattning",
       "sourceUrl": null,
       "note": "Beror på avstånd. Norra Tyskland → Sverige ca 6 000 kr, södra Tyskland ca 10 000–12 000 kr.",
-      "appliesTo": ["bil", "husbil"]
+      "appliesTo": [
+        "bil",
+        "husbil"
+      ]
+    },
+    {
+      "id": "importfirma-bil",
+      "name": "Anlita importfirma (personbil)",
+      "amount": 24875,
+      "currency": "SEK",
+      "validFrom": "2026-07-01",
+      "verified": "2026-07-29",
+      "source": "Publicerat pris hos svensk importfirma",
+      "sourceUrl": "https://www.importbil.se/tysklandimport/",
+      "note": "19 900 kr + moms = 24 875 kr inkl. moms. Publicerat listpris hos en svensk importfirma juli 2026, avser leverans och registrering. Ingår INTE i kalkylatorns totalsumma – används enbart som jämförelse mot att göra importen själv. Priset avser en enskild aktör och är inte ett marknadsgenomsnitt.",
+      "appliesTo": [
+        "bil"
+      ],
+      "comparisonOnly": true
+    },
+    {
+      "id": "importfirma-husbil",
+      "name": "Anlita importfirma (husbil)",
+      "amount": 37375,
+      "currency": "SEK",
+      "validFrom": "2026-07-01",
+      "verified": "2026-07-29",
+      "source": "Publicerat pris hos svensk importfirma",
+      "sourceUrl": "https://www.importbil.se/tysklandimport/",
+      "note": "29 900 kr + moms = 37 375 kr inkl. moms. Publicerat listpris hos en svensk importfirma juli 2026. Ingår INTE i kalkylatorns totalsumma – används enbart som jämförelse. Priset avser en enskild aktör och är inte ett marknadsgenomsnitt.",
+      "appliesTo": [
+        "husbil"
+      ],
+      "comparisonOnly": true
     }
   ]
 }

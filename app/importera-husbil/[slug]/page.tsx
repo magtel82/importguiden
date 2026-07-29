@@ -681,7 +681,7 @@ export default async function ImporteraHusbilPage({ params }: Props) {
               {[
                 { title: "Hitta din husbil", desc: `Sök efter ${importData.name} på mobile.de eller AutoScout24. Kontrollera chassi, årsmodell och totalvikt.` },
                 { title: "Kontrollera och besiktiga", desc: "Kräv fuktkontroll med fuktmätare av oberoende besiktningsman. Verifiera servicehistorik, TÜV och gasbesiktning." },
-                { title: "Köp och transportera hem", desc: "Skriv köpekontrakt med VIN, kilometerstand och COC-intyg som uttryckligt villkor. Kör hem eller anlita transport." },
+                { title: "Köp och transportera hem", desc: "Skriv köpekontrakt med VIN, mätarställning och COC-intyg som uttryckligt villkor. Kör hem eller anlita transport." },
                 { title: "Ursprungskontroll och besiktning", desc: "Beställ ursprungskontroll hos Transportstyrelsen. Boka registreringsbesiktning – den är mer omfattande för husbilar." },
                 { title: "Registrera i Sverige", desc: "När besiktningen är godkänd registrerar Transportstyrelsen husbilen och du får svenska skyltar." },
               ].map((step, i) => (

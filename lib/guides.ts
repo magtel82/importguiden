@@ -128,6 +128,41 @@ export const GUIDES: GuideMeta[] = [
     time: "6 min",
     category: "husbil",
   },
+  {
+    slug: "tysk-bilordlista",
+    title: "Tysk bilordlista – förkortningar i annonser",
+    description: "Sökbar ordlista med över 100 tyska fordonstermer. Vad betyder unfallfrei, Scheckheftgepflegt, HU, AHK och zGM?",
+    time: "7 min",
+    category: "generell",
+  },
+  {
+    slug: "matarmanipulation",
+    title: "Manipulerad mätarställning",
+    description: "Hur vanligt är det egentligen, vad säger ADAC och carVertical, och hur kontrollerar du mätarställningen före köp?",
+    time: "6 min",
+    category: "generell",
+  },
+  {
+    slug: "garanti-vid-bilimport",
+    title: "Garanti vid bilimport",
+    description: "Gäller nybilsgarantin i Sverige? Skillnaden mellan Gewährleistung och Garantie, och varför vagnskadegarantin saknas.",
+    time: "6 min",
+    category: "generell",
+  },
+  {
+    slug: "krockhistorik-unfallfrei",
+    title: "Unfallfrei och krockhistorik",
+    description: "Vad unfallfrei betyder juridiskt, vad som räknas som bagatellskada enligt BGH och hur du kontrollerar krockhistoriken.",
+    time: "6 min",
+    category: "generell",
+  },
+  {
+    slug: "forsakra-importerad-bil",
+    title: "Försäkra importerad bil",
+    description: "Blir premien dyrare? Vad det innebär att vagnskadegarantin saknas, och när svensk trafikförsäkring måste tecknas.",
+    time: "6 min",
+    category: "generell",
+  },
 ];
 
 export const CATEGORY_LABEL: Record<GuideCategory, string> = {
@@ -143,11 +178,28 @@ export const CATEGORY_LABEL: Record<GuideCategory, string> = {
 export const GUIDE_SECTIONS: { title: string; slugs: string[] }[] = [
   {
     title: "Hitta fordonet",
-    slugs: ["kopa-bil-mobile-de-autoscout24", "kopa-husbil-mobil-de"],
+    slugs: [
+      "kopa-bil-mobile-de-autoscout24",
+      "kopa-husbil-mobil-de",
+      "tysk-bilordlista",
+    ],
+  },
+  {
+    title: "Granska bilen före köp",
+    slugs: [
+      "matarmanipulation",
+      "krockhistorik-unfallfrei",
+      "garanti-vid-bilimport",
+    ],
   },
   {
     title: "Köp och ta hem",
-    slugs: ["exportforsakring", "importforsakring", "transportera-bil-fran-tyskland"],
+    slugs: [
+      "exportforsakring",
+      "importforsakring",
+      "forsakra-importerad-bil",
+      "transportera-bil-fran-tyskland",
+    ],
   },
   {
     title: "Importprocessen i Sverige",
@@ -208,8 +260,8 @@ export const RELATED_GUIDES: Record<string, string[]> = {
   ],
   "besiktningsfel-vid-import": [
     "registreringsbesiktning",
+    "krockhistorik-unfallfrei",
     "coc-intyg",
-    "besikta-husbil",
   ],
   exportforsakring: [
     "transportera-bil-fran-tyskland",
@@ -217,14 +269,14 @@ export const RELATED_GUIDES: Record<string, string[]> = {
     "hur-lang-tid-tar-bilimport",
   ],
   importforsakring: [
-    "ursprungskontroll",
-    "registreringsbesiktning",
+    "forsakra-importerad-bil",
     "exportforsakring",
+    "ursprungskontroll",
   ],
   "kopa-bil-mobile-de-autoscout24": [
-    "moms-vid-bilimport",
-    "transportera-bil-fran-tyskland",
-    "besiktningsfel-vid-import",
+    "tysk-bilordlista",
+    "matarmanipulation",
+    "krockhistorik-unfallfrei",
   ],
   "transportera-bil-fran-tyskland": [
     "exportforsakring",
@@ -247,9 +299,34 @@ export const RELATED_GUIDES: Record<string, string[]> = {
     "ursprungskontroll",
   ],
   "kopa-husbil-mobil-de": [
+    "tysk-bilordlista",
     "besikta-husbil",
     "fordonsskatt-husbil-bonus-malus",
-    "transportera-bil-fran-tyskland",
+  ],
+  "tysk-bilordlista": [
+    "kopa-bil-mobile-de-autoscout24",
+    "krockhistorik-unfallfrei",
+    "matarmanipulation",
+  ],
+  matarmanipulation: [
+    "krockhistorik-unfallfrei",
+    "garanti-vid-bilimport",
+    "tysk-bilordlista",
+  ],
+  "garanti-vid-bilimport": [
+    "forsakra-importerad-bil",
+    "matarmanipulation",
+    "krockhistorik-unfallfrei",
+  ],
+  "krockhistorik-unfallfrei": [
+    "matarmanipulation",
+    "besiktningsfel-vid-import",
+    "garanti-vid-bilimport",
+  ],
+  "forsakra-importerad-bil": [
+    "importforsakring",
+    "garanti-vid-bilimport",
+    "ursprungskontroll",
   ],
 };
 

@@ -195,6 +195,8 @@ function ImportCalculatorInner() {
     vehicleType === "husbil"
       ? "registreringsbesiktning-husbil"
       : "registreringsbesiktning-bil";
+  const importfirmaId =
+    vehicleType === "husbil" ? "importfirma-husbil" : "importfirma-bil";
   const forsäkringId =
     vehicleType === "husbil" ? "importforsakring-husbil" : "importforsakring-bil";
 
@@ -641,6 +643,60 @@ function ImportCalculatorInner() {
                   {formatSEK(result.grandTotal)}
                 </span>
               </div>
+            </div>
+
+            {/* Göra det själv eller anlita importfirma (utanför totalen) */}
+            <div className="mt-5 pt-4 border-t border-gray-200">
+              <h4 className="font-semibold text-gray-900 mb-2 text-sm">
+                Jämförelse: anlita en importfirma i stället
+              </h4>
+              <p className="text-xs text-gray-600 mb-3">
+                Allt utom fordonets pris – alltså vad själva importen kostar dig
+                på de två sätten.
+              </p>
+              <div className="space-y-1.5 text-sm">
+                <div className="flex justify-between">
+                  <span className="text-gray-600">
+                    Du gör importen själv
+                  </span>
+                  <span className="font-medium whitespace-nowrap">
+                    {formatSEK(result.totalImportCost)}
+                  </span>
+                </div>
+                <div className="flex justify-between items-start gap-4">
+                  <div>
+                    <span className="text-gray-600">Du anlitar importfirma</span>
+                    <p className="text-xs text-gray-400">
+                      {getCostMetaLabel(importfirmaId)}
+                    </p>
+                  </div>
+                  <span className="font-medium whitespace-nowrap">
+                    {formatSEK(getCostAmount(importfirmaId))}
+                  </span>
+                </div>
+                <div className="flex justify-between border-t border-gray-300 pt-2 mt-2">
+                  <span className="font-semibold text-gray-900">
+                    {result.totalImportCost <= getCostAmount(importfirmaId)
+                      ? "Du sparar på att göra det själv"
+                      : "Importfirman är billigare"}
+                  </span>
+                  <span className="font-bold whitespace-nowrap text-gray-900">
+                    {formatSEK(
+                      Math.abs(
+                        getCostAmount(importfirmaId) - result.totalImportCost
+                      )
+                    )}
+                  </span>
+                </div>
+              </div>
+              <p className="text-xs text-gray-400 mt-2">
+                Firmans arvode är ett publicerat listpris hos en enskild aktör,
+                inte ett marknadsgenomsnitt, och det uppges täcka transport,
+                besiktning och registrering. Exakt vilka avgifter som ingår
+                varierar mellan aktörer – begär alltid en specificerad offert.
+                Jämförelsen tar inte hänsyn till din egen tid, resekostnad eller
+                risken i att göra det själv.
+              </p>
             </div>
 
             {/* Fordonsskatt-sektion (separat från totalen) */}

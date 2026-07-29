@@ -836,7 +836,7 @@ export default async function ImporteraBilPage({ params }: Props) {
               {[
                 { title: "Hitta din bil", desc: `Sök efter ${importData.name} på ${importData.whereToBuy.slice(0, 2).join(" eller ")}. Jämför priser och kontrollera att bilen har komplett dokumentation.` },
                 { title: "Kontrollera och besiktiga", desc: "Verifiera servicehistorik, TÜV-rapport och COC-intyg. Boka oberoende besiktning (DEKRA eller TÜV) om möjligt." },
-                { title: "Köp och transportera hem", desc: "Skriv köpekontrakt med VIN och kilometerstand. Transportera bilen till Sverige – kör hem eller anlita transport." },
+                { title: "Köp och transportera hem", desc: "Skriv köpekontrakt med VIN och mätarställning. Transportera bilen till Sverige – kör hem eller anlita transport." },
                 { title: "Ursprungskontroll och besiktning", desc: "Beställ ursprungskontroll hos Transportstyrelsen. Boka registreringsbesiktning hos godkänd station." },
                 { title: "Registrera i Sverige", desc: "När besiktningen är godkänd registrerar Transportstyrelsen bilen och du får svenska skyltar." },
               ].map((step, i) => (

@@ -1,6 +1,6 @@
 # CLAUDE.md – Importguiden
 
-# Senast uppdaterad: 2026-07-29 (12)
+# Senast uppdaterad: 2026-07-29 (13)
 
 # Status: MVP GO – affiliate-redo, aktiv utveckling
 
@@ -132,6 +132,9 @@ importera-husbil/
 #   Fallback: tunn sida om märket saknar importdata
 # compileMDX med remarkGfm
 kostnad/page.tsx                # /importera-husbil/kostnad
+regelandringar/page.tsx           # /regelandringar – logg över regel- och avgiftsändringar
+# Data: data/regulation-changes.json
+# Matas av Visualping-bevakningen (se BACKLOG)
 guider/
 page.tsx                        # /guider – serverkomponent (metadata + JSON-LD)
 #   Renderar <GuiderContent /> – ingen logik här
@@ -859,6 +862,20 @@ Saknas datum ska datumraden döljas – gissa aldrig.
 
 * Svenska, formell men tillgänglig ton
 * Inga säljuttryck ("bästa", "missa inte", "unikt erbjudande")
+* ÖVERSÄTT tyska facktermer. Skriv aldrig ett tyskt ord som om det vore svenskt.
+  Rättat 2026-07-29 – låt det inte återkomma:
+  Pannen → driftstopp (INTE "pannor", som betyder något helt annat)
+  Pannenursache → orsak till driftstopp (INTE "pannenorsak")
+  Kilometerstand → mätarställning
+  Undantag: guider som uttryckligen lär ut tysk annonsterminologi
+  (mobile.de-guiderna, /guider/tysk-bilordlista) ska ha kvar de tyska
+  orden – där är de föremålet, inte språkfel. Kursivera dem.
+  "ADAC Pannenstatistik" är ett egennamn och behålls.
+* Procent skrivs med mellanslag: 25 %, inte 25% (Svenska skrivregler).
+  Normaliserat i allt innehåll 2026-07-29.
+* Fahrzeugschein = Zulassungsbescheinigung Teil I. Skriv aldrig
+  "Fahrzeugschein (båda delarna)" – det är självmotsägande. Vid krav på
+  båda handlingarna: "Zulassungsbescheinigung Teil I och Teil II".
 * Neutralt och faktabaserat – läsaren fattar egna beslut
 * Fråge-svar-format på nyckelfrågor ökar chansen för Google SGE-snippet
 * Källhänvisningar ska vara synliga i löptext, inte bara i manifest

@@ -10,6 +10,7 @@ import { getRobotsForPath } from "@/lib/manifest";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { TableOfContents } from "@/components/TableOfContents";
 import { GuideFooter } from "@/components/GuideFooter";
+import { GlossaryTable } from "@/components/GlossaryTable";
 import { AffiliateLink } from "@/components/affiliate/AffiliateLink";
 import { extractHeadings } from "@/lib/headings";
 
@@ -32,6 +33,11 @@ const GUIDE_SLUGS = [
   "importforsakring",
   "eeg-intyg",
   "elbilspremie-importerad-bil",
+  "tysk-bilordlista",
+  "matarmanipulation",
+  "garanti-vid-bilimport",
+  "krockhistorik-unfallfrei",
+  "forsakra-importerad-bil",
 ] as const;
 
 type GuideSlug = (typeof GUIDE_SLUGS)[number];
@@ -60,7 +66,7 @@ async function loadGuide(slug: string) {
   const { content, frontmatter } = await compileMDX<GuideFrontmatter>({
     source,
     options: { parseFrontmatter: true, mdxOptions: { remarkPlugins: [remarkGfm], rehypePlugins: [rehypeSlug] } },
-    components: { AffiliateLink },
+    components: { AffiliateLink, GlossaryTable },
   });
 
   return { content, frontmatter, headings };

@@ -71,6 +71,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/regelandringar" className="hover:text-blue-700">
+                  Regeländringar
+                </Link>
+              </li>
+              <li>
                 <Link href="/finansiering" className="hover:text-blue-700">
                   Så finansieras vi
                 </Link>

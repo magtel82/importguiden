@@ -1,0 +1,46 @@
+{
+  "_meta": {
+    "version": "1.0.0",
+    "description": "Logg över regel- och avgiftsändringar som påverkar fordonsimport, samt kontroller där inget ändrats. Fylls på när Visualping-bevakningen av myndighetssidor larmar, eller vid egen verifiering.",
+    "lastReviewed": "2026-07-29",
+    "monitoredSources": [
+      "Transportstyrelsen – Import från ett EU-land",
+      "Transportstyrelsen – Fordonsimport och ursprungskontroll",
+      "Skatteverket – Moms vid import av bil",
+      "Tullverket – Köpa eller sälja bil över Sveriges gräns"
+    ]
+  },
+  "changes": [
+    {
+      "date": "2026-07-29",
+      "type": "verifiering",
+      "title": "Elbilspremien gäller även privatimporterade elbilar",
+      "summary": "Naturvårdsverket bekräftade i skriftligt svar att elbilspremien enligt förordning (2025:1574) gäller lika för privatimporterade elbilar som för bilar köpta av svensk återförsäljare. Avgörande är att bilen är registrerad i svenska vägtrafikregistret på den som söker.",
+      "source": "Naturvårdsverket, e-postsvar ärende NV202635943, 2026-05-13",
+      "sourceUrl": "https://www.naturvardsverket.se/bidrag/elbilspremien/villkor-for-elbilspremien/",
+      "affectedPages": ["/guider/elbilspremie-importerad-bil", "/guider/importera-elbil"]
+    },
+    {
+      "date": "2026-07-28",
+      "type": "oforandrad",
+      "title": "Ursprungskontrollens avgift oförändrad – 1 240 kr",
+      "summary": "Avgiften för ursprungskontroll kontrollerades mot Transportstyrelsens prislista för fordonsregistrering och är oförändrad sedan 2025. Transportstyrelsen anger fortfarande ingen fast handläggningstid – aktuellt ködatum publiceras löpande i e-tjänsten för ärendestatus.",
+      "source": "Transportstyrelsen – Avgifter för fordonsregistrering",
+      "sourceUrl": "https://www.transportstyrelsen.se/sv/om-oss/avgifter/avgifter-inom-vagtrafik/avgifter-for-tillstands--och-andra-provningar/fordonsregistrering/",
+      "affectedPages": ["/guider/ursprungskontroll", "/kalkylator/bilimport"]
+    },
+    {
+      "date": "2025-02-01",
+      "type": "regelandring",
+      "title": "Malus avskaffad för husbilar",
+      "summary": "Den förhöjda fordonsskatten (malus) togs bort för husbilar. Importerade husbilar träffas inte längre av miljöbilsavgift, vilket sänker den löpande kostnaden påtagligt jämfört med tidigare år.",
+      "source": "Skatteverket och Transportstyrelsen – fordonsskatt för husbil",
+      "sourceUrl": "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/",
+      "affectedPages": [
+        "/guider/fordonsskatt-husbil-bonus-malus",
+        "/importera-husbil/tyskland",
+        "/kalkylator/bilimport"
+      ]
+    }
+  ]
+}
