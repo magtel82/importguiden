@@ -114,9 +114,9 @@
       "currency": "SEK",
       "validFrom": "2026-07-01",
       "verified": "2026-07-29",
-      "source": "Publicerat pris hos svensk importfirma",
-      "sourceUrl": "https://www.importbil.se/tysklandimport/",
-      "note": "19 900 kr + moms = 24 875 kr inkl. moms. Publicerat listpris hos en svensk importfirma juli 2026, avser leverans och registrering. Ingår INTE i kalkylatorns totalsumma – används enbart som jämförelse mot att göra importen själv. Priset avser en enskild aktör och är inte ett marknadsgenomsnitt.",
+      "source": "Publicerat listpris hos svensk importfirma, juli 2026",
+      "sourceUrl": null,
+      "note": "19 900 kr + moms = 24 875 kr inkl. moms. Publicerat listpris hos en svensk importfirma juli 2026, avser leverans och registrering. Ingår INTE i kalkylatorns totalsumma – används enbart som jämförelse mot att göra importen själv. Priset avser en enskild aktör och är inte ett marknadsgenomsnitt. Källan länkas medvetet inte – den är en importfirmas säljsida, och Importguiden skickar inte läsare dit.",
       "appliesTo": [
         "bil"
       ],
@@ -129,9 +129,9 @@
       "currency": "SEK",
       "validFrom": "2026-07-01",
       "verified": "2026-07-29",
-      "source": "Publicerat pris hos svensk importfirma",
-      "sourceUrl": "https://www.importbil.se/tysklandimport/",
-      "note": "29 900 kr + moms = 37 375 kr inkl. moms. Publicerat listpris hos en svensk importfirma juli 2026. Ingår INTE i kalkylatorns totalsumma – används enbart som jämförelse. Priset avser en enskild aktör och är inte ett marknadsgenomsnitt.",
+      "source": "Publicerat listpris hos svensk importfirma, juli 2026",
+      "sourceUrl": null,
+      "note": "29 900 kr + moms = 37 375 kr inkl. moms. Publicerat listpris hos en svensk importfirma juli 2026. Ingår INTE i kalkylatorns totalsumma – används enbart som jämförelse. Priset avser en enskild aktör och är inte ett marknadsgenomsnitt. Källan länkas medvetet inte – den är en importfirmas säljsida, och Importguiden skickar inte läsare dit.",
       "appliesTo": [
         "husbil"
       ],

@@ -17,6 +17,10 @@ interface CostEntry {
   sourceUrl: string | null;
   note: string;
   appliesTo: string[];
+  /** Jämförelsepost (t.ex. arvode till importfirma) – ett alternativ till
+   *  att göra importen själv, inte en avgift som tillkommer. Får ALDRIG
+   *  renderas som kostnadsrad eller räknas in i summan. */
+  comparisonOnly?: boolean;
 }
 
 interface CostTableProps {
@@ -62,8 +66,8 @@ export function CostTable({
   compact = false,
   highlightId,
 }: CostTableProps) {
-  const costs = (importCostsData.costs as CostEntry[]).filter((c) =>
-    c.appliesTo.includes(vehicleType)
+  const costs = (importCostsData.costs as CostEntry[]).filter(
+    (c) => c.appliesTo.includes(vehicleType) && !c.comparisonOnly
   );
 
   const fixedSekTotal = costs
