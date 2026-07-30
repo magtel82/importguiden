@@ -62,11 +62,12 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-07-28",
+      "lastEvaluated": "2026-07-30",
       "tags": [
         "kostnad",
         "bil"
-      ]
+      ],
+      "notes": " 2026-07-30: textgenomgång – rättade fasta avgifter (skyltavgift saknades), FAQ-siffror som motsade ingressen, exportskyltarnas pris, decimalkomma, procentformat, dubblerat BreadcrumbList och rubriknivå. FAQPage-schema tillagt."
     },
     {
       "id": "importera-bil-bmw",

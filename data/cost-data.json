@@ -54,9 +54,9 @@
     "drive_self_cost_per_km": 3.5,
     "trailer_transport_from_germany": {
       "min": 6000,
-      "max": 12000,
+      "max": 20000,
       "currency": "SEK",
-      "note": "Schablonkostnad för transportföretag, bil på trailer. Varierar med sträcka och säsong."
+      "note": "Schablonkostnad för transportföretag, fordon på trailer. Beror främst på sträckan: ca 6 000–10 000 kr under 100 mil, 8 000–15 000 kr på 100–200 mil och 12 000–20 000 kr över 200 mil. Samma intervall som importkalkylatorn använder."
     }
   }
 }
