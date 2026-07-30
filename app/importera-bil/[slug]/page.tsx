@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getCountries, getCountryBySlug, getCarBrands, getCarBrandBySlug, getCarBrandImportData, formatSEK } from "@/lib/data";
-import { getCanonicalUrl, getBreadcrumbJsonLd, getFaqJsonLd } from "@/lib/seo";
+import { getCanonicalUrl, getFaqJsonLd } from "@/lib/seo";
 import { getRobotsForPath, getLastUpdatedForPath } from "@/lib/manifest";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { compileMDX } from "next-mdx-remote/rsc";
@@ -224,7 +224,7 @@ const CAR_IMPORT_GUIDES: {
   },
   {
     slug: "moms-vid-bilimport",
-    title: "Moms vid bilimport – när betalar du 25%?",
+    title: "Moms vid bilimport – när betalar du 25 %?",
     desc: () =>
       "Avgörs av bilens ålder och körsträcka (6 månader / 6 000 km-regeln). Läs reglerna innan du köper.",
   },
@@ -351,14 +351,6 @@ export default async function ImporteraBilPage({ params }: Props) {
         <>
           <script
             type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify(getBreadcrumbJsonLd(
-                breadcrumbs.map((b) => ({ name: b.name, url: b.href ? `${SITE_URL}${b.href}` : SITE_URL }))
-              )),
-            }}
-          />
-          <script
-            type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
           />
           <script
@@ -385,14 +377,6 @@ export default async function ImporteraBilPage({ params }: Props) {
 
     return (
       <>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(getBreadcrumbJsonLd(
-              breadcrumbs.map((b) => ({ name: b.name, url: b.href ? `${SITE_URL}${b.href}` : SITE_URL }))
-            )),
-          }}
-        />
         <div className="mx-auto max-w-3xl px-4 py-10">
           <Breadcrumbs items={breadcrumbs} siteUrl={SITE_URL} />
 
@@ -462,7 +446,7 @@ export default async function ImporteraBilPage({ params }: Props) {
                   <tr><td className="p-3">Ursprungskontroll</td><td className="p-3 text-right font-medium">1 240 kr</td><td className="p-3 text-xs text-gray-500">Transportstyrelsen (2026)</td></tr>
                   <tr><td className="p-3">Registreringsbesiktning</td><td className="p-3 text-right font-medium">~1 700 kr</td><td className="p-3 text-xs text-gray-500">Schablonvärde</td></tr>
                   <tr><td className="p-3">Transport (kör hem)</td><td className="p-3 text-right font-medium">~2 000 kr</td><td className="p-3 text-xs text-gray-500">Bränslekostnad</td></tr>
-                  <tr><td className="p-3">Moms (om fordon anses nytt)</td><td className="p-3 text-right font-medium">25% av priset</td><td className="p-3 text-xs text-gray-500">Skatteverket</td></tr>
+                  <tr><td className="p-3">Moms (om fordon anses nytt)</td><td className="p-3 text-right font-medium">25 % av priset</td><td className="p-3 text-xs text-gray-500">Skatteverket</td></tr>
                   <tr><td className="p-3">Tull (EU-import)</td><td className="p-3 text-right font-medium text-green-700">0 kr</td><td className="p-3 text-xs text-gray-500">Tullverket</td></tr>
                 </tbody>
               </table>
@@ -502,14 +486,6 @@ export default async function ImporteraBilPage({ params }: Props) {
   if (!importData) {
     return (
       <>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(getBreadcrumbJsonLd(
-              breadcrumbs.map((b) => ({ name: b.name, url: b.href ? `${SITE_URL}${b.href}` : SITE_URL }))
-            )),
-          }}
-        />
         <div className="mx-auto max-w-3xl px-4 py-10">
           <Breadcrumbs items={breadcrumbs} siteUrl={SITE_URL} />
           <article>
@@ -543,14 +519,6 @@ export default async function ImporteraBilPage({ params }: Props) {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(getBreadcrumbJsonLd(
-            breadcrumbs.map((b) => ({ name: b.name, url: b.href ? `${SITE_URL}${b.href}` : SITE_URL }))
-          )),
-        }}
-      />
       {BRAND_FAQ[brand!.slug] && (
         <script
           type="application/ld+json"

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getCostData } from "@/lib/data";
-import { getCanonicalUrl, getBreadcrumbJsonLd } from "@/lib/seo";
+import { getCanonicalUrl } from "@/lib/seo";
 import { getRobotsForPath, getLastUpdatedForPath } from "@/lib/manifest";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { CostTable } from "@/components/CostTable";
@@ -29,30 +29,23 @@ export default function HusbildKostnadPage() {
     { name: "Kostnad" },
   ];
 
-  const exempelHusbilspris = 400_000;
-  const exempelTransportHusbil = 12_000;
-  const exempelTotal =
-    exempelHusbilspris +
+  // Fasta avgifter = det som tillkommer oavsett hur husbilen tar sig hem.
+  // Transport hör ALDRIG hit – den varierar kraftigt med sträcka och metod.
+  const fastaAvgifterHusbil =
     costData.fees.ursprungskontroll.amount +
     costData.fees.registreringsbesiktning_husbil.amount +
     costData.fees.importforsäkring_husbil.amount +
-    exempelTransportHusbil;
+    costData.fees.skyltavgift.amount;
+
+  const kr = (n: number) => `${n.toLocaleString("sv-SE")} kr`;
+
+  const exempelHusbilspris = 400_000;
+  const exempelTransportHusbil = 12_000;
+  const exempelTotal =
+    exempelHusbilspris + fastaAvgifterHusbil + exempelTransportHusbil;
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            getBreadcrumbJsonLd(
-              breadcrumbs.map((b) => ({
-                name: b.name,
-                url: b.href ? `${SITE_URL}${b.href}` : SITE_URL,
-              }))
-            )
-          ),
-        }}
-      />
       <div className="mx-auto max-w-3xl px-4 py-10">
         <Breadcrumbs items={breadcrumbs} siteUrl={SITE_URL} />
 
@@ -73,17 +66,10 @@ export default function HusbildKostnadPage() {
           </header>
 
           <p className="text-gray-700 mb-4 text-lg">
-            Utöver husbilens pris tillkommer fasta kostnader på{" "}
-            <strong>
-              ca{" "}
-              {(
-                costData.fees.ursprungskontroll.amount +
-                costData.fees.registreringsbesiktning_husbil.amount +
-                costData.fees.importforsäkring_husbil.amount
-              ).toLocaleString("sv-SE")}{" "}
-              kr
-            </strong>{" "}
-            (ursprungskontroll, besiktning och importförsäkring), plus
+            Utöver husbilens pris tillkommer fasta avgifter på{" "}
+            <strong>ca {kr(fastaAvgifterHusbil)}</strong>{" "}
+            (ursprungskontroll, registreringsbesiktning, importförsäkring och
+            skyltavgift), plus
             transport. Ingen tull tillkommer vid import från EU. Husbilsimport
             innebär generellt högre fasta kostnader än bilimport – framför allt
             registreringsbesiktningen är mer omfattande och dyrare.
@@ -165,6 +151,20 @@ export default function HusbildKostnadPage() {
                     </td>
                     <td className="p-3 text-gray-500 text-xs">
                       Schablonvärde
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="p-3 text-gray-700">
+                      <span className="font-medium">Skyltavgift</span>
+                      <p className="text-xs text-gray-500 mt-0.5">
+                        Obligatorisk. Två registreringsskyltar.
+                      </p>
+                    </td>
+                    <td className="p-3 text-right font-medium whitespace-nowrap">
+                      {kr(costData.fees.skyltavgift.amount)}
+                    </td>
+                    <td className="p-3 text-gray-500 text-xs">
+                      Transportstyrelsen (2026)
                     </td>
                   </tr>
                   <tr>
@@ -287,10 +287,11 @@ export default function HusbildKostnadPage() {
               </div>
             </div>
             <p className="text-sm text-gray-600">
-              Kontrollera körkortskrav för den specifika husbilen. Husbilar
-              över 3 500 kg totalvikt kräver BE-behörighet eller högre.
-              Exportregistrering (röda skyltar, ca 30–60 EUR) krävs om du kör
-              hem från Tyskland.
+              Kontrollera körkortskravet för den specifika husbilen. En husbil
+              med totalvikt över 3 500 kg kräver C1-behörighet – vanligt
+              B-körkort räcker inte. BE gäller släpvagn och hjälper dig inte
+              här. Kör du hem husbilen själv behöver du dessutom tyska
+              exportskyltar med exportförsäkring, ca 100–200 EUR.
             </p>
           </section>
 
@@ -300,7 +301,7 @@ export default function HusbildKostnadPage() {
               Moms vid husbilsimport
             </h2>
             <p className="text-gray-700 mb-3">
-              Samma momsregler gäller för husbil som för personbil. Moms (25%)
+              Samma momsregler gäller för husbil som för personbil. Moms (25 %)
               tillkommer bara om fordonet anses som <strong>nytt</strong> enligt
               EU:s definition:
             </p>
@@ -319,7 +320,7 @@ export default function HusbildKostnadPage() {
             <p className="text-gray-700 mb-4">
               De flesta begagnade husbilar som privatpersoner importerar är
               äldre än 6 månader och har mer än 6 000 km – och är därmed
-              momsfria. Men 25% moms på en husbil till 500 000 kr är 125 000 kr
+              momsfria. Men 25 % moms på en husbil till 500 000 kr är 125 000 kr
               extra, så det är viktigt att kontrollera.
             </p>
             <p className="text-xs text-gray-500">
@@ -328,7 +329,7 @@ export default function HusbildKostnadPage() {
                 href={costData.tax.source}
                 className="underline"
                 target="_blank"
-                rel="nofollow"
+                rel="noopener"
               >
                 Skatteverket
               </a>
@@ -394,6 +395,12 @@ export default function HusbildKostnadPage() {
                     </td>
                   </tr>
                   <tr>
+                    <td className="p-3 text-gray-700">Skyltavgift</td>
+                    <td className="p-3 text-right">
+                      {kr(costData.fees.skyltavgift.amount)}
+                    </td>
+                  </tr>
+                  <tr>
                     <td className="p-3 text-gray-700">
                       Transport (transportföretag)
                     </td>
@@ -445,8 +452,9 @@ export default function HusbildKostnadPage() {
               </li>
               <li className="flex gap-2">
                 <span className="font-semibold text-gray-900 shrink-0">Körkort:</span>
-                Kontrollera totalvikten. Husbilar över 3 500 kg kräver
-                BE-behörighet för att dra eller köra.
+                Kontrollera totalvikten. En husbil över 3 500 kg kräver
+                C1-behörighet (gäller 3 500–7 500 kg). BE avser bil med
+                släpvagn och ger ingen rätt att köra en tyngre husbil.
               </li>
               <li className="flex gap-2">
                 <span className="font-semibold text-gray-900 shrink-0">Försäkring:</span>
@@ -520,9 +528,9 @@ export default function HusbildKostnadPage() {
 
           {/* CTA */}
           <div className="bg-gray-50 rounded-lg p-5 border border-gray-200">
-            <h3 className="font-semibold text-gray-900 mb-2">
+            <h2 className="font-semibold text-gray-900 mb-2">
               Räkna ut din totalkostnad
-            </h3>
+            </h2>
             <p className="text-sm text-gray-600 mb-3">
               Fyll i husbilens pris, land och transportmetod för en
               sammanställning anpassad till din situation.

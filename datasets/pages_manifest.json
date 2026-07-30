@@ -297,11 +297,12 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-07-28",
+      "lastEvaluated": "2026-07-30",
       "tags": [
         "kostnad",
         "husbil"
-      ]
+      ],
+      "notes": " 2026-07-30: textgenomgång – skyltavgift saknades i summa och tabeller, körkortskravet angavs felaktigt som BE (ska vara C1), exportskyltarnas pris, procentformat, nofollow på myndighetskälla och dubblerat BreadcrumbList."
     },
     {
       "id": "importera-husbil-hymer",

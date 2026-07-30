@@ -45,7 +45,7 @@ const guides = [
   {
     href: "/guider/moms-vid-bilimport",
     title: "Moms vid bilimport",
-    description: "När betalar du 25% moms? Regler för nytt vs begagnat fordon förklarade.",
+    description: "När betalar du 25 % moms? Regler för nytt vs begagnat fordon förklarade.",
   },
   {
     href: "/guider#markesguider",

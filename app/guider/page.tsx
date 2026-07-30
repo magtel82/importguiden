@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import { getCanonicalUrl, getBreadcrumbJsonLd } from "@/lib/seo";
+import { getCanonicalUrl } from "@/lib/seo";
 import { getRobotsForPath } from "@/lib/manifest";
 import { GuiderContent } from "./GuiderContent";
 import { findGuidesMissingFromSections } from "@/lib/guides";
-
-const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
 
 // En guide som saknas i GUIDE_SECTIONS renderas aldrig här och blir en
 // föräldralös sida – i sitemap men utan en enda intern länk. Bygget ska
@@ -27,28 +25,10 @@ export function generateMetadata(): Metadata {
   };
 }
 
-const breadcrumbs = [
-  { name: "Hem", href: "/" },
-  { name: "Guider" },
-];
-
 export default function GuiderPage() {
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            getBreadcrumbJsonLd(
-              breadcrumbs.map((b) => ({
-                name: b.name,
-                url: b.href ? `${SITE_URL}${b.href}` : SITE_URL,
-              }))
-            )
-          ),
-        }}
-      />
-      <GuiderContent />
-    </>
+    // BreadcrumbList-schemat emitteras av <Breadcrumbs> inne i
+    // <GuiderContent> – lägg inte till det här också.
+    <GuiderContent />
   );
 }

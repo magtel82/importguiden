@@ -10,7 +10,7 @@ import { AffiliateLink } from "@/components/affiliate/AffiliateLink";
 import { TableOfContents } from "@/components/TableOfContents";
 import { extractHeadings } from "@/lib/headings";
 import { getCountries, getCountryBySlug, getMotorhomeBrands, getMotorhomeBrandImportData, formatSEK } from "@/lib/data";
-import { getCanonicalUrl, getBreadcrumbJsonLd, getArticleJsonLd, getFaqJsonLd } from "@/lib/seo";
+import { getCanonicalUrl, getArticleJsonLd, getFaqJsonLd } from "@/lib/seo";
 import { getRobotsForPath, getLastUpdatedForPath } from "@/lib/manifest";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { CostTable } from "@/components/CostTable";
@@ -279,7 +279,6 @@ export default async function ImporteraHusbilPage({ params }: Props) {
 
       return (
         <>
-          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(getBreadcrumbJsonLd(breadcrumbs.map((b) => ({ name: b.name, url: b.href ? `${SITE_URL}${b.href}` : SITE_URL })))) }} />
           <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
           <div className="mx-auto max-w-3xl px-4 py-10">
             <Breadcrumbs items={breadcrumbs} siteUrl={SITE_URL} />
@@ -306,14 +305,6 @@ export default async function ImporteraHusbilPage({ params }: Props) {
 
     return (
       <>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(getBreadcrumbJsonLd(
-              breadcrumbs.map((b) => ({ name: b.name, url: b.href ? `${SITE_URL}${b.href}` : SITE_URL }))
-            )),
-          }}
-        />
         <div className="mx-auto max-w-3xl px-4 py-10">
           <Breadcrumbs items={breadcrumbs} siteUrl={SITE_URL} />
 
@@ -383,14 +374,6 @@ export default async function ImporteraHusbilPage({ params }: Props) {
   if (!importData) {
     return (
       <>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(getBreadcrumbJsonLd(
-              breadcrumbs.map((b) => ({ name: b.name, url: b.href ? `${SITE_URL}${b.href}` : SITE_URL }))
-            )),
-          }}
-        />
         <div className="mx-auto max-w-3xl px-4 py-10">
           <Breadcrumbs items={breadcrumbs} siteUrl={SITE_URL} />
           <article>
@@ -418,14 +401,6 @@ export default async function ImporteraHusbilPage({ params }: Props) {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(getBreadcrumbJsonLd(
-            breadcrumbs.map((b) => ({ name: b.name, url: b.href ? `${SITE_URL}${b.href}` : SITE_URL }))
-          )),
-        }}
-      />
       {MH_FAQ[brand!.slug] && (
         <script
           type="application/ld+json"

@@ -5,7 +5,7 @@ import { readFile } from "fs/promises";
 import path from "path";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
-import { getCanonicalUrl, getBreadcrumbJsonLd, getFaqJsonLd } from "@/lib/seo";
+import { getCanonicalUrl, getFaqJsonLd } from "@/lib/seo";
 import { getRobotsForPath } from "@/lib/manifest";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { TableOfContents } from "@/components/TableOfContents";
@@ -188,7 +188,7 @@ export default async function GuiderPage({ params }: Props) {
           {
             question: "Vad räknas som nytt transportmedel vid bilimport?",
             answer:
-              "En bil räknas som ny om den är yngre än 6 månader eller har körts färre än 6 000 km. Då ska du betala svensk moms (25%) vid importen.",
+              "En bil räknas som ny om den är yngre än 6 månader eller har körts färre än 6 000 km. Då ska du betala svensk moms (25 %) vid importen.",
           },
           {
             question: "Hur redovisar man moms vid bilimport till Skatteverket?",
@@ -259,19 +259,6 @@ export default async function GuiderPage({ params }: Props) {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            getBreadcrumbJsonLd(
-              breadcrumbs.map((b) => ({
-                name: b.name,
-                url: b.href ? `${SITE_URL}${b.href}` : SITE_URL,
-              }))
-            )
-          ),
-        }}
-      />
       {faqSchema && (
         <script
           type="application/ld+json"
