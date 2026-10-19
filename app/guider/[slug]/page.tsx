@@ -15,6 +15,7 @@ import { AffiliateLink } from "@/components/affiliate/AffiliateLink";
 import { extractHeadings } from "@/lib/headings";
 import { formatDateSv } from "@/lib/date";
 import { UpcomingChangeNotice } from "@/components/UpcomingChangeNotice";
+import { withYear } from "@/lib/site-config";
 
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
 
@@ -71,7 +72,15 @@ async function loadGuide(slug: string) {
     components: { AffiliateLink, GlossaryTable },
   });
 
-  return { content, frontmatter, headings };
+  return {
+    content,
+    frontmatter: {
+      ...frontmatter,
+      title: withYear(frontmatter.title),
+      description: withYear(frontmatter.description),
+    },
+    headings,
+  };
 }
 
 interface Props {

@@ -1,6 +1,6 @@
 # CLAUDE.md – Importguiden
 
-# Senast uppdaterad: 2026-10-19 (14)
+# Senast uppdaterad: 2026-10-19 (15)
 
 # Status: MVP GO – affiliate-redo, aktiv utveckling
 
@@ -831,9 +831,19 @@ OBS: Tyska exportskyltar (Ausfuhrkennzeichen) är VITA med rött datumfält.
 OBS: Transportstyrelsen bytte URL-struktur 2025. Gamla /Importerade-fordon/-
 adresser ger 404. Kontrollera ALLA källänkar (curl) vid varje faktagranskning
 och håll datasets/regulation-urls.json i synk – annars bevakar cron döda sidor.
+OBS: Årtal i titlar/H1/descriptions kommer från CONTENT_YEAR i lib/site-config.ts.
+I MDX-frontmatter och manifest skrivs platshållaren {år} (ersätts av withYear()).
+Hårdkoda aldrig "2026" i en titel och använd aldrig new Date().getFullYear().
+Vid årsskiftet: faktagranska, byt CONTENT_YEAR – ett enda byte.
+OBS: Malusens tre år räknas från FÖRSTA REGISTRERINGEN I UTLANDET för importerade
+fordon (vägtrafikskattelagen 1 kap. 6 a §, Skatteverket). Samma datum avgör vilken
+skattetabell som gäller (diesel före 1 juli 2018 → tabell 62, bränslefaktor 2,37).
+OBS: `npm test` kör node:test (lib/**/*.test.mjs) – inga beroenden. Facit för
+skatteberäkningen ligger i lib/malus-calculator.test.mjs.
 OBS: Kända kommande händelser läggs i `upcoming` i data/regulation-changes.json.
 De visas då som en diskret ruta på berörda sidor (UpcomingChangeNotice) och på
-/regelandringar. Ta bort posten när händelsen är genomgången.
+/regelandringar. Sätt alltid `expiresAt`: rutan döljs då automatiskt (vid bygget
+och i webbläsaren) och `next build` varnar tills posten tagits bort.
 
 ## UPPDATERINGSRUTIN
 

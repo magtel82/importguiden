@@ -6,13 +6,14 @@ import { getCanonicalUrl } from "@/lib/seo";
 import { getRobotsForPath } from "@/lib/manifest";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { formatDateSv } from "@/lib/date";
+import { CONTENT_YEAR } from "@/lib/site-config";
 
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
 const UPDATED_DATE = "2026-03-14";
 
 const comparisons: Record<string, { title: string; description: string }> = {
   "tyskland-vs-sverige": {
-    title: "Bilar billigare i Tyskland? – Prisjämförelse 2026",
+    title: `Bilar billigare i Tyskland? – Prisjämförelse ${CONTENT_YEAR}`,
     description:
       "Vi jämför bilpriser i Sverige och Tyskland per segment. Lönar det sig att importera? Break-even-analys, konkreta exempel och vilka märken som har störst prisskillnad.",
   },

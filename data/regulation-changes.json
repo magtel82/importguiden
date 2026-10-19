@@ -164,6 +164,7 @@
     {
       "id": "budget-2027",
       "expected": "2026-11-12",
+      "expiresAt": "2026-11-13",
       "title": "Budgetpropositionen för 2027",
       "summary": "Regeringen ska lämna budgetpropositionen för 2027 till riksdagen senast den 12 november 2026. Den kan innehålla ändringar i fordonsskatt, malus eller elbilspremien. Uppgifterna här gäller de regler som är beslutade i dag. Vi går igenom propositionen när den har publicerats och redovisar eventuella ändringar i loggen.",
       "source": "Regeringen – Statens budget",

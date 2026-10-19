@@ -16,6 +16,7 @@ import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { CostTable } from "@/components/CostTable";
 import { formatDateSv } from "@/lib/date";
 import { UpcomingChangeNotice } from "@/components/UpcomingChangeNotice";
+import { CONTENT_YEAR } from "@/lib/site-config";
 
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
 
@@ -125,10 +126,10 @@ const MH_FAQ: Record<string, FaqItem[]> = {
 };
 
 const MH_TITLES: Record<string, { title: string; description: string }> = {
-  dethleffs: { title: "Importera Dethleffs husbil från Tyskland – Guide och kostnader 2026", description: "Importera Dethleffs husbil privat från Tyskland. Garanti, Ducato-chassi, fuktskydd och importkalkylator." },
-  burstner: { title: "Importera Bürstner husbil från Tyskland – Chassi, garanti och kostnader 2026", description: "Importera Bürstner husbil privat från Tyskland. Sprinter-alternativ (Lyseo), Ducato-varning och importkalkylator." },
-  knaus: { title: "Importera Knaus husbil från Tyskland – Guide med ADAC-data 2026", description: "Importera Knaus husbil privat från Tyskland. 10 års fuktgaranti, Ducato-chassi och importkalkylator." },
-  hobby: { title: "Importera Hobby husbil från Tyskland – Bästa pris-prestanda? Guide 2026", description: "Importera Hobby husbil privat från Tyskland. 10 års fuktgaranti, konkurrenskraftigt pris och importkalkylator." },
+  dethleffs: { title: `Importera Dethleffs husbil från Tyskland – Guide och kostnader ${CONTENT_YEAR}`, description: "Importera Dethleffs husbil privat från Tyskland. Garanti, Ducato-chassi, fuktskydd och importkalkylator." },
+  burstner: { title: `Importera Bürstner husbil från Tyskland – Chassi, garanti och kostnader ${CONTENT_YEAR}`, description: "Importera Bürstner husbil privat från Tyskland. Sprinter-alternativ (Lyseo), Ducato-varning och importkalkylator." },
+  knaus: { title: `Importera Knaus husbil från Tyskland – Guide med ADAC-data ${CONTENT_YEAR}`, description: "Importera Knaus husbil privat från Tyskland. 10 års fuktgaranti, Ducato-chassi och importkalkylator." },
+  hobby: { title: `Importera Hobby husbil från Tyskland – Bästa pris-prestanda? Guide ${CONTENT_YEAR}`, description: "Importera Hobby husbil privat från Tyskland. 10 års fuktgaranti, konkurrenskraftigt pris och importkalkylator." },
 };
 
 // Guides relevant for all motorhome brands
@@ -181,7 +182,7 @@ const MOTORHOME_IMPORT_GUIDES: {
   },
   {
     slug: "fordonsskatt-husbil-bonus-malus",
-    title: "Fordonsskatt för husbil – vad gäller 2026?",
+    title: `Fordonsskatt för husbil – vad gäller ${CONTENT_YEAR}?`,
     desc: (brand) =>
       `Räkna ut den årliga fordonsskatten för din ${brand}. Malus togs bort för husbilar i februari 2025.`,
   },
@@ -204,14 +205,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (country) {
     if (slug === "tyskland") {
       return {
-        title: "Importera husbil från Tyskland – Komplett guide 2026",
+        title: `Importera husbil från Tyskland – Komplett guide ${CONTENT_YEAR}`,
         description: "Steg-för-steg guide för att importera husbil privat från Tyskland till Sverige. Kostnader, märken, besiktning och praktiska råd.",
         alternates: { canonical: getCanonicalUrl("/importera-husbil/tyskland") },
         robots,
       };
     }
     return {
-      title: `Importera husbil från ${country.name} – Komplett guide ${new Date().getFullYear()}`,
+      title: `Importera husbil från ${country.name} – Komplett guide ${CONTENT_YEAR}`,
       description: `Steg-för-steg guide för att importera husbil privat från ${country.name}. Kostnader, besiktning och råd.`,
       alternates: { canonical: getCanonicalUrl(`/importera-husbil/${slug}`) },
       robots,
@@ -222,7 +223,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const brand = brands.find((b) => b.slug === slug);
   if (brand) {
     const importData = getMotorhomeBrandImportData(slug);
-    const year = new Date().getFullYear();
+    const year = CONTENT_YEAR;
     const customTitle = MH_TITLES[slug];
     return {
       title: customTitle
@@ -272,7 +273,7 @@ export default async function ImporteraHusbilPage({ params }: Props) {
       });
 
       const articleJsonLd = getArticleJsonLd({
-        title: "Importera husbil från Tyskland – Komplett guide 2026",
+        title: `Importera husbil från Tyskland – Komplett guide ${CONTENT_YEAR}`,
         description: "Steg-för-steg guide för att importera husbil privat från Tyskland till Sverige.",
         datePublished: "2026-03-14",
         dateModified: frontmatter.dateUpdated,
@@ -287,7 +288,7 @@ export default async function ImporteraHusbilPage({ params }: Props) {
             <article>
               <header className="mb-8">
                 <h1 className="text-3xl font-bold text-gray-900 mb-3">
-                  Importera husbil från Tyskland – Komplett guide 2026
+                  Importera husbil från Tyskland – Komplett guide {CONTENT_YEAR}
                 </h1>
                 <p className="text-gray-500 text-sm">
                   Uppdaterad:{" "}
@@ -315,7 +316,7 @@ export default async function ImporteraHusbilPage({ params }: Props) {
           <article>
             <header className="mb-8">
               <h1 className="text-3xl font-bold text-gray-900 mb-3">
-                Importera husbil från {country.name} – Komplett guide {new Date().getFullYear()}
+                Importera husbil från {country.name} – Komplett guide {CONTENT_YEAR}
               </h1>
               {updatedDate && (
                 <p className="text-gray-500 text-sm">
@@ -422,7 +423,7 @@ export default async function ImporteraHusbilPage({ params }: Props) {
           {/* Header */}
           <header className="mb-8">
             <h1 className="text-3xl font-bold text-gray-900 mb-3">
-              Importera {importData.name} husbil från Tyskland – Guide {new Date().getFullYear()}
+              Importera {importData.name} husbil från Tyskland – Guide {CONTENT_YEAR}
             </h1>
             <p className="text-gray-500 text-sm">
               {updatedDate && (

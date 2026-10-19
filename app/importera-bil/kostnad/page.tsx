@@ -6,16 +6,26 @@ import { getRobotsForPath, getLastUpdatedForPath } from "@/lib/manifest";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { CostTable } from "@/components/CostTable";
 import { formatDateSv } from "@/lib/date";
+import { CONTENT_YEAR } from "@/lib/site-config";
 
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
 const UPDATED_DATE = getLastUpdatedForPath("/importera-bil/kostnad");
 
 export function generateMetadata(): Metadata {
   const robots = getRobotsForPath("/importera-bil/kostnad");
+  const fees = getCostData().fees;
+  const fasta =
+    fees.ursprungskontroll.amount +
+    fees.registreringsbesiktning_personbil.amount +
+    fees.importforsäkring_personbil.amount +
+    fees.skyltavgift.amount;
+  const kr = (n: number) => `${n.toLocaleString("sv-SE")} kr`;
   return {
-    title: "Vad kostar det att registrera en importerad bil i Sverige 2026?",
+    title: `Importera bil från Tyskland – kostnad ${CONTENT_YEAR}`,
     description:
-      "Komplett kostnadslista för bilimport: ursprungskontroll 1 240 kr, registreringsbesiktning ~1 700 kr, skyltavgift, importförsäkring, moms och transport. Räkneexempel och totalkostnad.",
+      `Ursprungskontroll ${kr(fees.ursprungskontroll.amount)}, besiktning ca ` +
+      `${kr(fees.registreringsbesiktning_personbil.amount)}, försäkring och skyltar: ca ${kr(fasta)} ` +
+      `i fasta avgifter. Plus transport – och moms om bilen räknas som ny.`,
     alternates: { canonical: getCanonicalUrl("/importera-bil/kostnad") },
     robots,
   };
@@ -99,7 +109,7 @@ export default function KostnadPage() {
         <article>
           <header className="mb-8">
             <h1 className="text-3xl font-bold text-gray-900 mb-3">
-              Vad kostar det att importera bil från EU?
+              Vad kostar det att importera bil från Tyskland?
             </h1>
             <p className="text-gray-500 text-sm">
               {UPDATED_DATE && (
@@ -132,7 +142,7 @@ export default function KostnadPage() {
           {/* Fasta avgifter */}
           <section className="mb-10">
             <h2 className="text-xl font-bold text-gray-900 mb-4">
-              Fasta avgifter (2026)
+              Fasta avgifter ({CONTENT_YEAR})
             </h2>
             <p className="text-gray-700 mb-4">
               Dessa kostnader är obligatoriska eller starkt rekommenderade
@@ -501,6 +511,46 @@ export default function KostnadPage() {
                 importkalkylatorn
               </Link>
               .
+            </p>
+          </section>
+
+          {/* Fordonsskatt och malus */}
+          <section className="mb-10">
+            <h2 className="text-xl font-bold text-gray-900 mb-4">
+              Fordonsskatt och malus efter importen
+            </h2>
+            <p className="text-gray-700 mb-3">
+              Fordonsskatten är en löpande kostnad och ingår inte i avgifterna ovan.
+              Bensin- och dieselbilar med högre utsläpp än 75 g CO₂/km betalar en
+              förhöjd skatt, malus, under de tre första åren.
+            </p>
+            <p className="text-gray-700 mb-3">
+              För en importerad bil räknas de tre åren från bilens 
+              <strong>första registrering i utlandet</strong>, inte från
+              registreringen i Sverige. En bil som registrerades första gången för
+              mer än tre år sedan har alltså ingen malus kvar. Datumet står i fält B
+              i det tyska registreringsbeviset.
+            </p>
+            <p className="text-gray-700">
+              Räkna ut skatten för en viss bil i 
+              <Link href="/kalkylator/bilimport" className="text-blue-700 hover:underline">
+                importkalkylatorn
+              </Link>
+              .
+            </p>
+            <p className="text-xs text-gray-400 mt-3">
+              Källor: 
+              <a href="https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/lag-2006227-om-vagtrafikskatt_sfs-2006-227/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-600">
+                vägtrafikskattelagen 1 kap. 6 a §
+              </a>
+              , 
+              <a href="https://www.skatteverket.se/privat/skatter/bilochtrafik/fordonsskatt.4.18e1b10334ebe8bc80003864.html" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-600">
+                Skatteverket – Fordonsskatt
+              </a>
+              , 
+              <a href="https://www.transportstyrelsen.se/sv/vagtrafik/fordon/skatter-och-avgifter/malus/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-600">
+                Transportstyrelsen – Malus
+              </a>
             </p>
           </section>
 

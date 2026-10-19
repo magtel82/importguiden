@@ -234,7 +234,10 @@ function ImportCalculatorInner() {
 
     const malusResult =
       showCO2 && (co2gkm > 0 || fuelType === "elbil")
-        ? calculateMalus(co2gkm, fuelType, ageMonths, vehicleType)
+        ? calculateMalus(co2gkm, fuelType, ageMonths, vehicleType, {
+            // Fordonsår före 2018 → tabell 62 (bränslefaktor 2,37), ingen malus.
+            firstTaxedBeforeJuly2018: regYear === "older" || regYear < 2018,
+          })
         : null;
 
     return {

@@ -5,9 +5,10 @@ import { getCanonicalUrl } from "@/lib/seo";
 import { getRobotsForPath } from "@/lib/manifest";
 import { ProcessSteps } from "@/components/ProcessSteps";
 import { CostOverview } from "@/components/CostOverview";
+import { CONTENT_YEAR } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "Importera bil eller husbil privat från Europa – Oberoende guide 2026",
+  title: `Importera bil eller husbil privat från Europa – Oberoende guide ${CONTENT_YEAR}`,
   description:
     "Oberoende, källhänvisad information om privat import av personbil och husbil från EU till Sverige. Gratis kalkylator, steg-för-steg-guider och aktuella kostnader.",
   alternates: {

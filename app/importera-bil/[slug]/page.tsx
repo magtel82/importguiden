@@ -18,6 +18,7 @@ import { CostTable } from "@/components/CostTable";
 import { calculateMalus, type FuelType } from "@/lib/malus-calculator";
 import { formatDateSv } from "@/lib/date";
 import { UpcomingChangeNotice } from "@/components/UpcomingChangeNotice";
+import { CONTENT_YEAR } from "@/lib/site-config";
 
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
 
@@ -189,11 +190,11 @@ const BRAND_FAQ: Record<string, FaqItem[]> = {
 };
 
 const BRAND_TITLES: Record<string, { title: string; description: string }> = {
-  mercedes: { title: "Importera Mercedes från Tyskland – Kostnader, garanti och modeller 2026", description: "Importera Mercedes-Benz privat från Tyskland. Garanti, fordonsskatt per modell, ADAC-data och kalkylator." },
-  volkswagen: { title: "Importera Volkswagen från Tyskland – Guide med kostnader och tips 2026", description: "Importera Volkswagen privat från Tyskland. ADAC-data, garanti, fordonsskatt per modell och kalkylator." },
-  audi: { title: "Importera Audi från Tyskland – Kostnader, ADAC-data och garanti 2026", description: "Importera Audi privat från Tyskland. Garanti, fordonsskatt per modell, ADAC-data och kalkylator." },
-  porsche: { title: "Importera Porsche från Tyskland – Lönar det sig? Guide 2026", description: "Importera Porsche privat från Tyskland. Garanti, fordonsskatt per modell, ADAC-data och kalkylator." },
-  tesla: { title: "Importera Tesla från Tyskland – Elbilsimport, garanti och kostnader 2026", description: "Importera Tesla privat från Tyskland. Garanti, batterigaranti, fordonsskatt och importkalkylator." },
+  mercedes: { title: `Importera Mercedes från Tyskland – Kostnader, garanti och modeller ${CONTENT_YEAR}`, description: "Importera Mercedes-Benz privat från Tyskland. Garanti, fordonsskatt per modell, ADAC-data och kalkylator." },
+  volkswagen: { title: `Importera Volkswagen från Tyskland – Guide med kostnader och tips ${CONTENT_YEAR}`, description: "Importera Volkswagen privat från Tyskland. ADAC-data, garanti, fordonsskatt per modell och kalkylator." },
+  audi: { title: `Importera Audi från Tyskland – Kostnader, ADAC-data och garanti ${CONTENT_YEAR}`, description: "Importera Audi privat från Tyskland. Garanti, fordonsskatt per modell, ADAC-data och kalkylator." },
+  porsche: { title: `Importera Porsche från Tyskland – Lönar det sig? Guide ${CONTENT_YEAR}`, description: "Importera Porsche privat från Tyskland. Garanti, fordonsskatt per modell, ADAC-data och kalkylator." },
+  tesla: { title: `Importera Tesla från Tyskland – Elbilsimport, garanti och kostnader ${CONTENT_YEAR}`, description: "Importera Tesla privat från Tyskland. Garanti, batterigaranti, fordonsskatt och importkalkylator." },
 };
 
 // Guides relevant for all car brands
@@ -274,7 +275,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const country = getCountryBySlug(slug);
   if (country) {
     return {
-      title: `Importera bil från ${country.name} – Komplett guide ${new Date().getFullYear()}`,
+      title: `Importera bil från ${country.name} – Komplett guide ${CONTENT_YEAR}`,
       description: `Allt du behöver veta för att importera bil privat från ${country.name} till Sverige. Kostnader, process och praktiska råd.`,
       alternates: { canonical: getCanonicalUrl(`/importera-bil/${slug}`) },
       robots,
@@ -284,7 +285,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const brand = getCarBrandBySlug(slug);
   if (brand) {
     const importData = getCarBrandImportData(slug);
-    const year = new Date().getFullYear();
+    const year = CONTENT_YEAR;
     const customTitle = BRAND_TITLES[slug];
     return {
       title: customTitle
@@ -336,7 +337,7 @@ export default async function ImporteraBilPage({ params }: Props) {
       const articleJsonLd = {
         "@context": "https://schema.org",
         "@type": "Article",
-        headline: "Importera bil från Tyskland – Komplett guide 2026",
+        headline: `Importera bil från Tyskland – Komplett guide ${CONTENT_YEAR}`,
         datePublished: "2026-03-11",
         dateModified: frontmatter.dateUpdated,
         author: { "@type": "Organization", name: "Importguiden", url: SITE_URL },
@@ -376,7 +377,7 @@ export default async function ImporteraBilPage({ params }: Props) {
           <div className="mx-auto max-w-3xl px-4 py-10">
             <Breadcrumbs items={breadcrumbs} siteUrl={SITE_URL} />
             <article className="prose prose-gray max-w-none prose-headings:font-bold prose-a:text-blue-700 prose-a:no-underline hover:prose-a:underline prose-table:text-sm">
-              <h1>Importera bil från Tyskland – Komplett guide 2026</h1>
+              <h1>Importera bil från Tyskland – Komplett guide {CONTENT_YEAR}</h1>
               <p className="not-prose text-gray-500 text-sm">
                 Uppdaterad:{" "}
                 <time dateTime={frontmatter.dateUpdated}>
@@ -400,7 +401,7 @@ export default async function ImporteraBilPage({ params }: Props) {
           <article>
             <header className="mb-8">
               <h1 className="text-3xl font-bold text-gray-900 mb-3">
-                Importera bil från {country.name} – Komplett guide {new Date().getFullYear()}
+                Importera bil från {country.name} – Komplett guide {CONTENT_YEAR}
               </h1>
               {updatedDate && (
                 <p className="text-gray-500 text-sm">
@@ -510,7 +511,7 @@ export default async function ImporteraBilPage({ params }: Props) {
           <article>
             <header className="mb-8">
               <h1 className="text-3xl font-bold text-gray-900 mb-3">
-                Importera {brand!.name} från Tyskland – Guide {new Date().getFullYear()}
+                Importera {brand!.name} från Tyskland – Guide {CONTENT_YEAR}
               </h1>
             </header>
 
@@ -555,7 +556,7 @@ export default async function ImporteraBilPage({ params }: Props) {
           {/* Header */}
           <header className="mb-8">
             <h1 className="text-3xl font-bold text-gray-900 mb-3">
-              Importera {importData.name} från Tyskland – Guide {new Date().getFullYear()}
+              Importera {importData.name} från Tyskland – Guide {CONTENT_YEAR}
             </h1>
             <p className="text-gray-500 text-sm">
               {updatedDate && (

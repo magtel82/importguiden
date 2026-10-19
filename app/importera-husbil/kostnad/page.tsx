@@ -6,6 +6,7 @@ import { getRobotsForPath, getLastUpdatedForPath } from "@/lib/manifest";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { CostTable } from "@/components/CostTable";
 import { formatDateSv } from "@/lib/date";
+import { CONTENT_YEAR } from "@/lib/site-config";
 
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
 const UPDATED_DATE = getLastUpdatedForPath("/importera-husbil/kostnad");
@@ -13,7 +14,7 @@ const UPDATED_DATE = getLastUpdatedForPath("/importera-husbil/kostnad");
 export function generateMetadata(): Metadata {
   const robots = getRobotsForPath("/importera-husbil/kostnad");
   return {
-    title: "Vad kostar det att importera husbil från EU? – Alla avgifter 2026",
+    title: `Vad kostar det att importera husbil från EU? – Alla avgifter ${CONTENT_YEAR}`,
     description:
       "Komplett genomgång av kostnader vid husbilsimport: ursprungskontroll, registreringsbesiktning, importförsäkring, transport och moms. Med räkneexempel.",
     alternates: { canonical: getCanonicalUrl("/importera-husbil/kostnad") },

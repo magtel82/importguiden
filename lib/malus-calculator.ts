@@ -17,9 +17,19 @@
  * Dieseldrivna (tabell 63): därtill miljötillägg 250 kr och bränsletillägg
  * 13,52 kr × hela koldioxidutsläppet – under och efter malusperioden.
  *
- * Gäller INTE fordon som blev skattepliktiga före 1 juli 2018 (då används
- * bl.a. bränslefaktor 2,37) eller husbilar som saknar koldioxidvärde och
- * beskattas efter vikt. Kalkylatorn ska därför presentera resultatet som en
+ * Dieseldrivna som blev skattepliktiga första gången FÖRE 1 juli 2018 (eller
+ * har fordonsår före 2018) följer i stället tabell 62:
+ * (360 + 22 kr/g över 111 g/km) × bränslefaktor 2,37 + miljötillägg 250 kr.
+ * Ingen malus. Exempel, diesel 200 g/km: (360 + 1 958) × 2,37 + 250 ≈ 5 744 kr.
+ * Samma husbil enligt tabell 63 ger ≈ 5 272 kr – båda stämmer, för olika
+ * årgångar.
+ *
+ * "Skattepliktig första gången" = första registrering i världen för ett
+ * importerat fordon (vägtrafikskattelagen 1 kap. 6 a §). Malusens tre år
+ * räknas alltså från första registreringen utomlands.
+ *
+ * Gäller INTE dieselbilar skattepliktiga före 2008, husbilar före 2011 eller
+ * husbilar som saknar koldioxidvärde och beskattas efter vikt. Kalkylatorn ska därför presentera resultatet som en
  * uppskattning och hänvisa till Transportstyrelsens uppgift för det enskilda
  * fordonet.
  *
@@ -64,6 +74,7 @@ const CO2_THRESHOLD = 111;            // g/km – ordinarie koldioxidbelopp där
 const CO2_RATE = 22;                  // kr per gram över 111 g/km
 const DIESEL_MILJO_TILLAGG = 250;     // kr/år
 const DIESEL_BRANSLE_PER_CO2 = 13.52; // kr per g/km och år
+const DIESEL_BRANSLEFAKTOR_PRE_2018 = 2.37; // tabell 62
 
 export function malusAmountFor(co2gkm: number): number {
   if (co2gkm <= MALUS_LOWER) return 0;
@@ -80,14 +91,43 @@ export function isDieselFuel(fuelType: FuelType): boolean {
   return fuelType === "diesel" || fuelType === "laddhybrid-diesel";
 }
 
+export interface MalusOptions {
+  /**
+   * Fordonet blev skattepliktigt första gången (registrerades första gången
+   * någonstans) före 1 juli 2018, eller har fordonsår före 2018. Då gäller
+   * tabell 62 för diesel och ingen malus.
+   */
+  firstTaxedBeforeJuly2018?: boolean;
+}
+
 export function calculateMalus(
   co2gkm: number,
   fuelType: FuelType,
   ageMonths: number,
-  vehicleType: "personbil" | "husbil"
+  vehicleType: "personbil" | "husbil",
+  options: MalusOptions = {}
 ): MalusResult {
   const co2 = fuelType === "elbil" ? 0 : Math.max(0, co2gkm);
   const diesel = isDieselFuel(fuelType);
+
+  if (options.firstTaxedBeforeJuly2018) {
+    const base = GRUNDBELOPP + co2AmountFor(co2);
+    const annual = diesel
+      ? Math.round(base * DIESEL_BRANSLEFAKTOR_PRE_2018 + DIESEL_MILJO_TILLAGG)
+      : base;
+    return {
+      annualTax: annual,
+      annualTaxAfterMalus: annual,
+      malusMonthsRemaining: 0,
+      hasMalus: false,
+      grundbelopp: GRUNDBELOPP,
+      malusAmount: 0,
+      co2AmountAfterMalus: co2AmountFor(co2),
+      dieselTillagg: diesel ? DIESEL_MILJO_TILLAGG : 0,
+      bransletillagg: 0,
+    };
+  }
+
   const dieselTillagg = diesel ? DIESEL_MILJO_TILLAGG : 0;
   const bransletillagg = diesel ? Math.round(co2 * DIESEL_BRANSLE_PER_CO2) : 0;
   const co2AmountAfterMalus = co2AmountFor(co2);

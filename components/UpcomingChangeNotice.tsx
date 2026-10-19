@@ -1,24 +1,24 @@
 import Link from "next/link";
-import changes from "@/data/regulation-changes.json";
+import { getActiveUpcoming } from "@/lib/upcoming";
+import { HideAfter } from "@/components/HideAfter";
 import { formatDateSv } from "@/lib/date";
 
 /**
  * Diskret ruta om en känd, kommande händelse som kan ändra uppgifterna på
  * sidan (t.ex. budgetpropositionen). Styrs helt av `upcoming` i
- * data/regulation-changes.json – ta bort posten där när händelsen är
- * genomgången, så försvinner rutan från alla sidor samtidigt.
+ * data/regulation-changes.json. Rutan döljs automatiskt från `expiresAt`
+ * (vid bygget och i webbläsaren). Ta ändå bort posten när händelsen är
+ * genomgången – bygget varnar så länge en utgången post ligger kvar.
  */
 export function UpcomingChangeNotice({ path }: { path: string }) {
-  const items = (changes.upcoming ?? []).filter((u) =>
-    u.affectedPages.includes(path)
-  );
+  const items = getActiveUpcoming().filter((u) => u.affectedPages.includes(path));
   if (items.length === 0) return null;
 
   return (
     <>
       {items.map((item) => (
+        <HideAfter key={item.id} date={item.expiresAt}>
         <aside
-          key={item.id}
           aria-label={`Bevakas: ${item.title}`}
           className="not-prose mb-8 rounded-lg border border-gray-200 bg-gray-50 p-4"
         >
@@ -46,6 +46,7 @@ export function UpcomingChangeNotice({ path }: { path: string }) {
             </Link>
           </p>
         </aside>
+        </HideAfter>
       ))}
     </>
   );

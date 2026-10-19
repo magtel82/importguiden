@@ -26,7 +26,7 @@
     {
       "id": "importera-bil-tyskland",
       "path": "/importera-bil/tyskland",
-      "title": "Importera bil från Tyskland – Komplett guide 2026",
+      "title": "Importera bil från Tyskland – Komplett guide {år}",
       "description": "Allt du behöver veta för att importera bil privat från Tyskland till Sverige. Kostnader, process steg för steg och vanliga fallgropar.",
       "sources": [
         "https://www.transportstyrelsen.se",
@@ -49,8 +49,8 @@
     {
       "id": "importera-bil-kostnad",
       "path": "/importera-bil/kostnad",
-      "title": "Vad kostar det att registrera en importerad bil i Sverige 2026?",
-      "description": "Komplett kostnadslista för bilimport: ursprungskontroll 1 240 kr, registreringsbesiktning ~1 700 kr, skyltavgift, importförsäkring, moms och transport. Räkneexempel och totalkostnad.",
+      "title": "Importera bil från Tyskland – kostnad {år}",
+      "description": "Ursprungskontroll 1 240 kr, besiktning ca 1 700 kr, försäkring och skyltar: ca 4 638 kr i fasta avgifter. Plus transport – och moms om bilen räknas som ny.",
       "sources": [
         "https://www.transportstyrelsen.se",
         "https://www.skatteverket.se",
@@ -72,7 +72,7 @@
     {
       "id": "importera-bil-bmw",
       "path": "/importera-bil/bmw",
-      "title": "Importera BMW från Tyskland – Guide 2026 (ADAC-data, kostnader)",
+      "title": "Importera BMW från Tyskland – Guide {år} (ADAC-data, kostnader)",
       "description": "Importera BMW privat från Tyskland. Rekommenderade modeller, kända problem (ADAC Pannenstatistik 2026), dokument att begära och kalkylator.",
       "sources": [
         "https://www.transportstyrelsen.se",
@@ -96,7 +96,7 @@
     {
       "id": "importera-bil-mercedes",
       "path": "/importera-bil/mercedes",
-      "title": "Importera Mercedes från Tyskland – Kostnader, garanti och modeller 2026",
+      "title": "Importera Mercedes från Tyskland – Kostnader, garanti och modeller {år}",
       "description": "Importera Mercedes-Benz privat från Tyskland. Garanti, fordonsskatt per modell, ADAC-data och kalkylator.",
       "sources": [
         "https://www.transportstyrelsen.se",
@@ -120,7 +120,7 @@
     {
       "id": "importera-bil-audi",
       "path": "/importera-bil/audi",
-      "title": "Importera Audi från Tyskland – Kostnader, ADAC-data och garanti 2026",
+      "title": "Importera Audi från Tyskland – Kostnader, ADAC-data och garanti {år}",
       "description": "Importera Audi privat från Tyskland. Garanti, fordonsskatt per modell, ADAC-data och kalkylator.",
       "sources": [
         "https://www.transportstyrelsen.se",
@@ -144,7 +144,7 @@
     {
       "id": "importera-bil-volkswagen",
       "path": "/importera-bil/volkswagen",
-      "title": "Importera Volkswagen från Tyskland – Guide med kostnader och tips 2026",
+      "title": "Importera Volkswagen från Tyskland – Guide med kostnader och tips {år}",
       "description": "Importera Volkswagen privat från Tyskland. ADAC-data, garanti, fordonsskatt per modell och kalkylator.",
       "sources": [
         "https://www.transportstyrelsen.se",
@@ -190,7 +190,7 @@
     {
       "id": "importera-bil-tesla",
       "path": "/importera-bil/tesla",
-      "title": "Importera Tesla från Tyskland – Elbilsimport, garanti och kostnader 2026",
+      "title": "Importera Tesla från Tyskland – Elbilsimport, garanti och kostnader {år}",
       "description": "Importera Tesla privat från Tyskland. Garanti, batterigaranti, fordonsskatt och importkalkylator.",
       "sources": [
         "https://www.transportstyrelsen.se",
@@ -216,7 +216,7 @@
     {
       "id": "importera-bil-porsche",
       "path": "/importera-bil/porsche",
-      "title": "Importera Porsche från Tyskland – Lönar det sig? Guide 2026",
+      "title": "Importera Porsche från Tyskland – Lönar det sig? Guide {år}",
       "description": "Importera Porsche privat från Tyskland. Garanti, fordonsskatt per modell, ADAC-data och kalkylator.",
       "sources": [
         "https://www.transportstyrelsen.se",
@@ -240,7 +240,7 @@
     {
       "id": "importera-bil-nederländerna",
       "path": "/importera-bil/nederländerna",
-      "title": "Importera bil från Nederländerna – Guide 2026",
+      "title": "Importera bil från Nederländerna – Guide {år}",
       "description": "Allt om att importera bil privat från Nederländerna till Sverige.",
       "sources": [
         "https://www.transportstyrelsen.se"
@@ -261,7 +261,7 @@
     {
       "id": "importera-husbil-tyskland",
       "path": "/importera-husbil/tyskland",
-      "title": "Importera husbil från Tyskland – Komplett guide 2026",
+      "title": "Importera husbil från Tyskland – Komplett guide {år}",
       "description": "Steg-för-steg guide för att importera husbil privat från Tyskland till Sverige. Kostnader, märken, besiktning och praktiska råd.",
       "sources": [
         "https://www.transportstyrelsen.se",
@@ -284,7 +284,7 @@
     {
       "id": "importera-husbil-kostnad",
       "path": "/importera-husbil/kostnad",
-      "title": "Vad kostar det att importera husbil från EU? – Alla avgifter 2026",
+      "title": "Vad kostar det att importera husbil från EU? – Alla avgifter {år}",
       "description": "Komplett genomgång av kostnader vid husbilsimport: ursprungskontroll, registreringsbesiktning, importförsäkring, transport och moms. Med räkneexempel.",
       "sources": [
         "https://www.transportstyrelsen.se",
@@ -307,7 +307,7 @@
     {
       "id": "importera-husbil-hymer",
       "path": "/importera-husbil/hymer",
-      "title": "Importera Hymer husbil från Tyskland – Guide 2026 (chassi, kostnader)",
+      "title": "Importera Hymer husbil från Tyskland – Guide {år} (chassi, kostnader)",
       "description": "Importera Hymer husbil privat från Tyskland. Chassiinformation, Ducato-varning (ADAC 2025), rekommenderade modeller och kalkylator.",
       "sources": [
         "https://www.transportstyrelsen.se",
@@ -331,7 +331,7 @@
     {
       "id": "importera-husbil-dethleffs",
       "path": "/importera-husbil/dethleffs",
-      "title": "Importera Dethleffs husbil från Tyskland – Guide och kostnader 2026",
+      "title": "Importera Dethleffs husbil från Tyskland – Guide och kostnader {år}",
       "description": "Importera Dethleffs husbil privat från Tyskland. Garanti, Ducato-chassi, fuktskydd och importkalkylator.",
       "sources": [
         "https://www.transportstyrelsen.se",
@@ -355,7 +355,7 @@
     {
       "id": "importera-husbil-burstner",
       "path": "/importera-husbil/burstner",
-      "title": "Importera Bürstner husbil från Tyskland – Chassi, garanti och kostnader 2026",
+      "title": "Importera Bürstner husbil från Tyskland – Chassi, garanti och kostnader {år}",
       "description": "Importera Bürstner husbil privat från Tyskland. Sprinter-alternativ (Lyseo), Ducato-varning och importkalkylator.",
       "sources": [
         "https://www.transportstyrelsen.se",
@@ -379,7 +379,7 @@
     {
       "id": "importera-husbil-knaus",
       "path": "/importera-husbil/knaus",
-      "title": "Importera Knaus husbil från Tyskland – Guide med ADAC-data 2026",
+      "title": "Importera Knaus husbil från Tyskland – Guide med ADAC-data {år}",
       "description": "Importera Knaus husbil privat från Tyskland. 10 års fuktgaranti, Ducato-chassi och importkalkylator.",
       "sources": [
         "https://www.transportstyrelsen.se",
@@ -403,7 +403,7 @@
     {
       "id": "importera-husbil-hobby",
       "path": "/importera-husbil/hobby",
-      "title": "Importera Hobby husbil från Tyskland – Bästa pris-prestanda? Guide 2026",
+      "title": "Importera Hobby husbil från Tyskland – Bästa pris-prestanda? Guide {år}",
       "description": "Importera Hobby husbil privat från Tyskland. 10 års fuktgaranti, konkurrenskraftigt pris och importkalkylator.",
       "sources": [
         "https://www.transportstyrelsen.se",
@@ -468,7 +468,7 @@
     {
       "id": "guider-ursprungskontroll",
       "path": "/guider/ursprungskontroll",
-      "title": "Ursprungskontroll 2026 – Status, handläggningstid och kostnad",
+      "title": "Ursprungskontroll {år} – Status, handläggningstid och kostnad",
       "description": "Hur lång tid tar ursprungskontroll? Hur kollar du status på ditt ärende? Komplett guide med kostnad (1 240 kr), handläggningstid (2–5 dagar) och länk till Transportstyrelsens statustjänst.",
       "sources": [
         "https://www.transportstyrelsen.se",
@@ -514,7 +514,7 @@
     {
       "id": "guider-kopa-bil-mobile-de-autoscout24",
       "path": "/guider/kopa-bil-mobile-de-autoscout24",
-      "title": "Köpa bil på mobile.de – Guide för svenska köpare 2026",
+      "title": "Köpa bil på mobile.de – Guide för svenska köpare {år}",
       "description": "Så använder du mobile.de och AutoScout24 som svensk köpare. Tyska bilbegrepp översatta, fallgropar att undvika och säker betalning från Sverige.",
       "sources": [
         "https://www.mobile.de",
@@ -561,8 +561,8 @@
     {
       "id": "guider-fordonsskatt-husbil-bonus-malus",
       "path": "/guider/fordonsskatt-husbil-bonus-malus",
-      "title": "Fordonsskatt och bonus-malus för husbilar – Vad gäller 2026?",
-      "description": "Lagändringen februari 2025 tog bort malus-skatten för husbilar. Vad innebär det för dig som ska importera? Komplett guide om fordonsskatt och bonus-malus för husbilar.",
+      "title": "Skatt på husbil {år} – så räknas fordonsskatten",
+      "description": "Skatt på husbil {år}: malusen är borta, men fordonsskatten beror fortfarande på CO₂-värdet. Se hur skatten räknas, med räkneexempel för en importerad dieselhusbil.",
       "sources": [
         "https://www.naturvardsverket.se",
         "https://www.transportstyrelsen.se",
@@ -683,7 +683,7 @@
     {
       "id": "guider-kopa-husbil-mobil-de",
       "path": "/guider/kopa-husbil-mobil-de",
-      "title": "Söka husbil på mobile.de – guide på svenska för svenska köpare 2026",
+      "title": "Söka husbil på mobile.de – guide på svenska för svenska köpare {år}",
       "description": "Så söker du husbil på mobile.de och AutoScout24 som svensk köpare – filtrera rätt, tolka tyska annonser och undvik vanliga fallgropar.",
       "sources": [
         "https://www.mobile.de",
@@ -749,7 +749,7 @@
     {
       "id": "jamfor-tyskland-vs-sverige",
       "path": "/jamfor/tyskland-vs-sverige",
-      "title": "Bilar billigare i Tyskland? – Prisjämförelse 2026",
+      "title": "Bilar billigare i Tyskland? – Prisjämförelse {år}",
       "description": "Vi jämför bilpriser i Sverige och Tyskland per segment. Lönar det sig att importera? Break-even-analys, konkreta exempel och vilka märken som har störst prisskillnad.",
       "sources": [
         "https://www.mobile.de",

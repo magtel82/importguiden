@@ -1,3 +1,4 @@
+import { CONTENT_YEAR } from "@/lib/site-config";
 export type GuideCategory = "generell" | "bil" | "husbil";
 
 export interface GuideMeta {
@@ -109,8 +110,8 @@ export const GUIDES: GuideMeta[] = [
   },
   {
     slug: "fordonsskatt-husbil-bonus-malus",
-    title: "Fordonsskatt och bonus-malus för husbilar 2026",
-    description: "Lagändringen februari 2025 tog bort malus för husbilar. Vad gäller nu och vad innebär det för din importkalkyl?",
+    title: `Skatt på husbil ${CONTENT_YEAR} – så räknas fordonsskatten`,
+    description: "Husbilar har ingen malus längre, men fordonsskatten beror fortfarande på CO₂-värdet. Så räknar du på din importerade husbil.",
     time: "5 min",
     category: "husbil",
   },

@@ -5,6 +5,7 @@ import { getRobotsForPath } from "@/lib/manifest";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import changes from "@/data/regulation-changes.json";
 import { formatDateSv } from "@/lib/date";
+import { getActiveUpcoming } from "@/lib/upcoming";
 
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
 
@@ -30,7 +31,7 @@ export default function RegelandringarPage() {
   const entries = [...changes.changes].sort((a, b) =>
     b.date.localeCompare(a.date)
   );
-  const upcoming = changes.upcoming ?? [];
+  const upcoming = getActiveUpcoming();
 
   return (
     <>
