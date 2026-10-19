@@ -13,6 +13,8 @@ import { GuideFooter } from "@/components/GuideFooter";
 import { GlossaryTable } from "@/components/GlossaryTable";
 import { AffiliateLink } from "@/components/affiliate/AffiliateLink";
 import { extractHeadings } from "@/lib/headings";
+import { formatDateSv } from "@/lib/date";
+import { UpcomingChangeNotice } from "@/components/UpcomingChangeNotice";
 
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
 
@@ -234,7 +236,7 @@ export default async function GuiderPage({ params }: Props) {
           {
             question: "Måste man ha importförsäkring?",
             answer:
-              "Ja. Enligt trafikskadelagen (1975:103) är det obligatoriskt med giltig trafikförsäkring för att framföra ett motorfordon på allmän väg i Sverige – oavsett om fordonet är registrerat eller inte.",
+              "Ja. Enligt trafikskadelagen (1975:1410) är det obligatoriskt med giltig trafikförsäkring för att framföra ett motorfordon på allmän väg i Sverige – oavsett om fordonet är registrerat eller inte.",
           },
         ])
       : slug === "exportforsakring"
@@ -276,11 +278,12 @@ export default async function GuiderPage({ params }: Props) {
             <p className="text-gray-500 text-sm">
               Uppdaterad:{" "}
               <time dateTime={frontmatter.dateUpdated}>
-                {frontmatter.dateUpdated}
+                {formatDateSv(frontmatter.dateUpdated)}
               </time>
             </p>
           </header>
 
+          <UpcomingChangeNotice path={`/guider/${slug}`} />
           <TableOfContents headings={headings} />
           <div className="prose prose-gray max-w-none">{content}</div>
         </article>

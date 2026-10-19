@@ -115,7 +115,7 @@ export default function HomePage() {
           </div>
           <div className="border-l-4 border-blue-600 bg-blue-50 p-4 rounded-r text-left max-w-2xl">
             <p className="text-sm text-blue-900">
-              <strong>Husbilar:</strong> avskaffad malus sedan februari 2025 – importerade husbilar träffas inte längre av miljöbilsavgift.
+              <strong>Husbilar:</strong> malusen avskaffades i februari 2025 – importerade husbilar betalar inte längre förhöjd fordonsskatt de tre första åren.
             </p>
           </div>
         </section>

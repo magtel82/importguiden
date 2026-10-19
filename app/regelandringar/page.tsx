@@ -4,13 +4,14 @@ import { getCanonicalUrl } from "@/lib/seo";
 import { getRobotsForPath } from "@/lib/manifest";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import changes from "@/data/regulation-changes.json";
+import { formatDateSv } from "@/lib/date";
 
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
 
 export const metadata: Metadata = {
   title: "Regeländringar vid fordonsimport – logg",
   description:
-    "Logg över regel- och avgiftsändringar som påverkar import av bil och husbil till Sverige. Vi bevakar Transportstyrelsen, Skatteverket och Tullverket och noterar även när inget ändrats.",
+    "Logg över regel- och avgiftsändringar som påverkar import av bil och husbil till Sverige. Vi bevakar Transportstyrelsen, Skatteverket och Naturvårdsverket, noterar när inget ändrats och redovisar öppet när vi rättat egna fel.",
   alternates: { canonical: getCanonicalUrl("/regelandringar") },
   robots: getRobotsForPath("/regelandringar"),
 };
@@ -21,22 +22,15 @@ const TYPE_LABEL: Record<string, string> = {
   regelandring: "Regeländring",
   verifiering: "Verifierad uppgift",
   oforandrad: "Kontrollerad – oförändrad",
+  rattelse: "Rättelse",
 };
 
-const MONTHS = [
-  "januari", "februari", "mars", "april", "maj", "juni",
-  "juli", "augusti", "september", "oktober", "november", "december",
-];
-
-function formatDate(iso: string): string {
-  const [y, m, d] = iso.split("-");
-  return `${parseInt(d)} ${MONTHS[parseInt(m) - 1]} ${y}`;
-}
 
 export default function RegelandringarPage() {
   const entries = [...changes.changes].sort((a, b) =>
     b.date.localeCompare(a.date)
   );
+  const upcoming = changes.upcoming ?? [];
 
   return (
     <>
@@ -54,8 +48,36 @@ export default function RegelandringarPage() {
         <p className="text-sm text-gray-600 mb-8">
           Vi noterar även kontroller där ingenting ändrats. En uppgift som
           kontrollerats och visat sig oförändrad är lika användbar som en
-          ändring – den talar om att siffran fortfarande gäller.
+          ändring – den talar om att siffran fortfarande gäller. Hittar vi ett
+          fel i vårt eget innehåll rättar vi det och redovisar det här som en
+          rättelse.
         </p>
+
+        {upcoming.length > 0 && (
+          <section id="kommande" aria-labelledby="kommande-rubrik" className="mb-10">
+            <h2 id="kommande-rubrik" className="font-semibold text-gray-900 mb-3">
+              Bevakas just nu
+            </h2>
+            <ul className="space-y-3">
+              {upcoming.map((u) => (
+                <li key={u.id} className="rounded-lg border border-gray-200 p-5">
+                  <p className="text-xs font-medium uppercase tracking-wide text-gray-500">
+                    Senast{" "}
+                    <time dateTime={u.expected}>{formatDateSv(u.expected)}</time>
+                  </p>
+                  <h3 className="mt-1 font-semibold text-gray-900">{u.title}</h3>
+                  <p className="mt-1 text-sm text-gray-600">{u.summary}</p>
+                  <p className="mt-3 text-xs text-gray-400">
+                    Källa:{" "}
+                    <a href={u.sourceUrl} className="underline hover:text-gray-600" rel="noopener">
+                      {u.source}
+                    </a>
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
 
         <section
           aria-labelledby="bevakade-kallor-rubrik"
@@ -76,7 +98,7 @@ export default function RegelandringarPage() {
             ))}
           </ul>
           <p className="mt-3 text-xs text-gray-400">
-            Senast genomgången: {formatDate(changes._meta.lastReviewed)}
+            Senast genomgången: {formatDateSv(changes._meta.lastReviewed)}
           </p>
         </section>
 
@@ -91,7 +113,7 @@ export default function RegelandringarPage() {
                   dateTime={entry.date}
                   className="text-sm font-medium text-gray-900"
                 >
-                  {formatDate(entry.date)}
+                  {formatDateSv(entry.date)}
                 </time>
                 <span className="rounded bg-blue-50 px-2 py-0.5 text-xs font-medium whitespace-nowrap text-blue-700">
                   {TYPE_LABEL[entry.type] ?? entry.type}

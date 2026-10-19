@@ -7,6 +7,7 @@ import { AffiliateLink } from "@/components/affiliate/AffiliateLink";
 import costData from "@/data/cost-data.json";
 import importCostsData from "@/datasets/import-costs.json";
 import { calculateMalus, type FuelType } from "@/lib/malus-calculator";
+import { formatDateSv } from "@/lib/date";
 
 // Fallback-kurser (SEK per enhet utländsk valuta)
 const FALLBACK_RATES: Record<string, number> = {
@@ -83,14 +84,6 @@ function getCostMetaLabel(id: string): string {
   return `${entry.source} · fr.o.m. ${SWEDISH_MONTHS[parseInt(month) - 1]} ${year}`;
 }
 
-function formatVerifiedDate(isoDate: string): string {
-  const [year, month, day] = isoDate.split("-");
-  const monthNames = [
-    "januari","februari","mars","april","maj","juni",
-    "juli","augusti","september","oktober","november","december",
-  ];
-  return `${parseInt(day)} ${monthNames[parseInt(month) - 1]} ${year}`;
-}
 
 const REG_YEARS = [2026, 2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018] as const;
 
@@ -735,7 +728,10 @@ function ImportCalculatorInner() {
                 <p className="text-xs text-gray-400 mt-2">
                   Fordonsskatten ingår inte i totalkostnaden ovan — det är en årlig kostnad.
                   {vehicleType === "husbil" &&
-                    " Husbilar är undantagna från malus sedan februari 2025."}
+                    " Husbilar är undantagna från malus sedan februari 2025 men betalar 22 kr per gram över 111 g/km."}
+                  {" "}Beräkningen gäller fordon av årsmodell 2018 eller senare. Äldre fordon och
+                  husbilar utan koldioxidvärde beskattas på annat sätt – Transportstyrelsen
+                  visar exakt skatt för ett registrerat fordon.
                 </p>
               </div>
             )}
@@ -743,7 +739,7 @@ function ImportCalculatorInner() {
             {/* Footer */}
             <p className="mt-4 text-xs text-gray-400">
               Siffror senast verifierade:{" "}
-              {formatVerifiedDate(importCostsData._meta.lastVerified)}.{" "}
+              {formatDateSv(importCostsData._meta.lastVerified)}.{" "}
               Beräkningen är ungefärlig och baserad på schablonvärden. Kontrollera alltid
               faktiska kostnader hos Transportstyrelsen och Tullverket.
             </p>

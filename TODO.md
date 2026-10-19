@@ -38,7 +38,13 @@ _Senast uppdaterad: 2026-03-30_
 
 ## 🔴 Prioriterat nu
 
-Alla akuta punkter avklarade! Se nästa avsnitt.
+- [ ] **Budgetpropositionen för 2027 – senast 12 november 2026.** Gå igenom den
+  (fordonsskatt, malus, elbilspremie, vägtrafikregisteravgift). Uppdatera
+  lib/malus-calculator.ts och berörda sidor vid ändring, logga i
+  data/regulation-changes.json och ta bort posten under `upcoming` – annars
+  står rutan "Bevakas" kvar på 18 sidor.
+- [ ] **Årsskiftet 2026/27:** titlar med "2026", vägtrafikregisteravgiften
+  (74 kr) och elbilspremiens inkomstgränser (baseras på senaste taxering).
 
 ---
 

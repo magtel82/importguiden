@@ -1,6 +1,6 @@
 # CLAUDE.md – Importguiden
 
-# Senast uppdaterad: 2026-07-29 (13)
+# Senast uppdaterad: 2026-10-19 (14)
 
 # Status: MVP GO – affiliate-redo, aktiv utveckling
 
@@ -819,6 +819,21 @@ inloggning (referensnummer, ej BankID/Mina sidor).
 OBS: Registreringsbesiktningens pris går INTE att källverifiera – Opus och
 Besikta publicerar inte prislista för registreringsbesiktning online. Alla
 belopp är schabloner och ska märkas som sådana.
+OBS: Fordonsskatt räknas på ETT ställe – lib/malus-calculator.ts – byggd på
+Skatteverkets fordonsskattetabeller (tabell 63/72). Kalkylatorn OCH märkes-
+sidornas skattetabeller använder den. Skriv aldrig skattebelopp för hand.
+Fallgropar som rättades 2026-10-19: efter malusperioden tillkommer 22 kr/g
+över 111 g/km (inte bara 360 kr); husbilar med CO₂-värde beskattas på CO₂,
+INTE på vikt; diesel betalar alltid 250 kr + 13,52 × CO₂.
+OBS: Tyska exportskyltar (Ausfuhrkennzeichen) är VITA med rött datumfält.
+"Röda skyltar" är handlarskyltar. Giltighet = försäkringens löptid, max 1 år
+(FZV § 45). Trafikskadelagen är SFS 1975:1410.
+OBS: Transportstyrelsen bytte URL-struktur 2025. Gamla /Importerade-fordon/-
+adresser ger 404. Kontrollera ALLA källänkar (curl) vid varje faktagranskning
+och håll datasets/regulation-urls.json i synk – annars bevakar cron döda sidor.
+OBS: Kända kommande händelser läggs i `upcoming` i data/regulation-changes.json.
+De visas då som en diskret ruta på berörda sidor (UpcomingChangeNotice) och på
+/regelandringar. Ta bort posten när händelsen är genomgången.
 
 ## UPPDATERINGSRUTIN
 

@@ -5,6 +5,7 @@ import { getCostData } from "@/lib/data";
 import { getCanonicalUrl } from "@/lib/seo";
 import { getRobotsForPath } from "@/lib/manifest";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { formatDateSv } from "@/lib/date";
 
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
 const UPDATED_DATE = "2026-03-14";
@@ -118,7 +119,7 @@ export default async function JamforPage({ params }: Props) {
               Bilar billigare i Tyskland? – Prisjämförelse 2026
             </h1>
             <p className="text-gray-500 text-sm">
-              Uppdaterad: <time dateTime={UPDATED_DATE}>{UPDATED_DATE}</time>
+              Uppdaterad: <time dateTime={UPDATED_DATE}>{formatDateSv(UPDATED_DATE)}</time>
               {" "}· Källa: mobile.de, Bytbil.com, Blocket.se (schablonvärden)
             </p>
           </header>

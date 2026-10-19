@@ -7,6 +7,7 @@ import { getCostData } from "@/lib/data";
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
 
 import { getRobotsForPath } from "@/lib/manifest";
+import { UpcomingChangeNotice } from "@/components/UpcomingChangeNotice";
 
 export function generateMetadata(): Metadata {
   return {
@@ -35,6 +36,8 @@ export default function KalkylatornPage() {
         <p className="text-gray-600 mb-6">
           Räkna ut din ungefärliga totalkostnad vid import av bil eller husbil från Europa.
         </p>
+
+        <UpcomingChangeNotice path="/kalkylator/bilimport" />
 
         <ImportCalculator />
 

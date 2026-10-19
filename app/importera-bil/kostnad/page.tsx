@@ -5,6 +5,7 @@ import { getCanonicalUrl, getFaqJsonLd } from "@/lib/seo";
 import { getRobotsForPath, getLastUpdatedForPath } from "@/lib/manifest";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { CostTable } from "@/components/CostTable";
+import { formatDateSv } from "@/lib/date";
 
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
 const UPDATED_DATE = getLastUpdatedForPath("/importera-bil/kostnad");
@@ -104,7 +105,7 @@ export default function KostnadPage() {
               {UPDATED_DATE && (
                 <>
                   Uppdaterad:{" "}
-                  <time dateTime={UPDATED_DATE}>{UPDATED_DATE}</time>
+                  <time dateTime={UPDATED_DATE}>{formatDateSv(UPDATED_DATE)}</time>
                   {" "}·{" "}
                 </>
               )}

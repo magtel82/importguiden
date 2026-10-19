@@ -17,7 +17,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-07-28",
+      "lastEvaluated": "2026-10-19",
       "notes": "Startsida/hub – kortare innehåll är OK. Score 75 reflekterar att sidan är en navigations-hub, inte en guide.",
       "tags": [
         "startsida"
@@ -39,7 +39,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-07-28",
+      "lastEvaluated": "2026-10-19",
       "tags": [
         "land",
         "bil"
@@ -77,7 +77,7 @@
       "sources": [
         "https://www.transportstyrelsen.se",
         "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
-        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"
+        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/skatter-och-avgifter/fordonsskatt/skattens-storlek/"
       ],
       "uniquePayloadScore": 82,
       "quality": {
@@ -85,7 +85,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-05-14",
+      "lastEvaluated": "2026-10-19",
       "notes": "pSEO med ADAC-data, garanti-sektion, fordonsskatt-tabell, Fahrzeugbrief-guide, CostTable och FAQ-schema. Fördjupat 2026-04-01. ADAC-källår 2025→2026 (2026-05-14).",
       "tags": [
         "marke",
@@ -101,7 +101,7 @@
       "sources": [
         "https://www.transportstyrelsen.se",
         "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
-        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"
+        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/skatter-och-avgifter/fordonsskatt/skattens-storlek/"
       ],
       "uniquePayloadScore": 82,
       "quality": {
@@ -109,7 +109,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-05-14",
+      "lastEvaluated": "2026-10-19",
       "notes": "pSEO med ADAC-data, garanti-sektion, fordonsskatt-tabell, Fahrzeugbrief-guide, CostTable och FAQ-schema. Fördjupat 2026-04-02. ADAC-källår 2025→2026 (2026-05-14).",
       "tags": [
         "marke",
@@ -125,7 +125,7 @@
       "sources": [
         "https://www.transportstyrelsen.se",
         "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
-        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"
+        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/skatter-och-avgifter/fordonsskatt/skattens-storlek/"
       ],
       "uniquePayloadScore": 82,
       "quality": {
@@ -133,7 +133,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-05-14",
+      "lastEvaluated": "2026-10-19",
       "notes": "pSEO med ADAC-data, garanti-sektion, fordonsskatt-tabell, Fahrzeugbrief-guide, CostTable och FAQ-schema. Fördjupat 2026-04-02. ADAC-källår 2025→2026 (2026-05-14).",
       "tags": [
         "marke",
@@ -149,7 +149,7 @@
       "sources": [
         "https://www.transportstyrelsen.se",
         "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
-        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"
+        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/skatter-och-avgifter/fordonsskatt/skattens-storlek/"
       ],
       "uniquePayloadScore": 82,
       "quality": {
@@ -157,7 +157,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-05-14",
+      "lastEvaluated": "2026-10-19",
       "notes": "pSEO med ADAC-data, garanti-sektion, fordonsskatt-tabell, Fahrzeugbrief-guide, CostTable och FAQ-schema. Fördjupat 2026-04-02. ADAC-källår 2025→2026 (2026-05-14).",
       "tags": [
         "marke",
@@ -196,7 +196,7 @@
         "https://www.transportstyrelsen.se",
         "https://www.skatteverket.se",
         "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
-        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"
+        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/skatter-och-avgifter/fordonsskatt/skattens-storlek/"
       ],
       "uniquePayloadScore": 85,
       "quality": {
@@ -204,7 +204,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-05-14",
+      "lastEvaluated": "2026-10-19",
       "notes": "pSEO med Tesla-specifik sektion (SoH, laddkontakt) + garanti, fordonsskatt, Fahrzeugbrief, CostTable och FAQ-schema. Fördjupat 2026-04-02. ADAC 2025→2026 + elbil-stat (40% färre pannor) tillagd 2026-05-14.",
       "tags": [
         "marke",
@@ -221,7 +221,7 @@
       "sources": [
         "https://www.transportstyrelsen.se",
         "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
-        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"
+        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/skatter-och-avgifter/fordonsskatt/skattens-storlek/"
       ],
       "uniquePayloadScore": 82,
       "quality": {
@@ -229,7 +229,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-05-14",
+      "lastEvaluated": "2026-10-19",
       "notes": "pSEO med ADAC-data + IMS-varning, garanti-sektion, fordonsskatt-tabell, Fahrzeugbrief-guide, CostTable och FAQ-schema. Fördjupat 2026-04-02. ADAC-källår 2025→2026 (2026-05-14).",
       "tags": [
         "marke",
@@ -274,7 +274,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-07-28",
+      "lastEvaluated": "2026-10-19",
       "tags": [
         "land",
         "husbil"
@@ -312,7 +312,7 @@
       "sources": [
         "https://www.transportstyrelsen.se",
         "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
-        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"
+        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/skatter-och-avgifter/fordonsskatt/skattens-storlek/"
       ],
       "uniquePayloadScore": 82,
       "quality": {
@@ -320,7 +320,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-04-01",
+      "lastEvaluated": "2026-10-19",
       "notes": "pSEO med Ducato-varning + Sprinter-alternativ, garanti-sektion, malus-info (feb 2025), CostTable och FAQ-schema. Fördjupat 2026-04-01.",
       "tags": [
         "marke",
@@ -336,7 +336,7 @@
       "sources": [
         "https://www.transportstyrelsen.se",
         "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
-        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"
+        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/skatter-och-avgifter/fordonsskatt/skattens-storlek/"
       ],
       "uniquePayloadScore": 80,
       "quality": {
@@ -344,7 +344,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-04-02",
+      "lastEvaluated": "2026-10-19",
       "notes": "pSEO med Ducato-varning, garanti (Erwin Hymer Group), malus-info, chassi-extra, CostTable och FAQ-schema. Fördjupat 2026-04-02.",
       "tags": [
         "marke",
@@ -360,7 +360,7 @@
       "sources": [
         "https://www.transportstyrelsen.se",
         "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
-        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"
+        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/skatter-och-avgifter/fordonsskatt/skattens-storlek/"
       ],
       "uniquePayloadScore": 81,
       "quality": {
@@ -368,7 +368,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-04-02",
+      "lastEvaluated": "2026-10-19",
       "notes": "pSEO med Ducato-varning + Lyseo/Sprinter, garanti, malus-info, chassi-extra, CostTable och FAQ-schema. Fördjupat 2026-04-02.",
       "tags": [
         "marke",
@@ -384,7 +384,7 @@
       "sources": [
         "https://www.transportstyrelsen.se",
         "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
-        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"
+        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/skatter-och-avgifter/fordonsskatt/skattens-storlek/"
       ],
       "uniquePayloadScore": 80,
       "quality": {
@@ -392,7 +392,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-04-02",
+      "lastEvaluated": "2026-10-19",
       "notes": "pSEO med Ducato-varning, garanti (10 år fukt), malus-info, chassi-extra, CostTable och FAQ-schema. Fördjupat 2026-04-02.",
       "tags": [
         "marke",
@@ -408,7 +408,7 @@
       "sources": [
         "https://www.transportstyrelsen.se",
         "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
-        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/"
+        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/skatter-och-avgifter/fordonsskatt/skattens-storlek/"
       ],
       "uniquePayloadScore": 80,
       "quality": {
@@ -416,7 +416,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-04-02",
+      "lastEvaluated": "2026-10-19",
       "notes": "pSEO med Ducato-varning, garanti (10 år fukt), malus-info, chassi-extra, CostTable och FAQ-schema. Fördjupat 2026-04-02.",
       "tags": [
         "marke",
@@ -438,7 +438,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-07-28",
+      "lastEvaluated": "2026-10-19",
       "tags": [
         "guide",
         "process"
@@ -459,7 +459,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-03-31",
+      "lastEvaluated": "2026-10-19",
       "tags": [
         "guide",
         "process"
@@ -504,7 +504,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-07-28",
+      "lastEvaluated": "2026-10-19",
       "tags": [
         "guide",
         "kostnad",
@@ -528,7 +528,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-05-13",
+      "lastEvaluated": "2026-10-19",
       "tags": [
         "guide",
         "köpprocess",
@@ -541,9 +541,8 @@
       "title": "Exportförsäkring i Tyskland – Ausfuhrkennzeichen för bilimport",
       "description": "Vad är en exportförsäkring? Kostnad, giltighetstid, var du tecknar och när du behöver Ausfuhrkennzeichen för att köra hem bilen från Tyskland.",
       "sources": [
-        "https://www.adac.de",
-        "https://www.tuev-nord.de",
-        "https://www.transportstyrelsen.se"
+        "https://www.transportstyrelsen.se",
+        "https://www.gesetze-im-internet.de/fzv_2023/__45.html"
       ],
       "uniquePayloadScore": 82,
       "quality": {
@@ -551,7 +550,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-04-04",
+      "lastEvaluated": "2026-10-19",
       "tags": [
         "guide",
         "försäkring",
@@ -570,7 +569,9 @@
         "https://www.riksdagen.se",
         "https://www.skatteverket.se",
         "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/skatter-och-avgifter/malus/",
-        "https://www.transportstyrelsen.se/sv/om-oss/pressrum/nyhetsarkiv/2025/nyare-husbilar-far-sankt-fordonsskatt/"
+        "https://www.transportstyrelsen.se/sv/om-oss/pressrum/nyhetsarkiv/2025/nyare-husbilar-far-sankt-fordonsskatt/",
+        "https://www.skatteverket.se/download/18.9567cda19bf6c00272596/1770015080315/Fordonsskattetabeller.pdf",
+        "https://www.transportstyrelsen.se/kommande-korkortsregler"
       ],
       "uniquePayloadScore": 88,
       "quality": {
@@ -578,7 +579,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-07-28",
+      "lastEvaluated": "2026-10-19",
       "tags": [
         "guide",
         "husbil",
@@ -593,7 +594,7 @@
       "description": "Realistisk tidslinje för bilimport från Tyskland till Sverige. Stegen du själv styr tar 2–6 veckor – plus väntetiden för ursprungskontrollen, som varierar.",
       "sources": [
         "https://www.transportstyrelsen.se",
-        "https://www.transportstyrelsen.se/fordonsagare/importera-fordon",
+        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/fordonsimport-och-ursprungskontroll/",
         "https://www.transportstyrelsen.se/sv/vagtrafik/e-tjanster-och-blanketter/e-tjanster-inom-vagtrafik/fordon/ursprungskontroll--arendestatus/"
       ],
       "uniquePayloadScore": 80,
@@ -602,7 +603,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-07-28",
+      "lastEvaluated": "2026-10-19",
       "notes": "Quality gate godkänd 2026-03-29. ~900 ord, konkreta tidsintervall och kostnader, FAQ-block. 2025→2026 datum-sweep 2026-05-13. Skyltavgift 130 kr → 198 kr (verifierat 2026-05-14).",
       "tags": [
         "guide",
@@ -625,7 +626,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-03-29",
+      "lastEvaluated": "2026-10-19",
       "notes": "Quality gate godkänd 2026-03-29. ~1000 ord, tre alternativ med kostnadstabeller, skattningar tydligt märkta.",
       "tags": [
         "guide",
@@ -640,7 +641,8 @@
       "sources": [
         "https://www.transportstyrelsen.se",
         "https://www.skatteverket.se",
-        "https://www.naturvardsverket.se"
+        "https://www.naturvardsverket.se",
+        "https://www.naturvardsverket.se/bidrag/elbilspremien/villkor-for-elbilspremien/"
       ],
       "uniquePayloadScore": 82,
       "quality": {
@@ -648,7 +650,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-05-14",
+      "lastEvaluated": "2026-10-19",
       "notes": "Quality gate godkänd 2026-03-29. ~1100 ord, SoH-förklaring, momsexempel, CCS2/CHAdeMO-info, tre myndighetsbelagda källor. ADAC 2026-data + Ioniq 5 ICCU-varning tillagd 2026-05-14.",
       "tags": [
         "guide",
@@ -661,7 +663,7 @@
       "title": "Besiktning av importerad husbil – Vad som gäller och vad det kostar",
       "description": "Allt om registreringsbesiktning av importerad husbil: fuktmätning, gaskontroll, körkortskrav och var du bokar. Kostar 3 000–5 000 kr.",
       "sources": [
-        "https://www.transportstyrelsen.se/sv/vagtrafik/Fordon/Importerade-fordon/registreringsbesiktning/",
+        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/fordonsimport-och-ursprungskontroll/import-fran-ett-eu-land/",
         "https://opus.se/besiktning/registreringsbesiktning"
       ],
       "uniquePayloadScore": 80,
@@ -670,7 +672,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-07-28",
+      "lastEvaluated": "2026-10-19",
       "notes": "Quality gate godkänd 2026-03-29. ~1000 ord, fukt/gas/körkortsvikt, kostnadstabell, Ducato-varning. ADAC 2025→2026: 49 → 27,9–39,1 per 1 000 (2026-05-14).",
       "tags": [
         "guide",
@@ -709,7 +711,7 @@
       "title": "Vanliga besiktningsfel vid bilimport – Så undviker du underkännande",
       "description": "De vanligaste orsakerna till att importerade bilar och husbilar underkänns vid registreringsbesiktning i Sverige – och hur du förbereder dig.",
       "sources": [
-        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/besiktning/",
+        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/fordonsbesiktning/besiktningsregler/",
         "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/fordonsimport-och-ursprungskontroll/import-fran-ett-eu-land/"
       ],
       "uniquePayloadScore": 80,
@@ -718,7 +720,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-03-29",
+      "lastEvaluated": "2026-10-19",
       "notes": "Quality gate godkänd 2026-03-29. ~950 ord, 8 felkategorier med åtgärder, bil+husbil-specifika fel, checklista, FAQ.",
       "tags": [
         "guide",
@@ -738,7 +740,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-03-14",
+      "lastEvaluated": "2026-10-19",
       "notes": "Interaktivt verktyg – hasSources=false är OK, verktyget är det unika värdet.",
       "tags": [
         "verktyg"
@@ -891,7 +893,7 @@
       "description": "Importförsäkring är ett tillfälligt trafikskydd för oregistrerade importerade fordon i Sverige. Kostnad ~1 500 kr för bil, ~2 500 kr för husbil. Så tecknar du den.",
       "sources": [
         "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/fordonsimport-och-ursprungskontroll/import-fran-ett-eu-land/",
-        "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/trafikskadelag-1975103_sfs-1975-103/"
+        "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/trafikskadelag-19751410_sfs-1975-1410/"
       ],
       "uniquePayloadScore": 78,
       "quality": {
@@ -899,7 +901,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-07-28",
+      "lastEvaluated": "2026-10-19",
       "notes": "Ny guide 2026-04-07. GSC: 17 exponeringar för 'importförsäkring bil' utan dedikerad sida. Quality gate godkänd 2026-04-07, score 78.",
       "tags": [
         "guide",
@@ -921,7 +923,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-04-16",
+      "lastEvaluated": "2026-10-19",
       "notes": "Ny guide 2026-04-16. GSC: position 6 på 'eeg intyg bil' utan dedikerad sida.",
       "tags": [
         "guide",
@@ -1082,7 +1084,7 @@
       "sources": [
         "https://www.if.se/privat/forsakringar/bilforsakring/importera-bil/forsakra-importerad-bil",
         "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/fordonsimport-och-ursprungskontroll/import-fran-ett-eu-land/",
-        "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/trafikskadelag-1975103_sfs-1975-103/"
+        "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/trafikskadelag-19751410_sfs-1975-1410/"
       ],
       "uniquePayloadScore": 0,
       "quality": {
@@ -1090,7 +1092,7 @@
         "isThin": false,
         "indexable": false
       },
-      "lastEvaluated": "2026-07-29",
+      "lastEvaluated": "2026-10-19",
       "notes": "NY 2026-07-29, ca 1052 ord. Quality gate ej körd – score 0 och indexable=false tills den är det. Skiljer EU-import från USA/Japan-import vad gäller premie. Huvudpoängen är att vagnskadegarantin saknas, inte premienivån.",
       "tags": [
         "guide",
@@ -1113,7 +1115,7 @@
         "isThin": true,
         "indexable": false
       },
-      "lastEvaluated": "2026-07-29",
+      "lastEvaluated": "2026-10-19",
       "notes": "NY 2026-07-29. Tunn med 3 poster – ska växa i takt med att Visualping larmar. Sätt indexable=true först när loggen har substans. Data i data/regulation-changes.json.",
       "tags": [
         "logg",

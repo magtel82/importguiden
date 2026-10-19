@@ -2,6 +2,7 @@
 
 import importCostsData from "@/datasets/import-costs.json";
 import { ExternalLink } from "lucide-react";
+import { formatDateSv } from "@/lib/date";
 
 interface CostEntry {
   id: string;
@@ -40,14 +41,6 @@ function formatValidFrom(isoDate: string): string {
   return `${SWEDISH_MONTHS[parseInt(month) - 1]} ${year}`;
 }
 
-function formatVerifiedDate(isoDate: string): string {
-  const [year, month, day] = isoDate.split("-");
-  const monthNames = [
-    "januari", "februari", "mars", "april", "maj", "juni",
-    "juli", "augusti", "september", "oktober", "november", "december",
-  ];
-  return `${parseInt(day)} ${monthNames[parseInt(month) - 1]} ${year}`;
-}
 
 function formatAmount(entry: CostEntry): string {
   if (entry.isRange && entry.amountMin !== undefined && entry.amountMax !== undefined) {
@@ -201,7 +194,7 @@ export function CostTable({
         </table>
       </div>
       <p className="text-xs text-gray-500 mt-3">
-        Senast verifierad: {formatVerifiedDate(importCostsData._meta.lastVerified)}.{" "}
+        Senast verifierad: {formatDateSv(importCostsData._meta.lastVerified)}.{" "}
         Priserna är uppskattningar och kan variera. Kontrollera alltid aktuella
         belopp hos respektive myndighet.
       </p>

@@ -15,13 +15,29 @@ import { BrandGrid } from "@/components/BrandGrid";
 import { TableOfContents } from "@/components/TableOfContents";
 import { extractHeadings } from "@/lib/headings";
 import { CostTable } from "@/components/CostTable";
+import { calculateMalus, type FuelType } from "@/lib/malus-calculator";
+import { formatDateSv } from "@/lib/date";
+import { UpcomingChangeNotice } from "@/components/UpcomingChangeNotice";
 
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
 
 // === Brand-specific data: Garanti, Fordonsskatt, FAQ ===
 
 interface GarantiItem { title: string; text: string; list?: string[] }
-interface FordonsskattRow { model: string; co2: string; fuel: string; malus: string; after: string }
+interface FordonsskattRow { model: string; co2: number; fuel: FuelType }
+
+const FUEL_LABEL: Record<FuelType, string> = {
+  bensin: "Bensin",
+  diesel: "Diesel",
+  elbil: "El",
+  "laddhybrid-bensin": "Laddhybrid (bensin)",
+  "laddhybrid-diesel": "Laddhybrid (diesel)",
+};
+
+/** Ny bil (malus år 1–3) och samma bil från år 4, enligt lib/malus-calculator. */
+function taxFor(row: FordonsskattRow) {
+  return calculateMalus(row.co2, row.fuel, 0, "personbil");
+}
 interface FaqItem { question: string; answer: string }
 
 const BRAND_GARANTI: Record<string, { intro: string; items: GarantiItem[]; source: string }> = {
@@ -90,52 +106,52 @@ const BRAND_GARANTI: Record<string, { intro: string; items: GarantiItem[]; sourc
 
 const BRAND_FORDONSSKATT: Record<string, { intro?: string; rows: FordonsskattRow[] }> = {
   bmw: { rows: [
-    { model: "320i (G20)", co2: "ca 142", fuel: "Bensin", malus: "ca 7 534 kr/år", after: "360 kr/år" },
-    { model: "330e (G20)", co2: "ca 21", fuel: "Bensin/El (PHEV)", malus: "360 kr/år", after: "360 kr/år" },
-    { model: "520d (G30)", co2: "ca 127", fuel: "Diesel", malus: "ca 8 917 kr/år", after: "ca 2 467 kr/år" },
-    { model: "530e (G60)", co2: "ca 21", fuel: "Bensin/El (PHEV)", malus: "360 kr/år", after: "360 kr/år" },
-    { model: "X3 xDrive30e", co2: "ca 27", fuel: "Bensin/El (PHEV)", malus: "360 kr/år", after: "360 kr/år" },
-    { model: "X5 xDrive40i", co2: "ca 195", fuel: "Bensin", malus: "ca 16 590 kr/år", after: "360 kr/år" },
-    { model: "i4 eDrive40", co2: "0", fuel: "El", malus: "360 kr/år", after: "360 kr/år" },
-    { model: "iX xDrive40", co2: "0", fuel: "El", malus: "360 kr/år", after: "360 kr/år" },
+    { model: "320i (G20)", co2: 142, fuel: "bensin" },
+    { model: "330e (G20)", co2: 21, fuel: "laddhybrid-bensin" },
+    { model: "520d (G30)", co2: 127, fuel: "diesel" },
+    { model: "530e (G60)", co2: 21, fuel: "laddhybrid-bensin" },
+    { model: "X3 xDrive30e", co2: 27, fuel: "laddhybrid-bensin" },
+    { model: "X5 xDrive40i", co2: 195, fuel: "bensin" },
+    { model: "i4 eDrive40", co2: 0, fuel: "elbil" },
+    { model: "iX xDrive40", co2: 0, fuel: "elbil" },
   ]},
   mercedes: { rows: [
-    { model: "A 200", co2: "ca 130", fuel: "Bensin", malus: "ca 5 486 kr/år", after: "360 kr/år" },
-    { model: "C 200 (W206)", co2: "ca 150", fuel: "Bensin", malus: "ca 8 901 kr/år", after: "360 kr/år" },
-    { model: "C 300 de", co2: "ca 25", fuel: "Diesel/El (PHEV)", malus: "360 kr/år", after: "360 kr/år" },
-    { model: "E 220 d (W214)", co2: "ca 130", fuel: "Diesel", malus: "ca 7 826 kr/år", after: "ca 2 327 kr/år" },
-    { model: "E 300 e", co2: "ca 20", fuel: "Bensin/El (PHEV)", malus: "360 kr/år", after: "360 kr/år" },
-    { model: "EQA 250", co2: "0", fuel: "El", malus: "360 kr/år", after: "360 kr/år" },
-    { model: "EQC 400", co2: "0", fuel: "El", malus: "360 kr/år", after: "360 kr/år" },
+    { model: "A 200", co2: 130, fuel: "bensin" },
+    { model: "C 200 (W206)", co2: 150, fuel: "bensin" },
+    { model: "C 300 de", co2: 25, fuel: "laddhybrid-diesel" },
+    { model: "E 220 d (W214)", co2: 130, fuel: "diesel" },
+    { model: "E 300 e", co2: 20, fuel: "laddhybrid-bensin" },
+    { model: "EQA 250", co2: 0, fuel: "elbil" },
+    { model: "EQC 400", co2: 0, fuel: "elbil" },
   ]},
   volkswagen: { rows: [
-    { model: "Golf 8 1.5 TSI", co2: "ca 125", fuel: "Bensin", malus: "ca 4 632 kr/år", after: "360 kr/år" },
-    { model: "Golf GTE", co2: "ca 20", fuel: "Bensin/El (PHEV)", malus: "360 kr/år", after: "360 kr/år" },
-    { model: "Tiguan 2.0 TSI", co2: "ca 165", fuel: "Bensin", malus: "ca 11 462 kr/år", after: "360 kr/år" },
-    { model: "Tiguan eHybrid", co2: "ca 25", fuel: "Bensin/El (PHEV)", malus: "360 kr/år", after: "360 kr/år" },
-    { model: "ID.3", co2: "0", fuel: "El", malus: "360 kr/år", after: "360 kr/år" },
-    { model: "ID.4", co2: "0", fuel: "El", malus: "360 kr/år", after: "360 kr/år" },
+    { model: "Golf 8 1.5 TSI", co2: 125, fuel: "bensin" },
+    { model: "Golf GTE", co2: 20, fuel: "laddhybrid-bensin" },
+    { model: "Tiguan 2.0 TSI", co2: 165, fuel: "bensin" },
+    { model: "Tiguan eHybrid", co2: 25, fuel: "laddhybrid-bensin" },
+    { model: "ID.3", co2: 0, fuel: "elbil" },
+    { model: "ID.4", co2: 0, fuel: "elbil" },
   ]},
   audi: { rows: [
-    { model: "A3 35 TFSI", co2: "ca 130", fuel: "Bensin", malus: "ca 5 486 kr/år", after: "360 kr/år" },
-    { model: "A4 40 TFSI", co2: "ca 145", fuel: "Bensin", malus: "ca 8 047 kr/år", after: "360 kr/år" },
-    { model: "A6 50 TFSIe", co2: "ca 22", fuel: "Bensin/El (PHEV)", malus: "360 kr/år", after: "360 kr/år" },
-    { model: "Q5 55 TFSIe", co2: "ca 28", fuel: "Bensin/El (PHEV)", malus: "360 kr/år", after: "360 kr/år" },
-    { model: "Q4 e-tron", co2: "0", fuel: "El", malus: "360 kr/år", after: "360 kr/år" },
-    { model: "e-tron GT", co2: "0", fuel: "El", malus: "360 kr/år", after: "360 kr/år" },
+    { model: "A3 35 TFSI", co2: 130, fuel: "bensin" },
+    { model: "A4 40 TFSI", co2: 145, fuel: "bensin" },
+    { model: "A6 50 TFSIe", co2: 22, fuel: "laddhybrid-bensin" },
+    { model: "Q5 55 TFSIe", co2: 28, fuel: "laddhybrid-bensin" },
+    { model: "Q4 e-tron", co2: 0, fuel: "elbil" },
+    { model: "e-tron GT", co2: 0, fuel: "elbil" },
   ]},
   porsche: { rows: [
-    { model: "Cayenne E-Hybrid", co2: "ca 30", fuel: "Bensin/El (PHEV)", malus: "360 kr/år", after: "360 kr/år" },
-    { model: "Cayenne S", co2: "ca 220", fuel: "Bensin", malus: "ca 20 860 kr/år", after: "360 kr/år" },
-    { model: "Macan 2.0T", co2: "ca 195", fuel: "Bensin", malus: "ca 16 590 kr/år", after: "360 kr/år" },
-    { model: "911 Carrera", co2: "ca 210", fuel: "Bensin", malus: "ca 19 153 kr/år", after: "360 kr/år" },
-    { model: "Taycan 4S", co2: "0", fuel: "El", malus: "360 kr/år", after: "360 kr/år" },
+    { model: "Cayenne E-Hybrid", co2: 30, fuel: "laddhybrid-bensin" },
+    { model: "Cayenne S", co2: 220, fuel: "bensin" },
+    { model: "Macan 2.0T", co2: 195, fuel: "bensin" },
+    { model: "911 Carrera", co2: 210, fuel: "bensin" },
+    { model: "Taycan 4S", co2: 0, fuel: "elbil" },
   ]},
   tesla: { intro: "Alla Tesla-modeller är helt eldrivna och betalar bara grundbelopp 360 kr/år i fordonsskatt — ingen malus oavsett modell.", rows: [
-    { model: "Model 3", co2: "0", fuel: "El", malus: "360 kr/år", after: "360 kr/år" },
-    { model: "Model Y", co2: "0", fuel: "El", malus: "360 kr/år", after: "360 kr/år" },
-    { model: "Model S", co2: "0", fuel: "El", malus: "360 kr/år", after: "360 kr/år" },
-    { model: "Model X", co2: "0", fuel: "El", malus: "360 kr/år", after: "360 kr/år" },
+    { model: "Model 3", co2: 0, fuel: "elbil" },
+    { model: "Model Y", co2: 0, fuel: "elbil" },
+    { model: "Model S", co2: 0, fuel: "elbil" },
+    { model: "Model X", co2: 0, fuel: "elbil" },
   ]},
 };
 
@@ -147,7 +163,7 @@ const BRAND_FAQ: Record<string, FaqItem[]> = {
   ],
   mercedes: [
     { question: "Gäller Mercedes-garanti i Sverige vid import?", answer: "Ja, Mercedes-Benz har internationell EU-garanti (2 år utan milbegränsning). Kontakta en auktoriserad Mercedes-verkstad i Sverige för att registrera bilen. Mercedes har ett av de bredaste verkstadsnätverken i Sverige." },
-    { question: "Vilka Mercedes-modeller är bäst att importera?", answer: "C-klass och E-klass har bäst ADAC-betyg och stor prisskillnad mot Sverige. PHEV-varianter (C 300 de, E 300 e) ger dessutom minimalt malus-tillägg." },
+    { question: "Vilka Mercedes-modeller är bäst att importera?", answer: "C-klass och E-klass har bäst ADAC-betyg och stor prisskillnad mot Sverige. Laddhybriderna (C 300 de, E 300 e) ligger under malusgränsen på 75 g/km. Dieselhybriden C 300 de betalar dock dieselns miljö- och bränsletillägg, cirka 950 kr/år." },
     { question: "Är Mercedes dyrare att serva i Sverige som importbil?", answer: "Nej, servicekostnaden är densamma som för svensksålda Mercedes. Garanti och service hanteras av samma auktoriserade verkstäder. Kontrollera dock att eventuella tyska serviceavtal överförs." },
   ],
   volkswagen: [
@@ -364,9 +380,10 @@ export default async function ImporteraBilPage({ params }: Props) {
               <p className="not-prose text-gray-500 text-sm">
                 Uppdaterad:{" "}
                 <time dateTime={frontmatter.dateUpdated}>
-                  {frontmatter.dateUpdated}
+                  {formatDateSv(frontmatter.dateUpdated)}
                 </time>
               </p>
+              <UpcomingChangeNotice path={`/importera-bil/${slug}`} />
               <TableOfContents headings={headings} />
               {content}
             </article>
@@ -387,10 +404,12 @@ export default async function ImporteraBilPage({ params }: Props) {
               </h1>
               {updatedDate && (
                 <p className="text-gray-500 text-sm">
-                  Uppdaterad: <time dateTime={updatedDate}>{updatedDate}</time>
+                  Uppdaterad: <time dateTime={updatedDate}>{formatDateSv(updatedDate)}</time>
                 </p>
               )}
             </header>
+
+          <UpcomingChangeNotice path={`/importera-bil/${slug}`} />
 
             <p className="text-gray-700 mb-6 text-lg">
               {country.name} är {country.primaryMarket ? "den största marknaden" : "en populär marknad"} för
@@ -412,7 +431,7 @@ export default async function ImporteraBilPage({ params }: Props) {
                 {[
                   { title: "Hitta bilen", desc: `Sök på mobile.de, AutoScout24 eller liknande plattformar. Kontrollera att bilen inte är märkt som exportsåld.` },
                   { title: "Besiktiga och köp bilen", desc: "Resa ner för besiktning rekommenderas alltid. Kontrollera servicehistorik, COC-intyg och att bilen är fri från belastningar." },
-                  { title: "Exportregistrering och hemtransport", desc: "Säljaren avregistrerar bilen. Du kan köra hem på röda exportskyltar eller anlita transport." },
+                  { title: "Exportregistrering och hemtransport", desc: "Säljaren avregistrerar bilen. Du kan köra hem på tyska exportskyltar eller anlita transport." },
                   { title: "Ursprungskontroll", desc: "Beställ ursprungskontroll hos Transportstyrelsen (1 240 kr, 2026)." },
                   { title: "Registreringsbesiktning", desc: "Boka registreringsbesiktning hos godkänd station. Ca 1 700 kr för personbil." },
                   { title: "Registrering i Sverige", desc: "När besiktningen är godkänd registrerar Transportstyrelsen bilen och du får svenska skyltar." },
@@ -494,6 +513,8 @@ export default async function ImporteraBilPage({ params }: Props) {
                 Importera {brand!.name} från Tyskland – Guide {new Date().getFullYear()}
               </h1>
             </header>
+
+          <UpcomingChangeNotice path={`/importera-bil/${slug}`} />
             <p className="text-gray-700 mb-6">
               Att importera en {brand!.name} privat från Tyskland kan vara ett smart sätt att
               hitta rätt bil till ett bättre pris.
@@ -539,13 +560,15 @@ export default async function ImporteraBilPage({ params }: Props) {
             <p className="text-gray-500 text-sm">
               {updatedDate && (
                 <>
-                  Uppdaterad: <time dateTime={updatedDate}>{updatedDate}</time>
+                  Uppdaterad: <time dateTime={updatedDate}>{formatDateSv(updatedDate)}</time>
                   {" "}·{" "}
                 </>
               )}
               Källa: {importData.adacSource}
             </p>
           </header>
+
+          <UpcomingChangeNotice path={`/importera-bil/${slug}`} />
 
           {/* Intro */}
           <div className="mb-8 space-y-4">
@@ -693,29 +716,41 @@ export default async function ImporteraBilPage({ params }: Props) {
                       <th className="text-left p-3 font-semibold text-gray-700">Modell</th>
                       <th className="text-left p-3 font-semibold text-gray-700">CO₂ (g/km)</th>
                       <th className="text-left p-3 font-semibold text-gray-700">Bränsle</th>
-                      <th className="text-left p-3 font-semibold text-gray-700">Malus år 1–3</th>
-                      <th className="text-left p-3 font-semibold text-gray-700">Efter 3 år</th>
+                      <th className="text-left p-3 font-semibold text-gray-700">År 1–3</th>
+                      <th className="text-left p-3 font-semibold text-gray-700">Från år 4</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-100">
-                    {BRAND_FORDONSSKATT[brand!.slug].rows.map((row, i) => (
-                      <tr key={i}>
-                        <td className="p-3 font-medium text-gray-900">{row.model}</td>
-                        <td className="p-3 text-gray-700">{row.co2}</td>
-                        <td className="p-3 text-gray-700">{row.fuel}</td>
-                        <td className="p-3 text-gray-700">{row.malus}</td>
-                        <td className="p-3 text-gray-700">{row.after}</td>
-                      </tr>
-                    ))}
+                    {BRAND_FORDONSSKATT[brand!.slug].rows.map((row) => {
+                      const tax = taxFor(row);
+                      return (
+                        <tr key={row.model}>
+                          <td className="p-3 font-medium text-gray-900">{row.model}</td>
+                          <td className="p-3 text-gray-700 tabular-nums">{row.co2 > 0 ? `ca ${row.co2}` : "0"}</td>
+                          <td className="p-3 text-gray-700">{FUEL_LABEL[row.fuel]}</td>
+                          <td className="p-3 text-gray-700 tabular-nums whitespace-nowrap">{formatSEK(tax.annualTax)}/år</td>
+                          <td className="p-3 text-gray-700 tabular-nums whitespace-nowrap">{formatSEK(tax.annualTaxAfterMalus)}/år</td>
+                        </tr>
+                      );
+                    })}
                   </tbody>
                 </table>
               </div>
               <p className="text-xs text-gray-400 mt-2">
-                Beräkning baserad på regler gällande fr.o.m. 1 juni 2022. Grundbelopp 360 kr + koldioxidbelopp enligt Transportstyrelsens malus-regler. CO₂-värden är typiska WLTP-uppskattningar — kontrollera alltid det exakta värdet i bilens COC-intyg.{" "}
-                Källa:{" "}
-                <a href="https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-600">
-                  Transportstyrelsen
+                Beräknat enligt Skatteverkets fordonsskattetabeller för bilar som blir skattepliktiga i Sverige 1 juni 2022 eller senare: grundbelopp 360 kr; år 1–3 107 kr per gram över 75 g/km och 132 kr per gram över 125 g/km; från år 4 22 kr per gram över 111 g/km. Dieselbilar betalar dessutom miljötillägg 250 kr och bränsletillägg 13,52 kr × koldioxidvärdet. CO₂-värdena är typiska WLTP-värden – det exakta värdet står i bilens COC-intyg. Laddhybrider som registreras från 2026 får ett högre beräknat CO₂-värde (ny viktningsfaktor) och kan därför hamna över malusgränsen.{" "}
+                Källor:{" "}
+                <a href="https://www.transportstyrelsen.se/sv/vagtrafik/fordon/skatter-och-avgifter/fordonsskatt/skattens-storlek/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-600">
+                  Transportstyrelsen – Skattens storlek
                 </a>
+                ,{" "}
+                <a href="https://www.transportstyrelsen.se/sv/vagtrafik/fordon/skatter-och-avgifter/malus/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-600">
+                  Malus
+                </a>
+                ,{" "}
+                <a href="https://www.transportstyrelsen.se/sv/om-oss/pressrum/nyhetsarkiv/2026/forandrad-viktningsfaktor-for-nya-laddhybrider/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-600">
+                  Ny viktningsfaktor för laddhybrider
+                </a>
+                .
               </p>
             </section>
           )}

@@ -1,16 +1,127 @@
 {
   "_meta": {
     "version": "1.0.0",
-    "description": "Logg över regel- och avgiftsändringar som påverkar fordonsimport, samt kontroller där inget ändrats. Fylls på när Visualping-bevakningen av myndighetssidor larmar, eller vid egen verifiering.",
-    "lastReviewed": "2026-07-29",
+    "description": "Logg över regel- och avgiftsändringar som påverkar fordonsimport, kontroller där inget ändrats och rättelser av egna fel. Fylls på när bevakningen av myndighetssidor larmar, eller vid egen verifiering.",
+    "lastReviewed": "2026-10-19",
     "monitoredSources": [
-      "Transportstyrelsen – Import från ett EU-land",
       "Transportstyrelsen – Fordonsimport och ursprungskontroll",
-      "Skatteverket – Moms vid import av bil",
-      "Tullverket – Köpa eller sälja bil över Sveriges gräns"
+      "Transportstyrelsen – Import från ett EU-land",
+      "Transportstyrelsen – Skattens storlek och malus",
+      "Transportstyrelsen – Kommande körkortsregler",
+      "Skatteverket – Inköp av nytt transportmedel från annat EU-land",
+      "Skatteverket – Fordonsskattetabeller",
+      "Naturvårdsverket – Villkor för elbilspremien",
+      "Regeringen – Statens budget"
     ]
   },
   "changes": [
+    {
+      "date": "2026-10-19",
+      "type": "rattelse",
+      "title": "Fordonsskatten var fel i märkessidornas tabeller och i importkalkylatorn",
+      "summary": "Beloppen efter malusperioden saknade koldioxidbeloppet (22 kr per gram över 111 g/km), flera malusbelopp var felräknade och husbilar visades som 360 kr per år. Tabellerna och kalkylatorn räknar nu med samma funktion, byggd på Skatteverkets fordonsskattetabeller. Exempel: en Volkswagen Tiguan 2.0 TSI (ca 165 g/km) betalar cirka 10 990 kr per år under malusperioden och cirka 1 550 kr därefter – inte 360 kr som sidan tidigare angav.",
+      "source": "Skatteverket – Fordonsskattetabeller (uppdaterade 2026-02-01)",
+      "sourceUrl": "https://www.skatteverket.se/download/18.9567cda19bf6c00272596/1770015080315/Fordonsskattetabeller.pdf",
+      "affectedPages": [
+        "/importera-bil/bmw",
+        "/importera-bil/mercedes",
+        "/importera-bil/volkswagen",
+        "/importera-bil/audi",
+        "/importera-bil/porsche",
+        "/importera-bil/tesla",
+        "/kalkylator/bilimport"
+      ]
+    },
+    {
+      "date": "2026-10-19",
+      "type": "rattelse",
+      "title": "Husbilens fordonsskatt beräknas på koldioxid, inte vikt",
+      "summary": "Guiden angav att husbilar beskattas efter vikt. För husbilar som blivit skattepliktiga efter 2010 och har ett koldioxidvärde är skatten koldioxidbaserad: 360 kr plus 22 kr per gram över 111 g/km, och för diesel dessutom miljö- och bränsletillägg. En dieselhusbil med 200 g/km betalar cirka 5 270 kr per år. Även exemplet på den tidigare malusen var överdrivet och är omräknat.",
+      "source": "Skatteverket – Fordonsskattetabeller, tabell 63 och 72",
+      "sourceUrl": "https://www.skatteverket.se/download/18.9567cda19bf6c00272596/1770015080315/Fordonsskattetabeller.pdf",
+      "affectedPages": [
+        "/guider/fordonsskatt-husbil-bonus-malus",
+        "/importera-husbil/hymer",
+        "/importera-husbil/dethleffs",
+        "/importera-husbil/burstner",
+        "/importera-husbil/knaus",
+        "/importera-husbil/hobby"
+      ]
+    },
+    {
+      "date": "2026-10-19",
+      "type": "rattelse",
+      "title": "Tyska exportskyltar och deras giltighet",
+      "summary": "Exportskyltar (Ausfuhrkennzeichen) beskrevs som röda. De är vita med ett rött fält för utgångsdatum – röda skyltar är handlarskyltar. Giltigheten angavs som 5–30 dagar; enligt tysk lag följer den exportförsäkringens löptid och får vara högst ett år.",
+      "source": "Fahrzeug-Zulassungsverordnung § 45",
+      "sourceUrl": "https://www.gesetze-im-internet.de/fzv_2023/__45.html",
+      "affectedPages": [
+        "/guider/exportforsakring",
+        "/importera-bil/tyskland",
+        "/importera-husbil/tyskland",
+        "/guider/transportera-bil-fran-tyskland",
+        "/guider/hur-lang-tid-tar-bilimport"
+      ]
+    },
+    {
+      "date": "2026-10-19",
+      "type": "rattelse",
+      "title": "Trafikskadelagens beteckning och inaktuella källänkar",
+      "summary": "Trafikskadelagen hänvisades till som (1975:103); rätt beteckning är SFS 1975:1410. Transportstyrelsen och Skatteverket har flyttat flera sidor, och källänkar som ledde till sidor som inte längre finns är utbytta mot de aktuella adresserna.",
+      "source": "Riksdagen – Trafikskadelag (1975:1410)",
+      "sourceUrl": "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/trafikskadelag-19751410_sfs-1975-1410/",
+      "affectedPages": [
+        "/guider/importforsakring",
+        "/guider/forsakra-importerad-bil"
+      ]
+    },
+    {
+      "date": "2026-10-19",
+      "type": "verifiering",
+      "title": "Kommande körkortsregler – husbilar omfattas inte än",
+      "summary": "Från 26 november 2027 får den som haft B-körkort i minst två år köra bilar upp till 4 250 kg som drivs med alternativa drivmedel. Husbilar är uttryckligen undantagna. EU-direktivet tillåter att B-körkort utökas för husbilar upp till 4 250 kg efter utbildning eller prov, men Sverige har inte beslutat om det. Tills vidare gäller 3 500 kg.",
+      "source": "Transportstyrelsen – Kommande körkortsregler",
+      "sourceUrl": "https://www.transportstyrelsen.se/kommande-korkortsregler",
+      "affectedPages": [
+        "/guider/fordonsskatt-husbil-bonus-malus",
+        "/importera-husbil/tyskland"
+      ]
+    },
+    {
+      "date": "2026-10-19",
+      "type": "oforandrad",
+      "title": "Elbilspremien oförändrad – 46 800 kr",
+      "summary": "Belopp (46 800 kr för ansökningar till och med 30 juni 2028, därefter 32 400 kr), starttillägg, inkomstgränser och prisintervallet 64 800–450 000 kr stämmer med Naturvårdsverkets villkor. Inget tyder på att medlen tagit slut.",
+      "source": "Naturvårdsverket – Villkor för elbilspremien",
+      "sourceUrl": "https://www.naturvardsverket.se/bidrag/elbilspremien/villkor-for-elbilspremien/",
+      "affectedPages": [
+        "/guider/elbilspremie-importerad-bil",
+        "/guider/importera-elbil"
+      ]
+    },
+    {
+      "date": "2026-10-19",
+      "type": "oforandrad",
+      "title": "Moms vid köp av nytt fordon oförändrad",
+      "summary": "Ett fordon räknas som nytt om det köps inom sex månader från första ibruktagande eller har körts högst 6 000 km. Redovisning på blankett SKV 5282 senast 35 dagar efter köpet.",
+      "source": "Skatteverket – Inköp av nytt transportmedel från ett annat EU-land",
+      "sourceUrl": "https://skatteverket.se/foretag/moms/sarskildamomsregler/handelmedandralander/inkopavnytttransportmedelfranettannateuland.4.361dc8c15312eff6fd1209a.html",
+      "affectedPages": [
+        "/guider/moms-vid-bilimport"
+      ]
+    },
+    {
+      "date": "2026-10-19",
+      "type": "oforandrad",
+      "title": "Ursprungskontrollens avgift oförändrad – 1 240 kr",
+      "summary": "Avgiften är oförändrad. Ett godkännande gäller i fem år. Transportstyrelsen anger fortfarande ingen fast handläggningstid utan publicerar aktuellt ködatum i e-tjänsten för ärendestatus.",
+      "source": "Transportstyrelsen – Avgifter för fordonsregistrering",
+      "sourceUrl": "https://www.transportstyrelsen.se/sv/om-oss/avgifter/avgifter-inom-vagtrafik/avgifter-for-tillstands--och-andra-provningar/fordonsregistrering/",
+      "affectedPages": [
+        "/guider/ursprungskontroll",
+        "/kalkylator/bilimport"
+      ]
+    },
     {
       "date": "2026-07-29",
       "type": "verifiering",
@@ -18,7 +129,10 @@
       "summary": "Naturvårdsverket bekräftade i skriftligt svar att elbilspremien enligt förordning (2025:1574) gäller lika för privatimporterade elbilar som för bilar köpta av svensk återförsäljare. Avgörande är att bilen är registrerad i svenska vägtrafikregistret på den som söker.",
       "source": "Naturvårdsverket, e-postsvar ärende NV202635943, 2026-05-13",
       "sourceUrl": "https://www.naturvardsverket.se/bidrag/elbilspremien/villkor-for-elbilspremien/",
-      "affectedPages": ["/guider/elbilspremie-importerad-bil", "/guider/importera-elbil"]
+      "affectedPages": [
+        "/guider/elbilspremie-importerad-bil",
+        "/guider/importera-elbil"
+      ]
     },
     {
       "date": "2026-07-28",
@@ -27,7 +141,10 @@
       "summary": "Avgiften för ursprungskontroll kontrollerades mot Transportstyrelsens prislista för fordonsregistrering och är oförändrad sedan 2025. Transportstyrelsen anger fortfarande ingen fast handläggningstid – aktuellt ködatum publiceras löpande i e-tjänsten för ärendestatus.",
       "source": "Transportstyrelsen – Avgifter för fordonsregistrering",
       "sourceUrl": "https://www.transportstyrelsen.se/sv/om-oss/avgifter/avgifter-inom-vagtrafik/avgifter-for-tillstands--och-andra-provningar/fordonsregistrering/",
-      "affectedPages": ["/guider/ursprungskontroll", "/kalkylator/bilimport"]
+      "affectedPages": [
+        "/guider/ursprungskontroll",
+        "/kalkylator/bilimport"
+      ]
     },
     {
       "date": "2025-02-01",
@@ -35,12 +152,42 @@
       "title": "Malus avskaffad för husbilar",
       "summary": "Den förhöjda fordonsskatten (malus) togs bort för husbilar. Importerade husbilar träffas inte längre av miljöbilsavgift, vilket sänker den löpande kostnaden påtagligt jämfört med tidigare år.",
       "source": "Skatteverket och Transportstyrelsen – fordonsskatt för husbil",
-      "sourceUrl": "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/fordonsskatt/",
+      "sourceUrl": "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/skatter-och-avgifter/fordonsskatt/skattens-storlek/",
       "affectedPages": [
         "/guider/fordonsskatt-husbil-bonus-malus",
         "/importera-husbil/tyskland",
         "/kalkylator/bilimport"
       ]
+    }
+  ],
+  "upcoming": [
+    {
+      "id": "budget-2027",
+      "expected": "2026-11-12",
+      "title": "Budgetpropositionen för 2027",
+      "summary": "Regeringen ska lämna budgetpropositionen för 2027 till riksdagen senast den 12 november 2026. Den kan innehålla ändringar i fordonsskatt, malus eller elbilspremien. Uppgifterna här gäller de regler som är beslutade i dag. Vi går igenom propositionen när den har publicerats och redovisar eventuella ändringar i loggen.",
+      "source": "Regeringen – Statens budget",
+      "sourceUrl": "https://www.regeringen.se/sveriges-regering/finansdepartementet/statens-budget/",
+      "affectedPages": [
+        "/guider/fordonsskatt-husbil-bonus-malus",
+        "/guider/elbilspremie-importerad-bil",
+        "/guider/importera-elbil",
+        "/kalkylator/bilimport",
+        "/importera-bil/tyskland",
+        "/importera-husbil/tyskland",
+        "/importera-bil/bmw",
+        "/importera-bil/mercedes",
+        "/importera-bil/volkswagen",
+        "/importera-bil/audi",
+        "/importera-bil/porsche",
+        "/importera-bil/tesla",
+        "/importera-husbil/hymer",
+        "/importera-husbil/dethleffs",
+        "/importera-husbil/burstner",
+        "/importera-husbil/knaus",
+        "/importera-husbil/hobby"
+      ],
+      "short": "Budgeten kan ändra fordonsskatt, malus eller elbilspremien. Sidan visar de regler som gäller i dag – vi uppdaterar den om något ändras."
     }
   ]
 }
