@@ -50,7 +50,7 @@
       "id": "importera-bil-kostnad",
       "path": "/importera-bil/kostnad",
       "title": "Importera bil från Tyskland – kostnad {år}",
-      "description": "Ursprungskontroll 1 240 kr, besiktning ca 1 700 kr, försäkring och skyltar: ca 4 638 kr i fasta avgifter. Plus transport – och moms om bilen räknas som ny.",
+      "description": "Ursprungskontroll 1 240 kr, besiktning ca 1 700 kr, försäkring och skyltar: ca 3 938 kr i fasta avgifter. Plus transport – och moms om bilen räknas som ny.",
       "sources": [
         "https://www.transportstyrelsen.se",
         "https://www.skatteverket.se",
@@ -62,7 +62,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-07-30",
+      "lastEvaluated": "2026-10-19",
       "tags": [
         "kostnad",
         "bil"
@@ -481,7 +481,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-07-28",
+      "lastEvaluated": "2026-10-19",
       "notes": "CTR-optimerad title/desc 2026-05-13 för GSC-frasen 'ursprungskontroll status' (621 exp, 1,0% CTR).",
       "tags": [
         "guide",
@@ -514,8 +514,8 @@
     {
       "id": "guider-kopa-bil-mobile-de-autoscout24",
       "path": "/guider/kopa-bil-mobile-de-autoscout24",
-      "title": "Köpa bil på mobile.de – Guide för svenska köpare {år}",
-      "description": "Så använder du mobile.de och AutoScout24 som svensk köpare. Tyska bilbegrepp översatta, fallgropar att undvika och säker betalning från Sverige.",
+      "title": "mobile.de på svenska – guide för svenska bilköpare {år}",
+      "description": "Så läser du mobile.de på svenska: översätt sidan, förstå tyska annonstermer som Unfallfrei, Scheckheftgepflegt och MwSt. ausweisbar, och undvik fallgroparna.",
       "sources": [
         "https://www.mobile.de",
         "https://www.autoscout24.de",
@@ -538,8 +538,8 @@
     {
       "id": "guider-exportforsakring",
       "path": "/guider/exportforsakring",
-      "title": "Exportförsäkring i Tyskland – Ausfuhrkennzeichen för bilimport",
-      "description": "Vad är en exportförsäkring? Kostnad, giltighetstid, var du tecknar och när du behöver Ausfuhrkennzeichen för att köra hem bilen från Tyskland.",
+      "title": "Exportskyltar och exportförsäkring i Tyskland",
+      "description": "Tyska exportskyltar (Ausfuhrkennzeichen): hur de ser ut, hur länge de gäller och hur exportförsäkringen fungerar när du kör hem bilen från Tyskland.",
       "sources": [
         "https://www.transportstyrelsen.se",
         "https://www.gesetze-im-internet.de/fzv_2023/__45.html"
@@ -678,6 +678,31 @@
         "guide",
         "husbil",
         "besiktning"
+      ]
+    },
+    {
+      "id": "guide-importera-husvagn",
+      "path": "/guider/importera-husvagn",
+      "title": "Importera husvagn från Tyskland – steg för steg",
+      "description": "Så importerar du en husvagn från Tyskland eller ett annat EU-land: ursprungskontroll, registreringsbesiktning, körkort för släp, skatt och moms – med källor.",
+      "sources": [
+        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/fordonsimport-och-ursprungskontroll/",
+        "https://www.transportstyrelsen.se/sv/vagtrafik/korkort/har-korkort/fordon-du-far-kora/personbil-med-slap/",
+        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/skatter-och-avgifter/fordonsskatt/skattepliktiga-fordon/",
+        "https://skatteverket.se/foretag/moms/sarskildamomsregler/handelmedandralander/inkopavnytttransportmedelfranettannateuland.4.361dc8c15312eff6fd1209a.html",
+        "https://www.gesetze-im-internet.de/fzv_2023/__45.html"
+      ],
+      "uniquePayloadScore": 80,
+      "quality": {
+        "hasSources": true,
+        "isThin": false,
+        "indexable": true
+      },
+      "lastEvaluated": "2026-10-19",
+      "notes": "Ny guide 2026-10-19. GSC: 'importera husvagn från tyskland' 2/27, 'importera husvagn' 0/17, 'från danmark' 0/12, 'från polen' 0/7. ~1 000 ord, alla fakta med myndighetskälla. Quality gate självbedömd av författaren (Claude Code) mot docs/quality-gate-single.md – låt en människa granska.",
+      "tags": [
+        "husvagn",
+        "guide"
       ]
     },
     {
@@ -889,10 +914,11 @@
     {
       "id": "guider-importforsakring",
       "path": "/guider/importforsakring",
-      "title": "Importförsäkring bil – Vad det är, vad det kostar och hur du tecknar",
-      "description": "Importförsäkring är ett tillfälligt trafikskydd för oregistrerade importerade fordon i Sverige. Kostnad ~1 500 kr för bil, ~2 500 kr för husbil. Så tecknar du den.",
+      "title": "Importförsäkring bil – så försäkrar du en importerad bil",
+      "description": "Så försäkrar du en importerad bil: exportförsäkring hem, sjudagarsregeln, tillfällig registrering och svensk trafikförsäkring. Med pris, giltighet och källor.",
       "sources": [
-        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/fordonsimport-och-ursprungskontroll/import-fran-ett-eu-land/",
+        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/export-och-tillfallig-registrering/tillfallig-registrering/tillfallig-registrering-vid-import/",
+        "https://www.if.se/privat/forsakringar/bilforsakring/importera-bil/forsakra-importerad-bil",
         "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/trafikskadelag-19751410_sfs-1975-1410/"
       ],
       "uniquePayloadScore": 78,
@@ -902,7 +928,7 @@
         "indexable": true
       },
       "lastEvaluated": "2026-10-19",
-      "notes": "Ny guide 2026-04-07. GSC: 17 exponeringar för 'importförsäkring bil' utan dedikerad sida. Quality gate godkänd 2026-04-07, score 78.",
+      "notes": "Ny guide 2026-04-07. GSC: 17 exponeringar för 'importförsäkring bil' utan dedikerad sida. Quality gate godkänd 2026-04-07, score 78. 2026-10-19: /guider/forsakra-importerad-bil sammanslagen hit (301). Täcker importförsäkring, försäkra importerad bil, tillfällig trafikförsäkring.",
       "tags": [
         "guide",
         "försäkring",
@@ -1074,29 +1100,6 @@
         "guide",
         "köpprocess",
         "juridik"
-      ]
-    },
-    {
-      "id": "guider-forsakra-importerad-bil",
-      "path": "/guider/forsakra-importerad-bil",
-      "title": "Försäkra importerad bil – premie, vagnskadegaranti och 30-dagarsregeln",
-      "description": "Blir försäkringen dyrare på en importerad bil? Vad innebär det att vagnskadegarantin saknas, och när måste du teckna svensk trafikförsäkring? Guide för EU-importerade fordon.",
-      "sources": [
-        "https://www.if.se/privat/forsakringar/bilforsakring/importera-bil/forsakra-importerad-bil",
-        "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/fordonsimport-och-ursprungskontroll/import-fran-ett-eu-land/",
-        "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/trafikskadelag-19751410_sfs-1975-1410/"
-      ],
-      "uniquePayloadScore": 0,
-      "quality": {
-        "hasSources": true,
-        "isThin": false,
-        "indexable": false
-      },
-      "lastEvaluated": "2026-10-19",
-      "notes": "NY 2026-07-29, ca 1052 ord. Quality gate ej körd – score 0 och indexable=false tills den är det. Skiljer EU-import från USA/Japan-import vad gäller premie. Huvudpoängen är att vagnskadegarantin saknas, inte premienivån.",
-      "tags": [
-        "guide",
-        "försäkring"
       ]
     },
     {

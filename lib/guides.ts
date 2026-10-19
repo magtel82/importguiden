@@ -18,6 +18,13 @@ export interface GuideMeta {
  */
 export const GUIDES: GuideMeta[] = [
   {
+    slug: "importera-husvagn",
+    title: "Importera husvagn från Tyskland",
+    description: "Ursprungskontroll, körkort för släp, exportskyltar, skatt och moms – så tar du hem en husvagn från ett EU-land.",
+    time: "6 min",
+    category: "husbil",
+  },
+  {
     slug: "ursprungskontroll",
     title: "Ursprungskontroll",
     description: "Obligatorisk kontroll via Transportstyrelsen. Hur du beställer och vad som händer sedan.",
@@ -75,15 +82,15 @@ export const GUIDES: GuideMeta[] = [
   },
   {
     slug: "exportforsakring",
-    title: "Exportförsäkring i Tyskland",
-    description: "Vad en exportförsäkring (Ausfuhrkennzeichen) är, vad den kostar och när du behöver den för att köra hem bilen.",
+    title: "Exportskyltar och exportförsäkring i Tyskland",
+    description: "Hur tyska exportskyltar (Ausfuhrkennzeichen) ser ut, hur länge de gäller och hur exportförsäkringen fungerar när du kör hem bilen.",
     time: "5 min",
     category: "generell",
   },
   {
     slug: "importforsakring",
-    title: "Importförsäkring bil – Tillfälligt trafikskydd i Sverige",
-    description: "Vad en importförsäkring är, varför du behöver den, vad den kostar (~1 500 kr) och hur du tecknar den innan registreringsbesiktningen.",
+    title: "Importförsäkring – så försäkrar du en importerad bil",
+    description: "Exportförsäkring hem, sjudagarsregeln, tillfällig registrering och svensk trafikförsäkring – i rätt ordning, med pris och källor.",
     time: "4 min",
     category: "generell",
   },
@@ -157,13 +164,6 @@ export const GUIDES: GuideMeta[] = [
     time: "6 min",
     category: "generell",
   },
-  {
-    slug: "forsakra-importerad-bil",
-    title: "Försäkra importerad bil",
-    description: "Blir premien dyrare? Vad det innebär att vagnskadegarantin saknas, och när svensk trafikförsäkring måste tecknas.",
-    time: "6 min",
-    category: "generell",
-  },
 ];
 
 export const CATEGORY_LABEL: Record<GuideCategory, string> = {
@@ -198,7 +198,6 @@ export const GUIDE_SECTIONS: { title: string; slugs: string[] }[] = [
     slugs: [
       "exportforsakring",
       "importforsakring",
-      "forsakra-importerad-bil",
       "transportera-bil-fran-tyskland",
     ],
   },
@@ -223,7 +222,7 @@ export const GUIDE_SECTIONS: { title: string; slugs: string[] }[] = [
   },
   {
     title: "Specialguider",
-    slugs: ["importera-elbil", "besikta-husbil"],
+    slugs: ["importera-elbil", "besikta-husbil", "importera-husvagn"],
   },
 ];
 
@@ -232,6 +231,11 @@ export const GUIDE_SECTIONS: { title: string; slugs: string[] }[] = [
  * Ordningen speglar importprocessen – nästa naturliga steg först.
  */
 export const RELATED_GUIDES: Record<string, string[]> = {
+  "importera-husvagn": [
+    "ursprungskontroll",
+    "exportforsakring",
+    "kopa-husbil-mobil-de",
+  ],
   ursprungskontroll: [
     "registreringsbesiktning",
     "hur-lang-tid-tar-bilimport",
@@ -270,9 +274,9 @@ export const RELATED_GUIDES: Record<string, string[]> = {
     "hur-lang-tid-tar-bilimport",
   ],
   importforsakring: [
-    "forsakra-importerad-bil",
     "exportforsakring",
     "ursprungskontroll",
+    "garanti-vid-bilimport",
   ],
   "kopa-bil-mobile-de-autoscout24": [
     "tysk-bilordlista",
@@ -315,7 +319,7 @@ export const RELATED_GUIDES: Record<string, string[]> = {
     "tysk-bilordlista",
   ],
   "garanti-vid-bilimport": [
-    "forsakra-importerad-bil",
+    "importforsakring",
     "matarmanipulation",
     "krockhistorik-unfallfrei",
   ],
@@ -323,11 +327,6 @@ export const RELATED_GUIDES: Record<string, string[]> = {
     "matarmanipulation",
     "besiktningsfel-vid-import",
     "garanti-vid-bilimport",
-  ],
-  "forsakra-importerad-bil": [
-    "importforsakring",
-    "garanti-vid-bilimport",
-    "ursprungskontroll",
   ],
 };
 

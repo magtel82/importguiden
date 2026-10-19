@@ -30,10 +30,11 @@
       "source": "https://www.transportstyrelsen.se/avgifter-for-registerhallning"
     },
     "importforsäkring_personbil": {
-      "amount": 1500,
+      "amount": 800,
       "currency": "SEK",
-      "note": "Schablonvärde för importförsäkring personbil. Kontrollera aktuellt pris hos ditt försäkringsbolag – kan variera 1 000–2 500 kr.",
-      "source": "Schablonvärde baserat på branschpraxis – verifiera hos respektive försäkringsbolag"
+      "note": "If:s pris för trafikförsäkring vid tillfällig registrering, högst 3 månader (oktober 2026). Andra försäkringsbolag har egna priser – begär offert.",
+      "source": "https://www.if.se/privat/forsakringar/bilforsakring/importera-bil/forsakra-importerad-bil",
+      "verified": "2026-10-19"
     },
     "importforsäkring_husbil": {
       "amount": 2500,

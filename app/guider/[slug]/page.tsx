@@ -40,7 +40,7 @@ const GUIDE_SLUGS = [
   "matarmanipulation",
   "garanti-vid-bilimport",
   "krockhistorik-unfallfrei",
-  "forsakra-importerad-bil",
+  "importera-husvagn",
 ] as const;
 
 type GuideSlug = (typeof GUIDE_SLUGS)[number];
@@ -121,19 +121,14 @@ export default async function GuiderPage({ params }: Props) {
     slug === "kopa-bil-mobile-de-autoscout24"
       ? getFaqJsonLd([
           {
-            question: "Finns mobile.de på svenska?",
+            question: "Hur läser jag mobile.de på svenska?",
             answer:
-              "Nej, mobile.de finns bara på tyska och delvis engelska. Med ordlistan på sidan och Google Translate i Chrome klarar du dig utmärkt. AutoScout24 är ett alternativ med mer genomarbetat flerspråkigt stöd.",
-          },
-          {
-            question: "Finns mobile.de på engelska?",
-            answer:
-              "Ja, delvis. Scrolla längst ned på mobile.de och välj engelska som språk. Observera att inte alla annonser översätts och att viss terminologi kan vara missvisande i översättningen.",
+              "Med webbläsarens översättning. I Google Chrome väljer du Översätt till höger om adressfältet, så översätts sidan till svenska. Annonsernas fackord blir ofta fel i maskinöversättning – använd ordlistan på sidan för de viktigaste termerna, som Unfallfrei, Scheckheftgepflegt och MwSt. ausweisbar.",
           },
           {
             question: "Är mobile.de säkert?",
             answer:
-              "Mobile.de är Tysklands största bilsajt med över 1,4 miljoner annonser. Sajten i sig är seriös, men som på alla marknadsplatser finns det bedragare. Köp alltid av en registrerad återförsäljare (Händler) som förstagångsköpare och boka en oberoende besiktning via DEKRA, TÜV eller ADAC.",
+              "Sajten i sig är seriös, men som på alla marknadsplatser finns det bedragare. Köp alltid av en registrerad återförsäljare (Händler) som förstagångsköpare och boka en oberoende besiktning via DEKRA, TÜV eller ADAC.",
           },
           {
             question: "Är det säkrare att köpa av handlare än privatperson på mobile.de?",
@@ -144,11 +139,6 @@ export default async function GuiderPage({ params }: Props) {
             question: "Hur kontaktar jag en säljare på mobile.de?",
             answer:
               "Via kontaktformuläret direkt på annonsen. De flesta återförsäljare svarar på engelska. Privata säljare kan variera – grundläggande engelska eller tyska fraser räcker i de flesta fall.",
-          },
-          {
-            question: "Hur ändrar man språk på mobile.de?",
-            answer:
-              "Scrolla längst ned på mobile.de och välj engelska i språkväljaren. Alternativt kan du använda Google Chromes inbyggda översättningsfunktion för att få sidan översatt till svenska automatiskt. Det finns inget officiellt svenskt gränssnitt.",
           },
           {
             question: "Vad betyder Fahrzeugbrief på mobile.de?",
@@ -166,7 +156,7 @@ export default async function GuiderPage({ params }: Props) {
           {
             question: "Hur lång tid tar ursprungskontroll?",
             answer:
-              "Transportstyrelsen anger ingen fast handläggningstid. Myndigheten publicerar i stället löpande vilket ködatum som handläggs just nu i e-tjänsten Visa ärendestatus för ursprungskontroll. Väntetiden varierar över tid – kontrollera aktuellt läge där innan du planerar.",
+              "Transportstyrelsen anger ingen fast handläggningstid utan publicerar vilket ködatum som handläggs just nu, i e-tjänsten Visa ärendestatus för ursprungskontroll. Den 19 oktober 2026 handlades ärenden med ködatum 22 september 2026, alltså en kö på ungefär fyra veckor. Kontrollera aktuellt läge innan du planerar.",
           },
           {
             question: "Hur följer jag status på min ursprungskontroll?",
@@ -181,12 +171,12 @@ export default async function GuiderPage({ params }: Props) {
           {
             question: "Vad händer om ursprungskontrollen inte godkänns?",
             answer:
-              "Du får ett beslut med förklaring. Vanliga orsaker är saknade dokument eller att bilen finns i ett stöldregister. Du kan komplettera och ansöka igen, eller kontakta säljaren för att lösa den underliggande frågan.",
+              "Transportstyrelsen skickar beslutet med post. Saknas något i ansökan får du först ett brev med begäran om komplettering. Kontakta säljaren om det som saknas gäller fordonets handlingar.",
           },
           {
             question: "Vad kontrollerar Transportstyrelsen vid ursprungskontroll?",
             answer:
-              "Transportstyrelsen kontrollerar fordonet mot internationella register för stulna fordon (via Interpol, Europol och nationella polisregister) samt mot kreditbelastningsregister i hemlandet för att se om bilen har kvarstående leasingskulder, panträtter eller är belagd med kvarstad. Kontrollen verifierar även att VIN-numret stämmer med registreringsdokumenten.",
+              "Ursprungskontrollen ska hindra att stulna eller efterlysta fordon registreras i Sverige. Den krävs för alla fordon som ska registreras här, utom nya fordon från registrerade importörer, och ett godkännande gäller i fem år.",
           },
         ])
       : slug === "moms-vid-bilimport"
@@ -233,37 +223,42 @@ export default async function GuiderPage({ params }: Props) {
       : slug === "importforsakring"
       ? getFaqJsonLd([
           {
+            question: "Hur försäkrar man en importerad bil i Sverige?",
+            answer:
+              "Med en svensk trafikförsäkring som tecknas på chassinumret. Efter sju dagar i Sverige krävs dessutom tillfällig registrering, och till ansökan bifogas ett trafikförsäkringsbevis för tillfällig registrering eller ett 30-dagars försäkringsintyg från ett svenskt försäkringsbolag (Transportstyrelsen).",
+          },
+          {
             question: "Vad kostar importförsäkring för bil?",
             answer:
-              "Schablonkostnaden för importförsäkring på personbil är cirka 1 500 kr, med ett intervall på 1 000–2 500 kr beroende på bolag och giltighetstid. Kontrollera aktuella priser hos IF, Folksam eller Länsförsäkringar.",
+              "Hos If kostar trafikförsäkringen för tillfällig registrering 800 kr och gäller i högst tre månader (oktober 2026). Andra försäkringsbolag har egna priser.",
           },
           {
-            question: "Hur länge gäller en importförsäkring?",
+            question: "Hur länge gäller en tillfällig trafikförsäkring?",
             answer:
-              "Vanligen 1 till 3 månader. Giltighetstiden väljer du vid ansökan och ska täcka hela perioden från hemkomst till registrering i Sverige.",
+              "If:s försäkring för tillfällig registrering gäller i högst tre månader och upphör när bilen godkänts vid registreringsbesiktning. Den tillfälliga registreringen gäller i tre månader och kan inte förlängas (Transportstyrelsen).",
           },
           {
-            question: "Måste man ha importförsäkring?",
+            question: "Räcker det med försäkring för att köra bilen i Sverige?",
             answer:
-              "Ja. Enligt trafikskadelagen (1975:1410) är det obligatoriskt med giltig trafikförsäkring för att framföra ett motorfordon på allmän väg i Sverige – oavsett om fordonet är registrerat eller inte.",
+              "Nej. Efter sju dagar krävs även tillfällig registrering. Undantaget är kortaste väg till och från registreringsbesiktningen med skriftlig kallelse och giltig trafikförsäkring.",
           },
         ])
       : slug === "exportforsakring"
       ? getFaqJsonLd([
           {
-            question: "Vad kostar en exportförsäkring i Tyskland?",
+            question: "Hur ser tyska exportskyltar ut?",
             answer:
-              "Typiskt 50–150 EUR för personbil, beroende på giltighetstid (5–30 dagar) och försäkringsbolag. Husbilar kan kosta 80–200 EUR beroende på totalvikt.",
+              "Ausfuhrkennzeichen är vita skyltar med ett rött fält längst till höger där utgångsdatumet står. Röda skyltar (rote Kennzeichen) är något annat – de används av bilhandlare.",
           },
           {
-            question: "Hur länge gäller en exportförsäkring?",
+            question: "Hur länge gäller exportskyltar och exportförsäkring?",
             answer:
-              "Du väljer giltighetstid vid ansökan: 5 till 30 dagar. Utgångsdatumet trycks direkt på exportskyltarna och kan inte förlängas i efterhand.",
+              "Exportregistreringen gäller lika länge som exportförsäkringen och enligt tysk lag högst ett år (§ 45 Fahrzeug-Zulassungsverordnung). Löptiden väljer du när du tecknar försäkringen.",
           },
           {
-            question: "Behöver jag exportförsäkring om jag kör bilen på släp?",
+            question: "Behöver jag exportförsäkring om bilen transporteras på trailer?",
             answer:
-              "Om bilen rullar på egna hjul på vägen räknas den som fordon i trafik och behöver exportskyltar. Om bilen lastats helt på ett släp eller en biltransport räknas den som last och behöver ingen exportförsäkring.",
+              "Nej. En bil som lastats på ett släp eller en biltransport räknas som last. Rullar den på egna hjul, till exempel bogserad, är den ett fordon i trafik och behöver exportskyltar.",
           },
         ])
       : null;

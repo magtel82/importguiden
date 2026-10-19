@@ -17,6 +17,43 @@
   "changes": [
     {
       "date": "2026-10-19",
+      "type": "verifiering",
+      "title": "Malusens tre år räknas från första registreringen i utlandet",
+      "summary": "För ett importerat fordon räknas \"skattepliktigt första gången\" från den första registreringen i ett annat land. Malusens tre år börjar alltså där – en bil som registrerades första gången i Tyskland för mer än tre år sedan har ingen malus kvar. Samma datum avgör vilken skattetabell som gäller.",
+      "source": "Vägtrafikskattelag (2006:227) 1 kap. 6 a §",
+      "sourceUrl": "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/lag-2006227-om-vagtrafikskatt_sfs-2006-227/",
+      "affectedPages": [
+        "/importera-bil/kostnad",
+        "/importera-bil/tyskland",
+        "/guider/fordonsskatt-husbil-bonus-malus"
+      ]
+    },
+    {
+      "date": "2026-10-19",
+      "type": "rattelse",
+      "title": "Importförsäkring: pris, giltighet och tillfällig registrering",
+      "summary": "Guiden angav ett schablonpris på cirka 1 500 kr utan källa och att bilen kunde köras \"till ursprungskontrollen\", som i själva verket är en dokumentgranskning. Nu: If:s trafikförsäkring för tillfällig registrering kostar 800 kr och gäller i högst tre månader; tillfällig registrering gäller i tre månader och kan inte förlängas. Guiden om att försäkra importerad bil är sammanslagen med importförsäkringsguiden.",
+      "source": "Transportstyrelsen – Tillfällig registrering vid import",
+      "sourceUrl": "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/export-och-tillfallig-registrering/tillfallig-registrering/tillfallig-registrering-vid-import/",
+      "affectedPages": [
+        "/guider/importforsakring",
+        "/kalkylator/bilimport",
+        "/importera-bil/kostnad"
+      ]
+    },
+    {
+      "date": "2026-10-19",
+      "type": "verifiering",
+      "title": "Kön för ursprungskontroll: cirka fyra veckor",
+      "summary": "Den 19 oktober 2026 handlade Transportstyrelsen ärenden med ködatum 22 september 2026. Den 28 juli var motsvarande datum 17 juni, en kö på cirka sex veckor.",
+      "source": "Transportstyrelsen – Visa ärendestatus för ursprungskontroll",
+      "sourceUrl": "https://fordon-ukansok.transportstyrelsen.se/arendestatus",
+      "affectedPages": [
+        "/guider/ursprungskontroll"
+      ]
+    },
+    {
+      "date": "2026-10-19",
       "type": "rattelse",
       "title": "Fordonsskatten var fel i märkessidornas tabeller och i importkalkylatorn",
       "summary": "Beloppen efter malusperioden saknade koldioxidbeloppet (22 kr per gram över 111 g/km), flera malusbelopp var felräknade och husbilar visades som 360 kr per år. Tabellerna och kalkylatorn räknar nu med samma funktion, byggd på Skatteverkets fordonsskattetabeller. Exempel: en Volkswagen Tiguan 2.0 TSI (ca 165 g/km) betalar cirka 10 990 kr per år under malusperioden och cirka 1 550 kr därefter – inte 360 kr som sidan tidigare angav.",
@@ -71,8 +108,7 @@
       "source": "Riksdagen – Trafikskadelag (1975:1410)",
       "sourceUrl": "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/trafikskadelag-19751410_sfs-1975-1410/",
       "affectedPages": [
-        "/guider/importforsakring",
-        "/guider/forsakra-importerad-bil"
+        "/guider/importforsakring"
       ]
     },
     {

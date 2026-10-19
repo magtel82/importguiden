@@ -51,13 +51,13 @@
     {
       "id": "importforsakring-bil",
       "name": "Importförsäkring",
-      "amount": 1500,
+      "amount": 800,
       "isApproximate": true,
       "currency": "SEK",
-      "validFrom": "2025-01-01",
-      "source": "Jämförelse av svenska försäkringsbolag",
-      "sourceUrl": null,
-      "note": "Kortförsäkring för hemtransport. Varierar 1 000–2 500 kr beroende på bolag och tid.",
+      "validFrom": "2026-10-19",
+      "source": "If – trafikförsäkring vid tillfällig registrering",
+      "sourceUrl": "https://www.if.se/privat/forsakringar/bilforsakring/importera-bil/forsakra-importerad-bil",
+      "note": "If:s pris för trafikförsäkring vid tillfällig registrering (högst 3 månader), oktober 2026. Andra bolag har egna priser.",
       "appliesTo": [
         "bil"
       ]

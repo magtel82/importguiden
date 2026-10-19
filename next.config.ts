@@ -23,6 +23,16 @@ const withMDX = createMDX({
 
 const nextConfig: NextConfig = {
   pageExtensions: ["ts", "tsx", "mdx"],
+  async redirects() {
+    return [
+      // Sammanslagen 2026-10-19 – en sida per sökavsikt i stället för två som konkurrerar.
+      {
+        source: "/guider/forsakra-importerad-bil",
+        destination: "/guider/importforsakring",
+        permanent: true,
+      },
+    ];
+  },
   experimental: {
     mdxRs: true,
   },

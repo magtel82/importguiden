@@ -838,6 +838,13 @@ Vid årsskiftet: faktagranska, byt CONTENT_YEAR – ett enda byte.
 OBS: Malusens tre år räknas från FÖRSTA REGISTRERINGEN I UTLANDET för importerade
 fordon (vägtrafikskattelagen 1 kap. 6 a §, Skatteverket). Samma datum avgör vilken
 skattetabell som gäller (diesel före 1 juli 2018 → tabell 62, bränslefaktor 2,37).
+OBS: /guider/ursprungskontroll#status visar aktuellt ködatum MED datum för
+avläsningen. Uppdatera det (och kö-tabellen) vid varje faktagranskning –
+källa: https://fordon-ukansok.transportstyrelsen.se/arendestatus.
+OBS: /guider/forsakra-importerad-bil är sammanslagen med /guider/importforsakring
+(permanent redirect i next.config.ts). Skapa inte en ny sida om samma sökavsikt.
+OBS: mobile.de blockerar automatiska kontroller (403) – sajtens språklista är
+OVERIFIERAD. Skriv inga påståenden om vilka språk sajten har.
 OBS: `npm test` kör node:test (lib/**/*.test.mjs) – inga beroenden. Facit för
 skatteberäkningen ligger i lib/malus-calculator.test.mjs.
 OBS: Kända kommande händelser läggs i `upcoming` i data/regulation-changes.json.
