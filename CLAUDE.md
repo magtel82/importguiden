@@ -861,8 +861,9 @@ OBS: mobile.de:s språk är en TODO i data/mobile-de.json – fylls i för hand
 OBS: Försäkringsbolag listas neutralt i data/forsakringsbolag.json. Partnerlänkar
 bara via components/affiliate/PartnerLink.tsx och först när samarbetet står på
 /finansiering.
-OBS: `npm run lint` och `npm test` körs i pre-push (.githooks, aktiveras av
-npm install). `npm run check` = lint + test + build.
+OBS: `npm run build` kör lint + test före next build – även på Vercel, så en
+röd lint eller ett rött test stoppar deployen (sajten ligger kvar på förra
+versionen). Samma kontroller körs i pre-push (.githooks). Node 24 (engines).
 OBS: `npm test` kör node:test (lib/**/*.test.mjs) – inga beroenden. Facit för
 skatteberäkningen ligger i lib/malus-calculator.test.mjs.
 OBS: Kända kommande händelser läggs i `upcoming` i data/regulation-changes.json.

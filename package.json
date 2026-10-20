@@ -4,11 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run lint && npm test && next build",
     "start": "next start",
-    "test": "node --test \"lib/**/*.test.mjs\"",
+    "test": "node --experimental-strip-types --test \"lib/**/*.test.mjs\"",
     "lint": "eslint .",
-    "check": "npm run lint && npm test && next build",
+    "check": "npm run build",
     "prepare": "git config core.hooksPath .githooks 2>/dev/null || true"
   },
   "dependencies": {
@@ -37,5 +37,8 @@
     "eslint-config-next": "^16.1.6",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "engines": {
+    "node": "24.x"
   }
 }
