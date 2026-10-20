@@ -6,16 +6,16 @@ import { formatCost } from "@/lib/costs";
 
 const bilSteps = [
   { n: "1", title: "Hitta bilen", body: "Sök på mobile.de, AutoScout24 eller liknande europeisk bilsajt. Kontrollera VIN-numret och boka oberoende besiktning (TÜV/ADAC) innan köp." },
-  { n: "2", title: "Köp och papper", body: "Skriv köpekontrakt. Säkra COC-intyget. Säljaren avregistrerar bilen och lämnar avregistreringsintyg." },
+  { n: "2", title: "Köp och papper", body: "Skriv köpekontrakt med VIN. Se till att du får registreringsbeviset i original, samtliga delar – Transportstyrelsen kräver dem. Kom överens om vem som avregistrerar bilen i Tyskland." },
   { n: "3", title: "Hemtransport", body: "Ordna tyska exportskyltar och exportförsäkring om du kör hem själv, eller anlita transportföretag. Efter sju dagar i Sverige krävs tillfällig registrering med svensk trafikförsäkring." },
   { n: "4", title: "Ursprungskontroll", body: `Ansök om ursprungskontroll via Transportstyrelsen (${formatCost("ursprungskontroll")}). Väntetiden varierar – kontrollera aktuellt ködatum hos Transportstyrelsen.` },
-  { n: "5", title: "Besiktning och registrering", body: `Genomför registreringsbesiktning (publicerade priser ${formatCost("registreringsbesiktning")}). Registrera sedan bilen i Sverige.` },
+  { n: "5", title: "Besiktning och registrering", body: `Boka registreringsbesiktning när ursprungskontrollen är godkänd (publicerade priser ${formatCost("registreringsbesiktning")}). Besiktningsföretaget registrerar bilen och Transportstyrelsen skickar skyltarna.` },
 ];
 
 const husbilSteps = [
-  { n: "1", title: "Hitta husbilen", body: "Sök på mobile.de, AutoScout24, carado.de eller liknande europeisk husbilssajt. Filtrera på Reisemobile. Kontrollera VIN och servicehistorik." },
+  { n: "1", title: "Hitta husbilen", body: "Sök på mobile.de, AutoScout24 eller liknande europeisk sajt. Filtrera på Wohnmobil/Reisemobil. Kontrollera VIN, totalvikt och servicehistorik." },
   { n: "2", title: "Besiktning på plats", body: "Boka oberoende besiktning (DEKRA/ADAC). Be specifikt om fuktkontroll av tak och väggar." },
-  { n: "3", title: "Köp och papper", body: "Skriv köpekontrakt. Säkra COC-intyget. Kontrollera totalvikt mot ditt körkort." },
+  { n: "3", title: "Köp och papper", body: "Skriv köpekontrakt. Få registreringsbeviset i original – och be om COC-intyget, som kan behövas för husbilar över 3 500 kg. Kontrollera totalvikten mot ditt körkort." },
   { n: "4", title: "Hemtransport", body: "Tyska exportskyltar och exportförsäkring om du kör hem själv, annars transportföretag – begär offert. Efter sju dagar i Sverige krävs tillfällig registrering." },
   { n: "5", title: "Ursprungskontroll & registrering", body: `Beställ ursprungskontroll via Transportstyrelsen (${formatCost("ursprungskontroll")}). Boka registreringsbesiktning – bekräfta att stationen hanterar husbilar.` },
 ];

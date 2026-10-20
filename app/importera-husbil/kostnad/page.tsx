@@ -141,8 +141,7 @@ export default function HusbilKostnadPage() {
             <div className="border border-gray-200 rounded p-4">
               <h3 className="font-semibold text-gray-900 mb-2">Anlita transportföretag</h3>
               <p className="text-sm text-gray-600">
-                Husbilar transporteras på lowloader eller körs av chaufför. Priserna publiceras sällan
-                – begär offert från flera firmor och lägg in priset i{" "}
+                Begär offert från flera transportföretag och lägg in priset i{" "}
                 <Link href="/kalkylator/bilimport" className="text-blue-700 hover:underline">
                   kalkylatorn
                 </Link>
@@ -151,7 +150,7 @@ export default function HusbilKostnadPage() {
             </div>
           </div>
           <p className="text-xs text-gray-500">
-            Körkort: en husbil med totalvikt över 3 500 kg kräver C1-behörighet. Euro räknas om med{" "}
+            Körkort: en husbil med totalvikt över 3 500 kg kräver C1-behörighet, utom med B-körkort utfärdat före 1 juli 1996 (Transportstyrelsen). Euro räknas om med{" "}
             {eurRateLine()}. Källor:{" "}
             <a href={getCost("bilkostnad_per_mil").sourceUrl} className="underline" target="_blank" rel="noopener noreferrer">Skatteverket</a>,{" "}
             <a href={getCost("exportskyltar_avgift").sourceUrl} className="underline" target="_blank" rel="noopener noreferrer">Service Berlin</a>,{" "}
@@ -189,7 +188,9 @@ export default function HusbilKostnadPage() {
             </li>
             <li>
               <span className="font-semibold text-gray-900">Körkort:</span> en husbil över 3 500 kg
-              kräver C1-behörighet. BE avser bil med släpvagn och ger ingen rätt att köra en tyngre husbil.
+              kräver C1-behörighet (upp till 7 500 kg) – om du inte har ett B-körkort utfärdat före 1 juli
+              1996, som enligt Transportstyrelsens övergångsregel ger rätt att köra personbil över 3,5 ton.
+              BE avser bil med släpvagn och ger ingen rätt att köra en tyngre husbil.
             </li>
             <li>
               <span className="font-semibold text-gray-900">Fordonsskatt:</span> husbilar har ingen
@@ -200,8 +201,9 @@ export default function HusbilKostnadPage() {
               .
             </li>
             <li>
-              <span className="font-semibold text-gray-900">COC-intyg:</span> krävs precis som för
-              personbil. Läs mer i guiden om{" "}
+              <span className="font-semibold text-gray-900">Handlingar:</span> för fordon på högst
+              3 500 kg som varit registrerade i ett annat EES-land räcker registreringsbeviset. Många
+              husbilar väger mer, och då kan ett COC-intyg behövas. Läs mer i guiden om{" "}
               <Link href="/guider/coc-intyg" className="text-blue-700 hover:underline">
                 COC-intyg
               </Link>

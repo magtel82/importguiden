@@ -98,7 +98,7 @@ export function BreakEvenKalkyl() {
 
       <p className="mt-3 text-xs text-gray-400">
         Euro räknas om med {eurRateLine()}. Hemkörningen räknas med Skatteverkets schablon för egen
-        bil – din verkliga kostnad är ofta högre. För egen förbrukning och livekurs, använd
+        bil – din verkliga kostnad kan vara högre. För egen förbrukning och livekurs, använd
         importkalkylatorn.
       </p>
     </div>

@@ -464,7 +464,7 @@ function ImportCalculatorInner() {
               <p className="col-span-2 text-xs text-gray-400">
                 Lämnar du fälten tomma räknar vi med Skatteverkets schablon för egen bil,{" "}
                 {formatCost("bilkostnad_per_mil")} per mil. Det är en schablon för skattefri
-                milersättning – din verkliga kostnad är ofta högre. Exportskyltar och exportförsäkring
+                milersättning – din verkliga kostnad kan vara högre. Exportskyltar och exportförsäkring
                 läggs till.
               </p>
             </div>

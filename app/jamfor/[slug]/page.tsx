@@ -222,8 +222,8 @@ export default async function JamforPage({ params }: Props) {
               .
             </li>
             <li>
-              <strong>Annonspris mot slutpris:</strong> annonserade priser är ofta förhandlingsbara
-              – i båda länderna.
+              <strong>Annonspris mot slutpris:</strong> jämför det pris du faktiskt kan köpa bilen för,
+              inte bara annonspriset.
             </li>
           </ul>
         </section>
@@ -245,8 +245,8 @@ export default async function JamforPage({ params }: Props) {
                 Spelar det roll om jag köper av privatperson eller handlare?
               </h3>
               <p className="text-gray-700 text-sm">
-                Ja. En handlare har ofta bättre koll på dokumentationen (COC-intyg, servicehistorik)
-                och kan lämna garanti. Själva importprocessen i Sverige är densamma oavsett säljare.
+                Säljarens ansvar för fel beror på vem säljaren är och vad köpeavtalet säger – läs
+                avtalet noga. Själva importprocessen i Sverige är densamma oavsett säljare.
               </p>
             </div>
             <div>

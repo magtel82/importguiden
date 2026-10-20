@@ -41,14 +41,14 @@ export const GUIDES: GuideMeta[] = [
   {
     slug: "coc-intyg",
     title: "COC-intyg",
-    description: "Vad Certificate of Conformity är, varför det krävs och hur du skaffar det.",
+    description: "När COC-intyget krävs enligt Transportstyrelsen – och när registreringsbeviset räcker – och hur du beställer det.",
     time: "4 min",
     category: "generell",
   },
   {
     slug: "eeg-intyg",
     title: "EEG-intyg vid bilimport",
-    description: "När Transportstyrelsen kräver EEG-typintyg, hur du beställer det och vad du ska fråga tillverkaren om pris och leveranstid.",
+    description: "Transportstyrelsen använder inte begreppet EEG-intyg. Så tar du reda på vilket dokument som avses.",
     time: "4 min",
     category: "generell",
   },
@@ -62,7 +62,7 @@ export const GUIDES: GuideMeta[] = [
   {
     slug: "hur-lang-tid-tar-bilimport",
     title: "Hur lång tid tar det att importera bil?",
-    description: "Realistisk tidslinje från sökning till svenska skyltar. Stegen du själv styr tar 2–6 veckor – plus kötiden för ursprungskontrollen.",
+    description: "Tidslinje från sökning till svenska skyltar: stegen i rätt ordning och var du ser aktuell kötid för ursprungskontrollen.",
     time: "5 min",
     category: "generell",
   },
@@ -76,7 +76,7 @@ export const GUIDES: GuideMeta[] = [
   {
     slug: "besiktningsfel-vid-import",
     title: "Vanliga besiktningsfel vid bilimport",
-    description: "De vanligaste orsakerna till att importerade bilar underkänns – COC, bromsar, däck, felkoder och husbilsspecifika fel.",
+    description: "Så förbereder du handlingar och fordon inför registreringsbesiktningen, och vad som händer om det underkänns.",
     time: "6 min",
     category: "generell",
   },
@@ -97,14 +97,14 @@ export const GUIDES: GuideMeta[] = [
   {
     slug: "kopa-bil-mobile-de-autoscout24",
     title: "Söka bil på mobile.de – guide på svenska",
-    description: "Navigera sajten, filtrera rätt, kontakta säljare och undvik fallgropar. Komplett guide för svenska köpare.",
+    description: "Läs mobile.de på svenska, förstå de tyska annonstermerna och kontrollera annonsen innan du reser.",
     time: "6 min",
     category: "bil",
   },
   {
     slug: "transportera-bil-fran-tyskland",
     title: "Transportera bil från Tyskland",
-    description: "Köra hem själv, biltransport på trailer eller spedition? Kostnader, fördelar och nackdelar.",
+    description: "Köra hem själv, biltransport på trailer eller spedition? Vad som krävs och vad det kostar.",
     time: "6 min",
     category: "bil",
   },
@@ -125,14 +125,14 @@ export const GUIDES: GuideMeta[] = [
   {
     slug: "besikta-husbil",
     title: "Besiktning av importerad husbil",
-    description: "Fuktmätning, gaskontroll, körkortskrav och var du bokar. Vad som gäller och kostar för husbilsbesiktning.",
+    description: "Varför totalvikten avgör vilka handlingar som räcker, körkortskrav enligt Transportstyrelsen och vad besiktningen kostar.",
     time: "6 min",
     category: "husbil",
   },
   {
     slug: "kopa-husbil-mobil-de",
     title: "Söka husbil på mobile.de – guide på svenska",
-    description: "Filtrera rätt märke och modell, tolka tyska annonser och undvik fallgropar. Komplett guide för svenska husbildsköpare.",
+    description: "Filtrera rätt, tolka tyska annonser och kontrollera fukt, chassi och totalvikt innan du reser.",
     time: "6 min",
     category: "husbil",
   },

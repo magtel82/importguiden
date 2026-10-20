@@ -58,7 +58,7 @@ export default function KalkylatornPage() {
             <li>
               Köra hem själv: din egen förbrukning och ditt bränslepris, eller – om du lämnar dem
               tomma – {formatCost("bilkostnad_per_mil")} per mil enligt Skatteverkets schablon för
-              skattefri milersättning (verklig kostnad är ofta högre), plus exportskyltar ({formatCost("exportskyltar_avgift")}) och
+              skattefri milersättning (din verkliga kostnad kan vara högre), plus exportskyltar ({formatCost("exportskyltar_avgift")}) och
               exportförsäkring (från {formatCost("exportforsakring_15d")}). Euro räknas om med{" "}
               {eurRateLine()}.
             </li>

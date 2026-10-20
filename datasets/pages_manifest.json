@@ -17,8 +17,8 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-10-21",
-      "notes": "Startsida/hub – kortare innehåll är OK. Score 75 reflekterar att sidan är en navigations-hub, inte en guide.",
+      "lastEvaluated": "2026-10-20",
+      "notes": "Startsida/hub – kortare innehåll är OK. Score 75 reflekterar att sidan är en navigations-hub, inte en guide. | 2026-10-20 källgranskad: Processteg rättade (registreringsbevis i original i stället för COC/avregistreringsintyg). Poäng 75→75.",
       "tags": [
         "startsida"
       ]
@@ -67,7 +67,7 @@
         "kostnad",
         "bil"
       ],
-      "notes": " 2026-07-30: textgenomgång – rättade fasta avgifter (skyltavgift saknades), FAQ-siffror som motsade ingressen, exportskyltarnas pris, decimalkomma, procentformat, dubblerat BreadcrumbList och rubriknivå. FAQPage-schema tillagt."
+      "notes": "2026-07-30: textgenomgång – rättade fasta avgifter (skyltavgift saknades), FAQ-siffror som motsade ingressen, exportskyltarnas pris, decimalkomma, procentformat, dubblerat BreadcrumbList och rubriknivå. FAQPage-schema tillagt. | 2026-10-20 källgranskad: Malustext rättad (gäller bilar, inte bara bensin/diesel). Poäng 86→86."
     },
     {
       "id": "importera-bil-bmw",
@@ -302,7 +302,7 @@
         "kostnad",
         "husbil"
       ],
-      "notes": " 2026-07-30: textgenomgång – skyltavgift saknades i summa och tabeller, körkortskravet angavs felaktigt som BE (ska vara C1), exportskyltarnas pris, procentformat, nofollow på myndighetskälla och dubblerat BreadcrumbList."
+      "notes": "2026-07-30: textgenomgång – skyltavgift saknades i summa och tabeller, körkortskravet angavs felaktigt som BE (ska vara C1), exportskyltarnas pris, procentformat, nofollow på myndighetskälla och dubblerat BreadcrumbList. | 2026-10-20 källgranskad: COC-påstående rättat enligt Transportstyrelsen, körkortets övergångsregel tillagd. Poäng 85→85."
     },
     {
       "id": "importera-husbil-hymer",
@@ -484,7 +484,7 @@
         "indexable": true
       },
       "lastEvaluated": "2026-10-20",
-      "notes": "CTR-optimerad title/desc 2026-05-13 för GSC-frasen 'ursprungskontroll status' (621 exp, 1,0% CTR).",
+      "notes": "CTR-optimerad title/desc 2026-05-13 för GSC-frasen 'ursprungskontroll status' (621 exp, 1,0% CTR). | 2026-10-20 källgranskad: ca 1 550 ord; Interpol/Europol/kreditregister borttaget, utländsk leasing enligt Transportstyrelsens frågor och svar. Poäng 88→88.",
       "tags": [
         "guide",
         "process"
@@ -500,18 +500,19 @@
         "https://eur-lex.europa.eu",
         "https://skatteverket.se/foretag/moms/sarskildamomsregler/handelmedandralander/inkopavnytttransportmedelfranettannateuland.4.361dc8c15312eff6fd1209a.html"
       ],
-      "uniquePayloadScore": 89,
+      "uniquePayloadScore": 88,
       "quality": {
         "hasSources": true,
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-10-21",
+      "lastEvaluated": "2026-10-20",
       "tags": [
         "guide",
         "kostnad",
         "moms"
-      ]
+      ],
+      "notes": "2026-10-20 källgranskad: ca 870 ord; SKV 5282 och 35 dagar bekräftade mot Skatteverket, FAQ-schemats SKV 5740 rättat, felaktig källänk bytt. Poäng 89→88."
     },
     {
       "id": "guider-kopa-bil-mobile-de-autoscout24",
@@ -559,7 +560,8 @@
         "försäkring",
         "tyskland",
         "export"
-      ]
+      ],
+      "notes": "2026-10-20 källgranskad: ca 1 080 ord; 'normalt dyrare' för husbil borttaget. Poäng 82→82."
     },
     {
       "id": "guider-fordonsskatt-husbil-bonus-malus",
@@ -588,7 +590,8 @@
         "husbil",
         "skatt",
         "bonus-malus"
-      ]
+      ],
+      "notes": "2026-10-20 källgranskad: ca 1 500 ord; CO₂-spann och 'de flesta väljer transport' borttagna. Poäng 88→88."
     },
     {
       "id": "guider-hur-lang-tid-tar-bilimport",
@@ -600,14 +603,14 @@
         "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/fordonsimport-och-ursprungskontroll/",
         "https://www.transportstyrelsen.se/sv/vagtrafik/e-tjanster-och-blanketter/e-tjanster-inom-vagtrafik/fordon/ursprungskontroll--arendestatus/"
       ],
-      "uniquePayloadScore": 80,
+      "uniquePayloadScore": 75,
       "quality": {
         "hasSources": true,
         "isThin": false,
         "indexable": true
       },
       "lastEvaluated": "2026-10-20",
-      "notes": "Quality gate godkänd 2026-03-29. ~900 ord, konkreta tidsintervall och kostnader, FAQ-block. 2025→2026 datum-sweep 2026-05-13. Skyltavgift 130 kr → 198 kr (verifierat 2026-05-14).",
+      "notes": "Quality gate godkänd 2026-03-29. ~900 ord, konkreta tidsintervall och kostnader, FAQ-block. 2025→2026 datum-sweep 2026-05-13. Skyltavgift 130 kr → 198 kr (verifierat 2026-05-14). | 2026-10-20 källgranskad: ca 800 ord; fasta tidsangivelser utan källa borttagna, felaktigt råd att ansöka om ursprungskontroll före hemkomst rättat, live-ködatum. Poäng 80→75.",
       "tags": [
         "guide",
         "process",
@@ -623,14 +626,14 @@
         "https://www.transportstyrelsen.se",
         "https://www.tullverket.se"
       ],
-      "uniquePayloadScore": 80,
+      "uniquePayloadScore": 78,
       "quality": {
         "hasSources": true,
         "isThin": false,
         "indexable": true
       },
       "lastEvaluated": "2026-10-20",
-      "notes": "Quality gate godkänd 2026-03-29. ~1000 ord, tre alternativ med kostnadstabeller, skattningar tydligt märkta.",
+      "notes": "Quality gate godkänd 2026-03-29. ~1000 ord, tre alternativ med kostnadstabeller, skattningar tydligt märkta. | 2026-10-20 källgranskad: ca 950 ord; tider per transportsätt och sjudagarsfel i FAQ rättade. Poäng 80→78.",
       "tags": [
         "guide",
         "transport"
@@ -794,8 +797,8 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-10-21",
-      "notes": "Prisjämförelse per segment med schablonvärden. Källor: mobile.de, Bytbil, Blocket. Break-even-kalkyl med data från cost-data.json. 2026-10-20: omskriven till metodsida. Prisnivåer per segment och prisskillnader per märke borttagna (saknade källa).",
+      "lastEvaluated": "2026-10-20",
+      "notes": "Prisjämförelse per segment med schablonvärden. Källor: mobile.de, Bytbil, Blocket. Break-even-kalkyl med data från cost-data.json. 2026-10-20: omskriven till metodsida. Prisnivåer per segment och prisskillnader per märke borttagna (saknade källa). | 2026-10-20 källgranskad: Handlar-/förhandlingspåståenden utan källa omskrivna. Poäng 82→82.",
       "tags": [
         "jamfor"
       ]
@@ -830,8 +833,8 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-10-21",
-      "notes": "Hub-sida som listar alla guider. Indexeras för internlänkning och navigationsstruktur.",
+      "lastEvaluated": "2026-10-20",
+      "notes": "Hub-sida som listar alla guider. Indexeras för internlänkning och navigationsstruktur. | 2026-10-20 källgranskad: Guidekort omskrivna efter rättade guider. Poäng 72→72.",
       "tags": [
         "guide",
         "hub"
@@ -911,12 +914,13 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-03-30",
+      "lastEvaluated": "2026-10-20",
       "tags": [
         "guide",
         "bil",
         "flöde"
-      ]
+      ],
+      "notes": "2026-10-20 källgranskad: Tidslinjens 'handläggningstid ca 1 vecka' rättad. Poäng 80→80."
     },
     {
       "id": "guider-importforsakring",
@@ -1005,12 +1009,13 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-03-30",
+      "lastEvaluated": "2026-10-20",
       "tags": [
         "guide",
         "husbil",
         "flöde"
-      ]
+      ],
+      "notes": "2026-10-20 källgranskad: Tidslinjens 'handläggningstid ca 1 vecka' rättad. Poäng 80→80."
     },
     {
       "id": "guider-tysk-bilordlista",

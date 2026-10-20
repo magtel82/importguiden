@@ -185,7 +185,7 @@ export default async function GuiderPage({ params }: Props) {
           {
             question: "Vad kontrollerar Transportstyrelsen vid ursprungskontroll?",
             answer:
-              "Ursprungskontrollen ska hindra att stulna eller efterlysta fordon registreras i Sverige. Den krävs för alla fordon som ska registreras här, utom nya fordon från registrerade importörer, och ett godkännande gäller i fem år.",
+              "Transportstyrelsen gör kontrollen med stöd av de handlingar du bifogar – registreringsbeviset i original och köpehandlingen. Fordon med utländsk leasing kan inte registreras förrän leasingen är avbetald eller flyttad till en svensk leasinggivare. Kontrollen krävs för alla fordon som ska registreras här, utom nya fordon från registrerade importörer, och ett godkännande gäller i fem år.",
           },
         ])
       : slug === "moms-vid-bilimport"
@@ -203,7 +203,7 @@ export default async function GuiderPage({ params }: Props) {
           {
             question: "Hur redovisar man moms vid bilimport till Skatteverket?",
             answer:
-              "Om moms ska betalas redovisar du det i en momsdeklaration till Skatteverket. Som privatperson görs detta via blankett SKV 5740.",
+              "Om bilen räknas som ny lämnar du en särskild skattedeklaration – Förvärv av nytt transportmedel i annat EU-land (SKV 5282) – till Skatteverket och betalar momsen till ditt skattekonto senast 35 dagar efter köpet.",
           },
         ])
       : slug === "coc-intyg"

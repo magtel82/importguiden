@@ -79,7 +79,7 @@ export function ImportTimeline({ vehicleType, activeStep = 1 }: ImportTimelinePr
       title: "Registrera i Sverige",
       subtitle: "Ursprungskontroll → Besiktning → Skyltar",
       description:
-        "Ansök hos Transportstyrelsen, boka registreringsbesiktning och teckna svensk försäkring. Handläggningstid: ca 1 vecka.",
+        "Ansök om ursprungskontroll hos Transportstyrelsen när fordonet är i Sverige och boka registreringsbesiktning när den är godkänd. Transportstyrelsen anger ingen fast handläggningstid – se aktuellt ködatum i guiden om ursprungskontroll.",
       cta: { text: "Ursprungskontroll", href: "/guider/ursprungskontroll" },
       secondaryCta: {
         text: "Registreringsbesiktning",

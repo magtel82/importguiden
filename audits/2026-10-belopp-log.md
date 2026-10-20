@@ -210,3 +210,17 @@ Citat ur primärkällor som ändringarna bygger på:
 - "EEG-intyg": sökning på transportstyrelsen.se gav bara föreskrifter där EEG är gemenskapens äldre namn – inget importdokument med det namnet.
 - Ej belagt och borttaget: fuktmätning vid registreringsbesiktning, breddmarkeringslyktor > 2,10 m, efterkontroll inom 2 månader, däck-/broms-/rostgränser, "importbilar underkänns oftare", mobile.de "över 100 000 husbilar", kamrem "6 år/150 000 km", körsträcka per år.
 - EU-direktiv 2019/771 (konsumentköp): EUR-Lex returnerade tomt innehåll – inget påstående om reklamationsrätt publiceras.
+
+## Källgranskning e (2026-10-20)
+
+- Transportstyrelsen, Frågor och svar om ursprungskontroll (…/fragor-svar-om-ursprungskontroll/, läst 2026-10-20):
+  - "När du skickar in ansökan om ursprungskontroll skapas en debitering och i samband med detta skickas det automatiskt ut en faktura via brev."
+  - "Kan jag registrera ett fordon i Sverige som har utländsk leasing? Nej. ... vi begära dokumentation som styrker att leasingen är avbetalad alternativt flyttad till en svensk leasinggivare."
+  - "Du som är registrerad ägare i ursprungslandet behöver själv se till att fordonet avregistreras korrekt."
+  - "Det tar upp till fem arbetsdagar innan skyltarna är tillverkade och skickas hem till dig."
+  - "ett godkännande vid ursprungskontrollen inte garanterar att fordonet kommer att godkännas vid registreringsbesiktning"
+  - Körning till registreringsbesiktning: "utan skyltar, kortast lämpligast väg" med godkänd ursprungskontroll, avtalad tid och "minst en endagars trafikförsäkring".
+- Skatteverket, Inköp av nytt transportmedel från ett annat EU-land: "Särskild skattedeklaration – Förvärv av nytt transportmedel i annat EU-land (SKV 5282)"; "senast 35 dagar efter köpet"; "Beskattning ska ske oberoende av säljarens och köparens status."
+- Skatteverkets privat-URL "jagskaimporteraenbil…" gäller import utanför EU – bytt som källa i moms- och elbilsguiden.
+- Ej granskat i detta pass: /integritetspolicy, /kontakta-oss, /finansiering (juridik/kontakt, manualOverride), /guider/importera-husvagn (godkänd av Magnus 2026-10-22), /guider/importforsakring och /guider/elbilspremie-importerad-bil (källbelagda i tidigare pass; stickprov OK), /kalkylator (räknar ur data).
+- Noindex-sidor (tysk-bilordlista, matarmanipulation, garanti-vid-bilimport, krockhistorik-unfallfrei) ej granskade – granska innan de indexeras.

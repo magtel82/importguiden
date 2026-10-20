@@ -18,6 +18,32 @@
     {
       "date": "2026-10-20",
       "type": "rattelse",
+      "title": "Ursprungskontroll: handläggningstid, ansökningstidpunkt och kontrollinnehåll rättade",
+      "summary": "Tidslinjen på guidesidorna angav handläggningstiden för ursprungskontroll till cirka en vecka; Transportstyrelsen anger ingen fast tid och kön var vid kontrollen den 20 oktober 2026 omkring fyra veckor. Tidsguiden rådde läsaren att ansöka innan bilen är i Sverige, men Transportstyrelsen anger att ansökan görs när fordonet befinner sig i Sverige. Guiden om ursprungskontroll angav att Transportstyrelsen kontrollerar mot Interpol, Europol och kreditregister; det är borttaget. Transportstyrelsen anger att kontrollen görs med stöd av inskickade handlingar och att fordon med utländsk leasing inte kan registreras.",
+      "source": "Transportstyrelsen – Frågor och svar om ursprungskontroll",
+      "sourceUrl": "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/fordonsimport-och-ursprungskontroll/fragor-svar-om-ursprungskontroll/",
+      "affectedPages": [
+        "/guider/ursprungskontroll",
+        "/guider/hur-lang-tid-tar-bilimport",
+        "/importera-bil/guide",
+        "/importera-husbil/guide"
+      ]
+    },
+    {
+      "date": "2026-10-20",
+      "type": "rattelse",
+      "title": "Moms vid bilimport: fel blankett i sammanfattningen",
+      "summary": "Sammanfattningen av vanliga frågor angav blankett SKV 5740. Enligt Skatteverket heter blanketten Särskild skattedeklaration – Förvärv av nytt transportmedel i annat EU-land (SKV 5282), och momsen ska deklareras och betalas senast 35 dagar efter köpet. En källänk pekade på Skatteverkets sida om import från länder utanför EU och är utbytt.",
+      "source": "Skatteverket – Inköp av nytt transportmedel från ett annat EU-land",
+      "sourceUrl": "https://skatteverket.se/foretag/moms/sarskildamomsregler/handelmedandralander/inkopavnytttransportmedelfranettannateuland.4.361dc8c15312eff6fd1209a.html",
+      "affectedPages": [
+        "/guider/moms-vid-bilimport",
+        "/guider/importera-elbil"
+      ]
+    },
+    {
+      "date": "2026-10-20",
+      "type": "rattelse",
       "title": "COC-intyg krävs inte alltid – och enskilt godkännande tar inte månader",
       "summary": "Flera guider angav att COC-intyget krävs för att registreringsbesiktningen ska kunna genomföras, att ett avregistreringsintyg ska tas med till besiktningen och att enskilt godkännande kan ta flera månader. Enligt Transportstyrelsen räcker registreringsbeviset från det tidigare landet för en begagnad bil som varit registrerad i ett annat EES-land, om den är serietillverkad i standardutförande och väger högst 3 500 kg. COC krävs för nya fordon. Enskilt godkännande gäller nya fordon utan EU-typgodkännande, och Transportstyrelsen fattar beslut direkt vid provningen. Guiden om EEG-intyg beskrev ett dokument som Transportstyrelsen inte använder och är omskriven.",
       "source": "Transportstyrelsen – Fordon som är EG-typgodkända",
