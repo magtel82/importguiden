@@ -2,22 +2,36 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { feeRows, formatSekRange, exportKostnad, TULL_EU } from "@/lib/costs";
 
-const bilCosts = [
-  { label: "Ursprungskontroll", amount: "1 240 kr", source: "Transportstyrelsen (2026)" },
-  { label: "Registreringsbesiktning, personbil", amount: "~1 700 kr", source: "Schablonvärde" },
-  { label: "Importförsäkring", amount: "~1 500 kr", source: "Schablonvärde" },
-  { label: "Transport (kör hem från Tyskland)", amount: "~5 000–7 000 kr", source: "Schablonvärde" },
-  { label: "Tull (import inom EU)", amount: "0 kr", source: "Tullverket", green: true },
-];
+// Alla belopp ur data/cost-data.json via lib/costs.ts.
+interface OverviewRow {
+  label: string;
+  amount: string;
+  source: string;
+  green?: boolean;
+}
 
-const husbilCosts = [
-  { label: "Ursprungskontroll", amount: "1 240 kr", source: "Transportstyrelsen (2026)" },
-  { label: "Registreringsbesiktning, husbil", amount: "~3 000–5 000 kr", source: "Schablonvärde" },
-  { label: "Importförsäkring", amount: "~2 000–4 000 kr", source: "Schablonvärde" },
-  { label: "Transport (kör hem från Tyskland)", amount: "~7 000–12 000 kr", source: "Schablonvärde" },
-  { label: "Tull (import inom EU)", amount: "0 kr", source: "Tullverket", green: true },
-];
+function rowsFor(vehicle: "bil" | "husbil"): OverviewRow[] {
+  const rows: OverviewRow[] = feeRows(vehicle).map((r) => ({
+    label: r.label,
+    amount: formatSekRange(r),
+    source: r.type === "officiell" ? r.source : "Publicerat pris",
+  }));
+  if (vehicle === "husbil") {
+    rows.push({ label: "Importförsäkring", amount: "offert", source: "Inget publicerat pris" });
+  }
+  rows.push({
+    label: "Köra hem själv (exportskyltar och exportförsäkring)",
+    amount: `från ${formatSekRange(exportKostnad())}`,
+    source: "Service Berlin, nondos.de",
+  });
+  rows.push({ label: "Tull (import inom EU)", amount: TULL_EU, source: "Tullverket", green: true });
+  return rows;
+}
+
+const bilCosts = rowsFor("bil");
+const husbilCosts = rowsFor("husbil");
 
 export function CostOverview() {
   const [active, setActive] = useState<"bil" | "husbil">("bil");

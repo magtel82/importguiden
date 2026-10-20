@@ -48,7 +48,7 @@ export const GUIDES: GuideMeta[] = [
   {
     slug: "eeg-intyg",
     title: "EEG-intyg vid bilimport",
-    description: "När Transportstyrelsen kräver EEG-typintyg, hur du beställer det och vad det kostar (50–200 EUR).",
+    description: "När Transportstyrelsen kräver EEG-typintyg, hur du beställer det och vad du ska fråga tillverkaren om pris och leveranstid.",
     time: "4 min",
     category: "generell",
   },

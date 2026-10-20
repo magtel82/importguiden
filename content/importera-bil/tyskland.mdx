@@ -26,15 +26,15 @@ Du behöver räkna in dessa fasta kostnader ovanpå bilpriset:
 
 | Kostnad | Belopp | Källa |
 |---|---|---|
-| Ursprungskontroll | 1 240 kr | Transportstyrelsen (2026) |
-| Registreringsbesiktning (personbil) | ~1 500–1 900 kr | Varierar per station |
-| Transport (kör hem, schablonvärde) | ~2 000 kr | Bränslekostnad |
-| Transport (anlitar transportbolag) | ~6 000–12 000 kr | Branschuppskattning |
+| Ursprungskontroll | <Belopp id="ursprungskontroll" /> | Transportstyrelsen |
+| Registreringsbesiktning | <Belopp id="registreringsbesiktning" /> | Publicerade prislistor |
+| Exportskyltar och exportförsäkring (kör hem) | från <Exportkostnad /> | Service Berlin, nondos.de |
+| Transport med transportbolag | Enligt offert | – |
 | Moms (om fordon anses nytt\*) | 25 % av priset | Skatteverket |
 
-\* *Ett fordon anses nytt om det är yngre än 6 månader ELLER har körts färre än 6 000 km. Båda kriterierna måste gälla för att undvika moms på begagnat fordon. Källa: Skatteverket.*
+\* *Ett fordon anses nytt om det köps inom 6 månader efter att det första gången togs i bruk ELLER har körts högst 6 000 km. Källa: Skatteverket.*
 
-**Tumregel:** Du behöver hitta en prisskillnad på minst 15 000–20 000 kr för att importen ska vara värd besväret när du räknar in din tid och resekostnad.
+**Tumregel:** Prisskillnaden måste vara större än avgifterna och transporten tillsammans – med marginal för din tid och oväntade kostnader. Räkna i [kalkylatorn](/kalkylator/bilimport).
 
 Använd [importkalkylatorn](/kalkylator/bilimport) för att räkna ut din specifika situation, eller läs mer om [vad det kostar att importera bil](/importera-bil/kostnad).
 
@@ -57,7 +57,7 @@ Undvik bilar märkta som **Export** eller **Exportfahrzeug** i annonserna. Dessa
 
 Innan du reser ner bör du kontrollera VIN-numret (chassinumret) via en tjänst som Carfax Europe eller Autocheck. Det ger dig information om eventuella olyckor, kilometertamper eller om bilen är listad som stulen.
 
-*Obs: Sådana kontroller kostar vanligen 10–30 EUR och är inte obligatoriska, men stark rekommendation.*
+*Obs: Sådana kontroller är inte obligatoriska men starkt rekommenderade. Kontrollera priset hos tjänsten innan du beställer.*
 
 ---
 
@@ -67,9 +67,9 @@ Flyg inte ner och köp bilen vid första mötet utan oberoende besiktning. Det �
 
 Du kan:
 
-1. **Boka TÜV-besiktning** – Tyska TÜV-stationer (DEKRA, GTÜ, TÜV Rheinland m.fl.) erbjuder köparbesiktning (*Gebrauchtwagen-Ankaufcheck*). Kostar ungefär 80–150 EUR. Be säljaren att komma med bilen till närmaste station.
+1. **Boka TÜV-besiktning** – Tyska TÜV-stationer (DEKRA, GTÜ, TÜV Rheinland m.fl.) erbjuder köparbesiktning (*Gebrauchtwagen-Ankaufcheck*). Fråga om pris när du bokar. Be säljaren att komma med bilen till närmaste station.
 
-2. **ADAC-besiktning** – ADAC (tyska motormännen) erbjuder en oberoende köparbesiktning för ca 120–200 EUR. Välrenommerat och rekommenderas.
+2. **ADAC-besiktning** – ADAC (tyska motormännen) erbjuder en oberoende köparbesiktning – i Hamburg från <Belopp id="kopbesiktning_adac" kalla />.
 
 Det är säljaren som ofta hämtar bilen till besiktningsplatsen, inte du. Seriösa säljare brukar acceptera detta utan problem. Tvekar säljaren – gå vidare till nästa annons.
 
@@ -100,7 +100,7 @@ Säljaren är ansvarig för att avregistrera bilen (*Abmeldung*) hos den lokala 
 
 ### Exportregistrering (tyska exportskyltar)
 
-Om du ska köra hem bilen behöver du tillfälliga exportskyltar (*Ausfuhrkennzeichen*). Det är vita skyltar med ett rött fält där utgångsdatumet står. De beställs hos en lokal *Zulassungsstelle* (registreringsmyndighet). Räkna med ca 30–60 EUR för avgift och skyltar.
+Om du ska köra hem bilen behöver du tillfälliga exportskyltar (*Ausfuhrkennzeichen*). Det är vita skyltar med ett rött fält där utgångsdatumet står. De beställs hos en lokal *Zulassungsstelle* (registreringsmyndighet). Avgiften är från <Belopp id="exportskyltar_avgift" />; skyltarna kostar extra.
 
 Exportskyltarna ger en tidsbegränsad rätt att köra bilen. Giltigheten följer exportförsäkringens löptid och får enligt tysk lag vara högst ett år (*källa: [§ 45 Fahrzeug-Zulassungsverordnung](https://www.gesetze-im-internet.de/fzv_2023/__45.html)*). Kontrollera utgångsdatumet noga.
 
@@ -112,7 +112,7 @@ Väl hemma i Sverige behöver du en **importförsäkring** – ett tillfälligt 
 
 ## Steg 5 – Ursprungskontroll via Transportstyrelsen
 
-Ursprungskontroll är obligatoriskt för alla importerade fordon. Kontrollen utförs av Transportstyrelsen och kostar **1 240 kr** (2026, *källa: Transportstyrelsen*).
+Ursprungskontroll är obligatoriskt för alla importerade fordon. Kontrollen utförs av Transportstyrelsen och kostar **<Belopp id="ursprungskontroll" />** (*källa: Transportstyrelsen*).
 
 Kontrollen verifierar att bilen:
 - Inte är registrerad som stulen i internationella register
@@ -140,7 +140,7 @@ Kontrolleras vid registreringsbesiktning:
 - Köpekontrakt
 - Resultat av ursprungskontroll
 
-Kostnad: ca **1 500–1 900 kr** för personbil (schablonvärde, varierar per station och fordonstyp).
+Kostnad: **<Belopp id="registreringsbesiktning" />** enligt publicerade prislistor – besiktningsföretagen sätter priset själva.
 
 Om bilen underkänns får du en kompletterande besiktning när anmärkningarna är åtgärdade.
 
@@ -156,7 +156,7 @@ Du betalar sedan fordonsskatt, väljer försäkringsbolag och bilen får svenska
 
 ## Vanliga fallgropar
 
-**Saknat COC-intyg.** Tyska säljare ger inte alltid med COC-dokumentet. Be om det i förväg. Saknas det – beställ det via märkesimportören i Sverige (kostar ca 500–1 500 kr och tar 1–2 veckor). Mer om detta i vår guide om [COC-intyg](/guider/coc-intyg).
+**Saknat COC-intyg.** Tyska säljare ger inte alltid med COC-dokumentet. Be om det i förväg. Saknas det – beställ det via märkesimportören i Sverige (tar 1–2 veckor; tillverkaren sätter priset). Mer om detta i vår guide om [COC-intyg](/guider/coc-intyg).
 
 **Exportskyltar som löpt ut.** Det händer att transporter drar ut på tiden och exportgiltigheten löper ut. Planera med marginal.
 
@@ -176,7 +176,7 @@ Du betalar sedan fordonsskatt, väljer försäkringsbolag och bilen får svenska
 6. Säljaren avregistrerar bilen och ger dig avregistreringsintyg
 7. Ordna exportregistrering (tyska exportskyltar) och exportförsäkring
 8. Kör hem eller anlita transportbolag
-9. Beställ ursprungskontroll via Transportstyrelsen (1 240 kr)
+9. Beställ ursprungskontroll via Transportstyrelsen (<Belopp id="ursprungskontroll" />)
 10. Boka och genomför registreringsbesiktning
 11. Registrera bilen i Sverige
 
@@ -186,9 +186,9 @@ Du betalar sedan fordonsskatt, väljer försäkringsbolag och bilen får svenska
 
 Många privatimportörer stöter på samma problem. Här är de vanligaste fallgroparna:
 
-- **Köper utan besiktning på plats** – Beställ alltid en oberoende besiktning via DEKRA eller TÜV innan köpet. Det kostar 80–200 EUR men kan rädda dig från en dyrköpt miss.
-- **Glömmer COC-intyget** – Begagnade bilar saknar ofta COC-intyget. Beställ det från tillverkaren i god tid – det tar normalt 1–2 veckor och kostar 500–1 500 kr.
-- **Underskattar transportkostnaden** – Biltransport Sverige–Tyskland kostar 6 000–12 000 kr beroende på avstånd. Räkna in det i kalkylen från start.
+- **Köper utan besiktning på plats** – Beställ alltid en oberoende besiktning via ADAC, DEKRA eller TÜV innan köpet. Den kan rädda dig från en dyrköpt miss.
+- **Glömmer COC-intyget** – Begagnade bilar saknar ofta COC-intyget. Beställ det från tillverkaren i god tid – det tar normalt 1–2 veckor.
+- **Underskattar transportkostnaden** – Begär offert på biltransport tidigt och räkna in den i kalkylen från start.
 - **Missar exportförsäkringen** – Du behöver en kortvarig exportförsäkring för hemtransporten. Ordna detta innan du åker ner.
 - **Betalar utan skriftligt kontrakt** – Använd alltid skriftligt köpekontrakt med VIN-nummer, pris, datum och säljarens underskrift.
 
@@ -198,15 +198,16 @@ Många privatimportörer stöter på samma problem. Här är de vanligaste fallg
 
 Utöver bilens pris tillkommer följande fasta kostnader:
 
-| Kostnad | Belopp (ca) | Gäller |
+| Kostnad | Belopp | Gäller |
 |---|---|---|
-| Ursprungskontroll | 1 240 kr | Alltid |
-| Registreringsbesiktning, personbil | 1 500–1 900 kr | Alltid |
-| Exportförsäkring | 300–600 kr | Om du kör hem bilen själv |
-| Transport med transportbolag | 6 000–12 000 kr | Om du inte kör hem bilen själv |
-| COC-intyg | 500–1 500 kr | Om intyget saknas vid köpet |
-| **Grundkostnad** | **~3 000–3 800 kr** | Ursprungskontroll + besiktning + exportförsäkring |
-| **Med transport och COC-intyg** | **~9 200–16 600 kr** | Om båda tillkommer |
+| Ursprungskontroll | <Belopp id="ursprungskontroll" /> | Alltid |
+| Registreringsbesiktning | <Belopp id="registreringsbesiktning" /> | Alltid |
+| Importförsäkring (If) | <Belopp id="importforsakring_if" /> | Efter sju dagar i Sverige |
+| Skyltar och vägtrafikregisteravgift | <Skyltavgift /> | Alltid |
+| **Fasta avgifter totalt** | **<FastaAvgifter fordon="bil" />** | |
+| Exportskyltar och exportförsäkring | från <Exportkostnad /> | Om du kör hem bilen själv |
+| Transport med transportbolag | Enligt offert | Om du inte kör hem bilen själv |
+| COC-intyg | Enligt tillverkaren | Om intyget saknas vid köpet |
 
 Använd vår [importkalkylator](/kalkylator/bilimport) för att räkna på din specifika bil.
 

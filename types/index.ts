@@ -50,42 +50,6 @@ export interface PageManifest {
   pages: PageManifestEntry[];
 }
 
-export interface CostFee {
-  amount: number;
-  currency: string;
-  note: string;
-  source: string;
-}
-
-export interface CostData {
-  _version: string;
-  _updated: string;
-  _source: string;
-  fees: {
-    ursprungskontroll: CostFee;
-    registreringsbesiktning_personbil: CostFee;
-    registreringsbesiktning_husbil: CostFee;
-    skyltavgift: CostFee;
-    importforsäkring_personbil: CostFee;
-    importforsäkring_husbil: CostFee;
-  };
-  tax: {
-    moms_new_vehicle_threshold_months: number;
-    moms_new_vehicle_threshold_km: number;
-    moms_rate: number;
-    note: string;
-    source: string;
-  };
-  transport: {
-    drive_self_cost_per_km: number;
-    trailer_transport_from_germany: {
-      min: number;
-      max: number;
-      currency: string;
-      note: string;
-    };
-  };
-}
 
 // Brand import data types (pSEO)
 export interface PriceRange {

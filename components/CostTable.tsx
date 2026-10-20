@@ -1,28 +1,8 @@
 "use client";
 
-import importCostsData from "@/datasets/import-costs.json";
 import { ExternalLink } from "lucide-react";
 import { formatDateSv } from "@/lib/date";
-
-interface CostEntry {
-  id: string;
-  name: string;
-  amount?: number;
-  amountMin?: number;
-  amountMax?: number;
-  isRange?: boolean;
-  isApproximate?: boolean;
-  currency: string;
-  validFrom: string;
-  source: string;
-  sourceUrl: string | null;
-  note: string;
-  appliesTo: string[];
-  /** Jämförelsepost (t.ex. arvode till importfirma) – ett alternativ till
-   *  att göra importen själv, inte en avgift som tillkommer. Får ALDRIG
-   *  renderas som kostnadsrad eller räknas in i summan. */
-  comparisonOnly?: boolean;
-}
+import { feeRows, feeTotal, formatSekRange, type FeeRow } from "@/lib/costs";
 
 interface CostTableProps {
   vehicleType: "bil" | "husbil";
@@ -31,83 +11,57 @@ interface CostTableProps {
   highlightId?: string;
 }
 
-const SWEDISH_MONTHS = [
-  "jan", "feb", "mar", "apr", "maj", "jun",
-  "jul", "aug", "sep", "okt", "nov", "dec",
-];
+const TYPE_LABEL: Record<FeeRow["type"], string> = {
+  officiell: "Officiell avgift",
+  marknadspris: "Publicerat pris",
+  schablon: "Uppskattning",
+};
 
-function formatValidFrom(isoDate: string): string {
-  const [year, month] = isoDate.split("-");
-  return `${SWEDISH_MONTHS[parseInt(month) - 1]} ${year}`;
-}
-
-
-function formatAmount(entry: CostEntry): string {
-  if (entry.isRange && entry.amountMin !== undefined && entry.amountMax !== undefined) {
-    return `${entry.amountMin.toLocaleString("sv-SE")}–${entry.amountMax.toLocaleString("sv-SE")} kr`;
-  }
-  if (entry.currency === "EUR") {
-    return `ca ${entry.amount} €`;
-  }
-  const prefix = entry.isApproximate ? "ca " : "";
-  return `${prefix}${entry.amount?.toLocaleString("sv-SE")} kr`;
-}
-
+/**
+ * Fasta avgifter vid import. Raderna och summan kommer från lib/costs.ts
+ * (data/cost-data.json) – samma underlag som kalkylatorn och sidtexterna.
+ */
 export function CostTable({
   vehicleType,
   showTotal = true,
   compact = false,
   highlightId,
 }: CostTableProps) {
-  const costs = (importCostsData.costs as CostEntry[]).filter(
-    (c) => c.appliesTo.includes(vehicleType) && !c.comparisonOnly
-  );
-
-  const fixedSekTotal = costs
-    .filter((c) => !c.isRange && c.currency === "SEK" && c.amount !== undefined)
-    .reduce((sum, c) => sum + (c.amount ?? 0), 0);
-
-  const hasApprox = costs.some(
-    (c) => c.isApproximate && !c.isRange && c.currency === "SEK"
-  );
-  const hasExtras = costs.some((c) => c.currency === "EUR" || c.isRange);
+  const rows = feeRows(vehicleType);
+  const total = formatSekRange(feeTotal(vehicleType));
+  const footnote =
+    vehicleType === "husbil"
+      ? "Importförsäkring för husbil har inget publicerat pris och ingår inte – begär offert."
+      : null;
 
   if (compact) {
     return (
       <div className="my-3 rounded border border-gray-200 overflow-hidden">
         <table className="w-full text-sm">
           <tbody className="divide-y divide-gray-100">
-            {costs.map((cost) => (
+            {rows.map((r) => (
               <tr
-                key={cost.id}
-                className={`${
-                  highlightId === cost.id
-                    ? "border-l-2 border-blue-700 bg-blue-50"
-                    : ""
-                }`}
+                key={r.id}
+                className={highlightId === r.id ? "border-l-2 border-blue-700 bg-blue-50" : ""}
               >
-                <td className="px-3 py-2 text-gray-700">{cost.name}</td>
+                <td className="px-3 py-2 text-gray-700">{r.label}</td>
                 <td className="px-3 py-2 text-right font-semibold text-gray-900 whitespace-nowrap">
-                  {formatAmount(cost)}
+                  {formatSekRange(r)}
                 </td>
               </tr>
             ))}
             {showTotal && (
               <tr className="bg-gray-50 border-t border-gray-200">
-                <td className="px-3 py-2 font-semibold text-gray-900">
-                  Summa avgifter
-                </td>
+                <td className="px-3 py-2 font-semibold text-gray-900">Summa avgifter</td>
                 <td className="px-3 py-2 text-right font-semibold text-gray-900 whitespace-nowrap">
-                  {hasApprox ? "ca " : ""}
-                  {fixedSekTotal.toLocaleString("sv-SE")} kr
-                  {hasExtras && (
-                    <span className="font-normal text-gray-500"> + transport</span>
-                  )}
+                  {total}
+                  <span className="font-normal text-gray-500"> + transport</span>
                 </td>
               </tr>
             )}
           </tbody>
         </table>
+        {footnote && <p className="px-3 py-2 text-xs text-gray-500">{footnote}</p>}
       </div>
     );
   }
@@ -118,73 +72,56 @@ export function CostTable({
         <table className="w-full text-sm">
           <thead>
             <tr className="bg-gray-50 border-b border-gray-200">
-              <th className="text-left p-3 font-semibold text-gray-700">
-                Avgift
-              </th>
-              <th className="text-right p-3 font-semibold text-gray-700 whitespace-nowrap">
-                Belopp
-              </th>
-              <th className="text-left p-3 font-semibold text-gray-700">
-                Källa
-              </th>
+              <th className="text-left p-3 font-semibold text-gray-700">Avgift</th>
+              <th className="text-right p-3 font-semibold text-gray-700 whitespace-nowrap">Belopp</th>
+              <th className="text-left p-3 font-semibold text-gray-700">Källa</th>
               <th className="text-left p-3 font-semibold text-gray-700 hidden sm:table-cell whitespace-nowrap">
-                Gäller fr.o.m.
+                Kontrollerat
               </th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-100">
-            {costs.map((cost) => (
+            {rows.map((r) => (
               <tr
-                key={cost.id}
+                key={r.id}
                 className={`hover:bg-gray-50 transition-colors ${
-                  highlightId === cost.id
-                    ? "border-l-2 border-blue-700 bg-blue-50"
-                    : ""
+                  highlightId === r.id ? "border-l-2 border-blue-700 bg-blue-50" : ""
                 }`}
               >
                 <td className="p-3 text-gray-700">
-                  <span className="font-medium">{cost.name}</span>
-                  <p className="text-xs text-gray-500 mt-0.5">{cost.note}</p>
+                  <span className="font-medium">{r.label}</span>
+                  <p className="text-xs text-gray-500 mt-0.5">
+                    {TYPE_LABEL[r.type]}
+                    {r.note ? ` – ${r.note}` : ""}
+                  </p>
                 </td>
                 <td className="p-3 text-right font-semibold text-gray-900 whitespace-nowrap">
-                  {formatAmount(cost)}
+                  {formatSekRange(r)}
                 </td>
                 <td className="p-3 text-xs text-gray-500">
-                  {cost.sourceUrl ? (
-                    <a
-                      href={cost.sourceUrl}
-                      target="_blank"
-                      rel="nofollow noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-blue-700 hover:underline"
-                    >
-                      <span>{cost.source}</span>
-                      <ExternalLink
-                        className="h-3 w-3 flex-shrink-0"
-                        aria-hidden="true"
-                      />
-                    </a>
-                  ) : (
-                    cost.source
-                  )}
+                  <a
+                    href={r.sourceUrl}
+                    target="_blank"
+                    rel="nofollow noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-blue-700 hover:underline"
+                  >
+                    <span>{r.source}</span>
+                    <ExternalLink className="h-3 w-3 flex-shrink-0" aria-hidden="true" />
+                  </a>
                 </td>
-                <td className="p-3 text-xs text-gray-500 hidden sm:table-cell">
-                  {formatValidFrom(cost.validFrom)}
+                <td className="p-3 text-xs text-gray-500 hidden sm:table-cell whitespace-nowrap">
+                  {formatDateSv(r.checked)}
                 </td>
               </tr>
             ))}
             {showTotal && (
               <tr className="bg-gray-50 border-t border-gray-200">
-                <td className="p-3 font-semibold text-gray-900">
-                  Summa fasta avgifter
-                </td>
+                <td className="p-3 font-semibold text-gray-900">Summa fasta avgifter</td>
                 <td className="p-3 text-right font-semibold text-gray-900 whitespace-nowrap">
-                  {hasApprox ? "ca " : ""}
-                  {fixedSekTotal.toLocaleString("sv-SE")} kr
-                  {hasExtras && (
-                    <span className="block text-xs font-normal text-gray-500">
-                      + exportskyltar och transport
-                    </span>
-                  )}
+                  {total}
+                  <span className="block text-xs font-normal text-gray-500">
+                    + transport och eventuell moms
+                  </span>
                 </td>
                 <td className="p-3" />
                 <td className="p-3 hidden sm:table-cell" />
@@ -194,9 +131,9 @@ export function CostTable({
         </table>
       </div>
       <p className="text-xs text-gray-500 mt-3">
-        Senast verifierad: {formatDateSv(importCostsData._meta.lastVerified)}.{" "}
-        Priserna är uppskattningar och kan variera. Kontrollera alltid aktuella
-        belopp hos respektive myndighet.
+        {footnote ? `${footnote} ` : ""}
+        Besiktningsföretagen sätter egna priser – beloppet för registreringsbesiktning bygger på
+        publicerade prislistor och kan skilja sig hos din station.
       </p>
     </div>
   );

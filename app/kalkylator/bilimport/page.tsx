@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getCanonicalUrl } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { ImportCalculator } from "@/components/calculator/ImportCalculator";
-import { getCostData } from "@/lib/data";
+import { formatCost, costSourceLine, eurRateLine, MOMS } from "@/lib/costs";
 
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
 
@@ -20,8 +20,6 @@ export function generateMetadata(): Metadata {
 }
 
 export default function KalkylatornPage() {
-  const costData = getCostData();
-
   const breadcrumbs = [
     { name: "Hem", href: "/" },
     { name: "Kalkylator" },
@@ -45,18 +43,25 @@ export default function KalkylatornPage() {
           <p className="font-semibold text-gray-700 mb-1">Hur beräkningen fungerar</p>
           <ul className="space-y-1 list-disc list-inside">
             <li>
-              Moms (25 %) tillkommer om fordonet är yngre än{" "}
-              {costData.tax.moms_new_vehicle_threshold_months} månader eller har
-              körts under{" "}
-              {costData.tax.moms_new_vehicle_threshold_km.toLocaleString("sv-SE")} km
+              Moms ({Math.round(MOMS.moms_rate * 100)} %) tillkommer om fordonet köps inom{" "}
+              {MOMS.moms_new_vehicle_threshold_months} månader från första ibruktagande eller har
+              körts högst {MOMS.moms_new_vehicle_threshold_km.toLocaleString("sv-SE")} km
             </li>
             <li>Tull är 0 % vid import från EU-land</li>
             <li>
-              Ursprungskontroll:{" "}
-              {costData.fees.ursprungskontroll.amount.toLocaleString("sv-SE")} kr
-              (Transportstyrelsen, 2026)
+              Ursprungskontroll: {formatCost("ursprungskontroll")} ({costSourceLine("ursprungskontroll")})
             </li>
-            <li>Transportkostnad är ett schablonvärde</li>
+            <li>
+              Registreringsbesiktning: publicerade priser {formatCost("registreringsbesiktning")} –
+              kalkylatorn räknar med mittvärdet
+            </li>
+            <li>
+              Köra hem själv: {formatCost("bilkostnad_per_mil")} per mil enligt Skatteverkets
+              schablon för egen bil, plus exportskyltar ({formatCost("exportskyltar_avgift")}) och
+              exportförsäkring (från {formatCost("exportforsakring_15d")}). Euro räknas om med{" "}
+              {eurRateLine()}.
+            </li>
+            <li>Transport med firma: fyll i ditt eget offertpris</li>
           </ul>
           <p className="mt-2 text-xs">
             Beräkningen är vägledande. Kontrollera aktuella avgifter hos{" "}

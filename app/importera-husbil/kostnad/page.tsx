@@ -1,551 +1,249 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getCostData } from "@/lib/data";
 import { getCanonicalUrl } from "@/lib/seo";
 import { getRobotsForPath, getLastUpdatedForPath } from "@/lib/manifest";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { CostTable } from "@/components/CostTable";
 import { formatDateSv } from "@/lib/date";
 import { CONTENT_YEAR } from "@/lib/site-config";
+import {
+  feeTotal,
+  formatCost,
+  formatKr,
+  formatSekRange,
+  costSourceLine,
+  bilkostnadForKm,
+  exportKostnad,
+  getCost,
+  eurRateLine,
+  MOMS,
+} from "@/lib/costs";
 
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
 const UPDATED_DATE = getLastUpdatedForPath("/importera-husbil/kostnad");
+
+/** Ungefärlig körsträcka Sverige–Tyskland, samma som kalkylatorns standardvärde. */
+const HEMKORNING_KM = 1200;
 
 export function generateMetadata(): Metadata {
   const robots = getRobotsForPath("/importera-husbil/kostnad");
   return {
     title: `Vad kostar det att importera husbil från EU? – Alla avgifter ${CONTENT_YEAR}`,
     description:
-      "Komplett genomgång av kostnader vid husbilsimport: ursprungskontroll, registreringsbesiktning, importförsäkring, transport och moms. Med räkneexempel.",
+      "Komplett genomgång av kostnader vid husbilsimport: ursprungskontroll, registreringsbesiktning, importförsäkring, transport och moms – med källa för varje belopp.",
     alternates: { canonical: getCanonicalUrl("/importera-husbil/kostnad") },
     robots,
   };
 }
 
-export default function HusbildKostnadPage() {
-  const costData = getCostData();
-
+export default function HusbilKostnadPage() {
   const breadcrumbs = [
     { name: "Hem", href: "/" },
     { name: "Importera husbil", href: "/importera-husbil/tyskland" },
     { name: "Kostnad" },
   ];
 
-  // Fasta avgifter = det som tillkommer oavsett hur husbilen tar sig hem.
-  // Transport hör ALDRIG hit – den varierar kraftigt med sträcka och metod.
-  const fastaAvgifterHusbil =
-    costData.fees.ursprungskontroll.amount +
-    costData.fees.registreringsbesiktning_husbil.amount +
-    costData.fees.importforsäkring_husbil.amount +
-    costData.fees.skyltavgift.amount;
-
-  const kr = (n: number) => `${n.toLocaleString("sv-SE")} kr`;
-
-  const exempelHusbilspris = 400_000;
-  const exempelTransportHusbil = 12_000;
-  const exempelTotal =
-    exempelHusbilspris + fastaAvgifterHusbil + exempelTransportHusbil;
+  // Alla belopp kommer från data/cost-data.json via lib/costs.ts.
+  const fasta = formatSekRange(feeTotal("husbil"));
+  const bilkostnad = bilkostnadForKm(HEMKORNING_KM);
+  const export_ = exportKostnad();
+  const momsProcent = Math.round(MOMS.moms_rate * 100);
+  const nyGrans = MOMS.moms_new_vehicle_threshold_km.toLocaleString("sv-SE");
 
   return (
-    <>
-      <div className="mx-auto max-w-3xl px-4 py-10">
-        <Breadcrumbs items={breadcrumbs} siteUrl={SITE_URL} />
+    <div className="mx-auto max-w-3xl px-4 py-10">
+      <Breadcrumbs items={breadcrumbs} siteUrl={SITE_URL} />
 
-        <article>
-          <header className="mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-3">
-              Vad kostar det att importera husbil från EU?
-            </h1>
-            <p className="text-gray-500 text-sm">
-              {UPDATED_DATE && (
-                <>
-                  Uppdaterad: <time dateTime={UPDATED_DATE}>{formatDateSv(UPDATED_DATE)}</time>
-                  {" "}·{" "}
-                </>
-              )}
-              Källa: Transportstyrelsen, Tullverket, Skatteverket
-            </p>
-          </header>
-
-          <p className="text-gray-700 mb-4 text-lg">
-            Utöver husbilens pris tillkommer fasta avgifter på{" "}
-            <strong>ca {kr(fastaAvgifterHusbil)}</strong>{" "}
-            (ursprungskontroll, registreringsbesiktning, importförsäkring och
-            skyltavgift), plus
-            transport. Ingen tull tillkommer vid import från EU. Husbilsimport
-            innebär generellt högre fasta kostnader än bilimport – framför allt
-            registreringsbesiktningen är mer omfattande och dyrare.
+      <article>
+        <header className="mb-8">
+          <h1 className="text-3xl font-bold text-gray-900 mb-3">
+            Vad kostar det att importera husbil från EU?
+          </h1>
+          <p className="text-gray-500 text-sm">
+            {UPDATED_DATE && (
+              <>
+                Uppdaterad: <time dateTime={UPDATED_DATE}>{formatDateSv(UPDATED_DATE)}</time>
+                {" "}·{" "}
+              </>
+            )}
+            Källa: Transportstyrelsen, Skatteverket och publicerade prislistor
           </p>
+        </header>
 
-          <p className="text-gray-700 mb-6">
-            Nedan hittar du en fullständig genomgång av alla kostnader, ett
-            konkret räkneexempel och svar på de vanligaste frågorna.
-          </p>
+        <p className="text-gray-700 mb-4 text-lg">
+          Utöver husbilens pris tillkommer fasta avgifter på <strong>{fasta}</strong>{" "}
+          (ursprungskontroll, registreringsbesiktning och skyltar), plus importförsäkring och
+          transport. Ingen tull tillkommer vid import från EU.
+        </p>
+        <p className="text-gray-700 mb-6">
+          Importförsäkring för husbil har inget publicerat pris – begär offert från ditt
+          försäkringsbolag. Varje belopp nedan har en källa och ett kontrolldatum.
+        </p>
 
-          <CostTable vehicleType="husbil" />
+        <CostTable vehicleType="husbil" />
 
-          {/* Fasta avgifter */}
-          <section className="mb-10">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">
-              Fasta avgifter vid husbilsimport (2026)
-            </h2>
-            <p className="text-gray-700 mb-4">
-              Dessa kostnader är obligatoriska eller starkt rekommenderade
-              oavsett vilket EU-land du importerar från.
-            </p>
-            <div className="overflow-x-auto mb-4">
-              <table className="w-full text-sm border-collapse border border-gray-200 rounded">
-                <thead>
-                  <tr className="bg-gray-50">
-                    <th className="text-left p-3 font-semibold text-gray-700 border-b border-gray-200">
-                      Kostnad
-                    </th>
-                    <th className="text-right p-3 font-semibold text-gray-700 border-b border-gray-200">
-                      Belopp
-                    </th>
-                    <th className="text-left p-3 font-semibold text-gray-700 border-b border-gray-200">
-                      Källa
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-100">
-                  <tr>
-                    <td className="p-3 text-gray-700">
-                      <span className="font-medium">Ursprungskontroll</span>
-                      <p className="text-xs text-gray-500 mt-0.5">
-                        Obligatorisk. Samma avgift som för personbil.
-                      </p>
-                    </td>
-                    <td className="p-3 text-right font-medium whitespace-nowrap">
-                      {costData.fees.ursprungskontroll.amount.toLocaleString("sv-SE")} kr
-                    </td>
-                    <td className="p-3 text-gray-500 text-xs">
-                      Transportstyrelsen (2026)
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 text-gray-700">
-                      <span className="font-medium">
-                        Registreringsbesiktning, husbil
-                      </span>
-                      <p className="text-xs text-gray-500 mt-0.5">
-                        Mer omfattande än personbil. Schablonvärde.
-                      </p>
-                    </td>
-                    <td className="p-3 text-right font-medium whitespace-nowrap">
-                      ~{costData.fees.registreringsbesiktning_husbil.amount.toLocaleString("sv-SE")} kr
-                    </td>
-                    <td className="p-3 text-gray-500 text-xs">
-                      Besiktningsbolag
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 text-gray-700">
-                      <span className="font-medium">
-                        Importförsäkring, husbil
-                      </span>
-                      <p className="text-xs text-gray-500 mt-0.5">
-                        Krävs för hemtransport. Schablonvärde.
-                      </p>
-                    </td>
-                    <td className="p-3 text-right font-medium whitespace-nowrap">
-                      ~{costData.fees.importforsäkring_husbil.amount.toLocaleString("sv-SE")} kr
-                    </td>
-                    <td className="p-3 text-gray-500 text-xs">
-                      Schablonvärde
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 text-gray-700">
-                      <span className="font-medium">Skyltavgift</span>
-                      <p className="text-xs text-gray-500 mt-0.5">
-                        Obligatorisk. Två registreringsskyltar.
-                      </p>
-                    </td>
-                    <td className="p-3 text-right font-medium whitespace-nowrap">
-                      {kr(costData.fees.skyltavgift.amount)}
-                    </td>
-                    <td className="p-3 text-gray-500 text-xs">
-                      Transportstyrelsen (2026)
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 text-gray-700">
-                      <span className="font-medium">Tull (EU-import)</span>
-                      <p className="text-xs text-gray-500 mt-0.5">
-                        Ingen tull vid köp från EU-land.
-                      </p>
-                    </td>
-                    <td className="p-3 text-right font-medium text-green-700">
-                      0 kr
-                    </td>
-                    <td className="p-3 text-gray-500 text-xs">Tullverket</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div className="space-y-4">
-              <div>
-                <h3 className="font-semibold text-gray-900 mb-1">
-                  Ursprungskontroll –{" "}
-                  {costData.fees.ursprungskontroll.amount.toLocaleString("sv-SE")} kr
-                </h3>
-                <p className="text-gray-700 text-sm">
-                  Ursprungskontrollen är obligatorisk för alla importerade
-                  fordon och gäller lika för husbil som för personbil.
-                  Transportstyrelsen kontrollerar att husbilen inte är stulen
-                  och inte belastad med kvarstående skulder i hemlandet.
-                  Transportstyrelsen anger ingen fast handläggningstid –
-                  väntetiden varierar och aktuellt ködatum visas i myndighetens
-                  e-tjänst för ärendestatus. Ansök tidigt –
-                  du kan inte genomföra registreringsbesiktningen utan godkänt
-                  resultat. Läs mer i guiden om{" "}
-                  <Link
-                    href="/guider/ursprungskontroll"
-                    className="text-blue-700 hover:underline"
-                  >
-                    ursprungskontroll
-                  </Link>
-                  .
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-900 mb-1">
-                  Registreringsbesiktning – ca{" "}
-                  {costData.fees.registreringsbesiktning_husbil.amount.toLocaleString("sv-SE")} kr
-                </h3>
-                <p className="text-gray-700 text-sm">
-                  Registreringsbesiktningen för husbil är mer tidskrävande och
-                  dyrare än för personbil. Besiktaren kontrollerar både
-                  fordonsdelen och bostadsdelen – el, gas, vatteninstallationer
-                  och konstruktion ingår ofta. Räkna med 3 000–5 000 kr beroende
-                  på husbilens storlek, ålder och utrustning. Boka i god tid –
-                  inte alla stationer har kompetens för husbil. Läs mer i
-                  guiden om{" "}
-                  <Link
-                    href="/guider/registreringsbesiktning"
-                    className="text-blue-700 hover:underline"
-                  >
-                    registreringsbesiktning
-                  </Link>
-                  .
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-900 mb-1">
-                  Importförsäkring – ca{" "}
-                  {costData.fees.importforsäkring_husbil.amount.toLocaleString("sv-SE")} kr
-                </h3>
-                <p className="text-gray-700 text-sm">
-                  Du behöver en giltig försäkring som täcker husbilen under
-                  hemtransporten. Husbilens värde och storlek gör att
-                  importförsäkringen är dyrare än för personbil – räkna med
-                  2 000–4 000 kr. Kontrollera med ditt försäkringsbolag i förväg
-                  om din ordinarie husbilsförsäkring täcker ett fordon du ännu
-                  inte registrerat i Sverige. Det gör den sällan.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* Transport */}
-          <section className="mb-10">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">
-              Transportkostnad – husbil
-            </h2>
-            <p className="text-gray-700 mb-4">
-              Transport är en av de större kostnaderna vid husbilsimport.
-              De flesta väljer att köra hem husbilen själv, men det kräver rätt
-              körkortsbehörighet (B, BE eller C beroende på totalvikt) och en
-              giltig importförsäkring.
-            </p>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 mb-4">
-              <div className="border border-gray-200 rounded p-4">
-                <h3 className="font-semibold text-gray-900 mb-2">
-                  Köra hem själv
-                </h3>
-                <p className="text-sm text-gray-600 mb-2">
-                  Räkna med ca {costData.transport.drive_self_cost_per_km} kr/km
-                  i bränslekostnad. Husbil drar mer bränsle än personbil –
-                  ofta 12–20 liter/100 km. Sträcka Sverige–södra Tyskland:
-                  ungefär 1 500–2 000 km.
-                </p>
-                <p className="text-sm font-medium text-gray-900">
-                  ≈ 7 000–12 000 kr (enkel resa)
-                </p>
-              </div>
-              <div className="border border-gray-200 rounded p-4">
-                <h3 className="font-semibold text-gray-900 mb-2">
-                  Anlita transportföretag
-                </h3>
-                <p className="text-sm text-gray-600 mb-2">
-                  Husbil på trailer eller lowloader. Dyrare än personbil
-                  på grund av storlek och vikt.
-                </p>
-                <p className="text-sm font-medium text-gray-900">
-                  ≈ 8 000–15 000 kr
-                </p>
-              </div>
-            </div>
-            <p className="text-sm text-gray-600">
-              Kontrollera körkortskravet för den specifika husbilen. En husbil
-              med totalvikt över 3 500 kg kräver C1-behörighet – vanligt
-              B-körkort räcker inte. BE gäller släpvagn och hjälper dig inte
-              här. Kör du hem husbilen själv behöver du dessutom tyska
-              exportskyltar med exportförsäkring, ca 100–200 EUR.
-            </p>
-          </section>
-
-          {/* Moms */}
-          <section className="mb-10">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">
-              Moms vid husbilsimport
-            </h2>
-            <p className="text-gray-700 mb-3">
-              Samma momsregler gäller för husbil som för personbil. Moms (25 %)
-              tillkommer bara om fordonet anses som <strong>nytt</strong> enligt
-              EU:s definition:
-            </p>
-            <ul className="list-disc list-inside space-y-1 text-gray-700 mb-4">
-              <li>
-                Yngre än{" "}
-                {costData.tax.moms_new_vehicle_threshold_months} månader,{" "}
-                <strong>eller</strong>
-              </li>
-              <li>
-                Har körts färre än{" "}
-                {costData.tax.moms_new_vehicle_threshold_km.toLocaleString("sv-SE")}{" "}
-                km
-              </li>
-            </ul>
-            <p className="text-gray-700 mb-4">
-              De flesta begagnade husbilar som privatpersoner importerar är
-              äldre än 6 månader och har mer än 6 000 km – och är därmed
-              momsfria. Men 25 % moms på en husbil till 500 000 kr är 125 000 kr
-              extra, så det är viktigt att kontrollera.
-            </p>
-            <p className="text-xs text-gray-500">
-              Källa:{" "}
-              <a
-                href={costData.tax.source}
-                className="underline"
-                target="_blank"
-                rel="noopener"
-              >
-                Skatteverket
-              </a>
-              . Läs mer i guiden om{" "}
-              <Link
-                href="/guider/moms-vid-bilimport"
-                className="text-blue-700 hover:underline"
-              >
-                moms vid fordonimport
-              </Link>
-              .
-            </p>
-          </section>
-
-          {/* Räkneexempel */}
-          <section className="mb-10">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">
-              Räkneexempel: begagnad husbil från Tyskland
-            </h2>
-            <p className="text-gray-700 mb-4">
-              En typisk import: begagnad husbil köpt för{" "}
-              {exempelHusbilspris.toLocaleString("sv-SE")} kr, äldre än 6
-              månader och mer än 6 000 km (momsfri), transporterad hem med
-              transportföretag.
-            </p>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm border-collapse border border-gray-200 rounded">
-                <thead>
-                  <tr className="bg-gray-50">
-                    <th className="text-left p-3 font-semibold text-gray-700 border-b border-gray-200">
-                      Post
-                    </th>
-                    <th className="text-right p-3 font-semibold text-gray-700 border-b border-gray-200">
-                      Kostnad
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-100">
-                  <tr>
-                    <td className="p-3 text-gray-700">Husbilspris</td>
-                    <td className="p-3 text-right">
-                      {exempelHusbilspris.toLocaleString("sv-SE")} kr
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 text-gray-700">Ursprungskontroll</td>
-                    <td className="p-3 text-right">
-                      {costData.fees.ursprungskontroll.amount.toLocaleString("sv-SE")} kr
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 text-gray-700">
-                      Registreringsbesiktning
-                    </td>
-                    <td className="p-3 text-right">
-                      {costData.fees.registreringsbesiktning_husbil.amount.toLocaleString("sv-SE")} kr
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 text-gray-700">Importförsäkring</td>
-                    <td className="p-3 text-right">
-                      {costData.fees.importforsäkring_husbil.amount.toLocaleString("sv-SE")} kr
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 text-gray-700">Skyltavgift</td>
-                    <td className="p-3 text-right">
-                      {kr(costData.fees.skyltavgift.amount)}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 text-gray-700">
-                      Transport (transportföretag)
-                    </td>
-                    <td className="p-3 text-right">
-                      {exempelTransportHusbil.toLocaleString("sv-SE")} kr
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 text-gray-700">Moms</td>
-                    <td className="p-3 text-right text-green-700">0 kr</td>
-                  </tr>
-                  <tr className="bg-gray-50">
-                    <td className="p-3 font-semibold text-gray-900">Totalt</td>
-                    <td className="p-3 text-right font-semibold text-gray-900">
-                      {exempelTotal.toLocaleString("sv-SE")} kr
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <p className="text-xs text-gray-500 mt-2">
-              Schablonexempel. Faktiska kostnader varierar. Räkna ut din
-              specifika situation i{" "}
-              <Link
-                href="/kalkylator/bilimport"
-                className="text-blue-700 hover:underline"
-              >
-                importkalkylatorn
-              </Link>
-              .
-            </p>
-          </section>
-
-          {/* Skillnad mot personbil */}
-          <section className="mb-10">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">
-              Skillnader mot att importera personbil
-            </h2>
-            <p className="text-gray-700 mb-4">
-              Processen liknar personbilsimport men det finns viktiga skillnader
-              att känna till:
-            </p>
-            <ul className="space-y-3 text-gray-700 text-sm">
-              <li className="flex gap-2">
-                <span className="font-semibold text-gray-900 shrink-0">Besiktning:</span>
-                Dyrare och mer tidskrävande. Inte alla stationer utför
-                registreringsbesiktning av husbilar – ring och fråga innan du
-                bokar.
-              </li>
-              <li className="flex gap-2">
-                <span className="font-semibold text-gray-900 shrink-0">Körkort:</span>
-                Kontrollera totalvikten. En husbil över 3 500 kg kräver
-                C1-behörighet (gäller 3 500–7 500 kg). BE avser bil med
-                släpvagn och ger ingen rätt att köra en tyngre husbil.
-              </li>
-              <li className="flex gap-2">
-                <span className="font-semibold text-gray-900 shrink-0">Försäkring:</span>
-                Husbilsförsäkring kan vara svårare att teckna för ett
-                utländskt, ännu oregistrerat fordon. Kontakta försäkringsbolaget
-                i god tid.
-              </li>
-              <li className="flex gap-2">
-                <span className="font-semibold text-gray-900 shrink-0">Transport:</span>
-                Husbilar transporteras ofta på egna hjul eller på lowloader –
-                inte trailer som vanlig bil. Pris och logistik skiljer sig.
-              </li>
-              <li className="flex gap-2">
-                <span className="font-semibold text-gray-900 shrink-0">COC-intyg:</span>
-                Krävs precis som för personbil. Be säljaren om det direkt vid
-                köpet. Läs mer i guiden om{" "}
-                <Link
-                  href="/guider/coc-intyg"
-                  className="text-blue-700 hover:underline"
-                >
-                  COC-intyg
+        <section className="mb-10">
+          <h2 className="text-xl font-bold text-gray-900 mb-4">Avgifterna förklarade ({CONTENT_YEAR})</h2>
+          <div className="space-y-4">
+            <div>
+              <h3 className="font-semibold text-gray-900 mb-1">
+                Ursprungskontroll – {formatCost("ursprungskontroll")}
+              </h3>
+              <p className="text-gray-700 text-sm">
+                Samma avgift som för personbil och obligatorisk för alla fordon som ska registreras i
+                Sverige. Aktuellt ködatum finns i guiden om{" "}
+                <Link href="/guider/ursprungskontroll#status" className="text-blue-700 hover:underline">
+                  ursprungskontroll
                 </Link>
                 .
-              </li>
-            </ul>
-          </section>
-
-          {/* FAQ */}
-          <section className="mb-10">
-            <h2 className="text-xl font-bold text-gray-900 mb-6">
-              Vanliga frågor om husbilsimport
-            </h2>
-            <div className="space-y-6">
-              <div>
-                <h3 className="font-semibold text-gray-900 mb-1">
-                  Lönar det sig att importera husbil från Tyskland?
-                </h3>
-                <p className="text-gray-700 text-sm">
-                  Tyskland har Europas största marknad för begagnade husbilar
-                  och prisskillnaderna mot Sverige kan vara betydande –
-                  50 000–150 000 kr är inte ovanligt för populära märken som
-                  Dethleffs, Bürstner, Knaus och Hymer. Med tillkommande
-                  kostnader på ca 17 000–20 000 kr kan importen ändå vara
-                  lönsam om prisskillnaden är tillräcklig.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-900 mb-1">
-                  Vilka husbilsmärken importeras mest från EU?
-                </h3>
-                <p className="text-gray-700 text-sm">
-                  Tyska märken dominerar: Hymer, Dethleffs, Bürstner, Knaus,
-                  Hobby och LMC är vanliga. Även italienska märken som Adria och
-                  Carado importeras. Prisskillnaden är störst på tyska märken
-                  med stor hemmamarknad.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-900 mb-1">
-                  Kan jag importera en husbil från ett land utanför EU?
-                </h3>
-                <p className="text-gray-700 text-sm">
-                  Ja, men det tillkommer tull och eventuellt andra importavgifter.
-                  Processen är mer komplex och den här guiden täcker i
-                  huvudsak EU-import. Kontakta Tullverket för information om
-                  import från länder utanför EU.
-                </p>
-              </div>
+              </p>
             </div>
-          </section>
-
-          {/* CTA */}
-          <div className="bg-gray-50 rounded-lg p-5 border border-gray-200">
-            <h2 className="font-semibold text-gray-900 mb-2">
-              Räkna ut din totalkostnad
-            </h2>
-            <p className="text-sm text-gray-600 mb-3">
-              Fyll i husbilens pris, land och transportmetod för en
-              sammanställning anpassad till din situation.
-            </p>
-            <Link
-              href="/kalkylator/bilimport"
-              className="inline-block rounded bg-blue-700 px-4 py-2 text-sm font-medium text-white hover:bg-blue-800"
-            >
-              Öppna importkalkylatorn
-            </Link>
+            <div>
+              <h3 className="font-semibold text-gray-900 mb-1">
+                Registreringsbesiktning – {formatCost("registreringsbesiktning")}
+              </h3>
+              <p className="text-gray-700 text-sm">
+                Besiktningsföretagen sätter egna priser. Intervallet bygger på två stationer som
+                publicerar priset ({costSourceLine("registreringsbesiktning")}). Alla stationer tar
+                inte emot husbilar – ring och fråga innan du bokar. Läs mer i guiden om{" "}
+                <Link href="/guider/besikta-husbil" className="text-blue-700 hover:underline">
+                  besiktning av husbil
+                </Link>
+                .
+              </p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-gray-900 mb-1">Importförsäkring – begär offert</h3>
+              <p className="text-gray-700 text-sm">
+                Efter sju dagar i Sverige krävs tillfällig registrering med svensk
+                trafikförsäkring. Inget försäkringsbolag publicerar ett pris för husbil. Se guiden om{" "}
+                <Link href="/guider/importforsakring" className="text-blue-700 hover:underline">
+                  importförsäkring
+                </Link>
+                .
+              </p>
+            </div>
           </div>
-        </article>
-      </div>
-    </>
+        </section>
+
+        <section className="mb-10">
+          <h2 className="text-xl font-bold text-gray-900 mb-4">Transportkostnad</h2>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 mb-4">
+            <div className="border border-gray-200 rounded p-4">
+              <h3 className="font-semibold text-gray-900 mb-2">Köra hem själv</h3>
+              <p className="text-sm text-gray-600 mb-2">
+                Med Skatteverkets schablon för egen bil, {formatCost("bilkostnad_per_mil")} per mil, blir{" "}
+                {HEMKORNING_KM.toLocaleString("sv-SE")} km cirka {formatKr(bilkostnad)}. En husbil drar
+                normalt mer bränsle än en personbil, så räkna med att den verkliga kostnaden blir högre.
+                Därtill exportskyltar och exportförsäkring, från {formatSekRange(export_)}.
+              </p>
+            </div>
+            <div className="border border-gray-200 rounded p-4">
+              <h3 className="font-semibold text-gray-900 mb-2">Anlita transportföretag</h3>
+              <p className="text-sm text-gray-600">
+                Husbilar transporteras på lowloader eller körs av chaufför. Priserna publiceras sällan
+                – begär offert från flera firmor och lägg in priset i{" "}
+                <Link href="/kalkylator/bilimport" className="text-blue-700 hover:underline">
+                  kalkylatorn
+                </Link>
+                .
+              </p>
+            </div>
+          </div>
+          <p className="text-xs text-gray-500">
+            Körkort: en husbil med totalvikt över 3 500 kg kräver C1-behörighet. Euro räknas om med{" "}
+            {eurRateLine()}. Källor:{" "}
+            <a href={getCost("bilkostnad_per_mil").sourceUrl} className="underline" target="_blank" rel="noopener noreferrer">Skatteverket</a>,{" "}
+            <a href={getCost("exportskyltar_avgift").sourceUrl} className="underline" target="_blank" rel="noopener noreferrer">Service Berlin</a>,{" "}
+            <a href={getCost("exportforsakring_15d").sourceUrl} className="underline" target="_blank" rel="noopener noreferrer">nondos.de</a>.
+          </p>
+        </section>
+
+        <section className="mb-10">
+          <h2 className="text-xl font-bold text-gray-900 mb-4">Moms</h2>
+          <p className="text-gray-700 mb-3">
+            Moms ({momsProcent} %) tillkommer bara om husbilen räknas som <strong>ny</strong>: köpt
+            inom {MOMS.moms_new_vehicle_threshold_months} månader efter att den första gången togs i
+            bruk, <strong>eller</strong> körd högst {nyGrans} km. De flesta begagnade husbilar är
+            äldre och har körts längre än så.
+          </p>
+          <p className="text-xs text-gray-500">
+            Källa:{" "}
+            <a href={MOMS.source} className="underline" target="_blank" rel="noopener">
+              Skatteverket
+            </a>
+            . Se räkneexempel i guiden om{" "}
+            <Link href="/guider/moms-vid-bilimport" className="text-blue-700 hover:underline">
+              moms vid bilimport
+            </Link>
+            .
+          </p>
+        </section>
+
+        <section className="mb-10">
+          <h2 className="text-xl font-bold text-gray-900 mb-4">Skillnader mot att importera personbil</h2>
+          <ul className="space-y-3 text-gray-700 text-sm">
+            <li>
+              <span className="font-semibold text-gray-900">Besiktning:</span> inte alla stationer
+              registreringsbesiktar husbilar – ring och fråga innan du bokar.
+            </li>
+            <li>
+              <span className="font-semibold text-gray-900">Körkort:</span> en husbil över 3 500 kg
+              kräver C1-behörighet. BE avser bil med släpvagn och ger ingen rätt att köra en tyngre husbil.
+            </li>
+            <li>
+              <span className="font-semibold text-gray-900">Fordonsskatt:</span> husbilar har ingen
+              malus, men skatten beror på koldioxidvärdet. Se{" "}
+              <Link href="/guider/fordonsskatt-husbil-bonus-malus" className="text-blue-700 hover:underline">
+                skatt på husbil
+              </Link>
+              .
+            </li>
+            <li>
+              <span className="font-semibold text-gray-900">COC-intyg:</span> krävs precis som för
+              personbil. Läs mer i guiden om{" "}
+              <Link href="/guider/coc-intyg" className="text-blue-700 hover:underline">
+                COC-intyg
+              </Link>
+              .
+            </li>
+          </ul>
+        </section>
+
+        <section className="mb-10">
+          <h2 className="text-xl font-bold text-gray-900 mb-6">Vanliga frågor om husbilsimport</h2>
+          <div className="space-y-6">
+            <div>
+              <h3 className="font-semibold text-gray-900 mb-1">Lönar det sig att importera husbil från Tyskland?</h3>
+              <p className="text-gray-700 text-sm">
+                Det beror på prisskillnaden för just den husbil du tittar på. Jämför ett svenskt pris
+                med det tyska plus {fasta} i fasta avgifter, importförsäkring och transport. Räkna i{" "}
+                <Link href="/kalkylator/bilimport" className="text-blue-700 hover:underline">
+                  kalkylatorn
+                </Link>
+                .
+              </p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-gray-900 mb-1">Kan jag importera en husbil från ett land utanför EU?</h3>
+              <p className="text-gray-700 text-sm">
+                Ja, men då tillkommer tull och processen är mer komplex. Den här guiden täcker
+                EU-import. Kontakta Tullverket för import från länder utanför EU.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <div className="bg-gray-50 rounded-lg p-5 border border-gray-200">
+          <h2 className="font-semibold text-gray-900 mb-2">Räkna ut din totalkostnad</h2>
+          <Link
+            href="/kalkylator/bilimport?type=husbil"
+            className="inline-block rounded bg-blue-700 px-4 py-2 text-sm font-medium text-white hover:bg-blue-800"
+          >
+            Öppna importkalkylatorn
+          </Link>
+        </div>
+      </article>
+    </div>
   );
 }

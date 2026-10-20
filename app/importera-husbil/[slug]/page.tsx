@@ -17,6 +17,12 @@ import { CostTable } from "@/components/CostTable";
 import { formatDateSv } from "@/lib/date";
 import { UpcomingChangeNotice } from "@/components/UpcomingChangeNotice";
 import { CONTENT_YEAR } from "@/lib/site-config";
+import { formatCost, formatKr, formatSekRange, feeTotal, TULL_EU, FORDONSSKATT } from "@/lib/costs";
+import { calculateMalus } from "@/lib/malus-calculator";
+import { BELOPP_MDX_COMPONENTS } from "@/components/Belopp";
+
+// Ordinarie fordonsskatt för husbil, ur data/cost-data.json via skatteberäkningen.
+const HUSBIL_SKATT_TEXT = `${formatKr(FORDONSSKATT.grundbelopp)} plus ${formatKr(FORDONSSKATT.co2RatePerGram)} per gram över ${FORDONSSKATT.co2ThresholdGram} g/km – och för diesel dessutom miljö- och bränsletillägg. En dieselhusbil med 200 g/km betalar cirka ${formatKr(calculateMalus(200, "diesel", 0, "husbil").annualTax)} per år.`;
 
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
 
@@ -99,27 +105,27 @@ const MH_CHASSI_EXTRA: Record<string, { sprinterInfo: string; tip: string }> = {
 
 const MH_FAQ: Record<string, FaqItem[]> = {
   hymer: [
-    { question: "Betalar man malus på importerad Hymer-husbil?", answer: "Nej, husbilar är undantagna från malus sedan 1 februari 2025. Du betalar ordinarie fordonsskatt, som för husbilar med koldioxidvärde är 360 kr plus 22 kr per gram över 111 g/km – och för diesel dessutom miljö- och bränsletillägg. En dieselhusbil med 200 g/km betalar cirka 5 270 kr per år." },
+    { question: "Betalar man malus på importerad Hymer-husbil?", answer: `Nej, husbilar är undantagna från malus sedan 1 februari 2025. Du betalar ordinarie fordonsskatt, som för husbilar med koldioxidvärde är ${HUSBIL_SKATT_TEXT}` },
     { question: "Vilken Hymer-modell är mest pålitlig?", answer: "Modeller på Mercedes Sprinter-chassi (ML-T, B-ML) rankas högre av ADAC än Ducato-baserade modeller. Fiat Ducato uppvisar 27,9–39,1 pannar per 1 000 fordon (årgångar 2016–2021 och 2023) enligt ADAC Pannenstatistik 2026." },
-    { question: "Vad kostar det att importera en Hymer-husbil?", answer: "Fasta avgifter ca 4 440–6 440 kr (ursprungskontroll 1 240 kr + registreringsbesiktning ca 3 000–5 000 kr + skyltavgift 198 kr) plus transport. Prisbesparingen mot Sverige ligger typiskt på 20–40 %." },
+    { question: "Vad kostar det att importera en Hymer-husbil?", answer: `Fasta avgifter ${formatSekRange(feeTotal("husbil"))} (ursprungskontroll ${formatCost("ursprungskontroll")}, registreringsbesiktning ${formatCost("registreringsbesiktning")} enligt publicerade prislistor och skyltar) plus importförsäkring enligt offert och transport.` },
   ],
   dethleffs: [
-    { question: "Betalar man malus på importerad Dethleffs-husbil?", answer: "Nej, husbilar är undantagna från malus sedan 1 februari 2025. Du betalar ordinarie fordonsskatt, som för husbilar med koldioxidvärde är 360 kr plus 22 kr per gram över 111 g/km – och för diesel dessutom miljö- och bränsletillägg. En dieselhusbil med 200 g/km betalar cirka 5 270 kr per år." },
+    { question: "Betalar man malus på importerad Dethleffs-husbil?", answer: `Nej, husbilar är undantagna från malus sedan 1 februari 2025. Du betalar ordinarie fordonsskatt, som för husbilar med koldioxidvärde är ${HUSBIL_SKATT_TEXT}` },
     { question: "Vilken Dethleffs-modell är mest pålitlig?", answer: "Globebus och Trend-serierna är populära val. Alla bygger på Fiat Ducato — prioritera nyare årsmodeller (2019+) för bättre chassikvalitet." },
     { question: "Är Dethleffs samma kvalitet som Hymer?", answer: "Dethleffs och Hymer tillhör samma koncern (Erwin Hymer Group) och delar viss teknik. Hymer positionerar sig dock i ett något högre prissegment. Dethleffs erbjuder utmärkt pris-prestanda med liknande grundkvalitet." },
   ],
   burstner: [
-    { question: "Betalar man malus på importerad Bürstner-husbil?", answer: "Nej, husbilar är undantagna från malus sedan 1 februari 2025. Du betalar ordinarie fordonsskatt, som för husbilar med koldioxidvärde är 360 kr plus 22 kr per gram över 111 g/km – och för diesel dessutom miljö- och bränsletillägg. En dieselhusbil med 200 g/km betalar cirka 5 270 kr per år." },
+    { question: "Betalar man malus på importerad Bürstner-husbil?", answer: `Nej, husbilar är undantagna från malus sedan 1 februari 2025. Du betalar ordinarie fordonsskatt, som för husbilar med koldioxidvärde är ${HUSBIL_SKATT_TEXT}` },
     { question: "Vilken Bürstner-modell är mest pålitlig?", answer: "Lyseo-serien på Mercedes Sprinter-chassi är det mest driftsäkra alternativet. Ducato-baserade modeller som Lyseo TD och Nexxo är populära men påverkas av Ducatos kända svagheter." },
     { question: "Finns Bürstner på Mercedes Sprinter-chassi?", answer: "Ja, Bürstner erbjuder Lyseo-serien på Mercedes Sprinter-chassi. Det ger bättre driftsäkerhet men kostar ca 20–30 % mer än Ducato-baserade modeller." },
   ],
   knaus: [
-    { question: "Betalar man malus på importerad Knaus-husbil?", answer: "Nej, husbilar är undantagna från malus sedan 1 februari 2025. Du betalar ordinarie fordonsskatt, som för husbilar med koldioxidvärde är 360 kr plus 22 kr per gram över 111 g/km – och för diesel dessutom miljö- och bränsletillägg. En dieselhusbil med 200 g/km betalar cirka 5 270 kr per år." },
+    { question: "Betalar man malus på importerad Knaus-husbil?", answer: `Nej, husbilar är undantagna från malus sedan 1 februari 2025. Du betalar ordinarie fordonsskatt, som för husbilar med koldioxidvärde är ${HUSBIL_SKATT_TEXT}` },
     { question: "Vilken Knaus-modell är mest pålitlig?", answer: "Van TI och Live I är populära val. Alla bygger på Fiat Ducato — prioritera nyare årsmodeller (2019+). Knaus kompenserar med en av marknadens bästa fuktgarantier (10 år på vissa modeller)." },
     { question: "Har Knaus bättre fuktgaranti än Hymer?", answer: "Ja, Knaus erbjuder vanligtvis 10 års fuktgaranti på vissa modeller, jämfört med Hymers 6–10 år. Kontrollera alltid att den specifika modellen omfattas och att garantin överförs vid ägarbyte." },
   ],
   hobby: [
-    { question: "Betalar man malus på importerad Hobby-husbil?", answer: "Nej, husbilar är undantagna från malus sedan 1 februari 2025. Du betalar ordinarie fordonsskatt, som för husbilar med koldioxidvärde är 360 kr plus 22 kr per gram över 111 g/km – och för diesel dessutom miljö- och bränsletillägg. En dieselhusbil med 200 g/km betalar cirka 5 270 kr per år." },
+    { question: "Betalar man malus på importerad Hobby-husbil?", answer: `Nej, husbilar är undantagna från malus sedan 1 februari 2025. Du betalar ordinarie fordonsskatt, som för husbilar med koldioxidvärde är ${HUSBIL_SKATT_TEXT}` },
     { question: "Vilken Hobby-modell är mest pålitlig?", answer: "Optima och De Luxe-serierna är populära val. Alla bygger på Fiat Ducato — prioritera nyare årsmodeller (2019+). Hobbys 10-åriga fuktgaranti ger extra trygghet." },
     { question: "Är Hobby ett bra val för förstagångsköpare av husbil?", answer: "Ja, Hobby erbjuder ofta bästa pris-prestanda bland tyska husbilsmärken. Kombinationen av konkurrenskraftigt pris, 10 års fuktgaranti och relativt brett servicenät i Skandinavien gör dem till ett populärt val för förstagångsköpare." },
   ],
@@ -172,13 +178,13 @@ const MOTORHOME_IMPORT_GUIDES: {
     slug: "ursprungskontroll",
     title: "Ursprungskontroll – obligatorisk efter hemkomst",
     desc: () =>
-      "Beställ hos Transportstyrelsen (1 240 kr, 2026). Utan godkänd ursprungskontroll kan husbilen inte registreras.",
+      `Beställ hos Transportstyrelsen (${formatCost("ursprungskontroll")}). Utan godkänd ursprungskontroll kan husbilen inte registreras.`,
   },
   {
     slug: "registreringsbesiktning",
     title: "Registreringsbesiktning – sista steget mot svenska skyltar",
     desc: () =>
-      "Ca 3 000–5 000 kr för husbil. Mer omfattande än för personbil – gas, fukt och chassi kontrolleras.",
+      `Publicerade priser ${formatCost("registreringsbesiktning")}. Alla stationer tar inte emot husbilar – fråga innan du bokar.`,
   },
   {
     slug: "fordonsskatt-husbil-bonus-malus",
@@ -269,7 +275,7 @@ export default async function ImporteraHusbilPage({ params }: Props) {
       const { content, frontmatter } = await compileMDX<{ dateUpdated: string }>({
         source,
         options: { parseFrontmatter: true, mdxOptions: { remarkPlugins: [remarkGfm], rehypePlugins: [rehypeSlug] } },
-        components: { AffiliateLink },
+        components: { AffiliateLink, ...BELOPP_MDX_COMPONENTS },
       });
 
       const articleJsonLd = getArticleJsonLd({
@@ -335,7 +341,7 @@ export default async function ImporteraHusbilPage({ params }: Props) {
             <div className="bg-amber-50 border-l-4 border-amber-500 p-4 mb-6 rounded-r">
               <p className="text-sm text-amber-800">
                 <strong>Obs:</strong> Husbilsimport skiljer sig från bilimport – besiktningen är
-                mer omfattande (ca 3 000–5 000 kr) och transport av en husbil kostar mer.
+                mer omfattande ({formatCost("registreringsbesiktning")} enligt publicerade prislistor) och transport av en husbil kostar mer.
               </p>
             </div>
 
@@ -349,10 +355,10 @@ export default async function ImporteraHusbilPage({ params }: Props) {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-100">
-                  <tr><td className="p-3">Ursprungskontroll</td><td className="p-3 text-right font-medium">1 240 kr</td></tr>
-                  <tr><td className="p-3">Registreringsbesiktning</td><td className="p-3 text-right font-medium">~3 000–5 000 kr</td></tr>
-                  <tr><td className="p-3">Transport</td><td className="p-3 text-right font-medium">~8 000–15 000 kr</td></tr>
-                  <tr><td className="p-3">Tull (EU-import)</td><td className="p-3 text-right font-medium text-green-700">0 kr</td></tr>
+                  <tr><td className="p-3">Ursprungskontroll</td><td className="p-3 text-right font-medium">{formatCost("ursprungskontroll")}</td></tr>
+                  <tr><td className="p-3">Registreringsbesiktning</td><td className="p-3 text-right font-medium">{formatCost("registreringsbesiktning")}</td></tr>
+                  <tr><td className="p-3">Transport</td><td className="p-3 text-right font-medium">offert</td></tr>
+                  <tr><td className="p-3">Tull (EU-import)</td><td className="p-3 text-right font-medium text-green-700">{TULL_EU}</td></tr>
                 </tbody>
               </table>
             </section>
@@ -590,7 +596,7 @@ export default async function ImporteraHusbilPage({ params }: Props) {
               </p>
             </div>
             <p className="text-sm text-gray-700 leading-relaxed mb-3">
-              En {importData.name} på Fiat Ducato-chassi (diesel) med t.ex. 200 g/km CO₂ och fordonsår 2018 eller senare betalade tidigare cirka 18 560 kr/år de tre första åren. Nu betalar den ordinarie fordonsskatt: 360 kr + 22 kr × 89 g + 250 kr miljötillägg + 13,52 kr × 200 g bränsletillägg, alltså cirka 5 270 kr/år.
+              En {importData.name} på Fiat Ducato-chassi (diesel) med t.ex. 200 g/km CO₂ och fordonsår 2018 eller senare betalade tidigare cirka {formatKr(calculateMalus(200, "diesel", 0, "personbil").annualTax)}/år de tre första åren. Nu betalar den ordinarie fordonsskatt: grundbelopp, {formatKr(FORDONSSKATT.co2RatePerGram)} per gram över {FORDONSSKATT.co2ThresholdGram} g/km, miljötillägg och bränsletillägg – alltså cirka {formatKr(calculateMalus(200, "diesel", 0, "husbil").annualTax)}/år.
             </p>
             <p className="text-sm text-gray-700 leading-relaxed">
               Det här gör import av nyare husbilar (under 3 år) betydligt mer ekonomiskt attraktivt än tidigare.

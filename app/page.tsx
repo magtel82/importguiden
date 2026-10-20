@@ -6,6 +6,7 @@ import { getRobotsForPath } from "@/lib/manifest";
 import { ProcessSteps } from "@/components/ProcessSteps";
 import { CostOverview } from "@/components/CostOverview";
 import { CONTENT_YEAR } from "@/lib/site-config";
+import { formatCost } from "@/lib/costs";
 
 export const metadata: Metadata = {
   title: `Importera bil eller husbil privat från Europa – Oberoende guide ${CONTENT_YEAR}`,
@@ -36,12 +37,12 @@ const guides = [
   {
     href: "/guider/ursprungskontroll",
     title: "Ursprungskontroll",
-    description: "Obligatorisk kontroll via Transportstyrelsen. 1 240 kr. Väntetiden varierar – se aktuellt ködatum hos Transportstyrelsen.",
+    description: `Obligatorisk kontroll via Transportstyrelsen. ${formatCost("ursprungskontroll")}. Väntetiden varierar – se aktuellt ködatum hos Transportstyrelsen.`,
   },
   {
     href: "/guider/registreringsbesiktning",
     title: "Registreringsbesiktning",
-    description: "Vad som kontrolleras, var du bokar och vad det kostar (ca 1 500–1 900 kr).",
+    description: `Vad som kontrolleras, var du bokar och vad det kostar (publicerade priser ${formatCost("registreringsbesiktning")}).`,
   },
   {
     href: "/guider/moms-vid-bilimport",

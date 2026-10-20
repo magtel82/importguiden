@@ -48,16 +48,16 @@ Så räknas skatten för en husbil av fordonsår 2018 eller senare (*källa: [Sk
 
 | Del | Belopp |
 |-----|--------|
-| Grundbelopp | 360 kr |
-| Koldioxidbelopp | 22 kr per gram över 111 g/km |
-| Miljötillägg (endast diesel) | 250 kr |
-| Bränsletillägg (endast diesel) | 13,52 kr × hela koldioxidvärdet |
+| Grundbelopp | <Sats id="grundbelopp" /> |
+| Koldioxidbelopp | <Sats id="co2RatePerGram" /> per gram över <Sats id="co2ThresholdGram" /> |
+| Miljötillägg (endast diesel) | <Sats id="dieselMiljotillagg" /> |
+| Bränsletillägg (endast diesel) | <Sats id="dieselBransletillaggPerGram" /> × hela koldioxidvärdet |
 
-**Räkneexempel (tabell 63):** En dieselhusbil av fordonsår 2020 med 200 g CO₂/km betalar 360 kr grundbelopp + 22 kr × 89 g (200 − 111) + 250 kr miljötillägg + 13,52 kr × 200 g bränsletillägg = 360 + 1 958 + 250 + 2 704 = **cirka 5 270 kr per år**.
+**Räkneexempel (tabell 63):** En dieselhusbil av fordonsår 2020 med 200 g CO₂/km betalar grundbelopp, koldioxidbelopp för 89 gram (200 − 111), miljötillägg och bränsletillägg för 200 gram – sammanlagt **cirka <Skatt co2="200" bransle="diesel" fordon="husbil" /> per år**.
 
 Några undantag att känna till:
 
-- **Äldre dieselhusbilar** (skattepliktiga första gången efter 2010 men före 1 juli 2018, eller av fordonsår före 2018) följer tabell 62: (360 + 22 × gram över 111) × bränslefaktor 2,37 + 250 kr. Samma husbil med 200 g/km betalar då (360 + 1 958) × 2,37 + 250 = **cirka 5 744 kr per år**.
+- **Äldre dieselhusbilar** (skattepliktiga första gången efter 2010 men före 1 juli 2018, eller av fordonsår före 2018) följer tabell 62: grundbelopp plus koldioxidbelopp, multiplicerat med bränslefaktorn <Sats id="dieselBranslefaktorPre2018" />, plus miljötillägg. Samma husbil med 200 g/km betalar då **cirka <Skatt co2="200" bransle="diesel" fordon="husbil" fore2018 /> per år**.
 - **"Skattepliktig första gången"** betyder för en importerad husbil den första registreringen i utlandet (*källa: [Skatteverket – Fordonsskatt](https://www.skatteverket.se/privat/skatter/bilochtrafik/fordonsskatt.4.18e1b10334ebe8bc80003864.html)*). Det är alltså det tyska registreringsdatumet som avgör vilken tabell som gäller.
 - **Husbilar utan registrerat koldioxidvärde**, ofta äldre fordon, beskattas efter vikt.
 
@@ -87,11 +87,11 @@ Nej. Klimatbonusen gällde aldrig husbilar och avskaffades helt i november 2022.
 
 Lagändringen i februari 2025 förbättrar kalkylen påtagligt för den som importerar en dieseldriven husbil med höga utsläpp – vilket är den absoluta majoriteten av husbilar på den europeiska andrahandsmarknaden.
 
-**Före februari 2025:** En dieselhusbil med 280 g CO₂/km som blev skattepliktig 2024 betalade under malusperioden cirka 30 200 kr per år (360 kr grundbelopp, 25 810 kr koldioxidbelopp enligt malussatserna, 250 kr miljötillägg och 3 786 kr bränsletillägg).
+**Före februari 2025:** En dieselhusbil med 280 g CO₂/km som blev skattepliktig 2024 betalade under malusperioden cirka <Skatt co2="280" bransle="diesel" fordon="personbil" /> per år (grundbelopp, koldioxidbelopp enligt malussatserna, miljötillägg och bränsletillägg).
 
-**Från februari 2025:** Samma husbil betalar cirka 8 100 kr per år (360 + 22 × 169 + 250 + 13,52 × 280).
+**Från februari 2025:** Samma husbil betalar cirka <Skatt co2="280" bransle="diesel" fordon="husbil" /> per år.
 
-Skillnaden är alltså omkring 22 000 kr per år, eller runt 66 000 kr under en hel treårsperiod.
+Skillnaden blev alltså stor under de tre första åren.
 
 ## Gäller ändringen husbilar som registrerades tidigare?
 
@@ -120,7 +120,7 @@ Använd också vår [importkalkylator](/kalkylator/bilimport) som inkluderar sch
 
 Utöver fordonsskatten är importprocessen för husbilar densamma som för personbilar, med några skillnader:
 
-- **Registreringsbesiktning** kostar mer för husbilar – räkna med 3 000–5 000 kr
+- **Registreringsbesiktning** – <Belopp id="registreringsbesiktning" /> enligt publicerade prislistor; alla stationer tar inte emot husbilar
 - **COC-intyg** kan vara svårare att få tag på för äldre husbilar och kostar mer hos vissa märken
 - **Transport** – de flesta väljer biltransport (trailer eller lastbil) snarare än att köra hem husbilar, av praktiska och försäkringsskäl
 - **Körkortskontroll** – verifiera totalvikt och körkortskrav innan köp

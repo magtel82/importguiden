@@ -4,19 +4,27 @@ import { useState, useEffect, useMemo, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import { AffiliateLink } from "@/components/affiliate/AffiliateLink";
-import costData from "@/data/cost-data.json";
-import importCostsData from "@/datasets/import-costs.json";
+import {
+  sekRange,
+  skyltavgiftKr,
+  exportKostnad,
+  bilkostnadForKm,
+  formatSekRange,
+  costSourceLine,
+  getComparison,
+  FALLBACK_SEK_RATES,
+  MOMS,
+  COST_DATA_UPDATED,
+  TULL_EU,
+  FORDONSSKATT,
+} from "@/lib/costs";
 import { calculateMalus, type FuelType } from "@/lib/malus-calculator";
 import { comparisonFromBreakdown } from "@/lib/import-comparison";
 import { formatDateSv } from "@/lib/date";
 
-// Fallback-kurser (SEK per enhet utländsk valuta)
-const FALLBACK_RATES: Record<string, number> = {
-  EUR: 11.5,
-  USD: 10.8,
-  GBP: 13.5,
-  SEK: 1,
-};
+
+// Reservkurser (SEK per enhet) ur data/cost-data.json – ECB:s referenskurser med datum.
+const FALLBACK_RATES = FALLBACK_SEK_RATES;
 
 const COUNTRY_DISTANCES: Record<string, number> = {
   tyskland: 1200,
@@ -34,16 +42,7 @@ const COUNTRY_LABELS: Record<string, string> = {
   spanien: "Spanien",
 };
 
-const SWEDISH_MONTHS = [
-  "jan","feb","mar","apr","maj","jun",
-  "jul","aug","sep","okt","nov","dec",
-];
 
-function trailerRange(km: number): { min: number; max: number } {
-  if (km < 1000) return { min: 6000, max: 10000 };
-  if (km <= 2000) return { min: 8000, max: 15000 };
-  return { min: 12000, max: 20000 };
-}
 
 function formatSEK(amount: number): string {
   return new Intl.NumberFormat("sv-SE", {
@@ -57,33 +56,7 @@ function formatNum(n: number): string {
   return new Intl.NumberFormat("sv-SE").format(n);
 }
 
-// Hämta belopp från import-costs.json. Om isRange: returnera medelvärdet.
-function getCostAmount(id: string): number {
-  const entry = (importCostsData.costs as Array<{
-    id: string;
-    amount?: number;
-    amountMin?: number;
-    amountMax?: number;
-    isRange?: boolean;
-  }>).find((c) => c.id === id);
-  if (!entry) return 0;
-  if (entry.isRange && entry.amountMin !== undefined && entry.amountMax !== undefined) {
-    return (entry.amountMin + entry.amountMax) / 2;
-  }
-  return entry.amount ?? 0;
-}
 
-// Returnera käll-label för en kostnadspost.
-function getCostMetaLabel(id: string): string {
-  const entry = (importCostsData.costs as Array<{
-    id: string;
-    source: string;
-    validFrom: string;
-  }>).find((c) => c.id === id);
-  if (!entry) return "";
-  const [year, month] = entry.validFrom.split("-");
-  return `${entry.source} · fr.o.m. ${SWEDISH_MONTHS[parseInt(month) - 1]} ${year}`;
-}
 
 
 const REG_YEARS = [2026, 2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018] as const;
@@ -122,6 +95,9 @@ function ImportCalculatorInner() {
   );
   const [distanceKm, setDistanceKm] = useState(
     () => Number(searchParams.get("km") || COUNTRY_DISTANCES.tyskland)
+  );
+  const [transportOffer, setTransportOffer] = useState(
+    () => Number(searchParams.get("transportOffer") || 0)
   );
   const [swePrice, setSwePrice] = useState(
     () => (searchParams.get("swePrice") ? Number(searchParams.get("swePrice")) : 0)
@@ -170,10 +146,11 @@ function ImportCalculatorInner() {
     params.set("transport", transportMethod);
     params.set("km", String(distanceKm));
     if (swePrice > 0) params.set("swePrice", String(swePrice));
+    if (transportOffer > 0) params.set("transportOffer", String(transportOffer));
     if (co2gkm > 0) params.set("co2", String(co2gkm));
     if (fuelType !== "bensin") params.set("fuel", fuelType);
     router.replace(`?${params.toString()}`, { scroll: false });
-  }, [price, currency, country, vehicleType, regYear, isUnderSixMonths, mileageKm, transportMethod, distanceKm, swePrice, co2gkm, fuelType, router]);
+  }, [price, currency, country, vehicleType, regYear, isUnderSixMonths, mileageKm, transportMethod, transportOffer, distanceKm, swePrice, co2gkm, fuelType, router]);
 
   function handleCountryChange(newCountry: string) {
     setCountry(newCountry);
@@ -185,41 +162,35 @@ function ImportCalculatorInner() {
     if (val === "elbil") setCO2gkm(0);
   }
 
-  const besiktningId =
-    vehicleType === "husbil"
-      ? "registreringsbesiktning-husbil"
-      : "registreringsbesiktning-bil";
-  const importfirmaId =
-    vehicleType === "husbil" ? "importfirma-husbil" : "importfirma-bil";
-  // Husbilens importförsäkring saknar publicerat pris – ingen post, räknas som 0 och visas som "offert".
-  const forsäkringId = vehicleType === "husbil" ? null : "importforsakring-bil";
+  const importfirma = getComparison(vehicleType === "husbil" ? "importfirma_husbil" : "importfirma_bil");
 
   const result = useMemo(() => {
     if (!price || price <= 0) return null;
 
-    const rate = rates[currency] ?? FALLBACK_RATES[currency] ?? 11.5;
+    const rate = rates[currency] ?? FALLBACK_RATES[currency] ?? FALLBACK_RATES.EUR;
     const vehiclePriceSEK = price * rate;
 
     const ageMonths = calculateAgeMonths(regYear, isUnderSixMonths);
-    const isNew =
-      isUnderSixMonths ||
-      mileageKm < costData.tax.moms_new_vehicle_threshold_km;
-    const moms = isNew ? vehiclePriceSEK * costData.tax.moms_rate : 0;
+    // Skatteverket: nytt om köpt inom sex månader ELLER kört högst 6 000 km.
+    const isNew = isUnderSixMonths || mileageKm <= MOMS.moms_new_vehicle_threshold_km;
+    const moms = isNew ? vehiclePriceSEK * MOMS.moms_rate : 0;
     const tull = 0;
 
-    const registreringsbesiktning = getCostAmount(besiktningId);
-    const ursprungskontroll = getCostAmount("ursprungskontroll");
-    const skyltavgift = costData.fees.skyltavgift.amount;
-    const importforsäkring = forsäkringId ? getCostAmount(forsäkringId) : 0;
+    // Alla avgifter ur data/cost-data.json via lib/costs.ts.
+    const besiktning = sekRange("registreringsbesiktning");
+    const registreringsbesiktning = besiktning.mid;
+    const ursprungskontroll = sekRange("ursprungskontroll").min;
+    const skyltavgift = skyltavgiftKr();
+    // Husbilens importförsäkring saknar publicerat pris och räknas inte in.
+    const importforsäkring = vehicleType === "husbil" ? 0 : sekRange("importforsakring_if").min;
 
     let transport: number;
-    let transportRange: { min: number; max: number } | null = null;
+    let exportkostnad = 0;
     if (transportMethod === "self") {
-      transport = distanceKm * costData.transport.drive_self_cost_per_km;
+      exportkostnad = exportKostnad().min;
+      transport = bilkostnadForKm(distanceKm) + exportkostnad;
     } else {
-      const range = trailerRange(distanceKm);
-      transportRange = range;
-      transport = (range.min + range.max) / 2;
+      transport = transportOffer > 0 ? transportOffer : 0;
     }
 
     const totalImportCost =
@@ -254,11 +225,13 @@ function ImportCalculatorInner() {
         importforsakring: importforsäkring,
         transport,
       },
-      getCostAmount(importfirmaId)
+      importfirma.value
     );
 
     return {
       comparison,
+      besiktning,
+      exportkostnad,
       vehiclePriceSEK,
       moms,
       tull,
@@ -267,14 +240,13 @@ function ImportCalculatorInner() {
       skyltavgift,
       importforsäkring,
       transport,
-      transportRange,
-      totalImportCost,
+        totalImportCost,
       grandTotal,
       savings,
       savingsPct,
       malusResult,
     };
-  }, [price, currency, vehicleType, regYear, isUnderSixMonths, mileageKm, transportMethod, distanceKm, rates, swePrice, showCO2, co2gkm, fuelType, besiktningId, forsäkringId, importfirmaId]);
+  }, [price, currency, vehicleType, regYear, isUnderSixMonths, mileageKm, transportMethod, transportOffer, distanceKm, rates, swePrice, showCO2, co2gkm, fuelType, importfirma]);
 
   async function handleCopyLink() {
     await navigator.clipboard.writeText(window.location.href);
@@ -373,7 +345,7 @@ function ImportCalculatorInner() {
                 </span>
               </label>
               <p className="mt-1 text-xs text-gray-400 ml-6">
-                Fordon under 6 månader eller under 6 000 km räknas som nytt — då tillkommer svensk moms.
+                Fordon under 6 månader eller som körts högst 6 000 km räknas som nytt — då tillkommer svensk moms.
               </p>
             </div>
           )}
@@ -453,6 +425,29 @@ function ImportCalculatorInner() {
               <span className="text-sm">Anlita transport</span>
             </label>
           </div>
+          {transportMethod === "self" ? (
+            <p className="mt-1 text-xs text-gray-400">
+              Bilkostnad enligt Skatteverkets schablon för egen bil, plus tyska exportskyltar och
+              exportförsäkring.
+            </p>
+          ) : (
+            <div className="mt-2">
+              <label className="block text-xs text-gray-600 mb-1">
+                Offertpris från transportfirman (SEK)
+              </label>
+              <input
+                type="number"
+                value={transportOffer || ""}
+                onChange={(e) => setTransportOffer(Number(e.target.value))}
+                placeholder="Ange pris från offert"
+                className="w-full rounded border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <p className="mt-1 text-xs text-gray-400">
+                Transportpriser publiceras sällan och varierar mycket. Begär offert från två eller
+                tre firmor och fyll i det pris du fått.
+              </p>
+            </div>
+          )}
         </div>
 
         {/* Jämförelsepris Sverige */}
@@ -602,14 +597,14 @@ function ImportCalculatorInner() {
               {/* Tull */}
               <div className="flex justify-between">
                 <span className="text-gray-600">Tull (EU-import)</span>
-                <span className="font-medium text-green-700">0 kr</span>
+                <span className="font-medium text-green-700">{TULL_EU}</span>
               </div>
 
               {/* Ursprungskontroll */}
               <div className="flex justify-between items-start gap-4">
                 <div>
                   <span className="text-gray-600">Ursprungskontroll</span>
-                  <p className="text-xs text-gray-400">{getCostMetaLabel("ursprungskontroll")}</p>
+                  <p className="text-xs text-gray-400">{costSourceLine("ursprungskontroll")}</p>
                 </div>
                 <span className="font-medium whitespace-nowrap">{formatSEK(result.ursprungskontroll)}</span>
               </div>
@@ -618,7 +613,9 @@ function ImportCalculatorInner() {
               <div className="flex justify-between items-start gap-4">
                 <div>
                   <span className="text-gray-600">Registreringsbesiktning</span>
-                  <p className="text-xs text-gray-400">{getCostMetaLabel(besiktningId)}</p>
+                  <p className="text-xs text-gray-400">
+                    Mittvärde av publicerade priser {formatSekRange(result.besiktning)}
+                  </p>
                 </div>
                 <span className="font-medium whitespace-nowrap">{formatSEK(result.registreringsbesiktning)}</span>
               </div>
@@ -634,25 +631,32 @@ function ImportCalculatorInner() {
                 <div>
                   <span className="text-gray-600">Importförsäkring</span>
                   <p className="text-xs text-gray-400">
-                    {forsäkringId
-                      ? getCostMetaLabel(forsäkringId)
+                    {vehicleType !== "husbil"
+                      ? costSourceLine("importforsakring_if")
                       : "Inget publicerat pris för husbil – begär offert (ingår inte i summan)"}
                   </p>
                 </div>
                 <span className="font-medium whitespace-nowrap">
-                  {forsäkringId ? formatSEK(result.importforsäkring) : "offert"}
+                  {vehicleType !== "husbil" ? formatSEK(result.importforsäkring) : "offert"}
                 </span>
               </div>
 
               {/* Transport */}
               <div className="flex justify-between items-start gap-4">
-                <span className="text-gray-600">
-                  {transportMethod === "self"
-                    ? `Bränsle + slitage (${formatNum(distanceKm)} km)`
-                    : result.transportRange
-                    ? `Transport (${formatNum(result.transportRange.min)}–${formatNum(result.transportRange.max)} kr beroende på transportör)`
-                    : "Transport"}
-                </span>
+                <div>
+                  <span className="text-gray-600">
+                    {transportMethod === "self"
+                      ? `Köra hem själv (${formatNum(distanceKm)} km)`
+                      : "Transport (ditt offertpris)"}
+                  </span>
+                  <p className="text-xs text-gray-400">
+                    {transportMethod === "self"
+                      ? `Bilkostnad ${formatSEK(result.transport - result.exportkostnad)} + exportskyltar och exportförsäkring ${formatSEK(result.exportkostnad)}`
+                      : transportOffer > 0
+                      ? "Enligt din offert"
+                      : "Fyll i offertpris – ingår inte annars"}
+                  </p>
+                </div>
                 <span className="font-medium whitespace-nowrap">{formatSEK(result.transport)}</span>
               </div>
 
@@ -755,7 +759,7 @@ function ImportCalculatorInner() {
                 <p className="text-xs text-gray-400 mt-2">
                   Fordonsskatten ingår inte i totalkostnaden ovan — det är en årlig kostnad.
                   {vehicleType === "husbil" &&
-                    " Husbilar är undantagna från malus sedan februari 2025 men betalar 22 kr per gram över 111 g/km."}
+                    ` Husbilar är undantagna från malus sedan februari 2025 men betalar ${FORDONSSKATT.co2RatePerGram} kronor per gram över ${FORDONSSKATT.co2ThresholdGram} g/km.`}
                   {" "}Beräkningen gäller fordon av årsmodell 2018 eller senare. Äldre fordon och
                   husbilar utan koldioxidvärde beskattas på annat sätt – Transportstyrelsen
                   visar exakt skatt för ett registrerat fordon.
@@ -765,10 +769,9 @@ function ImportCalculatorInner() {
 
             {/* Footer */}
             <p className="mt-4 text-xs text-gray-400">
-              Siffror senast verifierade:{" "}
-              {formatDateSv(importCostsData._meta.lastVerified)}.{" "}
-              Beräkningen är ungefärlig och baserad på schablonvärden. Kontrollera alltid
-              faktiska kostnader hos Transportstyrelsen och Tullverket.
+              Avgifterna kontrollerades senast {formatDateSv(COST_DATA_UPDATED)} mot respektive
+              källa. Beräkningen är ungefärlig – besiktningsföretag och försäkringsbolag sätter
+              egna priser. Kontrollera alltid aktuella belopp innan du bestämmer dig.
             </p>
 
             {/* Nästa steg */}

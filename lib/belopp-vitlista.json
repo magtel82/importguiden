@@ -1,0 +1,50 @@
+{
+  "_beskrivning": "Medvetna undantag från regeln att belopp bara får komma från data/cost-data.json. Varje undantag matchar en exakt textbit i en fil och har en motivering. Lägg aldrig till ett avgifts- eller prisbelopp här – lägg det i datafilen med källa.",
+  "undantag": [
+    {
+      "fil": "content/guider/moms-vid-bilimport.mdx",
+      "text": "200 000 kr",
+      "motivering": "Räkneexempel: påhittat bilpris som illustrerar momsregeln, inget påstående om ett faktiskt pris."
+    },
+    {
+      "fil": "content/guider/moms-vid-bilimport.mdx",
+      "text": "Moms: 0 kr",
+      "motivering": "Räkneexempel: resultatet för ett begagnat fordon."
+    },
+    {
+      "fil": "content/guider/moms-vid-bilimport.mdx",
+      "text": "350 000 kr",
+      "motivering": "Räkneexempel: påhittat bilpris."
+    },
+    {
+      "fil": "content/guider/moms-vid-bilimport.mdx",
+      "text": "87 500 kr",
+      "motivering": "Räkneexempel: 25 % av exemplets 350 000 kr."
+    },
+    {
+      "fil": "content/guider/moms-vid-bilimport.mdx",
+      "text": "300 000 kr",
+      "motivering": "Räkneexempel: påhittat bilpris."
+    },
+    {
+      "fil": "content/guider/moms-vid-bilimport.mdx",
+      "text": "75 000 kr",
+      "motivering": "Räkneexempel: 25 % av exemplets 300 000 kr."
+    },
+    {
+      "fil": "content/guider/importera-elbil.mdx",
+      "text": "380 000 SEK",
+      "motivering": "Räkneexempel: påhittat köppris som illustrerar att en nästan ny elbil räknas som ny."
+    },
+    {
+      "fil": "content/guider/importera-elbil.mdx",
+      "text": "95 000 kr",
+      "motivering": "Räkneexempel: 25 % moms på exemplets 380 000 kr."
+    },
+    {
+      "fil": "app/jamfor/[slug]/page.tsx",
+      "text": "000 kr",
+      "motivering": "Prisjämförelsen per segment och märke bygger på annonspriser som redovisas som marknadsläge, inte avgifter. Källunderlaget saknas och är en öppen TODO i audits/2026-10-belopp-log.md – sidan måste få ett källbelagt underlag eller skrivas om."
+    }
+  ]
+}

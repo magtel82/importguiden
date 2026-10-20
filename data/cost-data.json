@@ -1,63 +1,284 @@
 {
-  "_version": "1.0.1",
-  "_updated": "2026-07-28",
-  "_source": "Transportstyrelsen, Tullverket, Skatteverket",
-  "fees": {
+  "_version": "2.0.0",
+  "_updated": "2026-10-19",
+  "_description": "ENDA källan för belopp på sajten. Sidor, FAQ-scheman och kalkylatorn läser härifrån – hårdkoda aldrig ett belopp i sidtext (testet lib/belopp.test.mjs fallerar). typ: officiell = myndighets- eller lagstadgad avgift; marknadspris = publicerat pris hos namngiven aktör; schablon = uppskattning där metoden redovisas i 'metod'. EUR-belopp räknas om till kronor med exchangeRates.EUR.",
+  "exchangeRates": {
+    "EUR": {
+      "sek": 11.104,
+      "date": "2026-10-19",
+      "source": "Europeiska centralbanken – referenskurs EUR/SEK",
+      "sourceUrl": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml"
+    },
+    "USD": {
+      "sek": 9.8922,
+      "date": "2026-10-19",
+      "source": "Europeiska centralbanken – referenskurser (SEK 11,1040 och USD 1,1225 per EUR)",
+      "sourceUrl": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml"
+    },
+    "GBP": {
+      "sek": 13.1869,
+      "date": "2026-10-19",
+      "source": "Europeiska centralbanken – referenskurser (SEK 11,1040 och GBP 0,84205 per EUR)",
+      "sourceUrl": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml"
+    }
+  },
+  "costs": {
     "ursprungskontroll": {
-      "amount": 1240,
+      "label": "Ursprungskontroll",
+      "value": 1240,
       "currency": "SEK",
-      "verified": "2026-07-28",
-      "note": "Obligatorisk kontroll via Transportstyrelsen. Beloppet verifierat mot Transportstyrelsens prislista 2026-07-28. Faktura skickas per post; handläggningen startar när betalningen registrerats.",
-      "source": "https://www.transportstyrelsen.se/sv/om-oss/avgifter/avgifter-inom-vagtrafik/avgifter-for-tillstands--och-andra-provningar/fordonsregistrering/"
+      "type": "officiell",
+      "source": "Transportstyrelsen – Avgifter för fordonsregistrering",
+      "sourceUrl": "https://www.transportstyrelsen.se/sv/om-oss/avgifter/avgifter-inom-vagtrafik/avgifter-for-tillstands--och-andra-provningar/fordonsregistrering/",
+      "checked": "2026-10-19"
     },
-    "registreringsbesiktning_personbil": {
-      "amount": 1700,
+    "registreringsskylt": {
+      "label": "Registreringsskylt (per styck)",
+      "value": 62,
       "currency": "SEK",
-      "note": "Schablonkostnad för personbil. Varierar beroende på besiktningsstation.",
-      "source": "https://www.transportstyrelsen.se"
+      "type": "officiell",
+      "source": "Transportstyrelsen – Registreringsskyltar",
+      "sourceUrl": "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/registreringsskyltar/",
+      "checked": "2026-10-19"
     },
-    "registreringsbesiktning_husbil": {
-      "amount": 3500,
+    "vagtrafikregisteravgift": {
+      "label": "Vägtrafikregisteravgift (per år)",
+      "value": 74,
       "currency": "SEK",
-      "note": "Schablonkostnad för husbil. Kan variera 3000–5000 kr.",
-      "source": "https://www.transportstyrelsen.se"
+      "type": "officiell",
+      "source": "Transportstyrelsen – Avgifter för registreringsskylt och registerhållning",
+      "sourceUrl": "https://www.transportstyrelsen.se/avgifter-for-registerhallning",
+      "checked": "2026-10-19",
+      "note": "Årlig avgift. Transportstyrelsen har föreslagit 80 kr från 2027 (ej beslutat 2026-10-19)."
     },
-    "skyltavgift": {
-      "amount": 198,
+    "registreringsbesiktning": {
+      "label": "Registreringsbesiktning (personbil eller husbil)",
+      "min": 2500,
+      "max": 3500,
       "currency": "SEK",
-      "verified": "2026-07-28",
-      "note": "2×62 kr för registreringsskyltar + 74 kr vägtrafikregisteravgift. Vägtrafikregisteravgiften är en årlig avgift (höjd från 69 kr till 74 kr 2026-01-01), inte en engångskostnad. Verifierat mot Transportstyrelsen 2026-07-28.",
-      "source": "https://www.transportstyrelsen.se/avgifter-for-registerhallning"
+      "type": "marknadspris",
+      "source": "Publicerade prislistor: Ystad Bilbesiktning (2 500–3 500 kr) och Fordonsprovarna Kungälv (3 239 kr)",
+      "sourceUrl": "https://ystadbilbesiktning.se/priser/",
+      "sourceUrls": [
+        "https://ystadbilbesiktning.se/priser/",
+        "https://fordonsprovarna-kungalv.se/tjanster/priser/"
+      ],
+      "checked": "2026-10-19",
+      "note": "De stora besiktningskedjorna publicerar inte pris för registreringsbesiktning. Intervallet bygger på två stationer som gör det, inklusive moms."
     },
-    "importforsäkring_personbil": {
-      "amount": 800,
+    "registreringsbesiktning_efterkontroll": {
+      "label": "Efterkontroll efter underkänd registreringsbesiktning",
+      "min": 1000,
+      "max": 1349,
       "currency": "SEK",
-      "note": "If:s pris för trafikförsäkring vid tillfällig registrering, högst 3 månader (oktober 2026). Andra försäkringsbolag har egna priser – begär offert.",
-      "source": "https://www.if.se/privat/forsakringar/bilforsakring/importera-bil/forsakra-importerad-bil",
-      "verified": "2026-10-19"
+      "type": "marknadspris",
+      "source": "Publicerade prislistor: Ystad Bilbesiktning (1 000 kr) och Fordonsprovarna Kungälv (1 349 kr)",
+      "sourceUrl": "https://ystadbilbesiktning.se/priser/",
+      "sourceUrls": [
+        "https://ystadbilbesiktning.se/priser/",
+        "https://fordonsprovarna-kungalv.se/tjanster/priser/"
+      ],
+      "checked": "2026-10-19"
     },
-    "importforsäkring_husbil": {
-      "amount": 2500,
+    "enskilt_godkannande": {
+      "label": "Provning för enskilt godkännande (en station)",
+      "value": 4599,
       "currency": "SEK",
-      "note": "Schablonvärde för importförsäkring husbil. Kontrollera aktuellt pris hos ditt försäkringsbolag – kan variera 2 000–4 000 kr.",
-      "source": "Schablonvärde baserat på branschpraxis – verifiera hos respektive försäkringsbolag"
+      "type": "marknadspris",
+      "source": "Fordonsprovarna Kungälv – prislista från 2026-05-01",
+      "sourceUrl": "https://fordonsprovarna-kungalv.se/tjanster/priser/",
+      "checked": "2026-10-19",
+      "note": "En enskild stations pris. Andra stationer kan ta mer eller mindre."
+    },
+    "importforsakring_if": {
+      "label": "Trafikförsäkring vid tillfällig registrering (If)",
+      "value": 800,
+      "currency": "SEK",
+      "type": "marknadspris",
+      "source": "If – Försäkring för importerad bil",
+      "sourceUrl": "https://www.if.se/privat/forsakringar/bilforsakring/importera-bil/forsakra-importerad-bil",
+      "checked": "2026-10-19",
+      "note": "Endast trafikförsäkring, högst tre månader. Avser bil. Andra bolag sätter egna priser."
+    },
+    "exportskyltar_avgift": {
+      "label": "Avgift för tyska exportskyltar hos Zulassungsstelle (lägsta)",
+      "value": 33.2,
+      "currency": "EUR",
+      "type": "officiell",
+      "source": "Service Berlin – Ausfuhrkennzeichen beantragen (\"beträgt im günstigsten Fall 33,20 EUR\")",
+      "sourceUrl": "https://service.berlin.de/dienstleistung/121476/",
+      "checked": "2026-10-19",
+      "note": "Avgiften enligt tyska avgiftsförordningen (GebOSt), lägsta nivå. Själva skyltarna tillverkas separat och kostar extra."
+    },
+    "exportforsakring_15d": {
+      "label": "Exportförsäkring personbil, 15 dagar (från-pris hos en leverantör)",
+      "value": 79,
+      "currency": "EUR",
+      "type": "marknadspris",
+      "source": "nondos.de – PKW 15 Tage KFZ Ausfuhrversicherung (tariff 2026)",
+      "sourceUrl": "https://nondos.de/shopping/ausfuhr/pkw-15-tage-schutzbrief/",
+      "checked": "2026-10-19",
+      "note": "En leverantörs pris inklusive tysk försäkringsskatt och vägassistans. Andra leverantörer har andra priser och löptider."
+    },
+    "kopbesiktning_adac": {
+      "label": "Köpbesiktning hos ADAC (icke-medlem, från-pris)",
+      "value": 109,
+      "currency": "EUR",
+      "type": "marknadspris",
+      "source": "ADAC Hansa – Prüfzentrum Hamburg, Gebrauchtwagenuntersuchung",
+      "sourceUrl": "https://www.adac.de/der-adac/regionalclubs/hansa/mobilitaet-sicherheit/adac-pruefzentrum-hamburg/",
+      "checked": "2026-10-19",
+      "note": "ADAC Hamburg: från 79 EUR för medlemmar, från 109 EUR för icke-medlemmar. Priserna skiljer mellan regionklubbarna."
+    },
+    "bilkostnad_per_mil": {
+      "label": "Bilkostnad per mil (schablon)",
+      "value": 25,
+      "currency": "SEK",
+      "type": "schablon",
+      "source": "Skatteverket – Belopp och procent 2026, skattefri bilersättning för egen bil",
+      "sourceUrl": "https://www.skatteverket.se/privat/skatter/beloppochprocent/2026.4.1522bf3f19aea8075ba21.html",
+      "checked": "2026-10-19",
+      "metod": "Skatteverkets skattefria milersättning för egen bil (25 kr per mil) används som uppskattning av vad det kostar att köra en bil en mil. Den faktiska kostnaden beror på bilens förbrukning och bränslepriset."
+    },
+    "elbilspremie": {
+      "label": "Elbilspremie totalt, ansökan 18 mars 2026–30 juni 2028",
+      "currency": "SEK",
+      "type": "officiell",
+      "source": "Naturvårdsverket – Villkor för elbilspremien",
+      "sourceUrl": "https://www.naturvardsverket.se/bidrag/elbilspremien/villkor-for-elbilspremien/",
+      "checked": "2026-10-20",
+      "value": 46800
+    },
+    "elbilspremie_sen": {
+      "label": "Elbilspremie totalt, ansökan 1 juli 2028–30 juni 2029",
+      "currency": "SEK",
+      "type": "officiell",
+      "source": "Naturvårdsverket – Villkor för elbilspremien",
+      "sourceUrl": "https://www.naturvardsverket.se/bidrag/elbilspremien/villkor-for-elbilspremien/",
+      "checked": "2026-10-20",
+      "value": 32400
+    },
+    "elbilspremie_starttillagg": {
+      "label": "Starttillägg, ansökan före 1 juli 2028",
+      "currency": "SEK",
+      "type": "officiell",
+      "source": "Naturvårdsverket – Villkor för elbilspremien",
+      "sourceUrl": "https://www.naturvardsverket.se/bidrag/elbilspremien/villkor-for-elbilspremien/",
+      "checked": "2026-10-20",
+      "value": 18000
+    },
+    "elbilspremie_starttillagg_sen": {
+      "label": "Starttillägg, ansökan efter 30 juni 2028",
+      "currency": "SEK",
+      "type": "officiell",
+      "source": "Naturvårdsverket – Villkor för elbilspremien",
+      "sourceUrl": "https://www.naturvardsverket.se/bidrag/elbilspremien/villkor-for-elbilspremien/",
+      "checked": "2026-10-20",
+      "value": 10000
+    },
+    "elbilspremie_prisintervall": {
+      "label": "Tillåtet köppris för elbilen",
+      "currency": "SEK",
+      "type": "officiell",
+      "source": "Naturvårdsverket – Villkor för elbilspremien",
+      "sourceUrl": "https://www.naturvardsverket.se/bidrag/elbilspremien/villkor-for-elbilspremien/",
+      "checked": "2026-10-20",
+      "min": 64800,
+      "max": 450000
+    },
+    "elbilspremie_inkomst_en_vuxen": {
+      "label": "Högsta inkomst, en vuxen",
+      "currency": "SEK",
+      "type": "officiell",
+      "source": "Naturvårdsverket – Villkor för elbilspremien",
+      "sourceUrl": "https://www.naturvardsverket.se/bidrag/elbilspremien/villkor-for-elbilspremien/",
+      "checked": "2026-10-20",
+      "value": 372000
+    },
+    "elbilspremie_inkomst_tva_vuxna": {
+      "label": "Högsta inkomst, två vuxna",
+      "currency": "SEK",
+      "type": "officiell",
+      "source": "Naturvårdsverket – Villkor för elbilspremien",
+      "sourceUrl": "https://www.naturvardsverket.se/bidrag/elbilspremien/villkor-for-elbilspremien/",
+      "checked": "2026-10-20",
+      "value": 561720
+    },
+    "elbilspremie_startgrans_en_vuxen": {
+      "label": "Högsta inkomst för starttillägg, en vuxen",
+      "currency": "SEK",
+      "type": "officiell",
+      "source": "Naturvårdsverket – Villkor för elbilspremien",
+      "sourceUrl": "https://www.naturvardsverket.se/bidrag/elbilspremien/villkor-for-elbilspremien/",
+      "checked": "2026-10-20",
+      "value": 232500
+    },
+    "elbilspremie_startgrans_tva_vuxna": {
+      "label": "Högsta inkomst för starttillägg, två vuxna",
+      "currency": "SEK",
+      "type": "officiell",
+      "source": "Naturvårdsverket – Villkor för elbilspremien",
+      "sourceUrl": "https://www.naturvardsverket.se/bidrag/elbilspremien/villkor-for-elbilspremien/",
+      "checked": "2026-10-20",
+      "value": 351075
     }
   },
   "tax": {
     "moms_new_vehicle_threshold_months": 6,
     "moms_new_vehicle_threshold_km": 6000,
     "moms_rate": 0.25,
-    "verified": "2026-07-28",
-    "note": "Fordon anses nytt om det köps inom sex månader efter första ibruktagande ELLER har körts högst 6 000 km före köpet. Moms (25 %) betalas i Sverige på fordon som anses nya. Deklareras på blankett SKV 5282 senast 35 dagar efter köpet.",
-    "source": "https://skatteverket.se/foretag/moms/sarskildamomsregler/handelmedandralander/inkopavnytttransportmedelfranettannateuland.4.361dc8c15312eff6fd1209a.html"
+    "checked": "2026-10-19",
+    "source": "https://skatteverket.se/foretag/moms/sarskildamomsregler/handelmedandralander/inkopavnytttransportmedelfranettannateuland.4.361dc8c15312eff6fd1209a.html",
+    "note": "Fordon anses nytt om det köps inom sex månader efter första ibruktagande ELLER har körts högst 6 000 km före köpet. Moms (25 %) betalas i Sverige på fordon som anses nya. Deklareras på blankett SKV 5282 senast 35 dagar efter köpet."
   },
-  "transport": {
-    "drive_self_cost_per_km": 3.5,
-    "trailer_transport_from_germany": {
-      "min": 6000,
-      "max": 20000,
+  "fordonsskatt": {
+    "source": "Skatteverket – Fordonsskattetabeller (uppdaterade 2026-02-01), tabell 62, 63 och 72",
+    "sourceUrl": "https://www.skatteverket.se/download/18.9567cda19bf6c00272596/1770015080315/Fordonsskattetabeller.pdf",
+    "checked": "2026-10-19",
+    "grundbelopp": 360,
+    "malusLowerGram": 75,
+    "malusUpperGram": 125,
+    "malusRateTier1": 107,
+    "malusRateTier2": 132,
+    "malusPeriodMonths": 36,
+    "co2ThresholdGram": 111,
+    "co2RatePerGram": 22,
+    "dieselMiljotillagg": 250,
+    "dieselBransletillaggPerGram": 13.52,
+    "dieselBranslefaktorPre2018": 2.37
+  },
+  "comparisons": {
+    "importfirma_bil": {
+      "label": "Anlita importfirma (personbil)",
+      "value": 24875,
       "currency": "SEK",
-      "note": "Schablonkostnad för transportföretag, fordon på trailer. Beror främst på sträckan: ca 6 000–10 000 kr under 100 mil, 8 000–15 000 kr på 100–200 mil och 12 000–20 000 kr över 200 mil. Samma intervall som importkalkylatorn använder."
+      "type": "marknadspris",
+      "source": "Publicerat listpris hos svensk importfirma, juli 2026",
+      "sourceUrl": null,
+      "checked": "2026-07-29",
+      "sourceException": "Källan länkas medvetet inte – det är en importfirmas säljsida. Undantag från kravet på källänk; posten används bara i kalkylatorns jämförelse och redovisas där som ett enskilt listpris.",
+      "coverage": {
+        "described": "Listpriset uppges avse leverans och registrering.",
+        "verified": false,
+        "includedItems": null
+      },
+      "note": "19 900 kr + moms = 24 875 kr inkl. moms. Publicerat listpris hos en svensk importfirma juli 2026, avser leverans och registrering. Ingår INTE i kalkylatorns totalsumma – används enbart som jämförelse mot att göra importen själv. Priset avser en enskild aktör och är inte ett marknadsgenomsnitt. Källan länkas medvetet inte – den är en importfirmas säljsida, och Importguiden skickar inte läsare dit."
+    },
+    "importfirma_husbil": {
+      "label": "Anlita importfirma (husbil)",
+      "value": 37375,
+      "currency": "SEK",
+      "type": "marknadspris",
+      "source": "Publicerat listpris hos svensk importfirma, juli 2026",
+      "sourceUrl": null,
+      "checked": "2026-07-29",
+      "sourceException": "Källan länkas medvetet inte – det är en importfirmas säljsida. Undantag från kravet på källänk; posten används bara i kalkylatorns jämförelse och redovisas där som ett enskilt listpris.",
+      "coverage": {
+        "described": "Källan anger inte vilka poster arvodet täcker.",
+        "verified": false,
+        "includedItems": null
+      },
+      "note": "29 900 kr + moms = 37 375 kr inkl. moms. Publicerat listpris hos en svensk importfirma juli 2026. Ingår INTE i kalkylatorns totalsumma – används enbart som jämförelse. Priset avser en enskild aktör och är inte ett marknadsgenomsnitt. Källan länkas medvetet inte – den är en importfirmas säljsida, och Importguiden skickar inte läsare dit."
     }
   }
 }

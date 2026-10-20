@@ -19,6 +19,8 @@ import { calculateMalus, type FuelType } from "@/lib/malus-calculator";
 import { formatDateSv } from "@/lib/date";
 import { UpcomingChangeNotice } from "@/components/UpcomingChangeNotice";
 import { CONTENT_YEAR } from "@/lib/site-config";
+import { formatCost, formatKr, formatSekRange, feeTotal, exportKostnad, TULL_EU, FORDONSSKATT } from "@/lib/costs";
+import { BELOPP_MDX_COMPONENTS } from "@/components/Belopp";
 
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
 
@@ -98,7 +100,7 @@ const BRAND_GARANTI: Record<string, { intro: string; items: GarantiItem[]; sourc
       { title: "Nybilsgaranti", text: "Tesla erbjuder 4 års nybilsgaranti eller 80 000 km (det som inträffar först). Garantin gäller internationellt och hanteras via Tesla Service Centers." },
       { title: "Inget traditionellt återförsäljarnät", text: "Tesla har inga auktoriserade återförsäljare — all service sker via Tesla Service Centers. I Sverige finns de i Stockholm, Göteborg och Malmö samt via mobila servicetekniker." },
       { title: "Batterigaranti", text: "Tesla ger 8 år på högvoltsbatteriet: 120 000 km (Model 3 Standard), 160 000 km (Model 3 Long Range, Model Y) eller 200 000 km (Model S, Model X). Garantin gäller internationellt." },
-      { title: "COC-intyg", text: "Tesla tillhandahåller ofta COC-intyg gratis — en unik fördel jämfört med andra märken där COC ibland kostar 200–400 EUR." },
+      { title: "COC-intyg", text: "Tesla tillhandahåller ofta COC-intyg utan kostnad. Hos andra märken sätter tillverkaren priset – fråga innan du beställer." },
       { title: "Autopilot och FSD", text: "Kontrollera att Full Self Driving (FSD) eller Enhanced Autopilot-licenser överförs vid ägarbyte. Detta har historiskt varit problematiskt — Tesla kan i vissa fall återkalla mjukvaran vid ägarbytet." },
     ],
     source: "Kontrollera alltid aktuella villkor direkt med Tesla Sverige (tesla.com/sv_se).",
@@ -148,7 +150,7 @@ const BRAND_FORDONSSKATT: Record<string, { intro?: string; rows: FordonsskattRow
     { model: "911 Carrera", co2: 210, fuel: "bensin" },
     { model: "Taycan 4S", co2: 0, fuel: "elbil" },
   ]},
-  tesla: { intro: "Alla Tesla-modeller är helt eldrivna och betalar bara grundbelopp 360 kr/år i fordonsskatt — ingen malus oavsett modell.", rows: [
+  tesla: { intro: `Alla Tesla-modeller är helt eldrivna och betalar bara grundbeloppet ${formatKr(FORDONSSKATT.grundbelopp)}/år i fordonsskatt — ingen malus oavsett modell.`, rows: [
     { model: "Model 3", co2: 0, fuel: "elbil" },
     { model: "Model Y", co2: 0, fuel: "elbil" },
     { model: "Model S", co2: 0, fuel: "elbil" },
@@ -160,11 +162,11 @@ const BRAND_FAQ: Record<string, FaqItem[]> = {
   bmw: [
     { question: "Gäller BMW-garanti i Sverige vid import?", answer: "Ja, BMW har internationell EU-garanti. Kontakta en svensk BMW-återförsäljare efter importen för att registrera bilen i det svenska systemet. Ta med köpehandling, servicehistorik och COC-intyg." },
     { question: "Vilka BMW-modeller är bäst att importera?", answer: "3-serien, 5-serien och X3 har bäst ADAC-betyg och störst prisskillnad mot Sverige. Undvik N47-dieselmotorn (2007–2013) på grund av kända timing-kedjeproblematik." },
-    { question: "Vad kostar det att importera en BMW från Tyskland?", answer: "Utöver bilpriset tillkommer ca 3 140 kr i fasta avgifter (ursprungskontroll 1 240 kr + registreringsbesiktning ca 1 700 kr + skyltavgift 198 kr) plus transport. Använd vår kalkylator för en exakt beräkning." },
+    { question: "Vad kostar det att importera en BMW från Tyskland?", answer: `Utöver bilpriset tillkommer ${formatSekRange(feeTotal("bil"))} i fasta avgifter (ursprungskontroll ${formatCost("ursprungskontroll")}, registreringsbesiktning ${formatCost("registreringsbesiktning")} enligt publicerade prislistor, importförsäkring och skyltar) plus transport. Använd vår kalkylator för en exakt beräkning.` },
   ],
   mercedes: [
     { question: "Gäller Mercedes-garanti i Sverige vid import?", answer: "Ja, Mercedes-Benz har internationell EU-garanti (2 år utan milbegränsning). Kontakta en auktoriserad Mercedes-verkstad i Sverige för att registrera bilen. Mercedes har ett av de bredaste verkstadsnätverken i Sverige." },
-    { question: "Vilka Mercedes-modeller är bäst att importera?", answer: "C-klass och E-klass har bäst ADAC-betyg och stor prisskillnad mot Sverige. Laddhybriderna (C 300 de, E 300 e) ligger under malusgränsen på 75 g/km. Dieselhybriden C 300 de betalar dock dieselns miljö- och bränsletillägg, cirka 950 kr/år." },
+    { question: "Vilka Mercedes-modeller är bäst att importera?", answer: `C-klass och E-klass har bäst ADAC-betyg och stor prisskillnad mot Sverige. Laddhybriderna (C 300 de, E 300 e) ligger under malusgränsen på 75 g/km. Dieselhybriden C 300 de betalar dock dieselns miljö- och bränsletillägg, cirka ${formatKr(calculateMalus(25, "laddhybrid-diesel", 0, "personbil").annualTax)}/år.` },
     { question: "Är Mercedes dyrare att serva i Sverige som importbil?", answer: "Nej, servicekostnaden är densamma som för svensksålda Mercedes. Garanti och service hanteras av samma auktoriserade verkstäder. Kontrollera dock att eventuella tyska serviceavtal överförs." },
   ],
   volkswagen: [
@@ -184,7 +186,7 @@ const BRAND_FAQ: Record<string, FaqItem[]> = {
   ],
   tesla: [
     { question: "Gäller Tesla-garanti i Sverige vid import?", answer: "Ja, Teslas garanti gäller internationellt. 4 års nybilsgaranti (80 000 km) och 8 års batterigaranti (120 000–200 000 km beroende på modell). Service hanteras via Tesla Service Centers." },
-    { question: "Vilka Tesla-modeller är bäst att importera?", answer: "Model 3 och Model Y har störst prisskillnad mot Sverige och är enklast att importera. Alla Tesla-modeller betalar bara 360 kr/år i fordonsskatt (ingen malus)." },
+    { question: "Vilka Tesla-modeller är bäst att importera?", answer: `Model 3 och Model Y har störst prisskillnad mot Sverige och är enklast att importera. Alla Tesla-modeller betalar bara ${formatKr(FORDONSSKATT.grundbelopp)}/år i fordonsskatt (ingen malus).` },
     { question: "Fungerar Tesla Autopilot/FSD efter import till Sverige?", answer: "Autopilot och navigeringsfunktioner fungerar efter import. Men kontrollera att Full Self Driving (FSD) eller Enhanced Autopilot-licenser överförs vid ägarbyte — Tesla kan i vissa fall återkalla mjukvaran." },
   ],
 };
@@ -231,13 +233,13 @@ const CAR_IMPORT_GUIDES: {
     slug: "ursprungskontroll",
     title: "Ursprungskontroll – obligatorisk efter hemkomst",
     desc: () =>
-      "Beställ hos Transportstyrelsen (1 240 kr, 2026). Utan godkänd ursprungskontroll kan bilen inte registreras.",
+      `Beställ hos Transportstyrelsen (${formatCost("ursprungskontroll")}). Utan godkänd ursprungskontroll kan bilen inte registreras.`,
   },
   {
     slug: "registreringsbesiktning",
     title: "Registreringsbesiktning – sista steget mot svenska skyltar",
     desc: (brand) =>
-      `Ca 1 700 kr. Lär dig vad besiktningsmannen kontrollerar extra noga på en importerad ${brand}.`,
+      `Publicerade priser ${formatCost("registreringsbesiktning")}. Lär dig vad besiktningsmannen kontrollerar extra noga på en importerad ${brand}.`,
   },
   {
     slug: "moms-vid-bilimport",
@@ -331,7 +333,7 @@ export default async function ImporteraBilPage({ params }: Props) {
       const { content, frontmatter } = await compileMDX<{ dateUpdated: string }>({
         source,
         options: { parseFrontmatter: true, mdxOptions: { remarkPlugins: [remarkGfm], rehypePlugins: [rehypeSlug] } },
-        components: { AffiliateLink, BrandGrid },
+        components: { AffiliateLink, BrandGrid, ...BELOPP_MDX_COMPONENTS },
       });
 
       const articleJsonLd = {
@@ -348,7 +350,7 @@ export default async function ImporteraBilPage({ params }: Props) {
       const tysklandFaqSchema = getFaqJsonLd([
         {
           question: "Är det lönsamt att importera bil från Tyskland?",
-          answer: "Det kan vara lönsamt, framför allt för premiumbilar och elbilar där prisskillnaden mot Sverige kan vara 30 000–100 000 kr. Du behöver räkna in transport, ursprungskontroll, besiktning och eventuell fordonsskatt.",
+          answer: "Det kan vara lönsamt, framför allt för premiumbilar och elbilar. Jämför prisskillnaden för den aktuella bilen med summan av transport, ursprungskontroll, besiktning och eventuell fordonsskatt.",
         },
         {
           question: "Hur lång tid tar det att importera bil från Tyskland?",
@@ -433,8 +435,8 @@ export default async function ImporteraBilPage({ params }: Props) {
                   { title: "Hitta bilen", desc: `Sök på mobile.de, AutoScout24 eller liknande plattformar. Kontrollera att bilen inte är märkt som exportsåld.` },
                   { title: "Besiktiga och köp bilen", desc: "Resa ner för besiktning rekommenderas alltid. Kontrollera servicehistorik, COC-intyg och att bilen är fri från belastningar." },
                   { title: "Exportregistrering och hemtransport", desc: "Säljaren avregistrerar bilen. Du kan köra hem på tyska exportskyltar eller anlita transport." },
-                  { title: "Ursprungskontroll", desc: "Beställ ursprungskontroll hos Transportstyrelsen (1 240 kr, 2026)." },
-                  { title: "Registreringsbesiktning", desc: "Boka registreringsbesiktning hos godkänd station. Ca 1 700 kr för personbil." },
+                  { title: "Ursprungskontroll", desc: `Beställ ursprungskontroll hos Transportstyrelsen (${formatCost("ursprungskontroll")}).` },
+                  { title: "Registreringsbesiktning", desc: `Boka registreringsbesiktning hos godkänd station. Publicerade priser ${formatCost("registreringsbesiktning")}.` },
                   { title: "Registrering i Sverige", desc: "När besiktningen är godkänd registrerar Transportstyrelsen bilen och du får svenska skyltar." },
                 ].map((item, i) => (
                   <li key={i} className="flex gap-3">
@@ -463,11 +465,11 @@ export default async function ImporteraBilPage({ params }: Props) {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-100">
-                  <tr><td className="p-3">Ursprungskontroll</td><td className="p-3 text-right font-medium">1 240 kr</td><td className="p-3 text-xs text-gray-500">Transportstyrelsen (2026)</td></tr>
-                  <tr><td className="p-3">Registreringsbesiktning</td><td className="p-3 text-right font-medium">~1 700 kr</td><td className="p-3 text-xs text-gray-500">Schablonvärde</td></tr>
-                  <tr><td className="p-3">Transport (kör hem)</td><td className="p-3 text-right font-medium">~2 000 kr</td><td className="p-3 text-xs text-gray-500">Bränslekostnad</td></tr>
+                  <tr><td className="p-3">Ursprungskontroll</td><td className="p-3 text-right font-medium">{formatCost("ursprungskontroll")}</td><td className="p-3 text-xs text-gray-500">Transportstyrelsen</td></tr>
+                  <tr><td className="p-3">Registreringsbesiktning</td><td className="p-3 text-right font-medium">{formatCost("registreringsbesiktning")}</td><td className="p-3 text-xs text-gray-500">Publicerade prislistor</td></tr>
+                  <tr><td className="p-3">Exportskyltar och exportförsäkring (kör hem)</td><td className="p-3 text-right font-medium">från {formatSekRange(exportKostnad())}</td><td className="p-3 text-xs text-gray-500">Service Berlin, nondos.de</td></tr>
                   <tr><td className="p-3">Moms (om fordon anses nytt)</td><td className="p-3 text-right font-medium">25 % av priset</td><td className="p-3 text-xs text-gray-500">Skatteverket</td></tr>
-                  <tr><td className="p-3">Tull (EU-import)</td><td className="p-3 text-right font-medium text-green-700">0 kr</td><td className="p-3 text-xs text-gray-500">Tullverket</td></tr>
+                  <tr><td className="p-3">Tull (EU-import)</td><td className="p-3 text-right font-medium text-green-700">{TULL_EU}</td><td className="p-3 text-xs text-gray-500">Tullverket</td></tr>
                 </tbody>
               </table>
             </section>
@@ -738,7 +740,7 @@ export default async function ImporteraBilPage({ params }: Props) {
                 </table>
               </div>
               <p className="text-xs text-gray-400 mt-2">
-                Beräknat enligt Skatteverkets fordonsskattetabeller för bilar som blir skattepliktiga i Sverige 1 juni 2022 eller senare: grundbelopp 360 kr; år 1–3 107 kr per gram över 75 g/km och 132 kr per gram över 125 g/km; från år 4 22 kr per gram över 111 g/km. Dieselbilar betalar dessutom miljötillägg 250 kr och bränsletillägg 13,52 kr × koldioxidvärdet. CO₂-värdena är typiska WLTP-värden – det exakta värdet står i bilens COC-intyg. Laddhybrider som registreras från 2026 får ett högre beräknat CO₂-värde (ny viktningsfaktor) och kan därför hamna över malusgränsen.{" "}
+                Beräknat enligt Skatteverkets fordonsskattetabeller för bilar som blir skattepliktiga 1 juni 2022 eller senare: grundbelopp {formatKr(FORDONSSKATT.grundbelopp)}; år 1–3 {formatKr(FORDONSSKATT.malusRateTier1)} per gram över {FORDONSSKATT.malusLowerGram} g/km och {formatKr(FORDONSSKATT.malusRateTier2)} per gram över {FORDONSSKATT.malusUpperGram} g/km; från år 4 {formatKr(FORDONSSKATT.co2RatePerGram)} per gram över {FORDONSSKATT.co2ThresholdGram} g/km. Dieselbilar betalar dessutom miljötillägg {formatKr(FORDONSSKATT.dieselMiljotillagg)} och bränsletillägg {String(FORDONSSKATT.dieselBransletillaggPerGram).replace(".", ",")} kr × koldioxidvärdet. CO₂-värdena är typiska WLTP-värden – det exakta värdet står i bilens COC-intyg. Laddhybrider som registreras från 2026 får ett högre beräknat CO₂-värde (ny viktningsfaktor) och kan därför hamna över malusgränsen.{" "}
                 Källor:{" "}
                 <a href="https://www.transportstyrelsen.se/sv/vagtrafik/fordon/skatter-och-avgifter/fordonsskatt/skattens-storlek/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-600">
                   Transportstyrelsen – Skattens storlek

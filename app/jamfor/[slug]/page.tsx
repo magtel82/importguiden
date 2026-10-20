@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getCostData } from "@/lib/data";
+import { CostTable } from "@/components/CostTable";
+import { feeTotal, bilkostnadForKm, exportKostnad, formatKr, formatSekRange, getCost } from "@/lib/costs";
 import { getCanonicalUrl } from "@/lib/seo";
 import { getRobotsForPath } from "@/lib/manifest";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
@@ -40,17 +41,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+/** Ungefärlig körsträcka Tyskland–Sverige, samma som kalkylatorns standardvärde. */
+const HEMKORNING_KM = 1200;
+
 export default async function JamforPage({ params }: Props) {
   const { slug } = await params;
   const comp = comparisons[slug];
   if (!comp) notFound();
 
-  const costData = getCostData();
-
-  const fastaKostnader =
-    costData.fees.ursprungskontroll.amount +
-    costData.fees.registreringsbesiktning_personbil.amount +
-    costData.fees.importforsäkring_personbil.amount;
+  // Avgifter ur data/cost-data.json. Hemkörning räknas med Skatteverkets
+  // schablon för bilkostnad (Tyskland ca 1 200 km) plus exportskyltar och -försäkring.
+  const fasta = feeTotal("bil");
+  const hemkorning = bilkostnadForKm(HEMKORNING_KM) + exportKostnad().min;
+  const totalt = { min: fasta.min + hemkorning, max: fasta.max + hemkorning };
 
   const breadcrumbs = [
     { name: "Hem", href: "/" },
@@ -202,49 +205,20 @@ export default async function JamforPage({ params }: Props) {
               Utöver bilpriset tillkommer fasta importkostnader. Du behöver hitta
               en prisskillnad som överstiger dessa för att importen ska löna sig:
             </p>
-            <div className="overflow-x-auto mb-4">
-              <table className="w-full text-sm border-collapse border border-gray-200 rounded">
-                <thead>
-                  <tr className="bg-gray-50">
-                    <th className="text-left p-3 font-semibold text-gray-700 border-b border-gray-200">Kostnad</th>
-                    <th className="text-right p-3 font-semibold text-gray-700 border-b border-gray-200">Belopp</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-100">
-                  <tr>
-                    <td className="p-3 text-gray-700">Ursprungskontroll</td>
-                    <td className="p-3 text-right font-medium">{costData.fees.ursprungskontroll.amount.toLocaleString("sv-SE")} kr</td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 text-gray-700">Registreringsbesiktning</td>
-                    <td className="p-3 text-right font-medium">~{costData.fees.registreringsbesiktning_personbil.amount.toLocaleString("sv-SE")} kr</td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 text-gray-700">Importförsäkring</td>
-                    <td className="p-3 text-right font-medium">~{costData.fees.importforsäkring_personbil.amount.toLocaleString("sv-SE")} kr</td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 text-gray-700">Transport (kör hem, schablonvärde)</td>
-                    <td className="p-3 text-right font-medium">~6 000 kr</td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 text-gray-700">Din tid (resa, papper, besiktning)</td>
-                    <td className="p-3 text-right text-gray-500">Räkna på det</td>
-                  </tr>
-                  <tr className="bg-gray-50">
-                    <td className="p-3 font-semibold text-gray-900">Minsta lönsamma prisskillnad</td>
-                    <td className="p-3 text-right font-semibold text-gray-900">
-                      ~{(fastaKostnader + 6000).toLocaleString("sv-SE")} kr
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            <CostTable vehicleType="bil" />
+            <p className="text-gray-700 text-sm mb-3">
+              Kör du hem bilen själv tillkommer bilkostnaden för resan och tyska exportskyltar med
+              exportförsäkring – för en sträcka på {HEMKORNING_KM.toLocaleString("sv-SE")} km
+              ungefär <strong>{formatKr(hemkorning)}</strong> (bilkostnad enligt{" "}
+              <a href={getCost("bilkostnad_per_mil").sourceUrl} className="text-blue-700 hover:underline" target="_blank" rel="noopener noreferrer">
+                Skatteverkets schablon
+              </a>
+              ). Med transportfirma gäller i stället det pris du får i offerten.
+            </p>
             <p className="text-gray-700 text-sm">
-              I praktiken bör du räkna med att prisskillnaden behöver vara minst
-              <strong> 20 000–25 000 kr</strong> för att importen ska vara värd
-              besväret när du räknar in tid, eventuell flygbiljett och riskmarginal.
-              Under 15 000 kr är det sällan lönsamt.
+              Prisskillnaden mot Sverige behöver alltså vara större än{" "}
+              <strong>{formatSekRange(totalt)}</strong> för att importen ska gå jämnt ut – innan du
+              räknar in din egen tid, eventuell flygresa och en marginal för oväntade kostnader.
             </p>
           </section>
 
@@ -326,14 +300,14 @@ export default async function JamforPage({ params }: Props) {
                 <span className="shrink-0 font-bold text-gray-900">3.</span>
                 <span>
                   Räkna om EUR till SEK med aktuell kurs och lägg på importkostnaderna
-                  (~{(fastaKostnader + 6000).toLocaleString("sv-SE")} kr totalt för transport + fasta avgifter).
+                  ({formatSekRange(totalt)} med hemkörning och fasta avgifter).
                 </span>
               </li>
               <li className="flex gap-3">
                 <span className="shrink-0 font-bold text-gray-900">4.</span>
                 <span>
-                  Om totalen är minst 15 000–20 000 kr lägre än det svenska priset –
-                  kan det vara värt att titta närmare.
+                  Är totalen tydligt lägre än det svenska priset – med marginal för din tid och
+                  oväntade kostnader – kan det vara värt att titta närmare.
                 </span>
               </li>
             </ol>

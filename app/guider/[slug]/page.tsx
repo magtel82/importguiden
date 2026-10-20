@@ -16,6 +16,8 @@ import { extractHeadings } from "@/lib/headings";
 import { formatDateSv } from "@/lib/date";
 import { UpcomingChangeNotice } from "@/components/UpcomingChangeNotice";
 import { withYear } from "@/lib/site-config";
+import { formatCost, costSourceLine } from "@/lib/costs";
+import { BELOPP_MDX_COMPONENTS } from "@/components/Belopp";
 
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
 
@@ -67,7 +69,7 @@ async function loadGuide(slug: string) {
   const { content, frontmatter } = await compileMDX<GuideFrontmatter>({
     source,
     options: { parseFrontmatter: true, mdxOptions: { remarkPlugins: [remarkGfm], rehypePlugins: [rehypeSlug] } },
-    components: { AffiliateLink, GlossaryTable },
+    components: { AffiliateLink, GlossaryTable, ...BELOPP_MDX_COMPONENTS },
   });
 
   return {
@@ -149,7 +151,7 @@ export default async function GuiderPage({ params }: Props) {
           {
             question: "Vad kostar ursprungskontroll?",
             answer:
-              "Ursprungskontroll kostar 1 240 kr (källa: Transportstyrelsen). Du får en faktura per post och handläggningen startar när betalningen registrerats.",
+              `Ursprungskontroll kostar ${formatCost("ursprungskontroll")} (källa: Transportstyrelsen). Du får en faktura per post och handläggningen startar när betalningen registrerats.`,
           },
           {
             question: "Hur lång tid tar ursprungskontroll?",
@@ -210,12 +212,12 @@ export default async function GuiderPage({ params }: Props) {
           {
             question: "Vad kostar ett COC-intyg?",
             answer:
-              "Det varierar per märke: normalt €100–300 via tillverkaren. Tesla utfärdar ofta COC utan kostnad. Tredjepartstjänster tar vanligtvis €150–350.",
+              "Priset sätts av tillverkaren och skiljer mellan märken. Tesla utfärdar ofta COC utan kostnad. Fråga märkets kundtjänst om pris och leveranstid innan du beställer.",
           },
           {
             question: "Behöver jag COC-intyg för att importera bil?",
             answer:
-              "Det är inte alltid formellt obligatoriskt, men det underlättar registreringen avsevärt. Utan COC kan besiktningsstationen kräva alternativ dokumentation eller hänvisa till enskilt godkännande via Transportstyrelsen – en process som kan ta månader och kosta 5 000–15 000 kr extra.",
+              "Det är inte alltid formellt obligatoriskt, men det underlättar registreringen avsevärt. Utan COC kan besiktningsstationen kräva alternativ dokumentation eller hänvisa till enskilt godkännande via Transportstyrelsen – en process som kan ta månader och kostar mer än en vanlig registreringsbesiktning.",
           },
         ])
       : slug === "importforsakring"
@@ -228,7 +230,7 @@ export default async function GuiderPage({ params }: Props) {
           {
             question: "Vad kostar importförsäkring för bil?",
             answer:
-              "Hos If kostar trafikförsäkringen för tillfällig registrering 800 kr och gäller i högst tre månader (oktober 2026). Andra försäkringsbolag har egna priser.",
+              `Hos If kostar trafikförsäkringen för tillfällig registrering ${formatCost("importforsakring_if")} och gäller i högst tre månader (${costSourceLine("importforsakring_if")}). Andra försäkringsbolag har egna priser.`,
           },
           {
             question: "Hur länge gäller en tillfällig trafikförsäkring?",

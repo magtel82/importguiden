@@ -2,21 +2,22 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { formatCost } from "@/lib/costs";
 
 const bilSteps = [
   { n: "1", title: "Hitta bilen", body: "Sök på mobile.de, AutoScout24 eller liknande europeisk bilsajt. Kontrollera VIN-numret och boka oberoende besiktning (TÜV/ADAC) innan köp." },
   { n: "2", title: "Köp och papper", body: "Skriv köpekontrakt. Säkra COC-intyget. Säljaren avregistrerar bilen och lämnar avregistreringsintyg." },
-  { n: "3", title: "Hemtransport", body: "Ordna exportregistrering (röda skyltar) och importförsäkring. Kör hem eller anlita transportföretag." },
-  { n: "4", title: "Ursprungskontroll", body: "Ansök om ursprungskontroll via Transportstyrelsen (1 240 kr). Väntetiden varierar – kontrollera aktuellt ködatum hos Transportstyrelsen." },
-  { n: "5", title: "Besiktning och registrering", body: "Genomför registreringsbesiktning (ca 1 700 kr för personbil). Registrera sedan bilen i Sverige." },
+  { n: "3", title: "Hemtransport", body: "Ordna tyska exportskyltar och exportförsäkring om du kör hem själv, eller anlita transportföretag. Efter sju dagar i Sverige krävs tillfällig registrering med svensk trafikförsäkring." },
+  { n: "4", title: "Ursprungskontroll", body: `Ansök om ursprungskontroll via Transportstyrelsen (${formatCost("ursprungskontroll")}). Väntetiden varierar – kontrollera aktuellt ködatum hos Transportstyrelsen.` },
+  { n: "5", title: "Besiktning och registrering", body: `Genomför registreringsbesiktning (publicerade priser ${formatCost("registreringsbesiktning")}). Registrera sedan bilen i Sverige.` },
 ];
 
 const husbilSteps = [
   { n: "1", title: "Hitta husbilen", body: "Sök på mobile.de, AutoScout24, carado.de eller liknande europeisk husbilssajt. Filtrera på Reisemobile. Kontrollera VIN och servicehistorik." },
   { n: "2", title: "Besiktning på plats", body: "Boka oberoende besiktning (DEKRA/ADAC). Be specifikt om fuktkontroll av tak och väggar." },
   { n: "3", title: "Köp och papper", body: "Skriv köpekontrakt. Säkra COC-intyget. Kontrollera totalvikt mot ditt körkort." },
-  { n: "4", title: "Hemtransport", body: "Exportregistrering (röda skyltar) och importförsäkring. Räkna med 8 000–15 000 kr för transportföretag." },
-  { n: "5", title: "Ursprungskontroll & registrering", body: "Beställ ursprungskontroll via Transportstyrelsen (1 240 kr). Boka registreringsbesiktning – bekräfta att stationen hanterar husbilar." },
+  { n: "4", title: "Hemtransport", body: "Tyska exportskyltar och exportförsäkring om du kör hem själv, annars transportföretag – begär offert. Efter sju dagar i Sverige krävs tillfällig registrering." },
+  { n: "5", title: "Ursprungskontroll & registrering", body: `Beställ ursprungskontroll via Transportstyrelsen (${formatCost("ursprungskontroll")}). Boka registreringsbesiktning – bekräfta att stationen hanterar husbilar.` },
 ];
 
 export function ProcessSteps() {

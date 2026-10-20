@@ -1,8 +1,7 @@
-import type { Country, CarBrand, MotorhomeBrand, CostData, CarBrandImportData, MotorhomeBrandImportData } from "@/types";
+import type { Country, CarBrand, MotorhomeBrand, CarBrandImportData, MotorhomeBrandImportData } from "@/types";
 import countriesData from "@/data/countries.json";
 import carBrandsData from "@/data/car-brands.json";
 import motorhomeBrandsData from "@/data/motorhome-brands.json";
-import costDataRaw from "@/data/cost-data.json";
 import carBrandsImportData from "@/data/car-brands-import.json";
 import motorhomeBrandsImportData from "@/data/motorhome-brands-import.json";
 
@@ -34,9 +33,6 @@ export function getMotorhomeBrandImportData(slug: string): MotorhomeBrandImportD
   return (motorhomeBrandsImportData.brands as MotorhomeBrandImportData[]).find((b) => b.slug === slug);
 }
 
-export function getCostData(): CostData {
-  return costDataRaw as CostData;
-}
 
 export function formatSEK(amount: number): string {
   return new Intl.NumberFormat("sv-SE", {

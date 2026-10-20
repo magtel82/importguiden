@@ -1,3 +1,5 @@
+import costData from "../data/cost-data.json" with { type: "json" };
+
 /**
  * Beräknar svensk fordonsskatt inklusive malus.
  *
@@ -64,17 +66,19 @@ export interface MalusResult {
   bransletillagg: number;
 }
 
-export const GRUNDBELOPP = 360;
-const MALUS_LOWER = 75;               // g/km – malus från 76 g
-const MALUS_UPPER = 125;              // g/km – högre sats däröver
-const MALUS_RATE_TIER1 = 107;         // kr per gram, 76–125 g/km
-const MALUS_RATE_TIER2 = 132;         // kr per gram, över 125 g/km
-const MALUS_PERIOD_MONTHS = 36;       // år 1–3
-const CO2_THRESHOLD = 111;            // g/km – ordinarie koldioxidbelopp däröver
-const CO2_RATE = 22;                  // kr per gram över 111 g/km
-const DIESEL_MILJO_TILLAGG = 250;     // kr/år
-const DIESEL_BRANSLE_PER_CO2 = 13.52; // kr per g/km och år
-const DIESEL_BRANSLEFAKTOR_PRE_2018 = 2.37; // tabell 62
+// Satserna ligger i data/cost-data.json (fordonsskatt) – en källa för alla belopp.
+const T = costData.fordonsskatt;
+export const GRUNDBELOPP = T.grundbelopp;
+const MALUS_LOWER = T.malusLowerGram;
+const MALUS_UPPER = T.malusUpperGram;
+const MALUS_RATE_TIER1 = T.malusRateTier1;
+const MALUS_RATE_TIER2 = T.malusRateTier2;
+const MALUS_PERIOD_MONTHS = T.malusPeriodMonths;
+const CO2_THRESHOLD = T.co2ThresholdGram;
+const CO2_RATE = T.co2RatePerGram;
+const DIESEL_MILJO_TILLAGG = T.dieselMiljotillagg;
+const DIESEL_BRANSLE_PER_CO2 = T.dieselBransletillaggPerGram;
+const DIESEL_BRANSLEFAKTOR_PRE_2018 = T.dieselBranslefaktorPre2018;
 
 export function malusAmountFor(co2gkm: number): number {
   if (co2gkm <= MALUS_LOWER) return 0;

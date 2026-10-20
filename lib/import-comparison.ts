@@ -5,8 +5,8 @@
  * och fordonsskatt är desamma oavsett vem som gör importen och är därför
  * inte ens parametrar här – de kan inte påverka differensen.
  *
- * Vad firmans arvode täcker är inte verifierat (se importfirma-posterna i
- * datasets/import-costs.json). I stället för att anta något redovisas
+ * Vad firmans arvode täcker är inte verifierat (se comparisons i
+ * data/cost-data.json). I stället för att anta något redovisas
  * differensen som ett intervall:
  * - firman täcker alla poster  → firmans kostnad = arvodet
  * - firman täcker ingen post   → firmans kostnad = arvodet + alla poster
