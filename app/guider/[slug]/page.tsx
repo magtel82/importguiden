@@ -20,7 +20,7 @@ import { formatCost, costSourceLine } from "@/lib/costs";
 import { BELOPP_MDX_COMPONENTS } from "@/components/Belopp";
 import { Forsakringsbolag } from "@/components/Forsakringsbolag";
 import { Kodatum, KoKontrollerat, KoHistorik } from "@/components/Kodatum";
-import { MobileDeSprak } from "@/components/MobileDeSprak";
+import { MobileDeSprak, mobileDeSprakSvar } from "@/components/MobileDeSprak";
 import liveFacts from "@/data/live-facts.json";
 
 const KO = liveFacts.ursprungskontrollKo;
@@ -126,6 +126,9 @@ export default async function GuiderPage({ params }: Props) {
   const faqSchema =
     slug === "kopa-bil-mobile-de-autoscout24"
       ? getFaqJsonLd([
+          ...(mobileDeSprakSvar()
+            ? [{ question: "Finns mobile.de på svenska?", answer: mobileDeSprakSvar() as string }]
+            : []),
           {
             question: "Hur läser jag mobile.de på svenska?",
             answer:

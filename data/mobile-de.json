@@ -1,6 +1,18 @@
 {
-  "_beskrivning": "Språkuppgift för mobile.de. TODO (Magnus): mobile.de blockerar automatiska kontroller, så språken måste läsas av för hand i sidfoten på mobile.de. Fyll i 'svenska' (true/false), 'sprak' (lista med språknamn som de står på sajten) och 'kontrollerat' (ISO-datum). Så länge 'sprak' är null visas ingen språklista på sajten.",
-  "svenska": null,
-  "sprak": null,
-  "kontrollerat": null
+  "_beskrivning": "Språken i mobile.de:s gränssnitt. mobile.de blockerar automatiska kontroller, så uppgiften läses av för hand i sidfotens språkväljare. Uppdatera 'kontrollerat' vid varje ny avläsning.",
+  "svenska": false,
+  "sprak": [
+    "Deutsch",
+    "English",
+    "Español",
+    "Français",
+    "Nederlands",
+    "Polski",
+    "Română",
+    "Русский",
+    "Čeština",
+    "Türk"
+  ],
+  "kontrollerat": "2026-10-19",
+  "kalla": "mobile.de sidfotens språkväljare, kontrollerat manuellt 2026-10-19"
 }
