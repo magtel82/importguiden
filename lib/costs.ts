@@ -208,13 +208,20 @@ export function bilkostnadForKm(km: number): number {
 export interface ComparisonItem {
   label: string;
   value: number;
+  valueExMoms: number;
   currency: "SEK";
   type: CostType;
   source: string;
-  sourceUrl: null;
+  sourceUrl: string;
   checked: string;
-  sourceException: string;
-  coverage: { described: string; verified: boolean; includedItems: string[] | null };
+  linkPolicy: string;
+  coverage: {
+    verified: boolean;
+    quote: string;
+    includedItems: string[];
+    notStated: string[];
+    delivery: { note: string; stockholmExMoms: number; goteborgExMoms: number };
+  };
 }
 
 export function getComparison(id: "importfirma_bil" | "importfirma_husbil"): ComparisonItem {

@@ -225,7 +225,8 @@ function ImportCalculatorInner() {
         importforsakring: importforsäkring,
         transport,
       },
-      importfirma.value
+      importfirma.value,
+      importfirma.coverage.includedItems
     );
 
     return {
@@ -675,51 +676,42 @@ function ImportCalculatorInner() {
                 Jämförelse: anlita en importfirma i stället
               </h4>
               <p className="text-xs text-gray-600 mb-3">
-                Bara det som skiljer mellan alternativen jämförs. Fordonets pris, moms och
-                fordonsskatt betalar du lika oavsett vem som gör importen.
+                Vi jämför bara de poster som firmans fastpris enligt källan täcker: transport,
+                registreringsbesiktning och ursprungskontroll. Fordonets pris, moms och fordonsskatt
+                betalar du lika oavsett vem som gör importen.
               </p>
               <div className="space-y-1.5 text-sm">
                 <div className="flex justify-between items-start gap-4">
                   <div>
                     <span className="text-gray-600">Du gör importen själv</span>
-                    <p className="text-xs text-gray-400">
-                      Ursprungskontroll, besiktning, skyltar, försäkring och transport
-                    </p>
+                    <p className="text-xs text-gray-400">Transport, besiktning och ursprungskontroll</p>
                   </div>
-                  <span className="font-medium whitespace-nowrap">
-                    {formatSEK(result.comparison.self)}
-                  </span>
+                  <span className="font-medium whitespace-nowrap">{formatSEK(result.comparison.self)}</span>
                 </div>
                 <div className="flex justify-between items-start gap-4">
                   <div>
                     <span className="text-gray-600">Du anlitar importfirma</span>
                     <p className="text-xs text-gray-400">
-                      Arvode {formatSEK(result.comparison.firmMin)}, plus de poster arvodet inte täcker
+                      Fastpris inkl. moms, leverans i Lund – {importfirma.source.split(" – ")[0]},
+                      kontrollerat {formatDateSv(importfirma.checked)}
                     </p>
                   </div>
-                  <span className="font-medium whitespace-nowrap">
-                    {formatSEK(result.comparison.firmMin)}–{formatSEK(result.comparison.firmMax)}
-                  </span>
+                  <span className="font-medium whitespace-nowrap">{formatSEK(result.comparison.firm)}</span>
                 </div>
                 <div className="flex justify-between border-t border-gray-300 pt-2 mt-2 gap-4">
                   <span className="font-semibold text-gray-900">
-                    {result.comparison.diffMin >= 0
-                      ? "Du sparar på att göra det själv"
-                      : "Skillnad mot att göra det själv"}
+                    {result.comparison.diff >= 0 ? "Du sparar på att göra det själv" : "Importfirman är billigare"}
                   </span>
                   <span className="font-bold whitespace-nowrap text-gray-900">
-                    {result.comparison.diffMin >= 0
-                      ? `${formatSEK(result.comparison.diffMin)}–${formatSEK(result.comparison.diffMax)}`
-                      : `${formatSEK(result.comparison.diffMin)} till ${formatSEK(result.comparison.diffMax)}`}
+                    {formatSEK(Math.abs(result.comparison.diff))}
                   </span>
                 </div>
               </div>
               <p className="text-xs text-gray-400 mt-2">
-                Arvodet är ett publicerat listpris hos en enskild importfirma, inte ett
-                marknadsgenomsnitt. Vi har inte kunnat verifiera vilka poster arvodet täcker, därför
-                visas ett intervall: från att arvodet täcker allt till att det inte täcker någon av
-                posterna ovan. Begär en specificerad offert. Jämförelsen tar inte hänsyn till din
-                egen tid eller resa.
+                Publicerat fastpris hos en enskild importfirma, inte ett marknadsgenomsnitt. Leverans
+                till annan ort än Lund kostar extra enligt firman. Källan anger inte om skyltar och
+                importförsäkring ingår – de är därför inte med i jämförelsen. Jämförelsen tar inte
+                hänsyn till din egen tid eller resa. Begär alltid en specificerad offert.
               </p>
             </div>
 

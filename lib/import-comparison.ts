@@ -1,18 +1,41 @@
 /**
  * Jämförelse "göra importen själv" mot "anlita importfirma".
  *
- * Bara det som SKILJER mellan alternativen jämförs. Fordonspris, moms, tull
- * och fordonsskatt är desamma oavsett vem som gör importen och är därför
- * inte ens parametrar här – de kan inte påverka differensen.
- *
- * Vad firmans arvode täcker är inte verifierat (se comparisons i
- * data/cost-data.json). I stället för att anta något redovisas
- * differensen som ett intervall:
- * - firman täcker alla poster  → firmans kostnad = arvodet
- * - firman täcker ingen post   → firmans kostnad = arvodet + alla poster
+ * Bara poster som firmans källa uttryckligen säger ingår i arvodet jämförs
+ * (data/cost-data.json → comparisons.*.coverage.includedItems). Fordonspris,
+ * moms, tull och fordonsskatt betalas lika i båda fallen och är inte ens
+ * parametrar här. Poster som källan inte nämner (skyltar, försäkring)
+ * jämförs inte – de redovisas separat på sidan.
  */
 
-export interface SelfImportCosts {
+export type ComparedItem = "ursprungskontroll" | "registreringsbesiktning" | "transport";
+
+export interface ImportComparison {
+  /** Summan av de jämförda posterna när du gör importen själv. */
+  self: number;
+  /** Firmans arvode (inkl. moms) – täcker de jämförda posterna enligt källan. */
+  firm: number;
+  /** Hur mycket mer firman kostar (negativt = firman är billigare). */
+  diff: number;
+}
+
+export function compareSelfVsFirm(
+  costs: Record<ComparedItem, number>,
+  firmFee: number,
+  included: string[]
+): ImportComparison {
+  const items = Object.keys(costs) as ComparedItem[];
+  const self = items.reduce((s, k) => s + costs[k], 0);
+  // Poster firman inte täcker får firman betala ovanpå arvodet.
+  const firm = firmFee + items.filter((k) => !included.includes(k)).reduce((s, k) => s + costs[k], 0);
+  return { self, firm, diff: firm - self };
+}
+
+/** Kalkylatorns hela uppställning – inklusive poster som INTE ska jämföras. */
+export interface CalculatorBreakdown {
+  vehiclePriceSEK: number;
+  moms: number;
+  tull: number;
   ursprungskontroll: number;
   registreringsbesiktning: number;
   skyltavgift: number;
@@ -20,50 +43,22 @@ export interface SelfImportCosts {
   transport: number;
 }
 
-export interface ImportComparison {
-  /** Summan av posterna när du gör importen själv. */
-  self: number;
-  /** Firmans kostnad om arvodet täcker alla poster. */
-  firmMin: number;
-  /** Firmans kostnad om arvodet inte täcker någon av posterna. */
-  firmMax: number;
-  /** Hur mycket mer firman kostar (negativt = firman är billigare), lägst och högst. */
-  diffMin: number;
-  diffMax: number;
-}
-
-export function compareSelfVsFirm(costs: SelfImportCosts, firmFee: number): ImportComparison {
-  const self =
-    costs.ursprungskontroll +
-    costs.registreringsbesiktning +
-    costs.skyltavgift +
-    costs.importforsakring +
-    costs.transport;
-  const firmMin = firmFee;
-  const firmMax = firmFee + self;
-  return { self, firmMin, firmMax, diffMin: firmMin - self, diffMax: firmMax - self };
-}
-
-/** Kalkylatorns hela uppställning – inklusive poster som INTE ska jämföras. */
-export interface CalculatorBreakdown extends SelfImportCosts {
-  vehiclePriceSEK: number;
-  moms: number;
-  tull: number;
-}
-
 /**
- * Jämförelsen utifrån kalkylatorns resultat. Fordonspris, moms och tull plockas
- * bort här, eftersom de betalas lika oavsett vem som gör importen.
+ * Jämförelsen utifrån kalkylatorns resultat. Fordonspris, moms, tull, skyltar
+ * och försäkring plockas bort här.
  */
-export function comparisonFromBreakdown(b: CalculatorBreakdown, firmFee: number): ImportComparison {
+export function comparisonFromBreakdown(
+  b: CalculatorBreakdown,
+  firmFee: number,
+  included: string[]
+): ImportComparison {
   return compareSelfVsFirm(
     {
       ursprungskontroll: b.ursprungskontroll,
       registreringsbesiktning: b.registreringsbesiktning,
-      skyltavgift: b.skyltavgift,
-      importforsakring: b.importforsakring,
       transport: b.transport,
     },
-    firmFee
+    firmFee,
+    included
   );
 }

@@ -249,36 +249,62 @@
   },
   "comparisons": {
     "importfirma_bil": {
-      "label": "Anlita importfirma (personbil)",
+      "label": "Importfirma, personbil (Importbil.se)",
       "value": 24875,
+      "valueExMoms": 19900,
       "currency": "SEK",
       "type": "marknadspris",
-      "source": "Publicerat listpris hos svensk importfirma, juli 2026",
-      "sourceUrl": null,
-      "checked": "2026-07-29",
-      "sourceException": "Källan länkas medvetet inte – det är en importfirmas säljsida. Undantag från kravet på källänk; posten används bara i kalkylatorns jämförelse och redovisas där som ett enskilt listpris.",
+      "source": "Importbil.se – publicerat fastpris (startsidan, uppdaterad 2026-10-07)",
+      "sourceUrl": "https://www.importbil.se/",
+      "checked": "2026-10-21",
+      "linkPolicy": "Källan finns här för granskning men länkas inte från sajten – Importguiden skickar inte läsare till en importfirmas säljsida.",
       "coverage": {
-        "described": "Listpriset uppges avse leverans och registrering.",
-        "verified": false,
-        "includedItems": null
-      },
-      "note": "19 900 kr + moms = 24 875 kr inkl. moms. Publicerat listpris hos en svensk importfirma juli 2026, avser leverans och registrering. Ingår INTE i kalkylatorns totalsumma – används enbart som jämförelse mot att göra importen själv. Priset avser en enskild aktör och är inte ett marknadsgenomsnitt. Källan länkas medvetet inte – den är en importfirmas säljsida, och Importguiden skickar inte läsare dit."
+        "verified": true,
+        "quote": "Vårt fastpris på import av bilar/husbilar, inkluderar: Transport, registreringsbesiktning, ursprungskontroll hos Transportstyrelsen och leverans i Lund.",
+        "includedItems": [
+          "transport",
+          "registreringsbesiktning",
+          "ursprungskontroll"
+        ],
+        "notStated": [
+          "registreringsskyltar och vägtrafikregisteravgift",
+          "importförsäkring"
+        ],
+        "delivery": {
+          "note": "Fastpriset gäller leverans i Lund.",
+          "stockholmExMoms": 2900,
+          "goteborgExMoms": 1900
+        }
+      }
     },
     "importfirma_husbil": {
-      "label": "Anlita importfirma (husbil)",
+      "label": "Importfirma, husbil (Importbil.se)",
       "value": 37375,
+      "valueExMoms": 29900,
       "currency": "SEK",
       "type": "marknadspris",
-      "source": "Publicerat listpris hos svensk importfirma, juli 2026",
-      "sourceUrl": null,
-      "checked": "2026-07-29",
-      "sourceException": "Källan länkas medvetet inte – det är en importfirmas säljsida. Undantag från kravet på källänk; posten används bara i kalkylatorns jämförelse och redovisas där som ett enskilt listpris.",
+      "source": "Importbil.se – publicerat fastpris (startsidan, uppdaterad 2026-10-07)",
+      "sourceUrl": "https://www.importbil.se/",
+      "checked": "2026-10-21",
+      "linkPolicy": "Källan finns här för granskning men länkas inte från sajten – Importguiden skickar inte läsare till en importfirmas säljsida.",
       "coverage": {
-        "described": "Källan anger inte vilka poster arvodet täcker.",
-        "verified": false,
-        "includedItems": null
-      },
-      "note": "29 900 kr + moms = 37 375 kr inkl. moms. Publicerat listpris hos en svensk importfirma juli 2026. Ingår INTE i kalkylatorns totalsumma – används enbart som jämförelse. Priset avser en enskild aktör och är inte ett marknadsgenomsnitt. Källan länkas medvetet inte – den är en importfirmas säljsida, och Importguiden skickar inte läsare dit."
+        "verified": true,
+        "quote": "Vårt fastpris på import av bilar/husbilar, inkluderar: Transport, registreringsbesiktning, ursprungskontroll hos Transportstyrelsen och leverans i Lund.",
+        "includedItems": [
+          "transport",
+          "registreringsbesiktning",
+          "ursprungskontroll"
+        ],
+        "notStated": [
+          "registreringsskyltar och vägtrafikregisteravgift",
+          "importförsäkring"
+        ],
+        "delivery": {
+          "note": "Fastpriset gäller leverans i Lund.",
+          "stockholmExMoms": 2900,
+          "goteborgExMoms": 1900
+        }
+      }
     }
   }
 }
