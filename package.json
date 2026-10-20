@@ -4,12 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run lint && npm test && next build",
+    "build": "next build",
     "start": "next start",
     "test": "node --experimental-strip-types --test \"lib/**/*.test.mjs\"",
     "lint": "eslint .",
     "check": "npm run build",
-    "prepare": "git config core.hooksPath .githooks 2>/dev/null || true"
+    "prepare": "git config core.hooksPath .githooks 2>/dev/null || true",
+    "prebuild": "npm test && npm run lint"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",
