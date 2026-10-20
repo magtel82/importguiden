@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { CostTable } from "@/components/CostTable";
+import { BreakEvenKalkyl } from "@/components/BreakEvenKalkyl";
 import {
   feeTotal,
   bilkostnadForKm,
@@ -105,6 +106,15 @@ export default async function JamforPage({ params }: Props) {
           Därför redovisar vi inga egna prisnivåer här. I stället får du en metod för att jämföra
           själv, och de importkostnader du ska lägga på – med källa för varje belopp.
         </p>
+
+        <section className="mb-4">
+          <h2 className="text-xl font-bold text-gray-900 mb-3">Räkna ut break-even för din bil</h2>
+          <p className="text-gray-700 text-sm mb-4">
+            Fyll i priset för samma bil i Sverige och i Tyskland. Kalkylen lägger på avgifter,
+            transport och eventuell moms och visar om bilen blir billigare att importera.
+          </p>
+        </section>
+        <BreakEvenKalkyl />
 
         <section className="mb-10">
           <h2 className="text-xl font-bold text-gray-900 mb-3">Så jämför du – fyra steg</h2>
