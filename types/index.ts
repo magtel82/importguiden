@@ -57,17 +57,10 @@ export interface PriceRange {
   max: number;
 }
 
+/** Modell som ADAC Pannenstatistik listar bland de bästa i sin klass. */
 export interface RecommendedModel {
   model: string;
-  years: string;
-  adacRating: string;
-  notes: string;
-}
-
-export interface RecommendedMotorhomeModel {
-  model: string;
-  years: string;
-  notes: string;
+  adacClass: string;
 }
 
 export interface KnownIssue {
@@ -109,7 +102,6 @@ export interface MotorhomeBrandImportData {
   chassis: string;
   chassisWarning: boolean;
   chassisWarningText: string;
-  recommendedModels: RecommendedMotorhomeModel[];
   knownIssues: KnownIssue[];
   documentsToRequest: string[];
   adacSource: string;

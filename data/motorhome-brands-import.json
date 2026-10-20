@@ -1,42 +1,25 @@
 {
   "_version": "1.0.0",
-  "_updated": "2026-05-14",
-  "_source": "ADAC Pannenstatistik 2026, marknadsdata mobile.de",
+  "_updated": "2026-10-20",
+  "_source": "ADAC Pannenstatistik 2026 (publicerad 2026-04-23), dethleffs.de; kontrollerade 2026-10-20",
   "brands": [
     {
       "slug": "hymer",
       "name": "Hymer",
       "type": "husbil",
-      "intro": "Hymer är ett av Europas mest kända och respekterade husbilsmärken – och Tyskland är den överlägset bästa marknaden att köpa en begagnad Hymer på.\nHymer erbjuder husbilar i flera segment, från halvintegrerade B-klassmodeller till premiummärket Hymer ML-T och B-ML. En viktig skillnad att känna till: de flesta Hymer-modeller bygger på Fiat Ducato-chassit, men ML-T och B-ML bygger på Mercedes Sprinter. Enligt ADAC Pannenstatistik 2026 uppvisar Fiat Ducato 27,9–39,1 driftstopp per 1 000 fordon (årgångar 2016–2021 och 2023). Mercedes Sprinter rankas däremot betydligt högre.\n\nDet innebär att chassivalet har stor betydelse för tillförlitligheten. Om du vill ha en Hymer med pålitligt chassi bör du prioritera modeller på Sprinter-plattformen, eller välja nyare årsmodeller av Ducato-baserade modeller och kontrollera servicehistoriken extra noggrant.\n\nI den här guiden går vi igenom Hymers modellprogram, chassiproblematiken, vad du ska kontrollera vid köp och den totala importkostnaden.",
-      "chassis": "Fiat Ducato (de flesta modeller) / Mercedes Sprinter (ML-T och B-ML)",
+      "intro": "Hymer är ett tyskt husbilsmärke med ett stort utbud av begagnade husbilar på den tyska marknaden.\n\nChassit avgör mycket av driftsäkerheten, och samma märke kan finnas på flera olika chassin. I den här guiden går vi igenom vad ADAC Pannenstatistik 2026 säger om de vanliga chassina, vad du ska kontrollera vid köp, vilka dokument du behöver och den totala importkostnaden.",
+      "chassis": "Kontrollera exemplaret",
       "chassisWarning": true,
-      "chassisWarningText": "De flesta Hymer-modeller bygger på Fiat Ducato-chassit. Fiat Ducato rankas som sämst av alla fordon i ADAC Pannenstatistik 2026 med 27,9–39,1 driftstopp per 1 000 fordon (årgångar 2016–2021 och 2023). Välj Hymer ML-T eller B-ML som bygger på Mercedes Sprinter – ett chassi som rankas högt av ADAC.",
-      "recommendedModels": [
-        {
-          "model": "B-klass halvintegrerad (Ducato)",
-          "years": "2016–2021",
-          "notes": "Vanligast på begagnatmarknaden, välj nyare årsmodeller för bättre Ducato-kvalitet"
-        },
-        {
-          "model": "ML-T (Mercedes Sprinter)",
-          "years": "2016–2021",
-          "notes": "Sprinter-chassit rankas högt av ADAC – rekommenderas framför Ducato-baserade modeller"
-        },
-        {
-          "model": "B-ML (Mercedes Sprinter)",
-          "years": "2018–2022",
-          "notes": "Premium-alternativ på pålitligt chassi"
-        }
-      ],
+      "chassisWarningText": "Är husbilen byggd på Fiat Ducato? I ADAC Pannenstatistik 2026 räknas Fiat Ducato med första registrering 2016–2021 och 2023 till de sämsta i klassen Transporter/Vans, medan Mercedes-Benz Sprinter finns bland de bästa i samma klass. Kontrollera vilket chassi och vilken årgång just ditt exemplar har, och begär chassits servicehistorik.",
       "knownIssues": [
         {
-          "issue": "Fukt i tak och runt fönster",
-          "description": "Det vanligaste och dyraste problemet på husbilar generellt. Kräv alltid fuktkontroll med fuktmätare av oberoende besiktningsman innan köp. Kontrollera särskilt runt takfönster, sidfönster och ventilationsluckor.",
+          "issue": "Fukt i påbyggnaden",
+          "description": "Fuktskador i tak, väggar och runt fönster och takluckor kan vara dolda. Låt en oberoende besiktningsman mäta fukten med fuktmätare innan köp.",
           "severity": "hög"
         },
         {
-          "issue": "Gasinstallation – svenska krav",
-          "description": "Äldre tyska gasinstallationer kan behöva modifieras för att uppfylla svenska regler. Fråga besiktningsstationen i förväg om vad som gäller för den specifika årsmodellen.",
+          "issue": "Gasolinstallation",
+          "description": "Be om ett aktuellt tyskt gasintyg (Gasprüfung) och fråga besiktningsstationen i förväg vad som gäller för gasolinstallationen vid svensk registreringsbesiktning.",
           "severity": "medel"
         }
       ],
@@ -44,46 +27,29 @@
         "Zulassungsbescheinigung Teil I och Teil II i original (Fahrzeugschein och Fahrzeugbrief)",
         "COC-intyg",
         "Scheckheft – komplett servicehistorik inklusive chassiservice",
-        "TÜV-rapport inklusive gasbesiktning",
+        "TÜV-rapport (HU) och eventuellt gasintyg (Gasprüfung)",
         "Köpekontrakt med COC-intyg som uttryckligt villkor"
       ],
       "adacSource": "ADAC Pannenstatistik 2026",
-      "adacSourceUrl": "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/"
+      "adacSourceUrl": "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik-2026/"
     },
     {
       "slug": "dethleffs",
       "name": "Dethleffs",
       "type": "husbil",
-      "intro": "Dethleffs är ett välkänt tyskt husbilsmärke med lång historia och ett brett modellprogram – från prisvärda entrénivåmodeller till välspecade mellanklass-husbilar.\nSamtliga Dethleffs-husbilar bygger på Fiat Ducato-chassit. Det är här den viktigaste informationen i den här guiden kommer in: enligt ADAC Pannenstatistik 2026 uppvisar Fiat Ducato 27,9–39,1 driftstopp per 1 000 fordon (årgångar 2016–2021 och 2023). Det betyder inte att du ska undvika Dethleffs – men det betyder att chassits servicehistorik och skick är avgörande vid köp.\n\nDethleffs kompenserar med genomtänkta planlösningar och bra utrustningsnivå för pengarna. Modeller som Esprit och Globebus har en trogen följarskara och finns i stort antal på den tyska begagnatmarknaden.\n\nI den här guiden går vi igenom Dethleffs modellprogram, Ducato-chassits problematik och vad du ska kontrollera, vilka dokument du behöver och den totala importkostnaden.",
-      "chassis": "Fiat Ducato",
+      "intro": "Dethleffs är ett tyskt husbilsmärke med ett brett modellprogram, bland annat serierna Globebus, Just, Trend, XL och Alpa. Chassit varierar mellan modellerna: Dethleffs anger själv VW Crafter som bas för Globebus Performance och Mercedes Sprinter för Graneo.\n\nChassit avgör mycket av driftsäkerheten, och samma märke kan finnas på flera olika chassin. I den här guiden går vi igenom vad ADAC Pannenstatistik 2026 säger om de vanliga chassina, vad du ska kontrollera vid köp, vilka dokument du behöver och den totala importkostnaden.",
+      "chassis": "Varierar mellan modeller",
       "chassisWarning": true,
-      "chassisWarningText": "Dethleffs bygger på Fiat Ducato-chassit. Fiat Ducato rankas som sämst av alla fordon i ADAC Pannenstatistik 2026 med 27,9–39,1 driftstopp per 1 000 fordon (årgångar 2016–2021 och 2023). Kontrollera servicehistorik extra noggrant.",
-      "recommendedModels": [
-        {
-          "model": "Esprit",
-          "years": "2015–2021",
-          "notes": "Mellanklass med god tillgång på tyska begagnatmarknaden"
-        },
-        {
-          "model": "Globebus",
-          "years": "2016–2021",
-          "notes": "Välutrustad och prisvärd – bra pris-prestanda"
-        },
-        {
-          "model": "Trend",
-          "years": "2016–2021",
-          "notes": "Entrénivå med bred tillgång"
-        }
-      ],
+      "chassisWarningText": "Är husbilen byggd på Fiat Ducato? I ADAC Pannenstatistik 2026 räknas Fiat Ducato med första registrering 2016–2021 och 2023 till de sämsta i klassen Transporter/Vans, medan Mercedes-Benz Sprinter finns bland de bästa i samma klass. Kontrollera vilket chassi och vilken årgång just ditt exemplar har, och begär chassits servicehistorik.",
       "knownIssues": [
         {
-          "issue": "Fukt i tak och runt fönster",
-          "description": "Kräv alltid fuktkontroll med fuktmätare av oberoende besiktningsman. Kontrollera extra noga runt takfönster och ventilationsluckor.",
+          "issue": "Fukt i påbyggnaden",
+          "description": "Fuktskador i tak, väggar och runt fönster och takluckor kan vara dolda. Låt en oberoende besiktningsman mäta fukten med fuktmätare innan köp.",
           "severity": "hög"
         },
         {
-          "issue": "Gasinstallation – svenska krav",
-          "description": "Äldre gasinstallationer kan behöva modifieras för svenska regler. Fråga besiktningsstationen i förväg.",
+          "issue": "Gasolinstallation",
+          "description": "Be om ett aktuellt tyskt gasintyg (Gasprüfung) och fråga besiktningsstationen i förväg vad som gäller för gasolinstallationen vid svensk registreringsbesiktning.",
           "severity": "medel"
         }
       ],
@@ -91,46 +57,29 @@
         "Zulassungsbescheinigung Teil I och Teil II i original (Fahrzeugschein och Fahrzeugbrief)",
         "COC-intyg",
         "Scheckheft – komplett servicehistorik inklusive chassiservice",
-        "TÜV-rapport inklusive gasbesiktning",
-        "Köpekontrakt med COC-intyg som villkor"
+        "TÜV-rapport (HU) och eventuellt gasintyg (Gasprüfung)",
+        "Köpekontrakt med COC-intyg som uttryckligt villkor"
       ],
       "adacSource": "ADAC Pannenstatistik 2026",
-      "adacSourceUrl": "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/"
+      "adacSourceUrl": "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik-2026/"
     },
     {
       "slug": "burstner",
       "name": "Bürstner",
       "type": "husbil",
-      "intro": "Bürstner är känt för sina genomtänkta planlösningar och sin moderna inredningsdesign. Den tyska begagnatmarknaden erbjuder god tillgång på Bürstners populära modeller.\n\nLiksom de flesta husbilar i mellanklass och premium bygger Bürstner på Fiat Ducato-chassit. Enligt ADAC Pannenstatistik 2026 uppvisar Ducato 27,9–39,1 driftstopp per 1 000 fordon (årgångar 2016–2021 och 2023). Det gör att chassits skick och servicehistorik är den enskilt viktigaste faktorn att kontrollera vid köp av en begagnad Bürstner.\n\nBürstner har ofta takfönster och integrerade takboxar som standard – funktioner som ökar komforten men också kräver extra uppmärksamhet vid fuktbesiktning. Tätningar runt takmonterad utrustning är en känd svag punkt på äldre husbilar generellt.\n\nI den här guiden går vi igenom Bürstners modellprogram, Ducato-chassits problematik, specifika saker att kontrollera vid köp av just Bürstner, vilka dokument du behöver och den totala importkostnaden.",
-      "chassis": "Fiat Ducato",
+      "intro": "Bürstner är ett tyskt husbilsmärke med god tillgång på begagnade husbilar på den tyska marknaden.\n\nChassit avgör mycket av driftsäkerheten, och samma märke kan finnas på flera olika chassin. I den här guiden går vi igenom vad ADAC Pannenstatistik 2026 säger om de vanliga chassina, vad du ska kontrollera vid köp, vilka dokument du behöver och den totala importkostnaden.",
+      "chassis": "Kontrollera exemplaret",
       "chassisWarning": true,
-      "chassisWarningText": "Bürstner bygger på Fiat Ducato-chassit. Fiat Ducato rankas som sämst av alla fordon i ADAC Pannenstatistik 2026 med 27,9–39,1 driftstopp per 1 000 fordon (årgångar 2016–2021 och 2023). Välj nyare årsmodeller och kontrollera servicehistorik extra noggrant.",
-      "recommendedModels": [
-        {
-          "model": "Ixeo",
-          "years": "2015–2021",
-          "notes": "Känd för genomtänkt inredningsdesign och bra planlösningar"
-        },
-        {
-          "model": "Lyseo",
-          "years": "2016–2021",
-          "notes": "Premium-segment med hög utrustningsnivå"
-        },
-        {
-          "model": "Nexxo",
-          "years": "2018–2022",
-          "notes": "Halvintegrerad med bra tillgång"
-        }
-      ],
+      "chassisWarningText": "Är husbilen byggd på Fiat Ducato? I ADAC Pannenstatistik 2026 räknas Fiat Ducato med första registrering 2016–2021 och 2023 till de sämsta i klassen Transporter/Vans, medan Mercedes-Benz Sprinter finns bland de bästa i samma klass. Kontrollera vilket chassi och vilken årgång just ditt exemplar har, och begär chassits servicehistorik.",
       "knownIssues": [
         {
-          "issue": "Fukt kring takluckor och takboxar",
-          "description": "Bürstner har ofta takfönster och integrerade takboxar – extra viktigt att kontrollera tätningar runt dessa. Kräv fuktkontroll med fuktmätare.",
+          "issue": "Fukt i påbyggnaden",
+          "description": "Fuktskador i tak, väggar och runt fönster och takluckor kan vara dolda. Låt en oberoende besiktningsman mäta fukten med fuktmätare innan köp.",
           "severity": "hög"
         },
         {
-          "issue": "Gasinstallation – svenska krav",
-          "description": "Äldre gasinstallationer kan behöva modifieras. Fråga besiktningsstationen i förväg.",
+          "issue": "Gasolinstallation",
+          "description": "Be om ett aktuellt tyskt gasintyg (Gasprüfung) och fråga besiktningsstationen i förväg vad som gäller för gasolinstallationen vid svensk registreringsbesiktning.",
           "severity": "medel"
         }
       ],
@@ -138,46 +87,29 @@
         "Zulassungsbescheinigung Teil I och Teil II i original (Fahrzeugschein och Fahrzeugbrief)",
         "COC-intyg",
         "Scheckheft – komplett servicehistorik inklusive chassiservice",
-        "TÜV-rapport inklusive gasbesiktning",
-        "Köpekontrakt med COC-intyg som villkor"
+        "TÜV-rapport (HU) och eventuellt gasintyg (Gasprüfung)",
+        "Köpekontrakt med COC-intyg som uttryckligt villkor"
       ],
       "adacSource": "ADAC Pannenstatistik 2026",
-      "adacSourceUrl": "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/"
+      "adacSourceUrl": "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik-2026/"
     },
     {
       "slug": "knaus",
       "name": "Knaus",
       "type": "husbil",
-      "intro": "Knaus är ett av Tysklands mest sålda husbilsmärken och erbjuder husbilar med bra pris-prestanda.\nKnaus bygger sina husbilar på Fiat Ducato-chassit. Enligt ADAC Pannenstatistik 2026 uppvisar Ducato 27,9–39,1 driftstopp per 1 000 fordon (årgångar 2016–2021 och 2023). Det gör chassits servicehistorik och skick till den viktigaste kontrollpunkten vid köp.\n\nKnaus har ett brett modellprogram med modeller som Sky Wave, Sun TI och Van TI i olika storlekar och prisklasser. Den breda tillgången på begagnatmarknaden innebär att du kan vara selektiv och välja exemplar med komplett dokumentation och färsk besiktning.\n\nI den här guiden går vi igenom Knaus modellprogram, Ducato-chassits problematik och vad du ska kontrollera, vilka dokument du behöver begära och den totala importkostnaden.",
-      "chassis": "Fiat Ducato",
+      "intro": "Knaus är ett tyskt husbilsmärke med god tillgång på begagnade husbilar på den tyska marknaden.\n\nChassit avgör mycket av driftsäkerheten, och samma märke kan finnas på flera olika chassin. I den här guiden går vi igenom vad ADAC Pannenstatistik 2026 säger om de vanliga chassina, vad du ska kontrollera vid köp, vilka dokument du behöver och den totala importkostnaden.",
+      "chassis": "Kontrollera exemplaret",
       "chassisWarning": true,
-      "chassisWarningText": "Knaus bygger på Fiat Ducato-chassit. Fiat Ducato rankas som sämst av alla fordon i ADAC Pannenstatistik 2026 med 27,9–39,1 driftstopp per 1 000 fordon (årgångar 2016–2021 och 2023). Kontrollera servicehistorik extra noggrant.",
-      "recommendedModels": [
-        {
-          "model": "Sky Wave",
-          "years": "2015–2021",
-          "notes": "Mellanklass med bra pris-prestanda och god tillgång"
-        },
-        {
-          "model": "Sun TI",
-          "years": "2016–2021",
-          "notes": "Välsåld modell – bred tillgång på tyska begagnatmarknaden"
-        },
-        {
-          "model": "Van TI",
-          "years": "2018–2022",
-          "notes": "Van-format – populärt alternativ"
-        }
-      ],
+      "chassisWarningText": "Är husbilen byggd på Fiat Ducato? I ADAC Pannenstatistik 2026 räknas Fiat Ducato med första registrering 2016–2021 och 2023 till de sämsta i klassen Transporter/Vans, medan Mercedes-Benz Sprinter finns bland de bästa i samma klass. Kontrollera vilket chassi och vilken årgång just ditt exemplar har, och begär chassits servicehistorik.",
       "knownIssues": [
         {
-          "issue": "Fukt i tak och runt fönster",
-          "description": "Kräv alltid fuktkontroll med fuktmätare. Kontrollera extra noga runt alla fönster och takpartier.",
+          "issue": "Fukt i påbyggnaden",
+          "description": "Fuktskador i tak, väggar och runt fönster och takluckor kan vara dolda. Låt en oberoende besiktningsman mäta fukten med fuktmätare innan köp.",
           "severity": "hög"
         },
         {
-          "issue": "Gasinstallation – svenska krav",
-          "description": "Äldre gasinstallationer kan behöva modifieras. Fråga besiktningsstationen i förväg.",
+          "issue": "Gasolinstallation",
+          "description": "Be om ett aktuellt tyskt gasintyg (Gasprüfung) och fråga besiktningsstationen i förväg vad som gäller för gasolinstallationen vid svensk registreringsbesiktning.",
           "severity": "medel"
         }
       ],
@@ -185,46 +117,29 @@
         "Zulassungsbescheinigung Teil I och Teil II i original (Fahrzeugschein och Fahrzeugbrief)",
         "COC-intyg",
         "Scheckheft – komplett servicehistorik inklusive chassiservice",
-        "TÜV-rapport inklusive gasbesiktning",
-        "Köpekontrakt med COC-intyg som villkor"
+        "TÜV-rapport (HU) och eventuellt gasintyg (Gasprüfung)",
+        "Köpekontrakt med COC-intyg som uttryckligt villkor"
       ],
       "adacSource": "ADAC Pannenstatistik 2026",
-      "adacSourceUrl": "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/"
+      "adacSourceUrl": "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik-2026/"
     },
     {
       "slug": "hobby",
       "name": "Hobby",
       "type": "husbil",
-      "intro": "Hobby är ett av Tysklands mest sålda husbilsmärken – och ett av de mest prisvärda.\nHobby bygger sina husbilar på Fiat Ducato-chassit. Enligt ADAC Pannenstatistik 2026 uppvisar Ducato 27,9–39,1 driftstopp per 1 000 fordon (årgångar 2016–2021 och 2023). Det gör att chassits servicehistorik och skick är den viktigaste faktorn att kontrollera vid köp – oavsett hur bra husbilens boendeenhet ser ut.\n\nHobbys styrka ligger i att leverera välutrustade husbilar till ett konkurrenskraftigt pris. Modeller som Optima och De Luxe erbjuder god utrustningsnivå utan den premiumpåslag som Hymer eller Carthago tar ut.\n\nI den här guiden går vi igenom Hobbys modellprogram, Ducato-chassits problematik och vad du ska kontrollera specifikt på en Hobby-husbil, vilka dokument du behöver begära och den totala importkostnaden.",
-      "chassis": "Fiat Ducato",
+      "intro": "Hobby är ett tyskt husbilsmärke med god tillgång på begagnade husbilar på den tyska marknaden.\n\nChassit avgör mycket av driftsäkerheten, och samma märke kan finnas på flera olika chassin. I den här guiden går vi igenom vad ADAC Pannenstatistik 2026 säger om de vanliga chassina, vad du ska kontrollera vid köp, vilka dokument du behöver och den totala importkostnaden.",
+      "chassis": "Kontrollera exemplaret",
       "chassisWarning": true,
-      "chassisWarningText": "Hobby bygger på Fiat Ducato-chassit. Fiat Ducato rankas som sämst av alla fordon i ADAC Pannenstatistik 2026 med 27,9–39,1 driftstopp per 1 000 fordon (årgångar 2016–2021 och 2023). Kontrollera servicehistorik extra noggrant.",
-      "recommendedModels": [
-        {
-          "model": "Optima",
-          "years": "2015–2021",
-          "notes": "Ett av Tysklands mest sålda husbilsmärken – stor tillgång på begagnatmarknaden"
-        },
-        {
-          "model": "De Luxe",
-          "years": "2016–2021",
-          "notes": "Prisvärt med bra utrustningsnivå"
-        },
-        {
-          "model": "Premium",
-          "years": "2018–2022",
-          "notes": "Välutrustad och bra prisläge"
-        }
-      ],
+      "chassisWarningText": "Är husbilen byggd på Fiat Ducato? I ADAC Pannenstatistik 2026 räknas Fiat Ducato med första registrering 2016–2021 och 2023 till de sämsta i klassen Transporter/Vans, medan Mercedes-Benz Sprinter finns bland de bästa i samma klass. Kontrollera vilket chassi och vilken årgång just ditt exemplar har, och begär chassits servicehistorik.",
       "knownIssues": [
         {
-          "issue": "Fukt i tak och runt fönster",
-          "description": "Kräv alltid fuktkontroll med fuktmätare. Kontrollera extra noga runt alla fönster och takpartier.",
+          "issue": "Fukt i påbyggnaden",
+          "description": "Fuktskador i tak, väggar och runt fönster och takluckor kan vara dolda. Låt en oberoende besiktningsman mäta fukten med fuktmätare innan köp.",
           "severity": "hög"
         },
         {
-          "issue": "Gasinstallation – svenska krav",
-          "description": "Äldre gasinstallationer kan behöva modifieras. Fråga besiktningsstationen i förväg.",
+          "issue": "Gasolinstallation",
+          "description": "Be om ett aktuellt tyskt gasintyg (Gasprüfung) och fråga besiktningsstationen i förväg vad som gäller för gasolinstallationen vid svensk registreringsbesiktning.",
           "severity": "medel"
         }
       ],
@@ -232,11 +147,11 @@
         "Zulassungsbescheinigung Teil I och Teil II i original (Fahrzeugschein och Fahrzeugbrief)",
         "COC-intyg",
         "Scheckheft – komplett servicehistorik inklusive chassiservice",
-        "TÜV-rapport inklusive gasbesiktning",
-        "Köpekontrakt med COC-intyg som villkor"
+        "TÜV-rapport (HU) och eventuellt gasintyg (Gasprüfung)",
+        "Köpekontrakt med COC-intyg som uttryckligt villkor"
       ],
       "adacSource": "ADAC Pannenstatistik 2026",
-      "adacSourceUrl": "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/"
+      "adacSourceUrl": "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik-2026/"
     }
   ]
 }

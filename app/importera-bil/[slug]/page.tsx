@@ -43,114 +43,52 @@ function taxFor(row: FordonsskattRow) {
 }
 interface FaqItem { question: string; answer: string }
 
+/**
+ * Garantiavsnittet anger medvetet inga garantitider: tillverkarnas villkor
+ * skiljer sig mellan modeller och år, och vi publicerar bara uppgifter vi
+ * kontrollerat mot tillverkarens egna villkor (källgranskning 2026-10-20).
+ */
+function garantiFor(name: string, extra: GarantiItem[] = []): { intro: string; items: GarantiItem[]; source: string } {
+  return {
+    intro: `Garantivillkoren för ${name} skiljer sig mellan modeller och årgångar. Vi anger därför inga garantitider här – kontrollera i stället vad som gäller för just det exemplar du tittar på.`,
+    items: [
+      { title: "Be om garantibeviset", text: "Be säljaren om garantibeviset och servicehistoriken. Kontrollera när garantin började gälla och om den förutsätter service enligt tillverkarens intervall." },
+      { title: "Kontrollera via VIN innan köp", text: `Ring en auktoriserad ${name}-verkstad i Sverige, uppge bilens VIN och be dem bekräfta vilken garanti som återstår och om den gäller när bilen är registrerad i Sverige. Ta med:`, list: ["Köpehandling med VIN", "Servicehistorik", "COC-intyg"] },
+      { title: "Batterigaranti (elbilar och laddhybrider)", text: "Högvoltsbatteriet har ofta en egen garanti med andra villkor än resten av bilen. Fråga efter batterigarantins villkor för den aktuella bilen." },
+      { title: "Begagnatgarantier och serviceavtal", text: "Garantier från begagnatprogram och tyska serviceavtal har egna villkor. Fråga innan du räknar med dem som en fördel." },
+      ...extra,
+    ],
+    source: `Kontrollera alltid aktuella villkor direkt med ${name} eller en auktoriserad verkstad.`,
+  };
+}
+
 const BRAND_GARANTI: Record<string, { intro: string; items: GarantiItem[]; source: string }> = {
-  bmw: {
-    intro: "BMW har internationell garanti inom EU — men det finns viktiga detaljer att känna till.",
-    items: [
-      { title: "Nybilsgaranti", text: "BMW:s standardgaranti (vanligtvis 2 år utan milbegränsning) gäller inom hela EU. När du importerar en BMW som fortfarande har garanti kvar kan du använda vilken auktoriserad BMW-verkstad som helst i Sverige." },
-      { title: "Vad du måste göra", text: "Kontakta en svensk BMW-återförsäljare efter importen och be dem registrera bilen i det svenska BMW-systemet. Ta med dig:", list: ["Köpehandling med VIN", "Servicehistorik (digital eller Scheckheft)", "COC-intyg"] },
-      { title: "Batterigaranti (laddhybrider/elbilar)", text: "BMW ger vanligtvis 8 år eller 160 000 km på högvoltsbatteriet. Denna garanti gäller internationellt inom EU — kontrollera alltid det specifika garantibeviset med säljaren före köp." },
-      { title: "Serviceavtal", text: "BMW Service Inclusive (BSI) eller liknande serviceavtal kan vara landsbundna. Kontrollera med BMW Sverige om ett tyskt serviceavtal kan överföras innan du räknar det som en fördel." },
-    ],
-    source: "Kontrollera alltid aktuella villkor direkt med BMW Sverige (bmw.se) eller din lokala BMW-återförsäljare.",
-  },
-  mercedes: {
-    intro: "Mercedes-Benz har internationell garanti inom EU och ett av de bredaste auktoriserade verkstadsnätverken i Sverige.",
-    items: [
-      { title: "Nybilsgaranti", text: "Mercedes-Benz erbjuder 2 års nybilsgaranti utan milbegränsning som gäller inom hela EU. Kontakta en auktoriserad Mercedes-verkstad i Sverige för att registrera bilen i det svenska systemet efter importen." },
-      { title: "Vad du måste göra", text: "Besök en auktoriserad Mercedes-verkstad med följande dokument:", list: ["Köpehandling med VIN", "Servicehistorik (digital servicebok)", "COC-intyg", "Eventuellt garantibevis från säljaren"] },
-      { title: "Batterigaranti (EQ-modeller)", text: "Mercedes ger vanligtvis 8 år eller 160 000 km på högvoltsbatteriet i EQ-modeller (EQA, EQB, EQC, EQS). Garantin gäller internationellt inom EU." },
-      { title: "Serviceavtal", text: "Mercedes Service-avtal kan vara landsbundna. Kontrollera med Mercedes Sverige om ett tyskt avtal kan överföras. Mercedes har ett av de bredaste auktoriserade verkstadsnätverken i Sverige, vilket gör garantiservice enkel." },
-    ],
-    source: "Kontrollera alltid aktuella villkor direkt med Mercedes-Benz Sverige (mercedes-benz.se) eller din lokala Mercedes-återförsäljare.",
-  },
-  volkswagen: {
-    intro: "Volkswagen har internationell garanti inom EU och ett av de tätaste verkstadsnäten i Sverige — garanti är sällan ett problem vid VW-import.",
-    items: [
-      { title: "Nybilsgaranti", text: "VW erbjuder 2 års nybilsgaranti utan milbegränsning som gäller inom hela EU. Tack vare VW:s täta verkstadsnät i Sverige är det enkelt att nyttja kvarvarande garanti efter import." },
-      { title: "Vad du måste göra", text: "Besök en auktoriserad VW-verkstad i Sverige för att registrera bilen. Ta med dig:", list: ["Köpehandling med VIN", "Servicehistorik (digital servicebok eller Scheckheft)", "COC-intyg"] },
-      { title: "Batterigaranti (ID-modeller)", text: "VW ger 8 år eller 160 000 km på högvoltsbatteriet i ID-serien (ID.3, ID.4, ID.5). Garantin gäller internationellt inom EU." },
-      { title: "Das WeltAuto-garanti", text: "Begagnade bilar köpta via Das WeltAuto (VW:s begagnatprogram) kan ha tilläggsgaranti — men denna är ofta landsbunden. Kontrollera med VW Sverige om den överförs vid import innan du räknar den som en fördel." },
-    ],
-    source: "Kontrollera alltid aktuella villkor direkt med Volkswagen Sverige (volkswagen.se) eller din lokala VW-återförsäljare.",
-  },
-  audi: {
-    intro: "Audi har internationell EU-garanti och delar servicenät med Volkswagen — vilket ger bred täckning i Sverige.",
-    items: [
-      { title: "Nybilsgaranti", text: "Audi erbjuder 2 års nybilsgaranti som gäller inom hela EU. Audi och VW delar servicenät, vilket innebär brett verkstadsutbud i Sverige." },
-      { title: "Vad du måste göra", text: "Kontakta en auktoriserad Audi-återförsäljare i Sverige för att registrera bilen i det svenska systemet. Ta med dig:", list: ["Köpehandling med VIN", "Servicehistorik (digital servicebok eller Scheckheft)", "COC-intyg"] },
-      { title: "Batterigaranti (e-tron-modeller)", text: "Audi ger 8 år eller 160 000 km på högvoltsbatteriet i e-tron-modeller (Q4 e-tron, e-tron GT). Garantin gäller internationellt inom EU." },
-      { title: "Audi Approved :plus", text: "Audis begagnatgarantiprogram (Audi Approved :plus) kan vara landsbundet. Kontrollera med Audi Sverige om garantin överförs vid import från en tysk Audi-handlare." },
-    ],
-    source: "Kontrollera alltid aktuella villkor direkt med Audi Sverige (audi.se) eller din lokala Audi-återförsäljare.",
-  },
-  porsche: {
-    intro: "Porsche har internationell EU-garanti — men ett begränsat verkstadsnät i Sverige som kan påverka servicetillgängligheten.",
-    items: [
-      { title: "Nybilsgaranti", text: "Porsche erbjuder 2 års nybilsgaranti utan milbegränsning som gäller inom hela EU. Du kan använda vilken auktoriserad Porsche-verkstad som helst i Sverige." },
-      { title: "Begränsat verkstadsnät", text: "Porsche har ett begränsat antal auktoriserade verkstäder i Sverige (främst Stockholm, Göteborg, Malmö). Kontrollera avstånd till närmaste servicepoint innan du importerar." },
-      { title: "Batterigaranti (Taycan)", text: "Porsche ger 8 år eller 160 000 km på högvoltsbatteriet i Taycan. Garantin gäller internationellt inom EU." },
-      { title: "Porsche Approved", text: "Porsches begagnatgarantiprogram (Porsche Approved) kan ge utökad garanti på begagnade bilar. Kontrollera om den överförs vid import — det varierar. Porsche-bilar behåller generellt andrahandsvärde väl även som importerade." },
-    ],
-    source: "Kontrollera alltid aktuella villkor direkt med Porsche Sverige (porsche.se) eller din lokala Porsche Center.",
-  },
-  tesla: {
-    intro: "Teslas garanti gäller internationellt och är inte bundet till något specifikt land — men det finns unika aspekter att känna till.",
-    items: [
-      { title: "Nybilsgaranti", text: "Tesla erbjuder 4 års nybilsgaranti eller 80 000 km (det som inträffar först). Garantin gäller internationellt och hanteras via Tesla Service Centers." },
-      { title: "Inget traditionellt återförsäljarnät", text: "Tesla har inga auktoriserade återförsäljare — all service sker via Tesla Service Centers. I Sverige finns de i Stockholm, Göteborg och Malmö samt via mobila servicetekniker." },
-      { title: "Batterigaranti", text: "Tesla ger 8 år på högvoltsbatteriet: 120 000 km (Model 3 Standard), 160 000 km (Model 3 Long Range, Model Y) eller 200 000 km (Model S, Model X). Garantin gäller internationellt." },
-      { title: "COC-intyg", text: "Tesla tillhandahåller ofta COC-intyg utan kostnad. Hos andra märken sätter tillverkaren priset – fråga innan du beställer." },
-      { title: "Autopilot och FSD", text: "Kontrollera att Full Self Driving (FSD) eller Enhanced Autopilot-licenser överförs vid ägarbyte. Detta har historiskt varit problematiskt — Tesla kan i vissa fall återkalla mjukvaran vid ägarbytet." },
-    ],
-    source: "Kontrollera alltid aktuella villkor direkt med Tesla Sverige (tesla.com/sv_se).",
-  },
+  bmw: garantiFor("BMW"),
+  mercedes: garantiFor("Mercedes-Benz"),
+  volkswagen: garantiFor("Volkswagen"),
+  audi: garantiFor("Audi"),
+  porsche: garantiFor("Porsche"),
+  tesla: garantiFor("Tesla", [
+    { title: "Autopilot och FSD", text: "Fråga Tesla innan köpet om köpta mjukvarufunktioner som Enhanced Autopilot eller Full Self-Driving följer med bilen vid ägarbytet." },
+  ]),
 };
 
+/** Räkneexempel per drivmedel. Inga modellnamn: CO₂-värdet varierar mellan versioner och står i bilens COC-intyg. */
+const EXEMPEL_RADER: FordonsskattRow[] = [
+  { model: "Elbil", co2: 0, fuel: "elbil" },
+  { model: "Laddhybrid (bensin)", co2: 25, fuel: "laddhybrid-bensin" },
+  { model: "Bensin", co2: 130, fuel: "bensin" },
+  { model: "Bensin", co2: 200, fuel: "bensin" },
+  { model: "Diesel", co2: 130, fuel: "diesel" },
+];
+
 const BRAND_FORDONSSKATT: Record<string, { intro?: string; rows: FordonsskattRow[] }> = {
-  bmw: { rows: [
-    { model: "320i (G20)", co2: 142, fuel: "bensin" },
-    { model: "330e (G20)", co2: 21, fuel: "laddhybrid-bensin" },
-    { model: "520d (G30)", co2: 127, fuel: "diesel" },
-    { model: "530e (G60)", co2: 21, fuel: "laddhybrid-bensin" },
-    { model: "X3 xDrive30e", co2: 27, fuel: "laddhybrid-bensin" },
-    { model: "X5 xDrive40i", co2: 195, fuel: "bensin" },
-    { model: "i4 eDrive40", co2: 0, fuel: "elbil" },
-    { model: "iX xDrive40", co2: 0, fuel: "elbil" },
-  ]},
-  mercedes: { rows: [
-    { model: "A 200", co2: 130, fuel: "bensin" },
-    { model: "C 200 (W206)", co2: 150, fuel: "bensin" },
-    { model: "C 300 de", co2: 25, fuel: "laddhybrid-diesel" },
-    { model: "E 220 d (W214)", co2: 130, fuel: "diesel" },
-    { model: "E 300 e", co2: 20, fuel: "laddhybrid-bensin" },
-    { model: "EQA 250", co2: 0, fuel: "elbil" },
-    { model: "EQC 400", co2: 0, fuel: "elbil" },
-  ]},
-  volkswagen: { rows: [
-    { model: "Golf 8 1.5 TSI", co2: 125, fuel: "bensin" },
-    { model: "Golf GTE", co2: 20, fuel: "laddhybrid-bensin" },
-    { model: "Tiguan 2.0 TSI", co2: 165, fuel: "bensin" },
-    { model: "Tiguan eHybrid", co2: 25, fuel: "laddhybrid-bensin" },
-    { model: "ID.3", co2: 0, fuel: "elbil" },
-    { model: "ID.4", co2: 0, fuel: "elbil" },
-  ]},
-  audi: { rows: [
-    { model: "A3 35 TFSI", co2: 130, fuel: "bensin" },
-    { model: "A4 40 TFSI", co2: 145, fuel: "bensin" },
-    { model: "A6 50 TFSIe", co2: 22, fuel: "laddhybrid-bensin" },
-    { model: "Q5 55 TFSIe", co2: 28, fuel: "laddhybrid-bensin" },
-    { model: "Q4 e-tron", co2: 0, fuel: "elbil" },
-    { model: "e-tron GT", co2: 0, fuel: "elbil" },
-  ]},
-  porsche: { rows: [
-    { model: "Cayenne E-Hybrid", co2: 30, fuel: "laddhybrid-bensin" },
-    { model: "Cayenne S", co2: 220, fuel: "bensin" },
-    { model: "Macan 2.0T", co2: 195, fuel: "bensin" },
-    { model: "911 Carrera", co2: 210, fuel: "bensin" },
-    { model: "Taycan 4S", co2: 0, fuel: "elbil" },
-  ]},
-  tesla: { intro: `Alla Tesla-modeller är helt eldrivna och betalar bara grundbeloppet ${formatKr(FORDONSSKATT.grundbelopp)}/år i fordonsskatt — ingen malus oavsett modell.`, rows: [
+  bmw: { rows: EXEMPEL_RADER },
+  mercedes: { rows: EXEMPEL_RADER },
+  volkswagen: { rows: EXEMPEL_RADER },
+  audi: { rows: EXEMPEL_RADER },
+  porsche: { rows: EXEMPEL_RADER },
+  tesla: { intro: `Tesla tillverkar bara elbilar, och elbilar betalar bara grundbeloppet ${formatKr(FORDONSSKATT.grundbelopp)}/år i fordonsskatt — ingen malus.`, rows: [
     { model: "Model 3", co2: 0, fuel: "elbil" },
     { model: "Model Y", co2: 0, fuel: "elbil" },
     { model: "Model S", co2: 0, fuel: "elbil" },
@@ -160,43 +98,43 @@ const BRAND_FORDONSSKATT: Record<string, { intro?: string; rows: FordonsskattRow
 
 const BRAND_FAQ: Record<string, FaqItem[]> = {
   bmw: [
-    { question: "Gäller BMW-garanti i Sverige vid import?", answer: "Ja, BMW har internationell EU-garanti. Kontakta en svensk BMW-återförsäljare efter importen för att registrera bilen i det svenska systemet. Ta med köpehandling, servicehistorik och COC-intyg." },
-    { question: "Vilka BMW-modeller är bäst att importera?", answer: "3-serien, 5-serien och X3 har bäst ADAC-betyg och störst prisskillnad mot Sverige. Undvik N47-dieselmotorn (2007–2013) på grund av kända timing-kedjeproblematik." },
+    { question: "Gäller BMW-garantin i Sverige vid import?", answer: "Det beror på garantivillkoren för den aktuella bilen. Be en auktoriserad BMW-verkstad i Sverige att utifrån bilens VIN bekräfta vilken garanti som återstår och om den gäller när bilen är registrerad här." },
+    { question: "Vilka BMW-modeller är mest driftsäkra enligt ADAC?", answer: "I ADAC Pannenstatistik 2026 finns elva BMW-modeller bland de bästa i sin klass, bland andra 3-serien, 4-serien, X3, 5-serien och X5. Ingen BMW-modell finns bland de sämsta." },
     { question: "Vad kostar det att importera en BMW från Tyskland?", answer: `Utöver bilpriset tillkommer ${formatSekRange(feeTotal("bil"))} i fasta avgifter (ursprungskontroll ${formatCost("ursprungskontroll")}, registreringsbesiktning ${formatCost("registreringsbesiktning")} enligt publicerade prislistor, importförsäkring och skyltar) plus transport. Använd vår kalkylator för en exakt beräkning.` },
   ],
   mercedes: [
-    { question: "Gäller Mercedes-garanti i Sverige vid import?", answer: "Ja, Mercedes-Benz har internationell EU-garanti (2 år utan milbegränsning). Kontakta en auktoriserad Mercedes-verkstad i Sverige för att registrera bilen. Mercedes har ett av de bredaste verkstadsnätverken i Sverige." },
-    { question: "Vilka Mercedes-modeller är bäst att importera?", answer: `C-klass och E-klass har bäst ADAC-betyg och stor prisskillnad mot Sverige. Laddhybriderna (C 300 de, E 300 e) ligger under malusgränsen på 75 g/km. Dieselhybriden C 300 de betalar dock dieselns miljö- och bränsletillägg, cirka ${formatKr(calculateMalus(25, "laddhybrid-diesel", 0, "personbil").annualTax)}/år.` },
-    { question: "Är Mercedes dyrare att serva i Sverige som importbil?", answer: "Nej, servicekostnaden är densamma som för svensksålda Mercedes. Garanti och service hanteras av samma auktoriserade verkstäder. Kontrollera dock att eventuella tyska serviceavtal överförs." },
+    { question: "Gäller Mercedes-garantin i Sverige vid import?", answer: "Det beror på garantivillkoren för den aktuella bilen. Be en auktoriserad Mercedes-Benz-verkstad i Sverige att utifrån bilens VIN bekräfta vilken garanti som återstår och om den gäller när bilen är registrerad här." },
+    { question: "Vilka Mercedes-modeller är mest driftsäkra enligt ADAC?", answer: "I ADAC Pannenstatistik 2026 finns A-klass, B-klass, EQA, GLB och GLE bland de bästa i sina klasser. Ingen Mercedes-modell finns bland de sämsta." },
+    { question: "Vad kostar det att importera en Mercedes från Tyskland?", answer: `Utöver bilpriset tillkommer ${formatSekRange(feeTotal("bil"))} i fasta avgifter (ursprungskontroll ${formatCost("ursprungskontroll")}, registreringsbesiktning ${formatCost("registreringsbesiktning")} enligt publicerade prislistor, importförsäkring och skyltar) plus transport. Använd vår kalkylator för en exakt beräkning.` },
   ],
   volkswagen: [
-    { question: "Gäller Volkswagen-garanti i Sverige vid import?", answer: "Ja, VW har internationell EU-garanti (2 år utan milbegränsning). VW har ett av de tätaste verkstadsnäten i Sverige, vilket gör garantiservice enkelt." },
-    { question: "Vilka Volkswagen-modeller är bäst att importera?", answer: "Golf, Tiguan och ID.4 har bäst ADAC-betyg och stor prisskillnad mot Sverige. PHEV-varianter (Golf GTE, Tiguan eHybrid) slipper malus helt." },
-    { question: "Kan jag använda Das WeltAuto-garanti på importerad VW?", answer: "Das WeltAuto-garanti (VW:s begagnatprogram) kan vara landsbunden. Kontrollera med VW Sverige innan du räknar med den. Nybilsgarantin gäller dock alltid inom EU." },
+    { question: "Gäller Volkswagen-garantin i Sverige vid import?", answer: "Det beror på garantivillkoren för den aktuella bilen. Be en auktoriserad Volkswagen-verkstad i Sverige att utifrån bilens VIN bekräfta vilken garanti som återstår och om den gäller när bilen är registrerad här." },
+    { question: "Vilka Volkswagen-modeller är mest driftsäkra enligt ADAC?", answer: "I ADAC Pannenstatistik 2026 finns fjorton VW-modeller bland de bästa i sina klasser, bland andra Golf, Tiguan, Passat, ID.3 och ID.4. Ingen VW-modell finns bland de sämsta." },
+    { question: "Vad kostar det att importera en Volkswagen från Tyskland?", answer: `Utöver bilpriset tillkommer ${formatSekRange(feeTotal("bil"))} i fasta avgifter (ursprungskontroll ${formatCost("ursprungskontroll")}, registreringsbesiktning ${formatCost("registreringsbesiktning")} enligt publicerade prislistor, importförsäkring och skyltar) plus transport. Använd vår kalkylator för en exakt beräkning.` },
   ],
   audi: [
-    { question: "Gäller Audi-garanti i Sverige vid import?", answer: "Ja, Audi har internationell EU-garanti (2 år). Audi delar servicenät med VW, vilket ger brett verkstadsutbud i Sverige." },
-    { question: "Vilka Audi-modeller är bäst att importera?", answer: "A4, A6 och Q5 har bra ADAC-betyg och stor prisskillnad mot Sverige. PHEV-varianter (A6 50 TFSIe, Q5 55 TFSIe) slipper malus helt." },
-    { question: "Överförs Audi Approved-garanti vid import?", answer: "Audi Approved :plus (begagnatgaranti) kan vara landsbunden. Kontrollera med Audi Sverige om garantin överförs vid import från en tysk Audi-handlare. Nybilsgarantin gäller alltid inom EU." },
+    { question: "Gäller Audi-garantin i Sverige vid import?", answer: "Det beror på garantivillkoren för den aktuella bilen. Be en auktoriserad Audi-verkstad i Sverige att utifrån bilens VIN bekräfta vilken garanti som återstår och om den gäller när bilen är registrerad här." },
+    { question: "Vilka Audi-modeller är mest driftsäkra enligt ADAC?", answer: "I ADAC Pannenstatistik 2026 finns A1, A3, Q2, Q3, A4, A5, Q4 e-tron, Q5 och e-tron/Q8 e-tron bland de bästa i sina klasser. Ingen Audi-modell finns bland de sämsta." },
+    { question: "Vad kostar det att importera en Audi från Tyskland?", answer: `Utöver bilpriset tillkommer ${formatSekRange(feeTotal("bil"))} i fasta avgifter (ursprungskontroll ${formatCost("ursprungskontroll")}, registreringsbesiktning ${formatCost("registreringsbesiktning")} enligt publicerade prislistor, importförsäkring och skyltar) plus transport. Använd vår kalkylator för en exakt beräkning.` },
   ],
   porsche: [
-    { question: "Gäller Porsche-garanti i Sverige vid import?", answer: "Ja, Porsche har internationell EU-garanti (2 år). Observera att Porsche har ett begränsat verkstadsnät i Sverige (främst Stockholm, Göteborg, Malmö)." },
-    { question: "Vilka Porsche-modeller är bäst att importera?", answer: "Cayenne E-Hybrid och Taycan har lägst fordonsskatt. Macan och Cayenne har störst prisskillnad mot Sverige. 911:an behåller andrahandsvärde väl även som importbil." },
-    { question: "Behåller en importerad Porsche sitt andrahandsvärde?", answer: "Ja, Porsche behåller generellt andrahandsvärde väl oavsett ursprungsland. Komplett servicehistorik och Porsche Approved-status kan dock påverka värdet positivt." },
+    { question: "Gäller Porsche-garantin i Sverige vid import?", answer: "Det beror på garantivillkoren för den aktuella bilen. Be en auktoriserad Porsche-verkstad i Sverige att utifrån bilens VIN bekräfta vilken garanti som återstår och om den gäller när bilen är registrerad här." },
+    { question: "Vilka Porsche-modeller är mest driftsäkra enligt ADAC?", answer: "Ingen Porsche-modell finns med i ADAC Pannenstatistik 2026:s listor över de bästa eller sämsta i sin klass. Kräv komplett servicehistorik och låt en oberoende besiktningsman undersöka bilen före köp." },
+    { question: "Vad kostar det att importera en Porsche från Tyskland?", answer: `Utöver bilpriset tillkommer ${formatSekRange(feeTotal("bil"))} i fasta avgifter (ursprungskontroll ${formatCost("ursprungskontroll")}, registreringsbesiktning ${formatCost("registreringsbesiktning")} enligt publicerade prislistor, importförsäkring och skyltar) plus transport. Använd vår kalkylator för en exakt beräkning.` },
   ],
   tesla: [
-    { question: "Gäller Tesla-garanti i Sverige vid import?", answer: "Ja, Teslas garanti gäller internationellt. 4 års nybilsgaranti (80 000 km) och 8 års batterigaranti (120 000–200 000 km beroende på modell). Service hanteras via Tesla Service Centers." },
-    { question: "Vilka Tesla-modeller är bäst att importera?", answer: `Model 3 och Model Y har störst prisskillnad mot Sverige och är enklast att importera. Alla Tesla-modeller betalar bara ${formatKr(FORDONSSKATT.grundbelopp)}/år i fordonsskatt (ingen malus).` },
-    { question: "Fungerar Tesla Autopilot/FSD efter import till Sverige?", answer: "Autopilot och navigeringsfunktioner fungerar efter import. Men kontrollera att Full Self Driving (FSD) eller Enhanced Autopilot-licenser överförs vid ägarbyte — Tesla kan i vissa fall återkalla mjukvaran." },
+    { question: "Gäller Tesla-garantin i Sverige vid import?", answer: "Det beror på garantivillkoren för den aktuella bilen. Be Tesla att utifrån bilens VIN bekräfta vilken garanti som återstår och om den gäller när bilen är registrerad här." },
+    { question: "Vilka Tesla-modeller är mest driftsäkra enligt ADAC?", answer: "I ADAC Pannenstatistik 2026 finns Tesla Model 3 och Model Y bland de bästa i mellanklassen." },
+    { question: "Vad kostar fordonsskatten för en importerad Tesla?", answer: `Tesla tillverkar bara elbilar, och elbilar betalar bara grundbeloppet ${formatKr(FORDONSSKATT.grundbelopp)}/år i fordonsskatt (ingen malus).` },
   ],
 };
 
 const BRAND_TITLES: Record<string, { title: string; description: string }> = {
-  mercedes: { title: `Importera Mercedes från Tyskland – Kostnader, garanti och modeller ${CONTENT_YEAR}`, description: "Importera Mercedes-Benz privat från Tyskland. Garanti, fordonsskatt per modell, ADAC-data och kalkylator." },
-  volkswagen: { title: `Importera Volkswagen från Tyskland – Guide med kostnader och tips ${CONTENT_YEAR}`, description: "Importera Volkswagen privat från Tyskland. ADAC-data, garanti, fordonsskatt per modell och kalkylator." },
-  audi: { title: `Importera Audi från Tyskland – Kostnader, ADAC-data och garanti ${CONTENT_YEAR}`, description: "Importera Audi privat från Tyskland. Garanti, fordonsskatt per modell, ADAC-data och kalkylator." },
-  porsche: { title: `Importera Porsche från Tyskland – Lönar det sig? Guide ${CONTENT_YEAR}`, description: "Importera Porsche privat från Tyskland. Garanti, fordonsskatt per modell, ADAC-data och kalkylator." },
-  tesla: { title: `Importera Tesla från Tyskland – Elbilsimport, garanti och kostnader ${CONTENT_YEAR}`, description: "Importera Tesla privat från Tyskland. Garanti, batterigaranti, fordonsskatt och importkalkylator." },
+  mercedes: { title: `Importera Mercedes från Tyskland – Kostnader, garanti och modeller ${CONTENT_YEAR}`, description: "Importera Mercedes-Benz privat från Tyskland. ADAC-data, garanti, fordonsskatt och kalkylator." },
+  volkswagen: { title: `Importera Volkswagen från Tyskland – Guide med kostnader och tips ${CONTENT_YEAR}`, description: "Importera Volkswagen privat från Tyskland. ADAC-data, garanti, fordonsskatt och kalkylator." },
+  audi: { title: `Importera Audi från Tyskland – Kostnader, ADAC-data och garanti ${CONTENT_YEAR}`, description: "Importera Audi privat från Tyskland. ADAC-data, garanti, fordonsskatt och kalkylator." },
+  porsche: { title: `Importera Porsche från Tyskland – Guide med kostnader ${CONTENT_YEAR}`, description: "Importera Porsche privat från Tyskland. Garanti, fordonsskatt, dokument och kalkylator." },
+  tesla: { title: `Importera Tesla från Tyskland – Elbilsimport, garanti och kostnader ${CONTENT_YEAR}`, description: "Importera Tesla privat från Tyskland. Batteri, garanti, kontobyte, fordonsskatt och importkalkylator." },
 };
 
 // Guides relevant for all car brands
@@ -298,7 +236,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: customTitle
         ? customTitle.description
         : importData
-          ? `Importera ${brand.name} privat från Tyskland. Rekommenderade modeller, kända problem (ADAC Pannenstatistik 2026), dokument att begära och kalkylator.`
+          ? `Importera ${brand.name} privat från Tyskland. Modeller enligt ADAC Pannenstatistik 2026, dokument att begära och kalkylator.`
           : `Hur importerar du en ${brand.name} privat från Tyskland? Guide med kostnader, tips och vanliga fallgropar.`,
       alternates: { canonical: getCanonicalUrl(`/importera-bil/${slug}`) },
       robots,
@@ -624,38 +562,42 @@ export default async function ImporteraBilPage({ params }: Props) {
             </dl>
           </div>
 
-          {/* Recommended models */}
+          {/* ADAC: bästa i klassen */}
           <section className="mb-8">
             <h2 className="text-xl font-bold text-gray-900 mb-4">
-              Rekommenderade modeller
+              {importData.name}-modeller bland de bästa enligt ADAC
             </h2>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm border-collapse">
-                <thead>
-                  <tr className="bg-gray-100">
-                    <th className="text-left p-3 font-semibold text-gray-700">Modell</th>
-                    <th className="text-left p-3 font-semibold text-gray-700">Årsmodell</th>
-                    <th className="text-left p-3 font-semibold text-gray-700">ADAC-betyg</th>
-                    <th className="text-left p-3 font-semibold text-gray-700">Notering</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-100">
-                  {importData.recommendedModels.map((model, i) => (
-                    <tr key={i}>
-                      <td className="p-3 font-medium text-gray-900">{model.model}</td>
-                      <td className="p-3 text-gray-700">{model.years}</td>
-                      <td className="p-3 text-gray-700 capitalize">{model.adacRating}</td>
-                      <td className="p-3 text-gray-600 text-xs">{model.notes}</td>
+            {importData.recommendedModels.length > 0 ? (
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm border-collapse">
+                  <thead>
+                    <tr className="bg-gray-100">
+                      <th className="text-left p-3 font-semibold text-gray-700">Modell</th>
+                      <th className="text-left p-3 font-semibold text-gray-700">ADAC-klass</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                  </thead>
+                  <tbody className="divide-y divide-gray-100">
+                    {importData.recommendedModels.map((model) => (
+                      <tr key={model.model}>
+                        <td className="p-3 font-medium text-gray-900">{model.model}</td>
+                        <td className="p-3 text-gray-700">{model.adacClass}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : (
+              <p className="text-sm text-gray-700">
+                Ingen {importData.name}-modell finns med i ADAC:s listor över de bästa eller sämsta i sin klass.
+              </p>
+            )}
             <p className="text-xs text-gray-400 mt-2">
-              Källa:{" "}
+              ADAC listar de modeller som hade minst pannor i sin fordonsklass, räknat på pannor under 2025 för
+              bilar med första registrering 2016–2023. Källa:{" "}
               <a href={importData.adacSourceUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-600">
                 {importData.adacSource}
               </a>
+              , publicerad 23 april 2026.
             </p>
           </section>
 
@@ -686,7 +628,7 @@ export default async function ImporteraBilPage({ params }: Props) {
           {/* Brand-specific: Fordonsskatt */}
           {BRAND_FORDONSSKATT[brand!.slug] && (
             <section className="mb-8">
-              <h2 className="text-xl font-bold text-gray-900 mb-3">Fordonsskatt — populära {importData.name}-modeller</h2>
+              <h2 className="text-xl font-bold text-gray-900 mb-3">Fordonsskatt — räkneexempel</h2>
               {BRAND_FORDONSSKATT[brand!.slug].intro ? (
                 <div className="bg-blue-50 border-l-4 border-blue-600 p-4 rounded-r mb-4">
                   <p className="text-sm text-blue-800">{BRAND_FORDONSSKATT[brand!.slug].intro}</p>
@@ -711,9 +653,9 @@ export default async function ImporteraBilPage({ params }: Props) {
                     {BRAND_FORDONSSKATT[brand!.slug].rows.map((row) => {
                       const tax = taxFor(row);
                       return (
-                        <tr key={row.model}>
+                        <tr key={`${row.model}-${row.co2}-${row.fuel}`}>
                           <td className="p-3 font-medium text-gray-900">{row.model}</td>
-                          <td className="p-3 text-gray-700 tabular-nums">{row.co2 > 0 ? `ca ${row.co2}` : "0"}</td>
+                          <td className="p-3 text-gray-700 tabular-nums">{row.co2}</td>
                           <td className="p-3 text-gray-700">{FUEL_LABEL[row.fuel]}</td>
                           <td className="p-3 text-gray-700 tabular-nums whitespace-nowrap">{formatSEK(tax.annualTax)}/år</td>
                           <td className="p-3 text-gray-700 tabular-nums whitespace-nowrap">{formatSEK(tax.annualTaxAfterMalus)}/år</td>
@@ -724,7 +666,7 @@ export default async function ImporteraBilPage({ params }: Props) {
                 </table>
               </div>
               <p className="text-xs text-gray-400 mt-2">
-                Beräknat enligt Skatteverkets fordonsskattetabeller för bilar som blir skattepliktiga 1 juni 2022 eller senare: grundbelopp {formatKr(FORDONSSKATT.grundbelopp)}; år 1–3 {formatKr(FORDONSSKATT.malusRateTier1)} per gram över {FORDONSSKATT.malusLowerGram} g/km och {formatKr(FORDONSSKATT.malusRateTier2)} per gram över {FORDONSSKATT.malusUpperGram} g/km; från år 4 {formatKr(FORDONSSKATT.co2RatePerGram)} per gram över {FORDONSSKATT.co2ThresholdGram} g/km. Dieselbilar betalar dessutom miljötillägg {formatKr(FORDONSSKATT.dieselMiljotillagg)} och bränsletillägg {String(FORDONSSKATT.dieselBransletillaggPerGram).replace(".", ",")} kr × koldioxidvärdet. CO₂-värdena är typiska WLTP-värden – det exakta värdet står i bilens COC-intyg. Laddhybrider som registreras från 2026 får ett högre beräknat CO₂-värde (ny viktningsfaktor) och kan därför hamna över malusgränsen.{" "}
+                Beräknat enligt Skatteverkets fordonsskattetabeller för bilar som blir skattepliktiga 1 juni 2022 eller senare: grundbelopp {formatKr(FORDONSSKATT.grundbelopp)}; år 1–3 {formatKr(FORDONSSKATT.malusRateTier1)} per gram över {FORDONSSKATT.malusLowerGram} g/km och {formatKr(FORDONSSKATT.malusRateTier2)} per gram över {FORDONSSKATT.malusUpperGram} g/km; från år 4 {formatKr(FORDONSSKATT.co2RatePerGram)} per gram över {FORDONSSKATT.co2ThresholdGram} g/km. Dieselbilar betalar dessutom miljötillägg {formatKr(FORDONSSKATT.dieselMiljotillagg)} och bränsletillägg {String(FORDONSSKATT.dieselBransletillaggPerGram).replace(".", ",")} kr × koldioxidvärdet. CO₂-värdena är exempel – bilens eget värde står i COC-intyget och i fält V.7 i Zulassungsbescheinigung Teil I. Laddhybrider som registreras från 2026 får ett högre beräknat CO₂-värde (ny viktningsfaktor) och kan därför hamna över malusgränsen.{" "}
                 Källor:{" "}
                 <a href="https://www.transportstyrelsen.se/sv/vagtrafik/fordon/skatter-och-avgifter/fordonsskatt/skattens-storlek/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-600">
                   Transportstyrelsen – Skattens storlek
@@ -755,16 +697,16 @@ export default async function ImporteraBilPage({ params }: Props) {
                   <ul className="text-xs text-gray-700 space-y-1.5">
                     <li><span className="font-medium">Fält V.7:</span> CO₂-utsläpp (g/km) — behövs för fordonsskatt-beräkning</li>
                     <li><span className="font-medium">Fält P.2:</span> Motoreffekt (kW)</li>
-                    <li><span className="font-medium">Fält D.2:</span> Fordonstyp/variant</li>
+                    <li><span className="font-medium">Fält D.2:</span> Typ, variant och version</li>
                     <li><span className="font-medium">Fält B:</span> Datum för första registrering</li>
-                    <li><span className="font-medium">Fält F.1/F.2:</span> Maxvikt/tjänstevikt</li>
+                    <li><span className="font-medium">Fält F.1/F.2:</span> Största tillåtna totalvikt</li>
+                    <li><span className="font-medium">Fält G:</span> Vikt i körklart skick (tjänstevikt)</li>
                   </ul>
                 </div>
                 <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
                   <p className="font-semibold text-gray-900 text-sm mb-2">Teil II (Fahrzeugbrief)</p>
                   <p className="text-xs text-gray-700 mb-2">
-                    Detta är ägarbeviset — du <strong>måste</strong> få originalet vid köp.
-                    Utan Teil II i original kan du inte bevisa ägande.
+                    Del II av registreringsbeviset — se till att du får originalet vid köpet.
                   </p>
                   <p className="text-xs text-gray-500">
                     Tips: Fotografera alla sidor av Teil I och Teil II innan du lämnar säljaren.
@@ -772,6 +714,13 @@ export default async function ImporteraBilPage({ params }: Props) {
                   </p>
                 </div>
               </div>
+              <p className="text-xs text-gray-400">
+                Fältkoderna är gemensamma för EU enligt{" "}
+                <a href="https://eur-lex.europa.eu/legal-content/SV/TXT/?uri=CELEX:31999L0037" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-600">
+                  direktiv 1999/37/EG om registreringsbevis för fordon
+                </a>
+                , bilaga I.
+              </p>
             </section>
           )}
 
@@ -797,11 +746,11 @@ export default async function ImporteraBilPage({ params }: Props) {
               })}
             </div>
             <p className="text-xs text-gray-400 mt-3">
-              Problemområden baserade på{" "}
+              Källa:{" "}
               <a href={importData.adacSourceUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-600">
                 {importData.adacSource}
-              </a>{" "}
-              och branscherfarenhet.
+              </a>
+              .
             </p>
           </section>
 

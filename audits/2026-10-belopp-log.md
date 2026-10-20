@@ -170,3 +170,12 @@ Tabellen godkänd av Magnus 2026-10-22 med två justeringar (körkort, moms). Si
 - https://importguiden.se/jamfor/tyskland-vs-sverige
 - https://importguiden.se/kalkylator/bilimport
 - https://importguiden.se/regelandringar
+
+## Källgranskning märkessidor (2026-10-20)
+
+- ADAC-källa: Pannenstatistik 2026, publicerad 2026-04-23 (pannor 2025, EZ 2016–2023): https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik-2026/ – listor "Die Besten/Schlechtesten in ihrer Klasse". Inga siffror per modell i artikeln.
+- Ducato "27,9–39,1": finns bara i rapporten 2025 (pannor 2024), tabell Transporter/Vans, EZ 2018 = 27,9 och EZ 2020 = 39,1; hela spannet där 27,9–45,6 (EZ 2015–2021). Borttagen.
+- Tesla: tesla.com svarar 403 för curl, WebFetch och headless Chromium; arkivet svarade 429. Teslas villkor kunde inte läsas → inga garantitider publiceras. Sekundärkällor anger Model 3/Y RWD 160 000 km och Model S/X 240 000 km, alltså stämde inte de tidigare 120 000/200 000.
+- Dethleffs (dethleffs.de/reisemobile, 2026-10-20): Globebus Performance = VW Crafter, Graneo = Mercedes Sprinter.
+- Fältkoder ZB I: direktiv 1999/37/EG bilaga I (F.1/F.2 = totalvikt, G = tjänstevikt).
+- Kvar att granska utanför märkessidorna: /guider/importera-elbil (Ioniq 5 ICCU 15 år/300 000 km, ADAC-formuleringar).

@@ -52,7 +52,7 @@ const guides = [
   {
     href: "/guider#markesguider",
     title: "Märkesguider – bil",
-    description: "BMW, Mercedes, VW, Audi, Porsche och Tesla – ADAC-data, kända fel och tips per märke.",
+    description: "BMW, Mercedes, VW, Audi, Porsche och Tesla – ADAC-data och tips per märke.",
   },
   {
     href: "/guider#markesguider",

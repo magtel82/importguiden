@@ -1,12 +1,12 @@
 import Link from "next/link";
 
 const brands = [
-  { slug: "bmw", name: "BMW", desc: "3-serie, 5-serie, X3 – ADAC-data, kända fel och rekommenderade årsmodeller." },
-  { slug: "mercedes", name: "Mercedes-Benz", desc: "A-klass, C-klass, E-klass – vanliga importmodeller." },
-  { slug: "volkswagen", name: "Volkswagen", desc: "Golf, Passat, Tiguan – Tysklands populäraste märke med brett utbud." },
-  { slug: "audi", name: "Audi", desc: "A3, A4, Q3 – höga betyg i ADAC Pannenstatistik 2026." },
+  { slug: "bmw", name: "BMW", desc: "3-serien, 5-serien, X3 – bäst i klassen enligt ADAC Pannenstatistik 2026." },
+  { slug: "mercedes", name: "Mercedes-Benz", desc: "A-klass, B-klass, GLE – bäst i klassen enligt ADAC Pannenstatistik 2026." },
+  { slug: "volkswagen", name: "Volkswagen", desc: "Golf, Passat, Tiguan – bäst i klassen enligt ADAC Pannenstatistik 2026." },
+  { slug: "audi", name: "Audi", desc: "A3, A4, Q3 – bäst i klassen enligt ADAC Pannenstatistik 2026." },
   { slug: "porsche", name: "Porsche", desc: "Cayenne, Macan, 911." },
-  { slug: "tesla", name: "Tesla", desc: "Model 3, Model Y – batteristatus (SoH), laddkontakter och garanti." },
+  { slug: "tesla", name: "Tesla", desc: "Model 3, Model Y – batteristatus (SoH), kontobyte och garanti." },
 ];
 
 export function BrandGrid() {

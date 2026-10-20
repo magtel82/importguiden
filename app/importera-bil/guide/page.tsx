@@ -54,7 +54,7 @@ export default function ImporteraBilGuidePage() {
             Vill du importera ett specifikt märke?
           </h2>
           <p className="text-sm text-gray-600 mb-4">
-            Märkesspecifika guider med ADAC-data, kända fel och importkalkylator.
+            Märkesspecifika guider med ADAC-data och importkalkylator.
           </p>
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
             {bilBrands.map((brand) => {

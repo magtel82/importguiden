@@ -15,19 +15,19 @@ type Filter = "alla" | "bil" | "husbil";
 
 const carBrands = [
   { slug: "bmw", name: "BMW", tagline: "3-serie, 5-serie, X3" },
-  { slug: "mercedes", name: "Mercedes-Benz", tagline: "A-klass, C-klass, E-klass" },
+  { slug: "mercedes", name: "Mercedes-Benz", tagline: "A-klass, B-klass, GLE" },
   { slug: "volkswagen", name: "Volkswagen", tagline: "Golf, Passat, Tiguan" },
-  { slug: "audi", name: "Audi", tagline: "A3, A4, Q3 – ADAC bäst i klass 2026" },
+  { slug: "audi", name: "Audi", tagline: "A3, A4, Q3 – bäst i klassen enligt ADAC 2026" },
   { slug: "porsche", name: "Porsche", tagline: "Cayenne, Macan, 911" },
-  { slug: "tesla", name: "Tesla", tagline: "Model 3, Model Y – SoH, laddkontakter, garanti" },
+  { slug: "tesla", name: "Tesla", tagline: "Model 3, Model Y – SoH, kontobyte, garanti" },
 ];
 
 const motorhomeBrands = [
-  { slug: "hymer", name: "Hymer", tagline: "B-klass, ML-T, Exsis – Fiat Ducato-chassi" },
-  { slug: "dethleffs", name: "Dethleffs", tagline: "Trend, Esprit, Globebus – prisvärd import" },
-  { slug: "burstner", name: "Bürstner", tagline: "Lyseo, Ixeo, Delfin – bred modellflora" },
-  { slug: "knaus", name: "Knaus", tagline: "Sun TI, Van TI, Sky TI – halvintegrerad" },
-  { slug: "hobby", name: "Hobby", tagline: "Optima, De Luxe – Tysklands folkligaste märke" },
+  { slug: "hymer", name: "Hymer", tagline: "Chassi, fuktkontroll och dokument" },
+  { slug: "dethleffs", name: "Dethleffs", tagline: "Globebus, Trend, Just – chassit varierar" },
+  { slug: "burstner", name: "Bürstner", tagline: "Chassi, fuktkontroll och dokument" },
+  { slug: "knaus", name: "Knaus", tagline: "Chassi, fuktkontroll och dokument" },
+  { slug: "hobby", name: "Hobby", tagline: "Chassi, fuktkontroll och dokument" },
 ];
 
 export function GuiderContent() {
@@ -147,7 +147,7 @@ export function GuiderContent() {
         <section className="mb-10">
           <h2 id="markesguider" className="text-lg font-bold text-gray-900 mb-1">Märkesspecifika importguider</h2>
           <p className="text-sm text-gray-600 mb-4">
-            ADAC-data, kända problem, rekommenderade modeller och dokument – för just det märke du funderar på.
+            ADAC-data, kontrollpunkter och dokument – för just det märke du funderar på.
           </p>
 
           {showCarBrands && (

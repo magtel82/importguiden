@@ -16,6 +16,66 @@
   },
   "changes": [
     {
+      "date": "2026-10-20",
+      "type": "rattelse",
+      "title": "Fiat Ducato: felaktig ADAC-siffra borttagen",
+      "summary": "Husbilssidorna angav att Fiat Ducato har 27,9–39,1 driftstopp per 1 000 fordon (årgångar 2016–2021 och 2023) enligt ADAC Pannenstatistik 2026 och att Ducato rankas sämst av alla fordon. Siffrorna kommer från föregående års rapport (pannor 2024) och gäller där andra årgångar, och ADAC rangordnar per fordonsklass, inte alla fordon. Siffran är borttagen. Sidorna anger nu det ADAC Pannenstatistik 2026 faktiskt säger: Fiat Ducato med första registrering 2016–2021 och 2023 finns bland de sämsta i klassen Transporter/Vans, och Mercedes-Benz Sprinter bland de bästa.",
+      "source": "ADAC Pannenstatistik 2026",
+      "sourceUrl": "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik-2026/",
+      "affectedPages": [
+        "/importera-husbil/hymer",
+        "/importera-husbil/dethleffs",
+        "/importera-husbil/burstner",
+        "/importera-husbil/knaus",
+        "/importera-husbil/hobby",
+        "/guider/besikta-husbil"
+      ]
+    },
+    {
+      "date": "2026-10-20",
+      "type": "rattelse",
+      "title": "Garantitider på märkessidorna utan kontrollerad källa borttagna",
+      "summary": "Märkessidorna angav garantitider för nybil och batteri per märke och modell, bland annat Teslas batterigaranti per modell, att garantin gäller internationellt, garantier för husbilars chassi, påbyggnad och täthet samt koncerntillhörighet och verkstadsnät. Uppgifterna var inte kontrollerade mot tillverkarnas egna villkor. Teslas batterigaranti angavs dessutom med körsträckegränser som inte stämmer med de villkor som citeras av andra källor. Uppgifterna är borttagna. Sidorna beskriver nu hur du kontrollerar garantin för det enskilda fordonet via VIN.",
+      "source": "Importguidens egen genomgång",
+      "sourceUrl": "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik-2026/",
+      "affectedPages": [
+        "/importera-bil/bmw",
+        "/importera-bil/mercedes",
+        "/importera-bil/volkswagen",
+        "/importera-bil/audi",
+        "/importera-bil/porsche",
+        "/importera-bil/tesla",
+        "/importera-husbil/hymer",
+        "/importera-husbil/dethleffs",
+        "/importera-husbil/burstner",
+        "/importera-husbil/knaus",
+        "/importera-husbil/hobby"
+      ]
+    },
+    {
+      "date": "2026-10-20",
+      "type": "rattelse",
+      "title": "Modellbetyg, kända fel och chassiuppgifter utan källa borttagna",
+      "summary": "Märkessidorna visade egna ADAC-betyg som \"mycket bra\" och \"bra\", modeller som ADAC inte nämner, tekniska fel per motor och växellåda, CO₂-värden per modell och påståenden om vilka chassin husbilsmärkena använder. Flera uppgifter var fel: Dethleffs angavs bygga samtliga modeller på Fiat Ducato, men Dethleffs anger själv VW Crafter för Globebus Performance och Mercedes Sprinter för Graneo. Fält F.2 i det tyska registreringsbeviset beskrevs som tjänstevikt, men F.2 är totalvikt och tjänstevikten står i fält G. Sidorna visar nu bara de modeller som ADAC Pannenstatistik 2026 listar bland de bästa i sin klass, fordonsskatt som räkneexempel per drivmedel och fältkoder enligt direktiv 1999/37/EG.",
+      "source": "ADAC Pannenstatistik 2026, Dethleffs, direktiv 1999/37/EG",
+      "sourceUrl": "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik-2026/",
+      "affectedPages": [
+        "/importera-bil/bmw",
+        "/importera-bil/mercedes",
+        "/importera-bil/volkswagen",
+        "/importera-bil/audi",
+        "/importera-bil/porsche",
+        "/importera-bil/tesla",
+        "/importera-husbil/hymer",
+        "/importera-husbil/dethleffs",
+        "/importera-husbil/burstner",
+        "/importera-husbil/knaus",
+        "/importera-husbil/hobby",
+        "/",
+        "/guider"
+      ]
+    },
+    {
       "date": "2026-10-21",
       "type": "rattelse",
       "title": "Prisnivåer och procentuella prisskillnader utan källa borttagna",
