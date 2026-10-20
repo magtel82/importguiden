@@ -64,14 +64,14 @@ export default function IntegritetspolicyPage() {
         <div className="border-l-4 border-gray-200 pl-4 mb-4">
           <h3 className="font-semibold text-gray-900 mb-1">Affiliate-tracking (kräver samtycke)</h3>
           <p className="text-sm text-gray-700">
-            När du klickar på en länk märkt "(annonslänk)" kan affiliate-nätverket sätta en
+            När du klickar på en länk märkt ”(annonslänk)” kan affiliate-nätverket sätta en
             tracking-cookie för att registrera att klicket kom från vår sajt. Dessa cookies
             aktiveras enbart om du har godkänt dem.
           </p>
         </div>
 
         <p className="text-sm text-gray-600">
-          Du kan när som helst ändra ditt val via länken "Cookieinställningar" i sidfoten.
+          Du kan när som helst ändra ditt val via länken ”Cookieinställningar” i sidfoten.
         </p>
       </section>
 

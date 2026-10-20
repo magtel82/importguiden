@@ -1,8 +1,8 @@
 {
   "_meta": {
-    "lastVerified": "2026-10-19",
+    "lastVerified": "2026-10-20",
     "verifiedBy": "Importguiden",
-    "verificationNote": "2026-07-28: ursprungskontroll (1 240 kr) verifierad mot Transportstyrelsens prislista. Registreringsbesiktning och importförsäkring är schablonvärden som INTE gått att verifiera mot publicerad prislista – Opus och Besikta publicerar inte pris för registreringsbesiktning online. 2026-07-29: lagt till importfirma-bil/-husbil som jämförelseposter (comparisonOnly=true) – ingår aldrig i totalsumman. 2026-10-19: ursprungskontroll (1 240 kr) åter verifierad mot Transportstyrelsens prislista. Schablonposterna är oförändrade och fortfarande overifierade."
+    "verificationNote": "2026-07-28: ursprungskontroll (1 240 kr) verifierad mot Transportstyrelsens prislista. Registreringsbesiktning och importförsäkring är schablonvärden som INTE gått att verifiera mot publicerad prislista – Opus och Besikta publicerar inte pris för registreringsbesiktning online. 2026-07-29: lagt till importfirma-bil/-husbil som jämförelseposter (comparisonOnly=true) – ingår aldrig i totalsumman. 2026-10-19: ursprungskontroll (1 240 kr) åter verifierad mot Transportstyrelsens prislista. Schablonposterna är oförändrade och fortfarande overifierade. 2026-10-20: registreringsbesiktning ändrad till publicerade prislistor (2 500–3 500 kr) med riktig källa – besiktningsföretagen sätter priset, inte Transportstyrelsen. Importförsäkring husbil (2 500 kr) borttagen: saknade belägg. Importfirmornas täckning markerad som overifierad (coverage.verified=false); kalkylatorn visar därför jämförelsen som ett intervall."
   },
   "costs": [
     {
@@ -23,30 +23,36 @@
     {
       "id": "registreringsbesiktning-bil",
       "name": "Registreringsbesiktning",
-      "amount": 1700,
       "isApproximate": true,
       "currency": "SEK",
-      "validFrom": "2025-01-01",
-      "source": "Transportstyrelsen",
-      "sourceUrl": "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/fordonsimport-och-ursprungskontroll/",
-      "note": "Pris varierar mellan besiktningsföretag (Opus, Besikta, DEKRA). Ca 1 500–2 000 kr.",
+      "validFrom": "2026-10-20",
+      "source": "Publicerade prislistor: Ystad Bilbesiktning och Fordonsprovarna Kungälv",
+      "sourceUrl": "https://ystadbilbesiktning.se/priser/",
+      "note": "Besiktningsföretagen sätter priset själva. De stora kedjorna publicerar inte pris för registreringsbesiktning; Ystad Bilbesiktning anger 2 500–3 500 kr och Fordonsprovarna Kungälv 3 239 kr (inkl. moms). Kalkylatorn räknar med mittvärdet.",
       "appliesTo": [
         "bil"
-      ]
+      ],
+      "amountMin": 2500,
+      "amountMax": 3500,
+      "isRange": true,
+      "verified": "2026-10-20"
     },
     {
       "id": "registreringsbesiktning-husbil",
       "name": "Registreringsbesiktning",
-      "amount": 3500,
       "isApproximate": true,
       "currency": "SEK",
-      "validFrom": "2025-01-01",
-      "source": "Transportstyrelsen",
-      "sourceUrl": "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/fordonsimport-och-ursprungskontroll/",
-      "note": "Husbil har mer omfattande besiktning. Ca 3 000–5 000 kr beroende på storlek.",
+      "validFrom": "2026-10-20",
+      "source": "Publicerade prislistor: Ystad Bilbesiktning och Fordonsprovarna Kungälv",
+      "sourceUrl": "https://ystadbilbesiktning.se/priser/",
+      "note": "Besiktningsföretagen sätter priset själva. De stora kedjorna publicerar inte pris för registreringsbesiktning; Ystad Bilbesiktning anger 2 500–3 500 kr och Fordonsprovarna Kungälv 3 239 kr (inkl. moms). Kalkylatorn räknar med mittvärdet.",
       "appliesTo": [
         "husbil"
-      ]
+      ],
+      "amountMin": 2500,
+      "amountMax": 3500,
+      "isRange": true,
+      "verified": "2026-10-20"
     },
     {
       "id": "importforsakring-bil",
@@ -60,20 +66,6 @@
       "note": "If:s pris för trafikförsäkring vid tillfällig registrering (högst 3 månader), oktober 2026. Andra bolag har egna priser.",
       "appliesTo": [
         "bil"
-      ]
-    },
-    {
-      "id": "importforsakring-husbil",
-      "name": "Importförsäkring",
-      "amount": 2500,
-      "isApproximate": true,
-      "currency": "SEK",
-      "validFrom": "2025-01-01",
-      "source": "Jämförelse av svenska försäkringsbolag",
-      "sourceUrl": null,
-      "note": "Kortförsäkring för hemtransport. Varierar 2 000–4 000 kr beroende på bolag och husbilens värde.",
-      "appliesTo": [
-        "husbil"
       ]
     },
     {
@@ -120,7 +112,12 @@
       "appliesTo": [
         "bil"
       ],
-      "comparisonOnly": true
+      "comparisonOnly": true,
+      "coverage": {
+        "described": "Listpriset uppges avse leverans och registrering.",
+        "verified": false,
+        "includedItems": null
+      }
     },
     {
       "id": "importfirma-husbil",
@@ -135,7 +132,12 @@
       "appliesTo": [
         "husbil"
       ],
-      "comparisonOnly": true
+      "comparisonOnly": true,
+      "coverage": {
+        "described": "Källan anger inte vilka poster arvodet täcker.",
+        "verified": false,
+        "includedItems": null
+      }
     }
   ]
 }

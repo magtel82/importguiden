@@ -43,8 +43,6 @@ const GUIDE_SLUGS = [
   "importera-husvagn",
 ] as const;
 
-type GuideSlug = (typeof GUIDE_SLUGS)[number];
-
 interface GuideFrontmatter {
   title: string;
   description: string;

@@ -1,33 +1,47 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import Link from "next/link";
 
 const CONSENT_KEY = "importguiden_consent";
+const CHANGE_EVENT = "importguiden-consent-change";
+
+function subscribe(onChange: () => void) {
+  // "Cookieinställningar" i sidfoten nollställer valet och visar bannern igen.
+  const reopen = () => {
+    localStorage.removeItem(CONSENT_KEY);
+    onChange();
+  };
+  window.addEventListener("show-cookie-settings", reopen);
+  window.addEventListener(CHANGE_EVENT, onChange);
+  window.addEventListener("storage", onChange);
+  return () => {
+    window.removeEventListener("show-cookie-settings", reopen);
+    window.removeEventListener(CHANGE_EVENT, onChange);
+    window.removeEventListener("storage", onChange);
+  };
+}
+
+function setConsent(value: "all" | "necessary") {
+  localStorage.setItem(CONSENT_KEY, value);
+  window.dispatchEvent(new Event(CHANGE_EVENT));
+}
 
 export function CookieConsent() {
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const stored = localStorage.getItem(CONSENT_KEY);
-    if (!stored) setVisible(true);
-
-    const handler = () => {
-      localStorage.removeItem(CONSENT_KEY);
-      setVisible(true);
-    };
-    window.addEventListener("show-cookie-settings", handler);
-    return () => window.removeEventListener("show-cookie-settings", handler);
-  }, []);
+  // Servern vet inget om samtycket – visa ingen banner där (undviker
+  // hydreringsfel). I webbläsaren visas den så länge inget val är sparat.
+  const visible = useSyncExternalStore(
+    subscribe,
+    () => localStorage.getItem(CONSENT_KEY) === null,
+    () => false
+  );
 
   function accept() {
-    localStorage.setItem(CONSENT_KEY, "all");
-    setVisible(false);
+    setConsent("all");
   }
 
   function decline() {
-    localStorage.setItem(CONSENT_KEY, "necessary");
-    setVisible(false);
+    setConsent("necessary");
   }
 
   if (!visible) return null;

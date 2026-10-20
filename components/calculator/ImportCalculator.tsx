@@ -7,6 +7,7 @@ import { AffiliateLink } from "@/components/affiliate/AffiliateLink";
 import costData from "@/data/cost-data.json";
 import importCostsData from "@/datasets/import-costs.json";
 import { calculateMalus, type FuelType } from "@/lib/malus-calculator";
+import { comparisonFromBreakdown } from "@/lib/import-comparison";
 import { formatDateSv } from "@/lib/date";
 
 // Fallback-kurser (SEK per enhet utländsk valuta)
@@ -190,8 +191,8 @@ function ImportCalculatorInner() {
       : "registreringsbesiktning-bil";
   const importfirmaId =
     vehicleType === "husbil" ? "importfirma-husbil" : "importfirma-bil";
-  const forsäkringId =
-    vehicleType === "husbil" ? "importforsakring-husbil" : "importforsakring-bil";
+  // Husbilens importförsäkring saknar publicerat pris – ingen post, räknas som 0 och visas som "offert".
+  const forsäkringId = vehicleType === "husbil" ? null : "importforsakring-bil";
 
   const result = useMemo(() => {
     if (!price || price <= 0) return null;
@@ -209,7 +210,7 @@ function ImportCalculatorInner() {
     const registreringsbesiktning = getCostAmount(besiktningId);
     const ursprungskontroll = getCostAmount("ursprungskontroll");
     const skyltavgift = costData.fees.skyltavgift.amount;
-    const importforsäkring = getCostAmount(forsäkringId);
+    const importforsäkring = forsäkringId ? getCostAmount(forsäkringId) : 0;
 
     let transport: number;
     let transportRange: { min: number; max: number } | null = null;
@@ -240,7 +241,24 @@ function ImportCalculatorInner() {
           })
         : null;
 
+    // Jämförelsen med importfirma: bara poster som skiljer. Moms, tull och
+    // fordonspris betalas lika i båda fallen (lib/import-comparison.ts).
+    const comparison = comparisonFromBreakdown(
+      {
+        vehiclePriceSEK,
+        moms,
+        tull,
+        ursprungskontroll,
+        registreringsbesiktning,
+        skyltavgift,
+        importforsakring: importforsäkring,
+        transport,
+      },
+      getCostAmount(importfirmaId)
+    );
+
     return {
+      comparison,
       vehiclePriceSEK,
       moms,
       tull,
@@ -256,7 +274,7 @@ function ImportCalculatorInner() {
       savingsPct,
       malusResult,
     };
-  }, [price, currency, vehicleType, regYear, isUnderSixMonths, mileageKm, transportMethod, distanceKm, rates, swePrice, showCO2, co2gkm, fuelType, besiktningId, forsäkringId]);
+  }, [price, currency, vehicleType, regYear, isUnderSixMonths, mileageKm, transportMethod, distanceKm, rates, swePrice, showCO2, co2gkm, fuelType, besiktningId, forsäkringId, importfirmaId]);
 
   async function handleCopyLink() {
     await navigator.clipboard.writeText(window.location.href);
@@ -614,10 +632,16 @@ function ImportCalculatorInner() {
               {/* Importförsäkring */}
               <div className="flex justify-between items-start gap-4">
                 <div>
-                  <span className="text-gray-600">Importförsäkring (schablon)</span>
-                  <p className="text-xs text-gray-400">{getCostMetaLabel(forsäkringId)}</p>
+                  <span className="text-gray-600">Importförsäkring</span>
+                  <p className="text-xs text-gray-400">
+                    {forsäkringId
+                      ? getCostMetaLabel(forsäkringId)
+                      : "Inget publicerat pris för husbil – begär offert (ingår inte i summan)"}
+                  </p>
                 </div>
-                <span className="font-medium whitespace-nowrap">{formatSEK(result.importforsäkring)}</span>
+                <span className="font-medium whitespace-nowrap">
+                  {forsäkringId ? formatSEK(result.importforsäkring) : "offert"}
+                </span>
               </div>
 
               {/* Transport */}
@@ -647,51 +671,51 @@ function ImportCalculatorInner() {
                 Jämförelse: anlita en importfirma i stället
               </h4>
               <p className="text-xs text-gray-600 mb-3">
-                Allt utom fordonets pris – alltså vad själva importen kostar dig
-                på de två sätten.
+                Bara det som skiljer mellan alternativen jämförs. Fordonets pris, moms och
+                fordonsskatt betalar du lika oavsett vem som gör importen.
               </p>
               <div className="space-y-1.5 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-gray-600">
-                    Du gör importen själv
-                  </span>
+                <div className="flex justify-between items-start gap-4">
+                  <div>
+                    <span className="text-gray-600">Du gör importen själv</span>
+                    <p className="text-xs text-gray-400">
+                      Ursprungskontroll, besiktning, skyltar, försäkring och transport
+                    </p>
+                  </div>
                   <span className="font-medium whitespace-nowrap">
-                    {formatSEK(result.totalImportCost)}
+                    {formatSEK(result.comparison.self)}
                   </span>
                 </div>
                 <div className="flex justify-between items-start gap-4">
                   <div>
                     <span className="text-gray-600">Du anlitar importfirma</span>
                     <p className="text-xs text-gray-400">
-                      {getCostMetaLabel(importfirmaId)}
+                      Arvode {formatSEK(result.comparison.firmMin)}, plus de poster arvodet inte täcker
                     </p>
                   </div>
                   <span className="font-medium whitespace-nowrap">
-                    {formatSEK(getCostAmount(importfirmaId))}
+                    {formatSEK(result.comparison.firmMin)}–{formatSEK(result.comparison.firmMax)}
                   </span>
                 </div>
-                <div className="flex justify-between border-t border-gray-300 pt-2 mt-2">
+                <div className="flex justify-between border-t border-gray-300 pt-2 mt-2 gap-4">
                   <span className="font-semibold text-gray-900">
-                    {result.totalImportCost <= getCostAmount(importfirmaId)
+                    {result.comparison.diffMin >= 0
                       ? "Du sparar på att göra det själv"
-                      : "Importfirman är billigare"}
+                      : "Skillnad mot att göra det själv"}
                   </span>
                   <span className="font-bold whitespace-nowrap text-gray-900">
-                    {formatSEK(
-                      Math.abs(
-                        getCostAmount(importfirmaId) - result.totalImportCost
-                      )
-                    )}
+                    {result.comparison.diffMin >= 0
+                      ? `${formatSEK(result.comparison.diffMin)}–${formatSEK(result.comparison.diffMax)}`
+                      : `${formatSEK(result.comparison.diffMin)} till ${formatSEK(result.comparison.diffMax)}`}
                   </span>
                 </div>
               </div>
               <p className="text-xs text-gray-400 mt-2">
-                Firmans arvode är ett publicerat listpris hos en enskild aktör,
-                inte ett marknadsgenomsnitt, och det uppges täcka transport,
-                besiktning och registrering. Exakt vilka avgifter som ingår
-                varierar mellan aktörer – begär alltid en specificerad offert.
-                Jämförelsen tar inte hänsyn till din egen tid, resekostnad eller
-                risken i att göra det själv.
+                Arvodet är ett publicerat listpris hos en enskild importfirma, inte ett
+                marknadsgenomsnitt. Vi har inte kunnat verifiera vilka poster arvodet täcker, därför
+                visas ett intervall: från att arvodet täcker allt till att det inte täcker någon av
+                posterna ovan. Begär en specificerad offert. Jämförelsen tar inte hänsyn till din
+                egen tid eller resa.
               </p>
             </div>
 

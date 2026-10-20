@@ -22,18 +22,17 @@
 
 import type { PageManifestEntry } from "@/types";
 
-export interface PatchObject
-  extends Pick<
-    PageManifestEntry,
-    | "id"
-    | "path"
-    | "title"
-    | "description"
-    | "sources"
-    | "uniquePayloadScore"
-    | "quality"
-    | "lastEvaluated"
-  > {}
+export type PatchObject = Pick<
+  PageManifestEntry,
+  | "id"
+  | "path"
+  | "title"
+  | "description"
+  | "sources"
+  | "uniquePayloadScore"
+  | "quality"
+  | "lastEvaluated"
+>;
 
 export interface MergeReport {
   created: string[];
@@ -86,9 +85,6 @@ export function mergeManifest(
     patchMap.set(patch.path, patch);
     if (patch.id) patchMap.set(patch.id, patch);
   }
-
-  const patchedPaths = new Set(patches.map((p) => p.path));
-  const patchedIds = new Set(patches.map((p) => p.id).filter(Boolean));
 
   const updated: PageManifestEntry[] = existingPages.map((existing) => {
     const patch =

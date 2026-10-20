@@ -12,7 +12,7 @@ interface BreadcrumbsProps {
 }
 
 export function Breadcrumbs({ items, siteUrl }: BreadcrumbsProps) {
-  const jsonLdItems = items.map((item, i) => ({
+  const jsonLdItems = items.map((item) => ({
     name: item.name,
     url: item.href ? `${siteUrl}${item.href}` : siteUrl,
   }));
