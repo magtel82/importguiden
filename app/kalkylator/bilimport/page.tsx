@@ -56,8 +56,9 @@ export default function KalkylatornPage() {
               kalkylatorn räknar med mittvärdet
             </li>
             <li>
-              Köra hem själv: {formatCost("bilkostnad_per_mil")} per mil enligt Skatteverkets
-              schablon för egen bil, plus exportskyltar ({formatCost("exportskyltar_avgift")}) och
+              Köra hem själv: din egen förbrukning och ditt bränslepris, eller – om du lämnar dem
+              tomma – {formatCost("bilkostnad_per_mil")} per mil enligt Skatteverkets schablon för
+              skattefri milersättning (verklig kostnad är ofta högre), plus exportskyltar ({formatCost("exportskyltar_avgift")}) och
               exportförsäkring (från {formatCost("exportforsakring_15d")}). Euro räknas om med{" "}
               {eurRateLine()}.
             </li>

@@ -9,6 +9,7 @@ import {
   skyltavgiftKr,
   exportKostnad,
   bilkostnadForKm,
+  formatCost,
   formatSekRange,
   costSourceLine,
   getComparison,
@@ -96,6 +97,9 @@ function ImportCalculatorInner() {
   const [distanceKm, setDistanceKm] = useState(
     () => Number(searchParams.get("km") || COUNTRY_DISTANCES.tyskland)
   );
+  // Egen bränsleförbrukning (l/mil) och bränslepris (kr/l). Tomma = Skatteverkets schablon.
+  const [litersPerMil, setLitersPerMil] = useState(() => Number(searchParams.get("lpm") || 0));
+  const [fuelPrice, setFuelPrice] = useState(() => Number(searchParams.get("fuelPrice") || 0));
   const [transportOffer, setTransportOffer] = useState(
     () => Number(searchParams.get("transportOffer") || 0)
   );
@@ -147,10 +151,12 @@ function ImportCalculatorInner() {
     params.set("km", String(distanceKm));
     if (swePrice > 0) params.set("swePrice", String(swePrice));
     if (transportOffer > 0) params.set("transportOffer", String(transportOffer));
+    if (litersPerMil > 0) params.set("lpm", String(litersPerMil));
+    if (fuelPrice > 0) params.set("fuelPrice", String(fuelPrice));
     if (co2gkm > 0) params.set("co2", String(co2gkm));
     if (fuelType !== "bensin") params.set("fuel", fuelType);
     router.replace(`?${params.toString()}`, { scroll: false });
-  }, [price, currency, country, vehicleType, regYear, isUnderSixMonths, mileageKm, transportMethod, transportOffer, distanceKm, swePrice, co2gkm, fuelType, router]);
+  }, [price, currency, country, vehicleType, regYear, isUnderSixMonths, mileageKm, transportMethod, transportOffer, litersPerMil, fuelPrice, distanceKm, swePrice, co2gkm, fuelType, router]);
 
   function handleCountryChange(newCountry: string) {
     setCountry(newCountry);
@@ -188,7 +194,12 @@ function ImportCalculatorInner() {
     let exportkostnad = 0;
     if (transportMethod === "self") {
       exportkostnad = exportKostnad().min;
-      transport = bilkostnadForKm(distanceKm) + exportkostnad;
+      // Egen förbrukning och bränslepris om båda är ifyllda, annars Skatteverkets schablon.
+      const egenBransle = litersPerMil > 0 && fuelPrice > 0;
+      const bilkostnad = egenBransle
+        ? Math.round((distanceKm / 10) * litersPerMil * fuelPrice)
+        : bilkostnadForKm(distanceKm);
+      transport = bilkostnad + exportkostnad;
     } else {
       transport = transportOffer > 0 ? transportOffer : 0;
     }
@@ -247,7 +258,7 @@ function ImportCalculatorInner() {
       savingsPct,
       malusResult,
     };
-  }, [price, currency, vehicleType, regYear, isUnderSixMonths, mileageKm, transportMethod, transportOffer, distanceKm, rates, swePrice, showCO2, co2gkm, fuelType, importfirma]);
+  }, [price, currency, vehicleType, regYear, isUnderSixMonths, mileageKm, transportMethod, transportOffer, litersPerMil, fuelPrice, distanceKm, rates, swePrice, showCO2, co2gkm, fuelType, importfirma]);
 
   async function handleCopyLink() {
     await navigator.clipboard.writeText(window.location.href);
@@ -427,10 +438,36 @@ function ImportCalculatorInner() {
             </label>
           </div>
           {transportMethod === "self" ? (
-            <p className="mt-1 text-xs text-gray-400">
-              Bilkostnad enligt Skatteverkets schablon för egen bil, plus tyska exportskyltar och
-              exportförsäkring.
-            </p>
+            <div className="mt-2 grid grid-cols-2 gap-2">
+              <div>
+                <label className="block text-xs text-gray-600 mb-1">Förbrukning (l/mil)</label>
+                <input
+                  type="number"
+                  step="0.1"
+                  value={litersPerMil || ""}
+                  onChange={(e) => setLitersPerMil(Number(e.target.value))}
+                  placeholder="t.ex. från bilens data"
+                  className="w-full rounded border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              <div>
+                <label className="block text-xs text-gray-600 mb-1">Bränslepris (kr/l)</label>
+                <input
+                  type="number"
+                  step="0.1"
+                  value={fuelPrice || ""}
+                  onChange={(e) => setFuelPrice(Number(e.target.value))}
+                  placeholder="dagens pris"
+                  className="w-full rounded border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              <p className="col-span-2 text-xs text-gray-400">
+                Lämnar du fälten tomma räknar vi med Skatteverkets schablon för egen bil,{" "}
+                {formatCost("bilkostnad_per_mil")} per mil. Det är en schablon för skattefri
+                milersättning – din verkliga kostnad är ofta högre. Exportskyltar och exportförsäkring
+                läggs till.
+              </p>
+            </div>
           ) : (
             <div className="mt-2">
               <label className="block text-xs text-gray-600 mb-1">
@@ -652,7 +689,7 @@ function ImportCalculatorInner() {
                   </span>
                   <p className="text-xs text-gray-400">
                     {transportMethod === "self"
-                      ? `Bilkostnad ${formatSEK(result.transport - result.exportkostnad)} + exportskyltar och exportförsäkring ${formatSEK(result.exportkostnad)}`
+                      ? `${litersPerMil > 0 && fuelPrice > 0 ? "Bränsle enligt din förbrukning" : "Bilkostnad enligt Skatteverkets schablon"} ${formatSEK(result.transport - result.exportkostnad)} + exportskyltar och exportförsäkring ${formatSEK(result.exportkostnad)}`
                       : transportOffer > 0
                       ? "Enligt din offert"
                       : "Fyll i offertpris – ingår inte annars"}
