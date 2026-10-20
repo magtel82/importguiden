@@ -49,10 +49,10 @@ ProcessSteps på startsidan.
 | Släp undantagna från försäkringskravet vid tillfällig registrering | Transportstyrelsen: "Släpfordon är undantagna denna försäkringsplikt." | Belagt |
 | Släp kräver ingen egen trafikförsäkring | Trafikskadelag (1975:1410) 2 §: "Trafikförsäkring skall finnas för motordrivet fordon som är registrerat i vägtrafikregistret och inte är avställt…". 1 b §: "Om det till ett motordrivet fordon som omfattas av lagen har kopplats ett fordon av något annat slag, tillämpas lagens bestämmelser om skada i följd av trafik med ett motordrivet fordon på fordonskombinationen i dess helhet." | Belagt, tillagt 2026-10-21 |
 | Tillfällig registrering 3 mån, kan ej förlängas; 7-dagarsregeln | Transportstyrelsen: "Den tillfälliga registreringen gäller i tre månader och kan inte förlängas." / "…får du köra fordonet i högst sju dagar från det datum då fordonet fördes in i landet…" | Belagt |
-| B: lätt släp ≤750 kg eller kombination ≤3 500 kg; tågvikt upp till 4 250 kg | Transportstyrelsen: "Generellt kan man säga att ett lätt släp har en totalvikt på högst 750 kg. Även ett släp med högre totalvikt än 750 kg kan vara lätt, så länge den sammanlagda totalvikten på släp och bil är högst 3 500 kg." / "…tågvikten kan komma upp till som högst 4 250 kilo och du får köra det ekipaget på ett B-körkort." | Belagt |
+| B: bil + husvagn sammanlagt högst 3 500 kg (husvagn över 750 kg räknas som lätt släp bara då) | Transportstyrelsen: "Även ett släp med högre totalvikt än 750 kg kan vara lätt, så länge den sammanlagda totalvikten på släp och bil är högst 3 500 kg. För att köra sådana fordonskombinationer räcker det med körkort med behörighet B." | Belagt. Justerat 2026-10-22: uppgiften om tågvikt 4 250 kg på B (gäller bara släp ≤750 kg) är borttagen ur guiden |
 | Utökad B: högst 4 250 kg | Transportstyrelsen: "Med den utökade B-behörigheten får du köra fordonskombinationer där bilens och släpets sammanlagda totalvikt är högst 4 250 kg." | Belagt |
 | BE för tyngre | Transportstyrelsen: "I andra fall krävs behörighet för utökad B eller BE." | Belagt |
-| Momsregler för nya transportmedel gäller inte släp | Skatteverket: "Ett motordrivet marktransportmedel är ett fordon … och har en motor med en cylindervolym på mer än 48 kubikcentimeter eller en effekt på mer än 7,2 kilowatt." (husvagn saknar motor) | Belagt (slutsats ur definitionen) |
+| En husvagn räknas inte som nytt transportmedel; ny husvagn från tysk handlare: normalt tysk moms, ingen svensk | Skatteverket: "Ett motordrivet marktransportmedel är ett fordon … och har en motor med en cylindervolym på mer än 48 kubikcentimeter eller en effekt på mer än 7,2 kilowatt." | **Slutsats ur definitionen** – Skatteverket säger inte uttryckligen att husvagnar är undantagna. Formulering godkänd av Magnus 2026-10-22 |
 | Exportskyltar för släp | FZV § 45: "…oder ein Anhänger hinter einem Kraftfahrzeug dauerhaft in einen anderen Staat verbracht werden…" | Belagt |
 | Kontrollbesiktning lätt släp 48/24 mån | Transportstyrelsen: "Lätta släp (max 3 500 kg) ska kontrollbesiktas första gången senast 48 månader efter den månad då fordonet första gången togs i trafik. därefter senast 24 månader…" | Belagt |
 | Originalet av tillverkarintyget med till besiktningen | Transportstyrelsen: "Originalet av intyget ska du ta med vid registreringsbesiktningen." | Belagt |
@@ -60,7 +60,7 @@ ProcessSteps på startsidan.
 | "Fukt är det vanligaste dolda felet" | – | Omskrivet ("syns inte alltid utanpå") |
 | Wohnwagen = husvagn på mobile.de | Terminologi | Ej källbelagt (översättning) |
 
-Sidan står som noindex tills Magnus godkänt tabellen.
+Tabellen godkänd av Magnus 2026-10-22 med två justeringar (körkort, moms). Sidan indexerad samma dag.
 
 ## 3. Ej verifierat / TODO
 
