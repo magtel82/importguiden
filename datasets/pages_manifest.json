@@ -17,7 +17,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-10-20",
+      "lastEvaluated": "2026-10-21",
       "notes": "Startsida/hub – kortare innehåll är OK. Score 75 reflekterar att sidan är en navigations-hub, inte en guide.",
       "tags": [
         "startsida"
@@ -39,7 +39,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-10-20",
+      "lastEvaluated": "2026-10-21",
       "tags": [
         "land",
         "bil"
@@ -85,7 +85,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-10-20",
+      "lastEvaluated": "2026-10-21",
       "notes": "pSEO med ADAC-data, garanti-sektion, fordonsskatt-tabell, Fahrzeugbrief-guide, CostTable och FAQ-schema. Fördjupat 2026-04-01. ADAC-källår 2025→2026 (2026-05-14).",
       "tags": [
         "marke",
@@ -109,7 +109,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-10-20",
+      "lastEvaluated": "2026-10-21",
       "notes": "pSEO med ADAC-data, garanti-sektion, fordonsskatt-tabell, Fahrzeugbrief-guide, CostTable och FAQ-schema. Fördjupat 2026-04-02. ADAC-källår 2025→2026 (2026-05-14).",
       "tags": [
         "marke",
@@ -133,7 +133,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-10-20",
+      "lastEvaluated": "2026-10-21",
       "notes": "pSEO med ADAC-data, garanti-sektion, fordonsskatt-tabell, Fahrzeugbrief-guide, CostTable och FAQ-schema. Fördjupat 2026-04-02. ADAC-källår 2025→2026 (2026-05-14).",
       "tags": [
         "marke",
@@ -157,7 +157,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-10-20",
+      "lastEvaluated": "2026-10-21",
       "notes": "pSEO med ADAC-data, garanti-sektion, fordonsskatt-tabell, Fahrzeugbrief-guide, CostTable och FAQ-schema. Fördjupat 2026-04-02. ADAC-källår 2025→2026 (2026-05-14).",
       "tags": [
         "marke",
@@ -204,7 +204,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-10-20",
+      "lastEvaluated": "2026-10-21",
       "notes": "pSEO med Tesla-specifik sektion (SoH, laddkontakt) + garanti, fordonsskatt, Fahrzeugbrief, CostTable och FAQ-schema. Fördjupat 2026-04-02. ADAC 2025→2026 + elbil-stat (40% färre pannor) tillagd 2026-05-14.",
       "tags": [
         "marke",
@@ -229,7 +229,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-10-20",
+      "lastEvaluated": "2026-10-21",
       "notes": "pSEO med ADAC-data + IMS-varning, garanti-sektion, fordonsskatt-tabell, Fahrzeugbrief-guide, CostTable och FAQ-schema. Fördjupat 2026-04-02. ADAC-källår 2025→2026 (2026-05-14).",
       "tags": [
         "marke",
@@ -320,7 +320,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-10-20",
+      "lastEvaluated": "2026-10-21",
       "notes": "pSEO med Ducato-varning + Sprinter-alternativ, garanti-sektion, malus-info (feb 2025), CostTable och FAQ-schema. Fördjupat 2026-04-01.",
       "tags": [
         "marke",
@@ -344,7 +344,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-10-20",
+      "lastEvaluated": "2026-10-21",
       "notes": "pSEO med Ducato-varning, garanti (Erwin Hymer Group), malus-info, chassi-extra, CostTable och FAQ-schema. Fördjupat 2026-04-02.",
       "tags": [
         "marke",
@@ -368,7 +368,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-10-20",
+      "lastEvaluated": "2026-10-21",
       "notes": "pSEO med Ducato-varning + Lyseo/Sprinter, garanti, malus-info, chassi-extra, CostTable och FAQ-schema. Fördjupat 2026-04-02.",
       "tags": [
         "marke",
@@ -392,7 +392,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-10-20",
+      "lastEvaluated": "2026-10-21",
       "notes": "pSEO med Ducato-varning, garanti (10 år fukt), malus-info, chassi-extra, CostTable och FAQ-schema. Fördjupat 2026-04-02.",
       "tags": [
         "marke",
@@ -416,7 +416,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-10-20",
+      "lastEvaluated": "2026-10-21",
       "notes": "pSEO med Ducato-varning, garanti (10 år fukt), malus-info, chassi-extra, CostTable och FAQ-schema. Fördjupat 2026-04-02.",
       "tags": [
         "marke",
@@ -504,7 +504,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-10-19",
+      "lastEvaluated": "2026-10-21",
       "tags": [
         "guide",
         "kostnad",
@@ -528,7 +528,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-10-20",
+      "lastEvaluated": "2026-10-21",
       "tags": [
         "guide",
         "köpprocess",
@@ -650,7 +650,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-10-20",
+      "lastEvaluated": "2026-10-21",
       "notes": "Quality gate godkänd 2026-03-29. ~1100 ord, SoH-förklaring, momsexempel, CCS2/CHAdeMO-info, tre myndighetsbelagda källor. ADAC 2026-data + Ioniq 5 ICCU-varning tillagd 2026-05-14.",
       "tags": [
         "guide",
@@ -698,7 +698,7 @@
         "isThin": false,
         "indexable": false
       },
-      "lastEvaluated": "2026-10-20",
+      "lastEvaluated": "2026-10-21",
       "notes": "Ny guide 2026-10-19. GSC: 'importera husvagn från tyskland' 2/27, 'importera husvagn' 0/17, 'från danmark' 0/12, 'från polen' 0/7. ~1 000 ord, alla fakta med myndighetskälla. Quality gate självbedömd av författaren (Claude Code) mot docs/quality-gate-single.md – låt en människa granska. 2026-10-20: satt till noindex i väntan på att ägaren godkänt verifieringstabellen i audits/2026-10-belopp-log.md (påstående, källcitat, status).",
       "tags": [
         "husvagn",
@@ -721,7 +721,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-10-20",
+      "lastEvaluated": "2026-10-21",
       "notes": "Quality gate godkänd 2026-03-29. ~900 ord, husbilsspecifik ordlista, filtreringstips, fuktkontroll, checklista, FAQ. 2025→2026 datum-sweep 2026-05-13.",
       "tags": [
         "guide",
@@ -765,7 +765,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-10-20",
+      "lastEvaluated": "2026-10-21",
       "notes": "Interaktivt verktyg – hasSources=false är OK, verktyget är det unika värdet.",
       "tags": [
         "verktyg"
@@ -787,7 +787,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-10-20",
+      "lastEvaluated": "2026-10-21",
       "notes": "Prisjämförelse per segment med schablonvärden. Källor: mobile.de, Bytbil, Blocket. Break-even-kalkyl med data från cost-data.json. 2026-10-20: omskriven till metodsida. Prisnivåer per segment och prisskillnader per märke borttagna (saknade källa).",
       "tags": [
         "jamfor"
@@ -823,7 +823,7 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-03-13",
+      "lastEvaluated": "2026-10-21",
       "notes": "Hub-sida som listar alla guider. Indexeras för internlänkning och navigationsstruktur.",
       "tags": [
         "guide",
@@ -1021,7 +1021,7 @@
         "isThin": false,
         "indexable": false
       },
-      "lastEvaluated": "2026-07-29",
+      "lastEvaluated": "2026-10-21",
       "notes": "NY 2026-07-29, ca 964 ord. Quality gate ej körd – score 0 och indexable=false tills den är det. Sökbar ordlista, 100+ termer i data/german-car-terms.json. Renderas via <GlossaryTable>. Riktar sig mot mobile.de-sökorden som dominerar GSC-exponeringarna.",
       "tags": [
         "guide",
@@ -1118,7 +1118,7 @@
         "isThin": true,
         "indexable": false
       },
-      "lastEvaluated": "2026-10-20",
+      "lastEvaluated": "2026-10-21",
       "notes": "NY 2026-07-29. Tunn med 3 poster – ska växa i takt med att Visualping larmar. Sätt indexable=true först när loggen har substans. Data i data/regulation-changes.json.",
       "tags": [
         "logg",

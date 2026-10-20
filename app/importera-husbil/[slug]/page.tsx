@@ -9,7 +9,7 @@ import rehypeSlug from "rehype-slug";
 import { AffiliateLink } from "@/components/affiliate/AffiliateLink";
 import { TableOfContents } from "@/components/TableOfContents";
 import { extractHeadings } from "@/lib/headings";
-import { getCountries, getCountryBySlug, getMotorhomeBrands, getMotorhomeBrandImportData, formatSEK } from "@/lib/data";
+import { getCountries, getCountryBySlug, getMotorhomeBrands, getMotorhomeBrandImportData } from "@/lib/data";
 import { getCanonicalUrl, getArticleJsonLd, getFaqJsonLd } from "@/lib/seo";
 import { getRobotsForPath, getLastUpdatedForPath } from "@/lib/manifest";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";

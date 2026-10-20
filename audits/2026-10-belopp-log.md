@@ -47,7 +47,7 @@ ProcessSteps på startsidan.
 | "De flesta husvagnar ligger under gränsen" | – | Borttaget (ingen källa) |
 | Ursprungskontroll krävs för husvagn | Transportstyrelsen: "Du behöver ansöka om ursprungskontroll för alla fordon som ska registreras i Sverige, med undantag för nya fordon som importeras av registrerade importörer…" | Belagt |
 | Släp undantagna från försäkringskravet vid tillfällig registrering | Transportstyrelsen: "Släpfordon är undantagna denna försäkringsplikt." | Belagt |
-| "Släp omfattas av dragfordonets trafikförsäkring" | – | Påståendet finns inte i guiden |
+| Släp kräver ingen egen trafikförsäkring | Trafikskadelag (1975:1410) 2 §: "Trafikförsäkring skall finnas för motordrivet fordon som är registrerat i vägtrafikregistret och inte är avställt…". 1 b §: "Om det till ett motordrivet fordon som omfattas av lagen har kopplats ett fordon av något annat slag, tillämpas lagens bestämmelser om skada i följd av trafik med ett motordrivet fordon på fordonskombinationen i dess helhet." | Belagt, tillagt 2026-10-21 |
 | Tillfällig registrering 3 mån, kan ej förlängas; 7-dagarsregeln | Transportstyrelsen: "Den tillfälliga registreringen gäller i tre månader och kan inte förlängas." / "…får du köra fordonet i högst sju dagar från det datum då fordonet fördes in i landet…" | Belagt |
 | B: lätt släp ≤750 kg eller kombination ≤3 500 kg; tågvikt upp till 4 250 kg | Transportstyrelsen: "Generellt kan man säga att ett lätt släp har en totalvikt på högst 750 kg. Även ett släp med högre totalvikt än 750 kg kan vara lätt, så länge den sammanlagda totalvikten på släp och bil är högst 3 500 kg." / "…tågvikten kan komma upp till som högst 4 250 kilo och du får köra det ekipaget på ett B-körkort." | Belagt |
 | Utökad B: högst 4 250 kg | Transportstyrelsen: "Med den utökade B-behörigheten får du köra fordonskombinationer där bilens och släpets sammanlagda totalvikt är högst 4 250 kg." | Belagt |
@@ -56,7 +56,7 @@ ProcessSteps på startsidan.
 | Exportskyltar för släp | FZV § 45: "…oder ein Anhänger hinter einem Kraftfahrzeug dauerhaft in einen anderen Staat verbracht werden…" | Belagt |
 | Kontrollbesiktning lätt släp 48/24 mån | Transportstyrelsen: "Lätta släp (max 3 500 kg) ska kontrollbesiktas första gången senast 48 månader efter den månad då fordonet första gången togs i trafik. därefter senast 24 månader…" | Belagt |
 | Originalet av tillverkarintyget med till besiktningen | Transportstyrelsen: "Originalet av intyget ska du ta med vid registreringsbesiktningen." | Belagt |
-| "Ingen tull inom EU" | Tullverkets sida säger det inte uttryckligen | Borttaget |
+| Ingen tull vid handel inom EU | Europeiska unionen, EU:s tullunion i praktiken: "För EU:s del innebär detta att inga tullar ska betalas för varor som skickas från ett EU-land till ett annat." | Belagt, återinfört 2026-10-21 |
 | "Fukt är det vanligaste dolda felet" | – | Omskrivet ("syns inte alltid utanpå") |
 | Wohnwagen = husvagn på mobile.de | Terminologi | Ej källbelagt (översättning) |
 
@@ -108,6 +108,65 @@ Sidan står som noindex tills Magnus godkänt tabellen.
 - https://importguiden.se/importera-husbil/knaus
 - https://importguiden.se/importera-husbil/kostnad
 - https://importguiden.se/importera-husbil/tyskland
+- https://importguiden.se/jamfor/tyskland-vs-sverige
+- https://importguiden.se/kalkylator/bilimport
+- https://importguiden.se/regelandringar
+
+
+---
+
+# Körning 2026-10-21 – kvarvarande punkter
+
+1. **Bygg-spärr:** "prebuild": "npm test && npm run lint". Verifierat: ett planterat
+   belopp ("4 321 kr" i eeg-intyg.mdx) får `npm run build` att falla i prebuild.
+   Vercel-projektet har inget eget byggkommando och Node 24.x.
+2. **Importfirman:** källa Importbil.se (startsidan, dateModified 2026-10-07):
+   "Vårt fastpris på import av bilar/husbilar, inkluderar: Transport,
+   registreringsbesiktning, ursprungskontroll hos Transportstyrelsen och leverans
+   i Lund." 19 900 / 29 900 kr + moms. Jämförelsen visar nu exakt belopp för de
+   täckta posterna; skyltar och försäkring jämförs inte (källan anger dem inte).
+   Länkas inte från sajten.
+3. **mobile.de:** 10 språk, ingen svenska – manuell kontroll 2026-10-19.
+4. **Kalkylatorn:** egen förbrukning (l/mil) och bränslepris; schablon 25 kr/mil
+   som standard med texten att verklig kostnad ofta är högre.
+5. **Registreringsbesiktning:** Opus, Bilprovningen och Carspect publicerar inte
+   pris (citat i cost-data.json), DEKRA saknar uppgift. Intervallet oförändrat
+   (Ystad, Kungälv).
+6. **/jamfor:** break-even-kalkyl (pris SE + pris DE, transport, moms).
+7. **Procent:** testet fångar procent; märkesdatan priceEUR/priceSEK/priceAdvantage
+   och meningar med "X–Y procent lägre priser" borttagna; Sprinter-procent,
+   elbilsprocent och växlingsavgifter borttagna. Momsgränsen rättad på fler sidor.
+8. **Husvagn:** tull (EU-källa) och trafikförsäkring (TSL 1 b och 2 §§) tillagda.
+   Fortfarande noindex.
+
+## Ej belagt – kvar
+- mätarmanipulationsguiden: procentuppgifter tillskrivna ADAC, VDA och carVertical
+  (källorna inte kontrollerade i den här körningen).
+- /importera-husbil/tyskland: "ökning på ungefär 39 procent" och "66 procent"
+  (källa: branschstatistik/Vroom, inte kontrollerade).
+- DEKRA:s pris för registreringsbesiktning – ingen uppgift på webbplatsen.
+
+## URL:er med ändrat innehåll 2026-10-21 (för GSC)
+
+- https://importguiden.se/
+- https://importguiden.se/guider
+- https://importguiden.se/guider/importera-elbil
+- https://importguiden.se/guider/kopa-bil-mobile-de-autoscout24
+- https://importguiden.se/guider/kopa-husbil-mobil-de
+- https://importguiden.se/guider/moms-vid-bilimport
+- https://importguiden.se/guider/tysk-bilordlista
+- https://importguiden.se/importera-bil/audi
+- https://importguiden.se/importera-bil/bmw
+- https://importguiden.se/importera-bil/mercedes
+- https://importguiden.se/importera-bil/porsche
+- https://importguiden.se/importera-bil/tesla
+- https://importguiden.se/importera-bil/tyskland
+- https://importguiden.se/importera-bil/volkswagen
+- https://importguiden.se/importera-husbil/burstner
+- https://importguiden.se/importera-husbil/dethleffs
+- https://importguiden.se/importera-husbil/hobby
+- https://importguiden.se/importera-husbil/hymer
+- https://importguiden.se/importera-husbil/knaus
 - https://importguiden.se/jamfor/tyskland-vs-sverige
 - https://importguiden.se/kalkylator/bilimport
 - https://importguiden.se/regelandringar

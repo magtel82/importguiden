@@ -1,6 +1,6 @@
 # CLAUDE.md – Importguiden
 
-# Senast uppdaterad: 2026-10-20 (16)
+# Senast uppdaterad: 2026-10-21 (17)
 
 # Status: MVP GO – affiliate-redo, aktiv utveckling
 
@@ -861,9 +861,16 @@ OBS: mobile.de:s språk är en TODO i data/mobile-de.json – fylls i för hand
 OBS: Försäkringsbolag listas neutralt i data/forsakringsbolag.json. Partnerlänkar
 bara via components/affiliate/PartnerLink.tsx och först när samarbetet står på
 /finansiering.
-OBS: `npm run build` kör lint + test före next build – även på Vercel, så en
-röd lint eller ett rött test stoppar deployen (sajten ligger kvar på förra
-versionen). Samma kontroller körs i pre-push (.githooks). Node 24 (engines).
+OBS: "prebuild" kör `npm test && npm run lint` före varje `npm run build` –
+även på Vercel (inget eget byggkommando i projektet), så ett rött test eller
+lintfel stoppar deployen även vid --no-verify eller ändringar via GitHub.
+Samma kontroller körs i pre-push (.githooks). Node 24 (engines).
+OBS: Procenttal i sidtext godkänns av testet bara om de finns i
+cost-data.json → procentsatser (moms, tull inom EU, elbilspremiens inkomstgräns)
+eller i vitlistan. Skriv momssatsen med <Momssats /> i MDX.
+OBS: Importfirmans fastpris (comparisons i cost-data.json) har källa
+(Importbil.se) och belagd täckning, men länkas medvetet inte från sajten.
+Jämförelsen tar bara med poster som källan säger ingår.
 OBS: `npm test` kör node:test (lib/**/*.test.mjs) – inga beroenden. Facit för
 skatteberäkningen ligger i lib/malus-calculator.test.mjs.
 OBS: Kända kommande händelser läggs i `upcoming` i data/regulation-changes.json.
