@@ -179,3 +179,20 @@ Tabellen godkänd av Magnus 2026-10-22 med två justeringar (körkort, moms). Si
 - Dethleffs (dethleffs.de/reisemobile, 2026-10-20): Globebus Performance = VW Crafter, Graneo = Mercedes Sprinter.
 - Fältkoder ZB I: direktiv 1999/37/EG bilaga I (F.1/F.2 = totalvikt, G = tjänstevikt).
 - Kvar att granska utanför märkessidorna: /guider/importera-elbil (Ioniq 5 ICCU 15 år/300 000 km, ADAC-formuleringar).
+
+## Källgranskning a–b (2026-10-20)
+
+Citat ur primärkällor som ändringarna bygger på:
+
+- Transportstyrelsen, Fordonsimport och ursprungskontroll (https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/fordonsimport-och-ursprungskontroll/, läst 2026-10-20):
+  - "När fordonet befinner sig i Sverige ska du ansöka om ursprungskontroll."
+  - "Transportstyrelsen tar en avgift för ansökan om ursprungskontroll, den ska betalas i förskott. Ansöker du via vår e-tjänst får du betalningsinformationen direkt, ansöker du via en blankett får du hem en faktura när ärendet är registrerat."
+  - "En ansökan om ursprungskontroll är giltig i 5 år från godkännandedatum."
+  - "Besiktningsingenjören gör en teknisk identifiering av fordonet kontrollerar det ur miljö- och trafiksäkerhetssynpunkt fastställer de fordonsuppgifter som ska registreras i vägtrafikregistret"
+  - "När registreringsbesiktningen ... är genomförd och godkänd registrerar besiktningsföretaget fordonet i vägtrafikregistret. Fordonet tilldelas ett registreringsnummer automatiskt och Transportstyrelsen skickar hem ett registreringsbevis och fordonets registreringsskyltar"
+  - "När fordonet är påställt kommer du att få en faktura för fordonsskatt."
+- Transportstyrelsen, Import från ett EU-land (…/import-fran-ett-eu-land/, läst 2026-10-20): "Om fordonet varit registrerat i ursprungslandet... måste du skicka in registreringsbeviset i original. Om flera delar är utfärdade måste du skicka in samtliga." / köpehandling: "vem som är säljare respektive köpare, vad som sålts och datum ... identifieringsnummer (chassinummer)".
+- Naturvårdsverket, Villkor för elbilspremien (granskad 5 juni 2026, läst 2026-10-20): "För att få elbilspremien behöver du vara bosatt och folkbokförd på en adress inom stödområdet." / "Elbilspremiens stödområde omfattar Sveriges landsbygdskommuner och områden i andra kommuner som SCB klassar som landsbygd." Importfrågan: NV e-post 2026-05-13, ärende NV202635943 (se elbilspremie-guiden).
+- electrive.com 2026-04-17 (citerar Hyundai Deutschland): "the ICCU warranty has been extended to 15 years from the date of first registration ... up to 300,000 kilometres"; "applies to Hyundai Ioniq 5 models built up to April 2024"; gäller "in Germany".
+- ADAC Pannenstatistik 2026: "Die Schlechtesten in ihrer Klasse – Mittelklasse: ... Hyundai Ioniq 5 (2022–2023)".
+- Ej belagt och borttaget: nyregistreringar husbilar 2025 (3 711 / 2 673, 39 %, 66 % "Vroom") – ingen primärkälla hittad; CCS2 i "alla elbilar efter 2018"; EUR-Lex (AFIR) svarar 202 till automatiska hämtningar.

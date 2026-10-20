@@ -310,7 +310,7 @@ REGLER:
 
 NULÄGE (märkessidor):
 
-* Alla 11 märkessidor (6 bil + 5 husbil) är indexable=true med score 80–85
+* Alla 11 märkessidor (6 bil + 5 husbil) är indexable=false sedan källrensningen 2026-10-20 (score 30–64: mest gemensam malltext). Bygg ut med belagt, märkesunikt innehåll innan de indexeras igen.
 
 # ==========================================================
 
@@ -845,6 +845,17 @@ OBS: /guider/forsakra-importerad-bil är sammanslagen med /guider/importforsakri
 (permanent redirect i next.config.ts). Skapa inte en ny sida om samma sökavsikt.
 OBS: mobile.de blockerar automatiska kontroller (403) – sajtens språklista är
 OVERIFIERAD. Skriv inga påståenden om vilka språk sajten har.
+REGEL – KÄLLKRAV FÖR SAKPÅSTÅENDEN (gäller allt innehåll, även nytt):
+Inga sakpåståenden – siffror, garantier, tekniska fel, rankningar, rättsregler,
+handläggningssteg, produktionsorter, marknadsstorlek – utan antingen (a) källa
+och kontrolldatum i data (cost-data.json m.fl.) eller (b) ett citat från
+källan med URL och datum i audit-loggen (audits/). Kan källan inte läsas
+(t.ex. tesla.com och mobile.de blockerar automatiska kontroller): skriv
+inget, eller skriv råd om hur läsaren själv kontrollerar ("be verkstaden
+bekräfta via VIN"). Sekundärkällor (fackpress) får användas bara om de citerar
+primärkällan och anges vid påståendet. Sakfel loggas som Rättelse på
+/regelandringar. Blir en sida tunn efter rensning: poängsätt om och sätt
+noindex i datasets/pages_manifest.json om den hamnar under 75.
 OBS: ALLA BELOPP kommer från data/cost-data.json (källa, kontrolldatum, typ
 officiell | marknadspris | schablon). Sidor använder lib/costs.ts; MDX använder
 <Belopp id="…" />, <Sats />, <Skatt />, <Summa ids="a,b" /> m.fl. (components/

@@ -39,12 +39,12 @@
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-10-21",
+      "lastEvaluated": "2026-10-20",
       "tags": [
         "land",
         "bil"
       ],
-      "notes": "Quality gate 2026-07-28: OLÖST motstridighet mellan sidans två kostnadstabeller – registreringsbesiktning anges både som ~1 500–1 900 kr och 900–1 500 kr, COC-intyg både som 500–1 500 kr/1–2 v och 50–150 EUR/2–4 v, transport både som 6 000–12 000 kr och 4 000–8 000 kr. Ingen siffra gick att källverifiera. Kräver redaktionellt beslut."
+      "notes": "Quality gate 2026-07-28: OLÖST motstridighet mellan sidans två kostnadstabeller – registreringsbesiktning anges både som ~1 500–1 900 kr och 900–1 500 kr, COC-intyg både som 500–1 500 kr/1–2 v och 50–150 EUR/2–4 v, transport både som 6 000–12 000 kr och 4 000–8 000 kr. Ingen siffra gick att källverifiera. Kräver redaktionellt beslut. | Källgranskad 2026-10-20: ca 1 740 ord; ursprungskontroll, registrering och påställning skrivna efter Transportstyrelsens sida. Indexerbar. Poäng 84→84."
     },
     {
       "id": "importera-bil-kostnad",
@@ -79,14 +79,14 @@
         "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
         "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/skatter-och-avgifter/fordonsskatt/skattens-storlek/"
       ],
-      "uniquePayloadScore": 82,
+      "uniquePayloadScore": 52,
       "quality": {
         "hasSources": true,
-        "isThin": false,
-        "indexable": true
+        "isThin": true,
+        "indexable": false
       },
-      "lastEvaluated": "2026-10-21",
-      "notes": "pSEO med ADAC-data, garanti-sektion, fordonsskatt-tabell, Fahrzeugbrief-guide, CostTable och FAQ-schema. Fördjupat 2026-04-01. ADAC-källår 2025→2026 (2026-05-14).",
+      "lastEvaluated": "2026-10-20",
+      "notes": "pSEO med ADAC-data, garanti-sektion, fordonsskatt-tabell, Fahrzeugbrief-guide, CostTable och FAQ-schema. Fördjupat 2026-04-01. ADAC-källår 2025→2026 (2026-05-14). | 2026-10-20: omräknad 82→52. Efter källrensningen är ca 90 % av texten gemensam mall med övriga bilmärken; unikt är intro och ADAC-listan. Malltext med ordbyten → noindex.",
       "tags": [
         "marke",
         "bil",
@@ -103,14 +103,14 @@
         "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
         "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/skatter-och-avgifter/fordonsskatt/skattens-storlek/"
       ],
-      "uniquePayloadScore": 82,
+      "uniquePayloadScore": 50,
       "quality": {
         "hasSources": true,
-        "isThin": false,
-        "indexable": true
+        "isThin": true,
+        "indexable": false
       },
-      "lastEvaluated": "2026-10-21",
-      "notes": "pSEO med ADAC-data, garanti-sektion, fordonsskatt-tabell, Fahrzeugbrief-guide, CostTable och FAQ-schema. Fördjupat 2026-04-02. ADAC-källår 2025→2026 (2026-05-14).",
+      "lastEvaluated": "2026-10-20",
+      "notes": "pSEO med ADAC-data, garanti-sektion, fordonsskatt-tabell, Fahrzeugbrief-guide, CostTable och FAQ-schema. Fördjupat 2026-04-02. ADAC-källår 2025→2026 (2026-05-14). | 2026-10-20: omräknad 82→50. Efter källrensningen är ca 93 % av texten gemensam mall; unikt är intro och ADAC-listan. Malltext med ordbyten → noindex.",
       "tags": [
         "marke",
         "bil",
@@ -127,14 +127,14 @@
         "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
         "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/skatter-och-avgifter/fordonsskatt/skattens-storlek/"
       ],
-      "uniquePayloadScore": 82,
+      "uniquePayloadScore": 50,
       "quality": {
         "hasSources": true,
-        "isThin": false,
-        "indexable": true
+        "isThin": true,
+        "indexable": false
       },
-      "lastEvaluated": "2026-10-21",
-      "notes": "pSEO med ADAC-data, garanti-sektion, fordonsskatt-tabell, Fahrzeugbrief-guide, CostTable och FAQ-schema. Fördjupat 2026-04-02. ADAC-källår 2025→2026 (2026-05-14).",
+      "lastEvaluated": "2026-10-20",
+      "notes": "pSEO med ADAC-data, garanti-sektion, fordonsskatt-tabell, Fahrzeugbrief-guide, CostTable och FAQ-schema. Fördjupat 2026-04-02. ADAC-källår 2025→2026 (2026-05-14). | 2026-10-20: omräknad 82→50. Efter källrensningen är ca 94 % av texten gemensam mall; unikt är intro och ADAC-listan. Malltext med ordbyten → noindex.",
       "tags": [
         "marke",
         "bil",
@@ -151,14 +151,14 @@
         "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
         "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/skatter-och-avgifter/fordonsskatt/skattens-storlek/"
       ],
-      "uniquePayloadScore": 82,
+      "uniquePayloadScore": 50,
       "quality": {
         "hasSources": true,
-        "isThin": false,
-        "indexable": true
+        "isThin": true,
+        "indexable": false
       },
-      "lastEvaluated": "2026-10-21",
-      "notes": "pSEO med ADAC-data, garanti-sektion, fordonsskatt-tabell, Fahrzeugbrief-guide, CostTable och FAQ-schema. Fördjupat 2026-04-02. ADAC-källår 2025→2026 (2026-05-14).",
+      "lastEvaluated": "2026-10-20",
+      "notes": "pSEO med ADAC-data, garanti-sektion, fordonsskatt-tabell, Fahrzeugbrief-guide, CostTable och FAQ-schema. Fördjupat 2026-04-02. ADAC-källår 2025→2026 (2026-05-14). | 2026-10-20: omräknad 82→50. Efter källrensningen är ca 94 % av texten gemensam mall; unikt är intro och ADAC-listan. Malltext med ordbyten → noindex.",
       "tags": [
         "marke",
         "bil",
@@ -198,14 +198,14 @@
         "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
         "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/skatter-och-avgifter/fordonsskatt/skattens-storlek/"
       ],
-      "uniquePayloadScore": 85,
+      "uniquePayloadScore": 64,
       "quality": {
         "hasSources": true,
         "isThin": false,
-        "indexable": true
+        "indexable": false
       },
-      "lastEvaluated": "2026-10-21",
-      "notes": "pSEO med Tesla-specifik sektion (SoH, laddkontakt) + garanti, fordonsskatt, Fahrzeugbrief, CostTable och FAQ-schema. Fördjupat 2026-04-02. ADAC 2025→2026 + elbil-stat (40% färre pannor) tillagd 2026-05-14.",
+      "lastEvaluated": "2026-10-20",
+      "notes": "pSEO med Tesla-specifik sektion (SoH, laddkontakt) + garanti, fordonsskatt, Fahrzeugbrief, CostTable och FAQ-schema. Fördjupat 2026-04-02. ADAC 2025→2026 + elbil-stat (40% färre pannor) tillagd 2026-05-14. | 2026-10-20: omräknad 85→64. Unik Tesla-del (SoH, kontobyte, garanti via VIN) och ADAC 2026, men ca 70 % av texten är samma mall som övriga bilmärken. 60–74 → noindex, förbättra.",
       "tags": [
         "marke",
         "bil",
@@ -223,14 +223,14 @@
         "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
         "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/skatter-och-avgifter/fordonsskatt/skattens-storlek/"
       ],
-      "uniquePayloadScore": 82,
+      "uniquePayloadScore": 50,
       "quality": {
         "hasSources": true,
-        "isThin": false,
-        "indexable": true
+        "isThin": true,
+        "indexable": false
       },
-      "lastEvaluated": "2026-10-21",
-      "notes": "pSEO med ADAC-data + IMS-varning, garanti-sektion, fordonsskatt-tabell, Fahrzeugbrief-guide, CostTable och FAQ-schema. Fördjupat 2026-04-02. ADAC-källår 2025→2026 (2026-05-14).",
+      "lastEvaluated": "2026-10-20",
+      "notes": "pSEO med ADAC-data + IMS-varning, garanti-sektion, fordonsskatt-tabell, Fahrzeugbrief-guide, CostTable och FAQ-schema. Fördjupat 2026-04-02. ADAC-källår 2025→2026 (2026-05-14). | 2026-10-20: omräknad 82→50. Efter källrensningen är ca 90 % av texten gemensam mall; ingen ADAC-data för Porsche. Malltext med ordbyten → noindex.",
       "tags": [
         "marke",
         "bil",
@@ -268,7 +268,7 @@
         "https://www.tullverket.se",
         "https://www.skatteverket.se"
       ],
-      "uniquePayloadScore": 86,
+      "uniquePayloadScore": 80,
       "quality": {
         "hasSources": true,
         "isThin": false,
@@ -279,7 +279,7 @@
         "land",
         "husbil"
       ],
-      "notes": "2026-07-28: 66 %-påståendet utrett och rättat. Siffran är verklig men avser januari–april 2025 mot samma period 2024 (källa: Vroom), inte helåret, och kom inte från Transportstyrelsen som tidigare angavs. Ersatt med helårssiffran 3 711 mot 2 673 nyregistrerade husbilar (ca 39 %), med delårssiffran kvar och korrekt kontextualiserad. Referensen prop. 2024/25:27 var dessutom fel dokument – den propositionen handlar om tillstånd för hotell- och pensionatsrörelser. Ändringen föreslogs i budgetpropositionen för 2025 (prop. 2024/25:1). Rättat 2026-07-28. Inga öppna punkter kvar på sidan."
+      "notes": "2026-07-28: 66 %-påståendet utrett och rättat. Siffran är verklig men avser januari–april 2025 mot samma period 2024 (källa: Vroom), inte helåret, och kom inte från Transportstyrelsen som tidigare angavs. Ersatt med helårssiffran 3 711 mot 2 673 nyregistrerade husbilar (ca 39 %), med delårssiffran kvar och korrekt kontextualiserad. Referensen prop. 2024/25:27 var dessutom fel dokument – den propositionen handlar om tillstånd för hotell- och pensionatsrörelser. Ändringen föreslogs i budgetpropositionen för 2025 (prop. 2024/25:1). Rättat 2026-07-28. Inga öppna punkter kvar på sidan. | Källgranskad 2026-10-20: ca 1 300 ord; märkesavsnitt och registreringsstatistik utan källa borttagna, Transportstyrelsens steg belagda. Indexerbar. Poäng 86→80."
     },
     {
       "id": "importera-husbil-kostnad",
@@ -314,14 +314,14 @@
         "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
         "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/skatter-och-avgifter/fordonsskatt/skattens-storlek/"
       ],
-      "uniquePayloadScore": 82,
+      "uniquePayloadScore": 32,
       "quality": {
         "hasSources": true,
-        "isThin": false,
-        "indexable": true
+        "isThin": true,
+        "indexable": false
       },
-      "lastEvaluated": "2026-10-21",
-      "notes": "pSEO med Ducato-varning + Sprinter-alternativ, garanti-sektion, malus-info (feb 2025), CostTable och FAQ-schema. Fördjupat 2026-04-01.",
+      "lastEvaluated": "2026-10-20",
+      "notes": "pSEO med Ducato-varning + Sprinter-alternativ, garanti-sektion, malus-info (feb 2025), CostTable och FAQ-schema. Fördjupat 2026-04-01. | 2026-10-20: omräknad 82→32. Efter källrensningen identisk mall med övriga husbilsmärken utom en mening. → noindex.",
       "tags": [
         "marke",
         "husbil",
@@ -338,14 +338,14 @@
         "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
         "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/skatter-och-avgifter/fordonsskatt/skattens-storlek/"
       ],
-      "uniquePayloadScore": 80,
+      "uniquePayloadScore": 40,
       "quality": {
         "hasSources": true,
-        "isThin": false,
-        "indexable": true
+        "isThin": true,
+        "indexable": false
       },
-      "lastEvaluated": "2026-10-21",
-      "notes": "pSEO med Ducato-varning, garanti (Erwin Hymer Group), malus-info, chassi-extra, CostTable och FAQ-schema. Fördjupat 2026-04-02.",
+      "lastEvaluated": "2026-10-20",
+      "notes": "pSEO med Ducato-varning, garanti (Erwin Hymer Group), malus-info, chassi-extra, CostTable och FAQ-schema. Fördjupat 2026-04-02. | 2026-10-20: omräknad 80→40. Efter källrensningen är ca 95 % av texten gemensam mall; unikt är Dethleffs egna chassiuppgifter. → noindex.",
       "tags": [
         "marke",
         "husbil",
@@ -362,14 +362,14 @@
         "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
         "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/skatter-och-avgifter/fordonsskatt/skattens-storlek/"
       ],
-      "uniquePayloadScore": 81,
+      "uniquePayloadScore": 30,
       "quality": {
         "hasSources": true,
-        "isThin": false,
-        "indexable": true
+        "isThin": true,
+        "indexable": false
       },
-      "lastEvaluated": "2026-10-21",
-      "notes": "pSEO med Ducato-varning + Lyseo/Sprinter, garanti, malus-info, chassi-extra, CostTable och FAQ-schema. Fördjupat 2026-04-02.",
+      "lastEvaluated": "2026-10-20",
+      "notes": "pSEO med Ducato-varning + Lyseo/Sprinter, garanti, malus-info, chassi-extra, CostTable och FAQ-schema. Fördjupat 2026-04-02. | 2026-10-20: omräknad 81→30. Efter källrensningen identisk med övriga husbilsmärken utom märkesnamnet. → noindex.",
       "tags": [
         "marke",
         "husbil",
@@ -386,14 +386,14 @@
         "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
         "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/skatter-och-avgifter/fordonsskatt/skattens-storlek/"
       ],
-      "uniquePayloadScore": 80,
+      "uniquePayloadScore": 30,
       "quality": {
         "hasSources": true,
-        "isThin": false,
-        "indexable": true
+        "isThin": true,
+        "indexable": false
       },
-      "lastEvaluated": "2026-10-21",
-      "notes": "pSEO med Ducato-varning, garanti (10 år fukt), malus-info, chassi-extra, CostTable och FAQ-schema. Fördjupat 2026-04-02.",
+      "lastEvaluated": "2026-10-20",
+      "notes": "pSEO med Ducato-varning, garanti (10 år fukt), malus-info, chassi-extra, CostTable och FAQ-schema. Fördjupat 2026-04-02. | 2026-10-20: omräknad 80→30. Efter källrensningen identisk med övriga husbilsmärken utom märkesnamnet. → noindex.",
       "tags": [
         "marke",
         "husbil",
@@ -410,14 +410,14 @@
         "https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik/",
         "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/skatter-och-avgifter/fordonsskatt/skattens-storlek/"
       ],
-      "uniquePayloadScore": 80,
+      "uniquePayloadScore": 30,
       "quality": {
         "hasSources": true,
-        "isThin": false,
-        "indexable": true
+        "isThin": true,
+        "indexable": false
       },
-      "lastEvaluated": "2026-10-21",
-      "notes": "pSEO med Ducato-varning, garanti (10 år fukt), malus-info, chassi-extra, CostTable och FAQ-schema. Fördjupat 2026-04-02.",
+      "lastEvaluated": "2026-10-20",
+      "notes": "pSEO med Ducato-varning, garanti (10 år fukt), malus-info, chassi-extra, CostTable och FAQ-schema. Fördjupat 2026-04-02. | 2026-10-20: omräknad 80→30. Efter källrensningen identisk med övriga husbilsmärken utom märkesnamnet. → noindex.",
       "tags": [
         "marke",
         "husbil",
@@ -644,14 +644,14 @@
         "https://www.naturvardsverket.se",
         "https://www.naturvardsverket.se/bidrag/elbilspremien/villkor-for-elbilspremien/"
       ],
-      "uniquePayloadScore": 82,
+      "uniquePayloadScore": 78,
       "quality": {
         "hasSources": true,
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-10-21",
-      "notes": "Quality gate godkänd 2026-03-29. ~1100 ord, SoH-förklaring, momsexempel, CCS2/CHAdeMO-info, tre myndighetsbelagda källor. ADAC 2026-data + Ioniq 5 ICCU-varning tillagd 2026-05-14.",
+      "lastEvaluated": "2026-10-20",
+      "notes": "Quality gate godkänd 2026-03-29. ~1100 ord, SoH-förklaring, momsexempel, CCS2/CHAdeMO-info, tre myndighetsbelagda källor. ADAC 2026-data + Ioniq 5 ICCU-varning tillagd 2026-05-14. | Källgranskad 2026-10-20: ca 1 250 ord, garanti-, CCS2- och räckviddspåståenden borttagna; ADAC 2026 och ICCU (electrive) belagda. Fortsatt unik och indexerbar. Poäng 82→78.",
       "tags": [
         "guide",
         "elbil"
@@ -1116,14 +1116,14 @@
         "https://www.skatteverket.se",
         "https://www.tullverket.se"
       ],
-      "uniquePayloadScore": 0,
+      "uniquePayloadScore": 78,
       "quality": {
         "hasSources": true,
-        "isThin": true,
-        "indexable": false
+        "isThin": false,
+        "indexable": true
       },
-      "lastEvaluated": "2026-10-21",
-      "notes": "NY 2026-07-29. Tunn med 3 poster – ska växa i takt med att Visualping larmar. Sätt indexable=true först när loggen har substans. Data i data/regulation-changes.json.",
+      "lastEvaluated": "2026-10-20",
+      "notes": "NY 2026-07-29. Tunn med 3 poster – ska växa i takt med att Visualping larmar. Sätt indexable=true först när loggen har substans. Data i data/regulation-changes.json. | 2026-10-20: indexerbar som transparenssida (E-E-A-T): daterad logg över regeländringar och rättelser med källa per post, ca 2 000 ord.",
       "tags": [
         "logg",
         "transparens"

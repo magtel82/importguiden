@@ -18,6 +18,29 @@
     {
       "date": "2026-10-20",
       "type": "rattelse",
+      "title": "Elbilsguiden: garanti, laddkontakt och Ioniq 5 rättade",
+      "summary": "Guiden angav att EU:s konsumentskyddsregler gör tillverkarens garanti giltig i hela EU, att alla elbilar sålda i EU efter 2018 har CCS2-kontakt och att de flesta tillverkare ger 8 års batterigaranti. Inget av detta var belagt, och påståendet om konsumentskyddsreglerna var fel: tillverkarens garanti följer tillverkarens egna villkor. Uppgifterna om Hyundai Ioniq 5 var oprecisa. Nu står att ADAC Pannenstatistik 2026 listar Ioniq 5 (första registrering 2022–2023) bland de sämsta i sin klass, och att Hyundai i Tyskland förlängt garantin för laddenheten ICCU till 15 år eller 300 000 km för bilar tillverkade till och med april 2024. Elbilspremiens krav på stödområde har lagts till.",
+      "source": "ADAC Pannenstatistik 2026, electrive.com, Naturvårdsverket",
+      "sourceUrl": "https://www.electrive.com/2026/04/17/hyundai-and-kia-extend-warranty-for-iccu/",
+      "affectedPages": [
+        "/guider/importera-elbil"
+      ]
+    },
+    {
+      "date": "2026-10-20",
+      "type": "rattelse",
+      "title": "Ursprungskontroll och registrering: beskrivningen rättad efter Transportstyrelsen",
+      "summary": "Guiderna för bil och husbil från Tyskland angav att ursprungskontrollen kontrollerar betalningsanmärkningar och skulder i hemlandet, att man alltid får faktura per post och att ett tyskt avregistreringsintyg krävs för svensk registrering. Det stöds inte av Transportstyrelsens beskrivning. Nu står det Transportstyrelsen anger: du ansöker när fordonet är i Sverige, skickar registreringsbeviset i original (samtliga delar) och en kopia av köpehandlingen, betalar avgiften i förskott, och efter godkänd registreringsbesiktning registrerar besiktningsföretaget fordonet och Transportstyrelsen skickar registreringsbevis och skyltar. Husbilsguidens uppgifter om antalet nyregistrerade husbilar 2025 saknade länkad källa och är borttagna.",
+      "source": "Transportstyrelsen – Fordonsimport och ursprungskontroll",
+      "sourceUrl": "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/fordonsimport-och-ursprungskontroll/",
+      "affectedPages": [
+        "/importera-bil/tyskland",
+        "/importera-husbil/tyskland"
+      ]
+    },
+    {
+      "date": "2026-10-20",
+      "type": "rattelse",
       "title": "Fiat Ducato: felaktig ADAC-siffra borttagen",
       "summary": "Husbilssidorna angav att Fiat Ducato har 27,9–39,1 driftstopp per 1 000 fordon (årgångar 2016–2021 och 2023) enligt ADAC Pannenstatistik 2026 och att Ducato rankas sämst av alla fordon. Siffrorna kommer från föregående års rapport (pannor 2024) och gäller där andra årgångar, och ADAC rangordnar per fordonsklass, inte alla fordon. Siffran är borttagen. Sidorna anger nu det ADAC Pannenstatistik 2026 faktiskt säger: Fiat Ducato med första registrering 2016–2021 och 2023 finns bland de sämsta i klassen Transporter/Vans, och Mercedes-Benz Sprinter bland de bästa.",
       "source": "ADAC Pannenstatistik 2026",

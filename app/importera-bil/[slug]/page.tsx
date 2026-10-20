@@ -288,11 +288,11 @@ export default async function ImporteraBilPage({ params }: Props) {
       const tysklandFaqSchema = getFaqJsonLd([
         {
           question: "Är det lönsamt att importera bil från Tyskland?",
-          answer: "Det kan vara lönsamt, framför allt för premiumbilar och elbilar. Jämför prisskillnaden för den aktuella bilen med summan av transport, ursprungskontroll, besiktning och eventuell fordonsskatt.",
+          answer: "Det beror på prisskillnaden för just den bil du tittar på. Jämför den med summan av transport, ursprungskontroll, registreringsbesiktning, skyltar, eventuell moms och fordonsskatt.",
         },
         {
           question: "Hur lång tid tar det att importera bil från Tyskland?",
-          answer: "Räkna med minst 3–6 veckor från köp till registrering i Sverige. Registreringsbesiktning bokas normalt inom 1–2 veckor, men kötiden för ursprungskontroll varierar över tid – kontrollera aktuellt ködatum hos Transportstyrelsen innan du planerar.",
+          answer: "Det avgörs mest av kötiden för ursprungskontrollen, som Transportstyrelsen inte anger som en fast handläggningstid. Aktuellt ködatum visas i Transportstyrelsens e-tjänst Visa ärendestatus för ursprungskontroll. Först när ursprungskontrollen är godkänd kan du boka registreringsbesiktning.",
         },
         {
           question: "Behöver man betala tull vid import från Tyskland?",
@@ -300,7 +300,7 @@ export default async function ImporteraBilPage({ params }: Props) {
         },
         {
           question: "Kan man importera bil från Tyskland utan att åka dit?",
-          answer: "Ja, det är möjligt att anlita en professionell biltransport. Du behöver dock ordna köpekontraktet och betalningen på distans, och du bör anlita en lokal besiktningsman innan köpet.",
+          answer: "Ja, du kan anlita ett transportföretag. Du behöver då ordna köpekontraktet och betalningen på distans, få registreringsbevisets original skickade till dig och gärna låta en oberoende besiktningsman undersöka bilen innan köpet.",
         },
       ]);
 

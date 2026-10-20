@@ -155,7 +155,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     if (slug === "tyskland") {
       return {
         title: `Importera husbil från Tyskland – Komplett guide ${CONTENT_YEAR}`,
-        description: "Steg-för-steg guide för att importera husbil privat från Tyskland till Sverige. Kostnader, märken, besiktning och praktiska råd.",
+        description: "Steg-för-steg guide för att importera husbil privat från Tyskland till Sverige. Kostnader, besiktning, hemtransport och praktiska råd.",
         alternates: { canonical: getCanonicalUrl("/importera-husbil/tyskland") },
         robots,
       };
