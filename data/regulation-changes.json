@@ -18,6 +18,48 @@
     {
       "date": "2026-10-20",
       "type": "rattelse",
+      "title": "COC-intyg krävs inte alltid – och enskilt godkännande tar inte månader",
+      "summary": "Flera guider angav att COC-intyget krävs för att registreringsbesiktningen ska kunna genomföras, att ett avregistreringsintyg ska tas med till besiktningen och att enskilt godkännande kan ta flera månader. Enligt Transportstyrelsen räcker registreringsbeviset från det tidigare landet för en begagnad bil som varit registrerad i ett annat EES-land, om den är serietillverkad i standardutförande och väger högst 3 500 kg. COC krävs för nya fordon. Enskilt godkännande gäller nya fordon utan EU-typgodkännande, och Transportstyrelsen fattar beslut direkt vid provningen. Guiden om EEG-intyg beskrev ett dokument som Transportstyrelsen inte använder och är omskriven.",
+      "source": "Transportstyrelsen – Fordon som är EG-typgodkända",
+      "sourceUrl": "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/fordonsimport-och-ursprungskontroll/import-fran-ett-eu-land/fordon-som-ar-eg-typgodkanda/",
+      "affectedPages": [
+        "/guider/coc-intyg",
+        "/guider/eeg-intyg",
+        "/guider/registreringsbesiktning",
+        "/guider/besikta-husbil",
+        "/guider/besiktningsfel-vid-import",
+        "/importera-bil/tyskland",
+        "/guider/kopa-bil-mobile-de-autoscout24",
+        "/guider/importera-elbil"
+      ]
+    },
+    {
+      "date": "2026-10-20",
+      "type": "rattelse",
+      "title": "Husbilsbesiktning: påståenden om fuktmätning och underkännandeorsaker borttagna",
+      "summary": "Guiderna om husbilsbesiktning och besiktningsfel angav bland annat att besiktaren mäter fukt i boendedelen, att fukt är den vanligaste orsaken till underkännande, att efterkontrollen ska ske inom två månader och att importerade fordon underkänns oftare än svenska. Inget av detta var belagt, och uppgifterna är borttagna. Körkortskraven står nu enligt Transportstyrelsen, inklusive övergångsregeln för B-körkort utfärdade före 1 juli 1996.",
+      "source": "Transportstyrelsen – Fordon du får köra",
+      "sourceUrl": "https://www.transportstyrelsen.se/sv/vagtrafik/korkort/har-korkort/fordon-du-far-kora/",
+      "affectedPages": [
+        "/guider/besikta-husbil",
+        "/guider/besiktningsfel-vid-import"
+      ]
+    },
+    {
+      "date": "2026-10-20",
+      "type": "rattelse",
+      "title": "mobile.de-guiderna: marknads- och säljarpåståenden utan källa borttagna",
+      "summary": "Guiderna angav bland annat att mobile.de är Europas största marknadsplats med över 100 000 husbilar, att tyska priser är strukturellt lägre, att köp av handlare alltid ger reklamationsrätt och att Fahrzeugbrief bevisar ägarskap. Uppgifterna saknade källa och är borttagna eller omskrivna. I ordlistan var Hybrid felaktigt översatt till laddhybrid; det är rättat.",
+      "source": "Importguidens egen genomgång",
+      "sourceUrl": "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/fordonsimport-och-ursprungskontroll/import-fran-ett-eu-land/",
+      "affectedPages": [
+        "/guider/kopa-bil-mobile-de-autoscout24",
+        "/guider/kopa-husbil-mobil-de"
+      ]
+    },
+    {
+      "date": "2026-10-20",
+      "type": "rattelse",
       "title": "Elbilsguiden: garanti, laddkontakt och Ioniq 5 rättade",
       "summary": "Guiden angav att EU:s konsumentskyddsregler gör tillverkarens garanti giltig i hela EU, att alla elbilar sålda i EU efter 2018 har CCS2-kontakt och att de flesta tillverkare ger 8 års batterigaranti. Inget av detta var belagt, och påståendet om konsumentskyddsreglerna var fel: tillverkarens garanti följer tillverkarens egna villkor. Uppgifterna om Hyundai Ioniq 5 var oprecisa. Nu står att ADAC Pannenstatistik 2026 listar Ioniq 5 (första registrering 2022–2023) bland de sämsta i sin klass, och att Hyundai i Tyskland förlängt garantin för laddenheten ICCU till 15 år eller 300 000 km för bilar tillverkade till och med april 2024. Elbilspremiens krav på stödområde har lagts till.",
       "source": "ADAC Pannenstatistik 2026, electrive.com, Naturvårdsverket",

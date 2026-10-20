@@ -432,7 +432,7 @@
       "sources": [
         "https://www.transportstyrelsen.se"
       ],
-      "uniquePayloadScore": 86,
+      "uniquePayloadScore": 76,
       "quality": {
         "hasSources": true,
         "isThin": false,
@@ -442,7 +442,8 @@
       "tags": [
         "guide",
         "process"
-      ]
+      ],
+      "notes": "2026-10-20 källgranskad: ca 780 ord – strax under 800, motiverat undantag: kärnguide, nu helt belagd mot Transportstyrelsen. Poäng 86→76."
     },
     {
       "id": "guider-coc-intyg",
@@ -453,7 +454,7 @@
         "https://www.transportstyrelsen.se",
         "https://eur-lex.europa.eu"
       ],
-      "uniquePayloadScore": 84,
+      "uniquePayloadScore": 78,
       "quality": {
         "hasSources": true,
         "isThin": false,
@@ -463,7 +464,8 @@
       "tags": [
         "guide",
         "process"
-      ]
+      ],
+      "notes": "2026-10-20 källgranskad: ca 760 ord – strax under 800, motiverat undantag: unik tabell ur Transportstyrelsen som rättar den vanliga missuppfattningen att COC alltid krävs. Poäng 84→78."
     },
     {
       "id": "guider-ursprungskontroll",
@@ -522,18 +524,19 @@
         "https://www.transportstyrelsen.se",
         "https://www.konsumenteuropa.se"
       ],
-      "uniquePayloadScore": 88,
+      "uniquePayloadScore": 84,
       "quality": {
         "hasSources": true,
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-10-21",
+      "lastEvaluated": "2026-10-20",
       "tags": [
         "guide",
         "köpprocess",
         "tyskland"
-      ]
+      ],
+      "notes": "2026-10-20 källgranskad: ca 1 290 ord; marknads-, pris- och säljarpåståenden utan källa borttagna, ordlistan rättad (Hybrid/Plug-in, Fahrzeughalter). Poäng 88→84."
     },
     {
       "id": "guider-exportforsakring",
@@ -666,14 +669,14 @@
         "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/fordonsimport-och-ursprungskontroll/import-fran-ett-eu-land/",
         "https://opus.se/besiktning/registreringsbesiktning"
       ],
-      "uniquePayloadScore": 80,
+      "uniquePayloadScore": 70,
       "quality": {
         "hasSources": true,
         "isThin": false,
-        "indexable": true
+        "indexable": false
       },
       "lastEvaluated": "2026-10-20",
-      "notes": "Quality gate godkänd 2026-03-29. ~1000 ord, fukt/gas/körkortsvikt, kostnadstabell, Ducato-varning. ADAC 2025→2026: 49 → 27,9–39,1 per 1 000 (2026-05-14).",
+      "notes": "Quality gate godkänd 2026-03-29. ~1000 ord, fukt/gas/körkortsvikt, kostnadstabell, Ducato-varning. ADAC 2025→2026: 49 → 27,9–39,1 per 1 000 (2026-05-14). | 2026-10-20 källgranskad: ca 700 ord efter rensning (fuktmätning vid besiktning, breddlyktor, vikter m.m. utan källa borttagna); delvis överlapp med registreringsbesiktning. 60–74 → noindex, bygg ut med belagt husbilsinnehåll. Poäng 80→70.",
       "tags": [
         "guide",
         "husbil",
@@ -719,14 +722,14 @@
         "https://www.autoscout24.de",
         "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/"
       ],
-      "uniquePayloadScore": 78,
+      "uniquePayloadScore": 76,
       "quality": {
         "hasSources": true,
         "isThin": false,
         "indexable": true
       },
-      "lastEvaluated": "2026-10-21",
-      "notes": "Quality gate godkänd 2026-03-29. ~900 ord, husbilsspecifik ordlista, filtreringstips, fuktkontroll, checklista, FAQ. 2025→2026 datum-sweep 2026-05-13.",
+      "lastEvaluated": "2026-10-20",
+      "notes": "Quality gate godkänd 2026-03-29. ~900 ord, husbilsspecifik ordlista, filtreringstips, fuktkontroll, checklista, FAQ. 2025→2026 datum-sweep 2026-05-13. | 2026-10-20 källgranskad: ca 970 ord; volym-, pris- och kamremspåståenden utan källa borttagna. Poäng 78→76.",
       "tags": [
         "guide",
         "husbil",
@@ -743,14 +746,14 @@
         "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/fordonsbesiktning/besiktningsregler/",
         "https://www.transportstyrelsen.se/sv/vagtrafik/fordon/aga-kopa-eller-salja-fordon/import-och-export-av-fordon/fordonsimport-och-ursprungskontroll/import-fran-ett-eu-land/"
       ],
-      "uniquePayloadScore": 80,
+      "uniquePayloadScore": 45,
       "quality": {
         "hasSources": true,
-        "isThin": false,
-        "indexable": true
+        "isThin": true,
+        "indexable": false
       },
       "lastEvaluated": "2026-10-20",
-      "notes": "Quality gate godkänd 2026-03-29. ~950 ord, 8 felkategorier med åtgärder, bil+husbil-specifika fel, checklista, FAQ.",
+      "notes": "Quality gate godkänd 2026-03-29. ~950 ord, 8 felkategorier med åtgärder, bil+husbil-specifika fel, checklista, FAQ. | 2026-10-20 källgranskad: ca 480 ord efter rensning; nästan alla underkännandeorsaker saknade källa. Tunn → noindex. Poäng 80→45.",
       "tags": [
         "guide",
         "besiktning",
@@ -947,14 +950,14 @@
       "sources": [
         "https://www.transportstyrelsen.se"
       ],
-      "uniquePayloadScore": 80,
+      "uniquePayloadScore": 25,
       "quality": {
         "hasSources": true,
-        "isThin": false,
-        "indexable": true
+        "isThin": true,
+        "indexable": false
       },
       "lastEvaluated": "2026-10-20",
-      "notes": "Ny guide 2026-04-16. GSC: position 6 på 'eeg intyg bil' utan dedikerad sida.",
+      "notes": "Ny guide 2026-04-16. GSC: position 6 på 'eeg intyg bil' utan dedikerad sida. | 2026-10-20 källgranskad: ca 210 ord; sidans påståenden om ett separat EEG-intyg saknade stöd (Transportstyrelsen använder inte begreppet). Kort hänvisningssida → noindex. Överväg 301 till /guider/coc-intyg. Poäng 80→25.",
       "tags": [
         "guide",
         "process",

@@ -196,3 +196,17 @@ Citat ur primärkällor som ändringarna bygger på:
 - electrive.com 2026-04-17 (citerar Hyundai Deutschland): "the ICCU warranty has been extended to 15 years from the date of first registration ... up to 300,000 kilometres"; "applies to Hyundai Ioniq 5 models built up to April 2024"; gäller "in Germany".
 - ADAC Pannenstatistik 2026: "Die Schlechtesten in ihrer Klasse – Mittelklasse: ... Hyundai Ioniq 5 (2022–2023)".
 - Ej belagt och borttaget: nyregistreringar husbilar 2025 (3 711 / 2 673, 39 %, 66 % "Vroom") – ingen primärkälla hittad; CCS2 i "alla elbilar efter 2018"; EUR-Lex (AFIR) svarar 202 till automatiska hämtningar.
+
+## Källgranskning c–d (2026-10-20)
+
+- Transportstyrelsen, Fordon som är EG-typgodkända (…/import-fran-ett-eu-land/fordon-som-ar-eg-typgodkanda/, läst 2026-10-20):
+  - "Om fordonet är nytt men inte är registrerat i ursprungslandet, krävs ett så kallat CoC"
+  - "Är fordonet begagnat och det finns ett CoC ... så kan du använda det för att styrka att de tekniska och miljömässiga kraven är uppfyllda vid registreringsbesiktningen. En viss teknisk kontroll görs ändå"
+  - "Det är numera tillräckligt att genom ett registreringsbevis från det tidigare landet visa att fordonet uppfyller de svenska säkerhetskraven ... serietillverkade fordon i standardutförande med en totalvikt av högst 3 500 kg"
+  - "Fordonet måste vara i sitt ursprungliga utförande och överensstämma med de dokument som du lämnar in."
+- Transportstyrelsen, Enskilt godkännande (…/for-fordonsbranschen/enskilt-godkannande/): "Nya fordon som ska registreras i Sverige och som inte omfattas av ett EU-typgodkännande måste omfattas av ett enskilt godkännande." / "Transportstyrelsen tar inte ut någon avgift för ansökan." / "Så du som ansökt får beslutet vid provningstillfället."
+- Transportstyrelsen, Fordonsimport och ursprungskontroll: undantag från registreringsbevisregeln: "konstruerade för vänstertrafik / utrustade med hastighetsmätare som har brittisk standard / tillverkas i små serier".
+- Transportstyrelsen, Fordon du får köra (…/korkort/har-korkort/fordon-du-far-kora/): B "totalvikt på högst 3,5 ton"; C1 "personbil med en totalvikt över 3,5 ton men inte över 7,5 ton"; C "personbil med en totalvikt över 3,5 ton"; "Övergångsregel B (utfärdat före den 1 juli 1996) Det innebär att man får köra personbil med en totalvikt över 3,5 ton".
+- "EEG-intyg": sökning på transportstyrelsen.se gav bara föreskrifter där EEG är gemenskapens äldre namn – inget importdokument med det namnet.
+- Ej belagt och borttaget: fuktmätning vid registreringsbesiktning, breddmarkeringslyktor > 2,10 m, efterkontroll inom 2 månader, däck-/broms-/rostgränser, "importbilar underkänns oftare", mobile.de "över 100 000 husbilar", kamrem "6 år/150 000 km", körsträcka per år.
+- EU-direktiv 2019/771 (konsumentköp): EUR-Lex returnerade tomt innehåll – inget påstående om reklamationsrätt publiceras.

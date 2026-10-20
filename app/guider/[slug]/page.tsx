@@ -137,22 +137,22 @@ export default async function GuiderPage({ params }: Props) {
           {
             question: "Är mobile.de säkert?",
             answer:
-              "Sajten i sig är seriös, men som på alla marknadsplatser finns det bedragare. Köp alltid av en registrerad återförsäljare (Händler) som förstagångsköpare och boka en oberoende besiktning via DEKRA, TÜV eller ADAC.",
+              "Var vaksam som på alla annonssajter: se bilen på plats, boka en oberoende besiktning via DEKRA, TÜV eller ADAC och betala aldrig förskott via informella kanaler.",
           },
           {
             question: "Är det säkrare att köpa av handlare än privatperson på mobile.de?",
             answer:
-              "Ja, som förstagångsköpare rekommenderas återförsäljare (Händler). Du får reklamationsrätt enligt EU:s konsumentköplag, bilen är ofta servad och exportdokumentation hanteras rutinmässigt. Privata säljare säljer i befintligt skick utan garanti.",
+              "Säljarens ansvar för fel beror på vem säljaren är och vad köpeavtalet säger. Läs avtalet noga och kontrollera om det innehåller en friskrivning (gekauft wie gesehen). Konsument Europa ger råd om dina rättigheter vid köp från ett annat EU-land.",
           },
           {
             question: "Hur kontaktar jag en säljare på mobile.de?",
             answer:
-              "Via kontaktformuläret direkt på annonsen. De flesta återförsäljare svarar på engelska. Privata säljare kan variera – grundläggande engelska eller tyska fraser räcker i de flesta fall.",
+              "Via kontaktformuläret på annonsen. Skriv på engelska eller tyska och fråga direkt efter COC-intyg och servicehistorik.",
           },
           {
             question: "Vad betyder Fahrzeugbrief på mobile.de?",
             answer:
-              "Fahrzeugbrief, eller Zulassungsbescheinigung Teil II, är den tyska motsvarigheten till det svenska registreringsbeviset. Det är ett viktigt dokument som bevisar ägarskap och behövs vid avregistrering och export av bilen.",
+              "Fahrzeugbrief är det gamla namnet på Zulassungsbescheinigung Teil II, del II av det tyska registreringsbeviset. Transportstyrelsen kräver registreringsbeviset i original, samtliga delar, när du ansöker om ursprungskontroll.",
           },
         ])
       : slug === "ursprungskontroll"
@@ -160,7 +160,7 @@ export default async function GuiderPage({ params }: Props) {
           {
             question: "Vad kostar ursprungskontroll?",
             answer:
-              `Ursprungskontroll kostar ${formatCost("ursprungskontroll")} (källa: Transportstyrelsen). Du får en faktura per post och handläggningen startar när betalningen registrerats.`,
+              `Ursprungskontroll kostar ${formatCost("ursprungskontroll")} och avgiften betalas i förskott (källa: Transportstyrelsen). Ansöker du i e-tjänsten får du betalningsinformationen direkt; med blankett får du en faktura när ärendet registrerats.`,
           },
           {
             question: "Hur lång tid tar ursprungskontroll?",
@@ -193,7 +193,7 @@ export default async function GuiderPage({ params }: Props) {
           {
             question: "Betalar man moms när man importerar bil från Tyskland?",
             answer:
-              "Vid köp av begagnad bil från privatperson i EU betalar du normalt ingen moms i Sverige. Moms tillkommer endast om bilen räknas som ett 'nytt transportmedel' (under 6 månader gammal eller under 6 000 km).",
+              "Svensk moms tillkommer bara om bilen räknas som ett nytt transportmedel: om den köps inom sex månader efter att den första gången togs i bruk eller har körts högst 6 000 km. Det gäller oavsett om säljaren är privatperson eller handlare.",
           },
           {
             question: "Vad räknas som nytt transportmedel vid bilimport?",
@@ -211,22 +211,22 @@ export default async function GuiderPage({ params }: Props) {
           {
             question: "Vad är ett COC-intyg?",
             answer:
-              "COC är en förkortning av Certificate of Conformity – ett officiellt dokument utfärdat av fordonstillverkaren som intygar att fordonet uppfyller alla tillämpliga EU-direktiv vid tillverkningstillfället. Det är knutet till fordonets chassinummer (VIN) och gäller i alla EU-länder.",
+              "Ett intyg från tillverkaren om att fordonet omfattas av ett EU-typgodkännande. Det är knutet till fordonets chassinummer (VIN).",
+          },
+          {
+            question: "Behöver jag COC-intyg för att importera en begagnad bil från Tyskland?",
+            answer:
+              "Normalt inte, om bilen varit registrerad i ett annat EES-land, är serietillverkad i standardutförande och väger högst 3 500 kg. Då räcker registreringsbeviset enligt Transportstyrelsen. För nya fordon krävs COC.",
           },
           {
             question: "Hur får man ett COC-intyg?",
             answer:
-              "Beställ direkt från biltillverkaren med bilens VIN-nummer, via den officiella märkesimportören i Sverige, eller via tredjepartstjänster som EuroCOC. Fråga alltid säljaren först – många nyare bilar levereras med COC i dokumentmappen.",
+              "Fråga säljaren först. Annars beställer du det från tillverkaren eller märkets generalagent med fordonets VIN-nummer.",
           },
           {
             question: "Vad kostar ett COC-intyg?",
             answer:
-              "Priset sätts av tillverkaren och skiljer mellan märken. Tesla utfärdar ofta COC utan kostnad. Fråga märkets kundtjänst om pris och leveranstid innan du beställer.",
-          },
-          {
-            question: "Behöver jag COC-intyg för att importera bil?",
-            answer:
-              "Det är inte alltid formellt obligatoriskt, men det underlättar registreringen avsevärt. Utan COC kan besiktningsstationen kräva alternativ dokumentation eller hänvisa till enskilt godkännande via Transportstyrelsen – en process som kan ta månader och kostar mer än en vanlig registreringsbesiktning.",
+              "Priset sätts av tillverkaren och skiljer mellan märken. Fråga om pris och leveranstid innan du beställer.",
           },
         ])
       : slug === "importforsakring"
