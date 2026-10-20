@@ -1,0 +1,20 @@
+{
+  "_beskrivning": "Uppgifter som ändras ofta och måste läsas av på nytt. Bygget varnar när en uppgift är äldre än maxAlderDagar (next.config.ts). Rutin: se CLAUDE.md, avsnittet om ködatum.",
+  "ursprungskontrollKo": {
+    "kodatum": "2026-09-22",
+    "kontrollerat": "2026-10-20",
+    "maxAlderDagar": 14,
+    "kalla": "Transportstyrelsen – Visa ärendestatus för ursprungskontroll",
+    "kallaUrl": "https://fordon-ukansok.transportstyrelsen.se/arendestatus",
+    "historik": [
+      {
+        "kontrollerat": "2026-07-28",
+        "kodatum": "2026-06-17"
+      },
+      {
+        "kontrollerat": "2026-10-20",
+        "kodatum": "2026-09-22"
+      }
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "_beskrivning": "Språkuppgift för mobile.de. TODO (Magnus): mobile.de blockerar automatiska kontroller, så språken måste läsas av för hand i sidfoten på mobile.de. Fyll i 'svenska' (true/false), 'sprak' (lista med språknamn som de står på sajten) och 'kontrollerat' (ISO-datum). Så länge 'sprak' är null visas ingen språklista på sajten.",
+  "svenska": null,
+  "sprak": null,
+  "kontrollerat": null
+}

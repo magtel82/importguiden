@@ -1,0 +1,27 @@
+{
+  "_beskrivning": "Neutral lista över försäkringsbolag och vad de själva skriver om försäkring för importerade fordon före svensk registrering. Ordningen är alfabetisk. Inga partnerlänkar – se components/affiliate/PartnerLink.tsx om det blir aktuellt. Kontrollera varje post vid faktagranskning.",
+  "kontrollerat": "2026-10-20",
+  "bolag": [
+    {
+      "namn": "Dina Försäkringar",
+      "uppgift": "Försäkrar importerade bilar som ska registreras. Bolaget skriver att försäkringen ska gälla senast från dagen bilen besiktas för tillfällig registrering.",
+      "pris": null,
+      "prisText": "Pris enligt offert – inget publicerat pris",
+      "kalla": "https://www.dina.se/forsakringar/bilforsakring.html"
+    },
+    {
+      "namn": "Hedvig",
+      "uppgift": "Skriver att bolaget just nu inte kan försäkra en importerad bil som ännu inte fått svenskt registreringsnummer.",
+      "pris": null,
+      "prisText": "Erbjuds inte just nu",
+      "kalla": "https://www.hedvig.com/se/forsakringar/bilforsakring/tillfallig-bilforsakring"
+    },
+    {
+      "namn": "If",
+      "uppgift": "Erbjuder 30-dagarsförsäkring (trafik, halv eller hel) och trafikförsäkring för tillfällig registrering i högst tre månader.",
+      "pris": "importforsakring_if",
+      "prisText": null,
+      "kalla": "https://www.if.se/privat/forsakringar/bilforsakring/importera-bil/forsakra-importerad-bil"
+    }
+  ]
+}

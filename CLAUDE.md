@@ -1,6 +1,6 @@
 # CLAUDE.md – Importguiden
 
-# Senast uppdaterad: 2026-10-19 (15)
+# Senast uppdaterad: 2026-10-20 (16)
 
 # Status: MVP GO – affiliate-redo, aktiv utveckling
 
@@ -845,6 +845,24 @@ OBS: /guider/forsakra-importerad-bil är sammanslagen med /guider/importforsakri
 (permanent redirect i next.config.ts). Skapa inte en ny sida om samma sökavsikt.
 OBS: mobile.de blockerar automatiska kontroller (403) – sajtens språklista är
 OVERIFIERAD. Skriv inga påståenden om vilka språk sajten har.
+OBS: ALLA BELOPP kommer från data/cost-data.json (källa, kontrolldatum, typ
+officiell | marknadspris | schablon). Sidor använder lib/costs.ts; MDX använder
+<Belopp id="…" />, <Sats />, <Skatt />, <Summa ids="a,b" /> m.fl. (components/
+Belopp.tsx). MDX-props får INTE vara JS-uttryck – skriv strängar (co2="200").
+lib/belopp.test.mjs fallerar på hårdkodade belopp i app/, content/, components/.
+Medvetna undantag (räkneexempel) står i lib/belopp-vitlista.json med motivering.
+Saknar ett pris publicerad källa: skriv "enligt offert" – hitta aldrig på ett belopp.
+OBS: Ködatum för ursprungskontroll ligger i data/live-facts.json. RUTIN: läs av
+https://fordon-ukansok.transportstyrelsen.se/arendestatus minst var 14:e dag,
+uppdatera kodatum + kontrollerat och lägg en rad i historik. Bygget varnar när
+uppgiften är äldre än 14 dagar.
+OBS: mobile.de:s språk är en TODO i data/mobile-de.json – fylls i för hand
+(sajten blockerar automatiska kontroller). Visas inte förrän fältet är ifyllt.
+OBS: Försäkringsbolag listas neutralt i data/forsakringsbolag.json. Partnerlänkar
+bara via components/affiliate/PartnerLink.tsx och först när samarbetet står på
+/finansiering.
+OBS: `npm run lint` och `npm test` körs i pre-push (.githooks, aktiveras av
+npm install). `npm run check` = lint + test + build.
 OBS: `npm test` kör node:test (lib/**/*.test.mjs) – inga beroenden. Facit för
 skatteberäkningen ligger i lib/malus-calculator.test.mjs.
 OBS: Kända kommande händelser läggs i `upcoming` i data/regulation-changes.json.

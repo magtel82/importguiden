@@ -1,0 +1,4 @@
+#!/bin/sh
+# Lint och test måste vara gröna innan något pushas (main deployar direkt).
+echo "pre-push: npm run lint && npm test"
+npm run lint && npm test

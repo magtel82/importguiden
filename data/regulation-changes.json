@@ -18,6 +18,52 @@
     {
       "date": "2026-10-20",
       "type": "rattelse",
+      "title": "Registreringsbesiktning kostar mer än sajten angav",
+      "summary": "Sajten angav registreringsbesiktning till cirka 1 700 kr för personbil och 3 000–5 000 kr för husbil, utan källa, och efterkontroll till 500–800 kr. De stora besiktningskedjorna publicerar inte priset. De stationer som gör det tar 2 500–3 500 kr (Ystad Bilbesiktning) och 3 239 kr (Fordonsprovarna Kungälv) för registreringsbesiktning, och 1 000–1 349 kr för efterkontroll. Alla sidor och kalkylatorn visar nu de publicerade priserna med källa.",
+      "source": "Ystad Bilbesiktning och Fordonsprovarna Kungälv – publicerade prislistor",
+      "sourceUrl": "https://ystadbilbesiktning.se/priser/",
+      "affectedPages": [
+        "/importera-bil/kostnad",
+        "/importera-husbil/kostnad",
+        "/kalkylator/bilimport",
+        "/guider/registreringsbesiktning",
+        "/guider/besikta-husbil",
+        "/guider/besiktningsfel-vid-import"
+      ]
+    },
+    {
+      "date": "2026-10-20",
+      "type": "rattelse",
+      "title": "Fel gräns för när en bil räknas som ny i momsavseende",
+      "summary": "Kalkylatorn, kostnadssidan och Tysklandsguiden räknade en bil som ny om den körts färre än 6 000 km. Skatteverkets gräns är högst 6 000 km – en bil med exakt 6 000 km räknas alltså som ny. Rättat på alla ställen.",
+      "source": "Skatteverket – Inköp av nytt transportmedel från ett annat EU-land",
+      "sourceUrl": "https://skatteverket.se/foretag/moms/sarskildamomsregler/handelmedandralander/inkopavnytttransportmedelfranettannateuland.4.361dc8c15312eff6fd1209a.html",
+      "affectedPages": [
+        "/kalkylator/bilimport",
+        "/importera-bil/kostnad",
+        "/importera-bil/tyskland"
+      ]
+    },
+    {
+      "date": "2026-10-20",
+      "type": "rattelse",
+      "title": "Belopp utan källa borttagna eller ersatta",
+      "summary": "Alla belopp på sajten hämtas nu från en enda datafil där varje post har källa och kontrolldatum. Belopp som saknade källa – bland annat transportpriser, COC- och EEG-intyg, exportförsäkring 300–600 kr, batteribyte och prisbesparingar per modell – är borttagna eller ersatta med publicerade priser från namngivna aktörer. Där inget pris publiceras säger sidan det och hänvisar till offert.",
+      "source": "Importguidens egen genomgång",
+      "sourceUrl": "https://www.transportstyrelsen.se/sv/om-oss/avgifter/avgifter-inom-vagtrafik/avgifter-for-tillstands--och-andra-provningar/fordonsregistrering/",
+      "affectedPages": [
+        "/importera-bil/tyskland",
+        "/importera-husbil/tyskland",
+        "/guider/transportera-bil-fran-tyskland",
+        "/guider/coc-intyg",
+        "/guider/eeg-intyg",
+        "/guider/importera-elbil",
+        "/guider/exportforsakring"
+      ]
+    },
+    {
+      "date": "2026-10-20",
+      "type": "rattelse",
       "title": "Kalkylatorns jämförelse med importfirma räknade fel",
       "summary": "Sedan jämförelsen infördes den 29 juli 2026 räknades momsen och tullen på fordonet in i \"du gör importen själv\" men inte i \"du anlitar importfirma\". För ett fordon som räknas som nytt kunde firman därför felaktigt se ut att vara hundratusentals kronor billigare. Momsen betalas oavsett vem som gör importen. Nu jämförs bara det som skiljer: ursprungskontroll, besiktning, skyltar, försäkring och transport mot firmans arvode. Eftersom det inte är verifierat vilka poster arvodet täcker visas skillnaden som ett intervall. Samtidigt fick registreringsbesiktningen rätt källa (besiktningsföretagens publicerade prislistor, 2 500–3 500 kr) och en importförsäkring för husbil utan belägg togs bort. Felet anmäldes av en läsare.",
       "source": "Importguidens egen rättelse – publicerade prislistor för registreringsbesiktning",

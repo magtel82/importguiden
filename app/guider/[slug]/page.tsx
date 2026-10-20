@@ -18,6 +18,12 @@ import { UpcomingChangeNotice } from "@/components/UpcomingChangeNotice";
 import { withYear } from "@/lib/site-config";
 import { formatCost, costSourceLine } from "@/lib/costs";
 import { BELOPP_MDX_COMPONENTS } from "@/components/Belopp";
+import { Forsakringsbolag } from "@/components/Forsakringsbolag";
+import { Kodatum, KoKontrollerat, KoHistorik } from "@/components/Kodatum";
+import { MobileDeSprak } from "@/components/MobileDeSprak";
+import liveFacts from "@/data/live-facts.json";
+
+const KO = liveFacts.ursprungskontrollKo;
 
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
 
@@ -69,7 +75,7 @@ async function loadGuide(slug: string) {
   const { content, frontmatter } = await compileMDX<GuideFrontmatter>({
     source,
     options: { parseFrontmatter: true, mdxOptions: { remarkPlugins: [remarkGfm], rehypePlugins: [rehypeSlug] } },
-    components: { AffiliateLink, GlossaryTable, ...BELOPP_MDX_COMPONENTS },
+    components: { AffiliateLink, GlossaryTable, Forsakringsbolag, Kodatum, KoKontrollerat, KoHistorik, MobileDeSprak, ...BELOPP_MDX_COMPONENTS },
   });
 
   return {
@@ -156,7 +162,7 @@ export default async function GuiderPage({ params }: Props) {
           {
             question: "Hur lång tid tar ursprungskontroll?",
             answer:
-              "Transportstyrelsen anger ingen fast handläggningstid utan publicerar vilket ködatum som handläggs just nu, i e-tjänsten Visa ärendestatus för ursprungskontroll. Den 19 oktober 2026 handlades ärenden med ködatum 22 september 2026, alltså en kö på ungefär fyra veckor. Kontrollera aktuellt läge innan du planerar.",
+              `Transportstyrelsen anger ingen fast handläggningstid utan publicerar vilket ködatum som handläggs just nu, i e-tjänsten Visa ärendestatus för ursprungskontroll. Den ${formatDateSv(KO.kontrollerat)} handlades ärenden med ködatum ${formatDateSv(KO.kodatum)}. Kontrollera aktuellt läge innan du planerar.`,
           },
           {
             question: "Hur följer jag status på min ursprungskontroll?",
