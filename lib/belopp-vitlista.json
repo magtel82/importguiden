@@ -40,6 +40,16 @@
       "fil": "content/guider/importera-elbil.mdx",
       "text": "95 000 kr",
       "motivering": "Räkneexempel: 25 % moms på exemplets 380 000 kr."
+    },
+    {
+      "fil": "app/opengraph-image.tsx",
+      "text": "100%",
+      "motivering": "CSS-höjd i delningsbilden, inte en uppgift."
+    },
+    {
+      "fil": "components/ImportTimeline.tsx",
+      "text": "0%",
+      "motivering": "CSS-bredd i förloppsindikatorn, inte en uppgift."
     }
   ]
 }

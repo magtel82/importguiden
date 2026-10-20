@@ -16,6 +16,30 @@
   },
   "changes": [
     {
+      "date": "2026-10-21",
+      "type": "rattelse",
+      "title": "Prisnivåer och procentuella prisskillnader utan källa borttagna",
+      "summary": "Märkessidorna visade prisintervall i euro och kronor, en \"typisk besparing\" i procent och påståenden som \"15–40 procent lägre priser\" – utan redovisat underlag. Samma typ av uppgifter fanns om Sprinter-chassin, elbilars batterivärde och räckvidd samt växlingsavgifter. Uppgifterna är borttagna. Sidan visar nu bara procentsatser som är officiella och källbelagda, som momsen.",
+      "source": "Importguidens egen genomgång",
+      "sourceUrl": "https://skatteverket.se/foretag/moms/sarskildamomsregler/handelmedandralander/inkopavnytttransportmedelfranettannateuland.4.361dc8c15312eff6fd1209a.html",
+      "affectedPages": [
+        "/importera-bil/bmw",
+        "/importera-bil/mercedes",
+        "/importera-bil/volkswagen",
+        "/importera-bil/audi",
+        "/importera-bil/porsche",
+        "/importera-bil/tesla",
+        "/importera-husbil/hymer",
+        "/importera-husbil/dethleffs",
+        "/importera-husbil/burstner",
+        "/importera-husbil/knaus",
+        "/importera-husbil/hobby",
+        "/guider/importera-elbil",
+        "/guider",
+        "/"
+      ]
+    },
+    {
       "date": "2026-10-20",
       "type": "rattelse",
       "title": "Prisjämförelsen Tyskland–Sverige visade bilpriser utan källa",
@@ -46,13 +70,16 @@
       "date": "2026-10-20",
       "type": "rattelse",
       "title": "Fel gräns för när en bil räknas som ny i momsavseende",
-      "summary": "Kalkylatorn, kostnadssidan och Tysklandsguiden räknade en bil som ny om den körts färre än 6 000 km. Skatteverkets gräns är högst 6 000 km – en bil med exakt 6 000 km räknas alltså som ny. Rättat på alla ställen.",
+      "summary": "Flera sidor räknade en bil som ny om den körts färre än (eller under) 6 000 km. Skatteverkets gräns är högst 6 000 km – en bil med exakt 6 000 km räknas alltså som ny. Rättat i kalkylatorn och kostnadssidan (20 oktober) samt i Tysklandsguiden, momsguiden, elbilsguiden och den tyska bilordlistan (21 oktober).",
       "source": "Skatteverket – Inköp av nytt transportmedel från ett annat EU-land",
       "sourceUrl": "https://skatteverket.se/foretag/moms/sarskildamomsregler/handelmedandralander/inkopavnytttransportmedelfranettannateuland.4.361dc8c15312eff6fd1209a.html",
       "affectedPages": [
         "/kalkylator/bilimport",
         "/importera-bil/kostnad",
-        "/importera-bil/tyskland"
+        "/importera-bil/tyskland",
+        "/guider/moms-vid-bilimport",
+        "/guider/importera-elbil",
+        "/guider/tysk-bilordlista"
       ]
     },
     {

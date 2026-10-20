@@ -328,5 +328,28 @@
         }
       }
     }
+  },
+  "procentsatser": {
+    "_beskrivning": "Officiella procentsatser som får stå i sidtext. lib/belopp.test.mjs godkänner bara procenttal som finns här (eller i vitlistan).",
+    "moms": {
+      "value": 25,
+      "source": "Skatteverket – Inköp av nytt transportmedel från ett annat EU-land",
+      "sourceUrl": "https://skatteverket.se/foretag/moms/sarskildamomsregler/handelmedandralander/inkopavnytttransportmedelfranettannateuland.4.361dc8c15312eff6fd1209a.html",
+      "checked": "2026-10-21"
+    },
+    "tull_inom_eu": {
+      "value": 0,
+      "source": "Europeiska unionen – EU:s tullunion i praktiken",
+      "sourceUrl": "https://european-union.europa.eu/priorities-and-actions/actions-topic/customs_sv",
+      "quote": "För EU:s del innebär detta att inga tullar ska betalas för varor som skickas från ett EU-land till ett annat.",
+      "checked": "2026-10-21"
+    },
+    "elbilspremie_inkomstgrans": {
+      "value": 80,
+      "source": "Naturvårdsverket – Villkor för elbilspremien",
+      "sourceUrl": "https://www.naturvardsverket.se/bidrag/elbilspremien/villkor-for-elbilspremien/",
+      "quote": "Hushållets sammanlagda årsinkomst får vara högst 80 procent av medelinkomsten i Sverige.",
+      "checked": "2026-10-21"
+    }
   }
 }

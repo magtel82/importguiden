@@ -92,7 +92,6 @@ export interface CarBrandImportData {
   intro: string;
   specialCase: boolean;
   specialCaseNote?: string;
-  priceAdvantage: string;
   whereToBuy: string[];
   recommendedModels: RecommendedModel[];
   knownIssues: KnownIssue[];
@@ -100,8 +99,6 @@ export interface CarBrandImportData {
   teslaSpecific?: TeslaSpecific;
   adacSource: string;
   adacSourceUrl: string;
-  priceSEK: PriceRange;
-  priceEUR: PriceRange;
 }
 
 export interface MotorhomeBrandImportData {
@@ -112,14 +109,11 @@ export interface MotorhomeBrandImportData {
   chassis: string;
   chassisWarning: boolean;
   chassisWarningText: string;
-  priceAdvantage: string;
   recommendedModels: RecommendedMotorhomeModel[];
   knownIssues: KnownIssue[];
   documentsToRequest: string[];
   adacSource: string;
   adacSourceUrl: string;
-  priceSEK: PriceRange;
-  priceEUR: PriceRange;
 }
 
 // Calculator types

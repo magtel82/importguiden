@@ -39,6 +39,9 @@ export const FORDONSSKATT = data.fordonsskatt;
 export const MOMS = data.tax;
 export const COST_DATA_UPDATED = data._updated;
 
+/** Momssatsen som text, t.ex. "25 %" – ur data (Skatteverket). */
+export const MOMS_PROCENT = `${Math.round(data.tax.moms_rate * 100)} %`;
+
 /** Ingen tull vid import inom EU (Tullverket). */
 export const TULL_EU = formatKr(0);
 

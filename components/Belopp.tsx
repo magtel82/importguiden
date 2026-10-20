@@ -12,6 +12,7 @@ import {
   exportKostnad,
   FORDONSSKATT,
   formatSats,
+  MOMS_PROCENT,
   type CostId,
 } from "@/lib/costs";
 import { calculateMalus, type FuelType } from "@/lib/malus-calculator";
@@ -101,9 +102,14 @@ export function Skillnad({ fran, till }: { fran: CostId; till: CostId }) {
   return <>{formatKr(Math.abs(sekRange(fran).min - sekRange(till).min))}</>;
 }
 
+/** Svensk momssats ur datafilen (Skatteverket). */
+export function Momssats() {
+  return <>{MOMS_PROCENT}</>;
+}
+
 /** EUR-kursen med källa och datum ur datafilen. */
 export function EurKurs() {
   return <>{eurRateLine()}</>;
 }
 
-export const BELOPP_MDX_COMPONENTS = { Belopp, Summa, Skyltavgift, FastaAvgifter, Exportkostnad, Sats, Skatt, Skillnad, EurKurs };
+export const BELOPP_MDX_COMPONENTS = { Belopp, Summa, Skyltavgift, FastaAvgifter, Exportkostnad, Sats, Skatt, Skillnad, EurKurs, Momssats };

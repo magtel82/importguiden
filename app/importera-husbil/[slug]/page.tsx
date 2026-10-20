@@ -90,7 +90,7 @@ const MH_CHASSI_EXTRA: Record<string, { sprinterInfo: string; tip: string }> = {
     tip: "Prioritera nyare årsmodeller (2019+) där Fiat åtgärdat kända brister. Begär alltid komplett servicehistorik inklusive chassiservice.",
   },
   burstner: {
-    sprinterInfo: "Bürstner erbjuder Lyseo-serien på Mercedes Sprinter-chassi (premium). Övriga modeller bygger på Fiat Ducato. Sprinter-alternativet ger bättre driftsäkerhet men kostar ca 20–30 % mer.",
+    sprinterInfo: "Bürstner erbjuder Lyseo-serien på Mercedes Sprinter-chassi (premium). Övriga modeller bygger på Fiat Ducato. Sprinter-alternativet rankas högre av ADAC men kostar mer.",
     tip: "Prioritera nyare Ducato-årsmodeller (2019+) eller välj Lyseo-serien om budget tillåter.",
   },
   knaus: {
@@ -117,7 +117,7 @@ const MH_FAQ: Record<string, FaqItem[]> = {
   burstner: [
     { question: "Betalar man malus på importerad Bürstner-husbil?", answer: `Nej, husbilar är undantagna från malus sedan 1 februari 2025. Du betalar ordinarie fordonsskatt, som för husbilar med koldioxidvärde är ${HUSBIL_SKATT_TEXT}` },
     { question: "Vilken Bürstner-modell är mest pålitlig?", answer: "Lyseo-serien på Mercedes Sprinter-chassi är det mest driftsäkra alternativet. Ducato-baserade modeller som Lyseo TD och Nexxo är populära men påverkas av Ducatos kända svagheter." },
-    { question: "Finns Bürstner på Mercedes Sprinter-chassi?", answer: "Ja, Bürstner erbjuder Lyseo-serien på Mercedes Sprinter-chassi. Det ger bättre driftsäkerhet men kostar ca 20–30 % mer än Ducato-baserade modeller." },
+    { question: "Finns Bürstner på Mercedes Sprinter-chassi?", answer: "Ja, Bürstner erbjuder Lyseo-serien på Mercedes Sprinter-chassi. Sprinter-chassit rankas högre av ADAC än Ducato, men modellerna kostar mer." },
   ],
   knaus: [
     { question: "Betalar man malus på importerad Knaus-husbil?", answer: `Nej, husbilar är undantagna från malus sedan 1 februari 2025. Du betalar ordinarie fordonsskatt, som för husbilar med koldioxidvärde är ${HUSBIL_SKATT_TEXT}` },
@@ -501,7 +501,7 @@ export default async function ImporteraHusbilPage({ params }: Props) {
                 </div>
                 <div>
                   <p className="font-semibold text-gray-900 mb-1">Sprinter-alternativet</p>
-                  <p className="leading-relaxed">Hymer ML-T och B-ML bygger på Mercedes Sprinter som rankas betydligt högre av ADAC. Prisskillnaden är ca 20–30 % högre men motiveras av bättre driftsäkerhet och högre andrahandsvärde.</p>
+                  <p className="leading-relaxed">Hymer ML-T och B-ML bygger på Mercedes Sprinter som rankas betydligt högre av ADAC. De kostar mer – jämför priset mot den bättre driftsäkerheten.</p>
                 </div>
               </div>
             )}
@@ -513,22 +513,6 @@ export default async function ImporteraHusbilPage({ params }: Props) {
               Snabbfakta – {importData.name} från Tyskland
             </h2>
             <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-sm">
-              <div>
-                <dt className="text-gray-600">Prisintervall (EUR)</dt>
-                <dd className="font-medium text-gray-900">
-                  {importData.priceEUR.min.toLocaleString("sv-SE")}–{importData.priceEUR.max.toLocaleString("sv-SE")} EUR
-                </dd>
-              </div>
-              <div>
-                <dt className="text-gray-600">Prisintervall (SEK)</dt>
-                <dd className="font-medium text-gray-900">
-                  {formatSEK(importData.priceSEK.min)}–{formatSEK(importData.priceSEK.max)}
-                </dd>
-              </div>
-              <div>
-                <dt className="text-gray-600">Typisk besparing mot Sverige</dt>
-                <dd className="font-medium text-gray-900">{importData.priceAdvantage}</dd>
-              </div>
               <div>
                 <dt className="text-gray-600">Chassi</dt>
                 <dd className="font-medium text-gray-900">{importData.chassis}</dd>

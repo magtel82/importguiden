@@ -16,7 +16,7 @@ import { extractHeadings } from "@/lib/headings";
 import { formatDateSv } from "@/lib/date";
 import { UpcomingChangeNotice } from "@/components/UpcomingChangeNotice";
 import { withYear } from "@/lib/site-config";
-import { formatCost, costSourceLine } from "@/lib/costs";
+import { formatCost, costSourceLine, MOMS_PROCENT } from "@/lib/costs";
 import { BELOPP_MDX_COMPONENTS } from "@/components/Belopp";
 import { Forsakringsbolag } from "@/components/Forsakringsbolag";
 import { Kodatum, KoKontrollerat, KoHistorik } from "@/components/Kodatum";
@@ -198,7 +198,7 @@ export default async function GuiderPage({ params }: Props) {
           {
             question: "Vad räknas som nytt transportmedel vid bilimport?",
             answer:
-              "En bil räknas som ny om den är yngre än 6 månader eller har körts färre än 6 000 km. Då ska du betala svensk moms (25 %) vid importen.",
+              `En bil räknas som ny om den köps inom 6 månader efter första ibruktagande eller har körts högst 6 000 km. Då ska du betala svensk moms (${MOMS_PROCENT}) vid importen.`,
           },
           {
             question: "Hur redovisar man moms vid bilimport till Skatteverket?",

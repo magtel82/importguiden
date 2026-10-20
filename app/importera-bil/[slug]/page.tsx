@@ -618,22 +618,6 @@ export default async function ImporteraBilPage({ params }: Props) {
             </h2>
             <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-sm">
               <div>
-                <dt className="text-gray-600">Prisintervall (EUR)</dt>
-                <dd className="font-medium text-gray-900">
-                  {importData.priceEUR.min.toLocaleString("sv-SE")}–{importData.priceEUR.max.toLocaleString("sv-SE")} EUR
-                </dd>
-              </div>
-              <div>
-                <dt className="text-gray-600">Prisintervall (SEK)</dt>
-                <dd className="font-medium text-gray-900">
-                  {formatSEK(importData.priceSEK.min)}–{formatSEK(importData.priceSEK.max)}
-                </dd>
-              </div>
-              <div>
-                <dt className="text-gray-600">Typisk besparing mot Sverige</dt>
-                <dd className="font-medium text-gray-900">{importData.priceAdvantage}</dd>
-              </div>
-              <div>
                 <dt className="text-gray-600">Hitta bilar</dt>
                 <dd className="font-medium text-gray-900">{importData.whereToBuy.join(", ")}</dd>
               </div>
