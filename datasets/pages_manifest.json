@@ -774,8 +774,8 @@
     {
       "id": "jamfor-tyskland-vs-sverige",
       "path": "/jamfor/tyskland-vs-sverige",
-      "title": "Bilar billigare i Tyskland? – Prisjämförelse {år}",
-      "description": "Vi jämför bilpriser i Sverige och Tyskland per segment. Lönar det sig att importera? Break-even-analys, konkreta exempel och vilka märken som har störst prisskillnad.",
+      "title": "Bilar billigare i Tyskland? Så jämför du priset {år}",
+      "description": "Lönar det sig att köpa bil i Tyskland? Jämför samma bil i svenska och tyska annonser och lägg på importkostnaderna – steg för steg, med aktuella avgifter och källor.",
       "sources": [
         "https://www.mobile.de",
         "https://www.bytbil.com",
@@ -788,7 +788,7 @@
         "indexable": true
       },
       "lastEvaluated": "2026-10-20",
-      "notes": "Prisjämförelse per segment med schablonvärden. Källor: mobile.de, Bytbil, Blocket. Break-even-kalkyl med data från cost-data.json.",
+      "notes": "Prisjämförelse per segment med schablonvärden. Källor: mobile.de, Bytbil, Blocket. Break-even-kalkyl med data från cost-data.json. 2026-10-20: omskriven till metodsida. Prisnivåer per segment och prisskillnader per märke borttagna (saknade källa).",
       "tags": [
         "jamfor"
       ]

@@ -65,8 +65,9 @@ Sidan står som noindex tills Magnus godkänt tabellen.
 ## 3. Ej verifierat / TODO
 
 - mobile.de:s språk – data/mobile-de.json är tom (sajten svarar 403). Fylls i för hand.
-- Prisjämförelsen /jamfor/tyskland-vs-sverige: segmentpriserna (bilpriser i SE/DE)
-  saknar källa. Vitlistad med motivering – behöver eget underlag eller omskrivning.
+- Prisjämförelsen /jamfor/tyskland-vs-sverige: LÖST 2026-10-20 – omskriven till
+  metodsida (förslag b). Segmenttabellen och prisskillnader per märke borttagna;
+  undantaget i vitlistan är borttaget.
 - Märkessidornas data (car-brands-import.json, motorhome-brands-import.json:
   priceSEK, procentuella prisskillnader) och procentuppgifter i löptext
   (t.ex. "15–25 % dyrare", "2–3 procent växlingskostnad") är inte källgranskade –

@@ -904,8 +904,9 @@ Två godkända källor:
 OBS om (2): `lastEvaluated` betyder "quality gate kördes", inte "innehållet
 ändrades". Kör du bara om en gate utan att röra texten – bumpa inte datumet,
 då blir det synliga datumet felaktigt färskt. Undantaget är
-`/jamfor/tyskland-vs-sverige`, som därför har kvar ett hårdkodat 2026-03-14:
-manifestets 2026-05-13 speglar en omvärdering, inte en innehållsändring.
+`/jamfor/tyskland-vs-sverige`, som tidigare hade ett hårdkodat datum. Sedan
+2026-10-20 är sidan en metodsida (inga egna bilpriser) och läser datumet ur
+manifestet som alla andra.
 
 Saknas datum ska datumraden döljas – gissa aldrig.
 

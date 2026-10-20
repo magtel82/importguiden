@@ -40,11 +40,6 @@
       "fil": "content/guider/importera-elbil.mdx",
       "text": "95 000 kr",
       "motivering": "Räkneexempel: 25 % moms på exemplets 380 000 kr."
-    },
-    {
-      "fil": "app/jamfor/[slug]/page.tsx",
-      "text": "000 kr",
-      "motivering": "Prisjämförelsen per segment och märke bygger på annonspriser som redovisas som marknadsläge, inte avgifter. Källunderlaget saknas och är en öppen TODO i audits/2026-10-belopp-log.md – sidan måste få ett källbelagt underlag eller skrivas om."
     }
   ]
 }

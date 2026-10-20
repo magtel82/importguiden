@@ -18,6 +18,17 @@
     {
       "date": "2026-10-20",
       "type": "rattelse",
+      "title": "Prisjämförelsen Tyskland–Sverige visade bilpriser utan källa",
+      "summary": "Sidan redovisade prisnivåer och prisskillnader per bilsegment och märke, till exempel 40 000–100 000 kr för mellanklass och premium. Siffrorna var uppskattningar utan redovisat underlag. Tabellen och prisskillnaderna är borttagna. Sidan visar nu i stället hur du jämför en enskild bil själv, med importkostnaderna hämtade ur källbelagda avgifter.",
+      "source": "Importguidens egen genomgång",
+      "sourceUrl": "https://www.skatteverket.se/privat/skatter/beloppochprocent/2026.4.1522bf3f19aea8075ba21.html",
+      "affectedPages": [
+        "/jamfor/tyskland-vs-sverige"
+      ]
+    },
+    {
+      "date": "2026-10-20",
+      "type": "rattelse",
       "title": "Registreringsbesiktning kostar mer än sajten angav",
       "summary": "Sajten angav registreringsbesiktning till cirka 1 700 kr för personbil och 3 000–5 000 kr för husbil, utan källa, och efterkontroll till 500–800 kr. De stora besiktningskedjorna publicerar inte priset. De stationer som gör det tar 2 500–3 500 kr (Ystad Bilbesiktning) och 3 239 kr (Fordonsprovarna Kungälv) för registreringsbesiktning, och 1 000–1 349 kr för efterkontroll. Alla sidor och kalkylatorn visar nu de publicerade priserna med källa.",
       "source": "Ystad Bilbesiktning och Fordonsprovarna Kungälv – publicerade prislistor",

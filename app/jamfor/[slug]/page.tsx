@@ -2,21 +2,35 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { CostTable } from "@/components/CostTable";
-import { feeTotal, bilkostnadForKm, exportKostnad, formatKr, formatSekRange, getCost } from "@/lib/costs";
+import {
+  feeTotal,
+  bilkostnadForKm,
+  exportKostnad,
+  formatKr,
+  formatSekRange,
+  getCost,
+  eurRateLine,
+  MOMS,
+} from "@/lib/costs";
 import { getCanonicalUrl } from "@/lib/seo";
-import { getRobotsForPath } from "@/lib/manifest";
+import { getRobotsForPath, getLastUpdatedForPath } from "@/lib/manifest";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { formatDateSv } from "@/lib/date";
 import { CONTENT_YEAR } from "@/lib/site-config";
 
 const SITE_URL = process.env.SITE_URL ?? "https://importguiden.se";
-const UPDATED_DATE = "2026-03-14";
 
-const comparisons: Record<string, { title: string; description: string }> = {
+/**
+ * Jämförelsesidan visar en METOD, inte egna bilpriser. Tidigare fanns en
+ * tabell med prisnivåer per segment utan källa – den togs bort 2026-10-20.
+ * Lägg inte tillbaka prisnivåer utan ett daterat, källbelagt underlag.
+ */
+const comparisons: Record<string, { title: string; description: string; h1: string }> = {
   "tyskland-vs-sverige": {
-    title: `Bilar billigare i Tyskland? – Prisjämförelse ${CONTENT_YEAR}`,
+    title: `Bilar billigare i Tyskland? Så jämför du priset ${CONTENT_YEAR}`,
+    h1: "Är bilen billigare i Tyskland? Så jämför du priset själv",
     description:
-      "Vi jämför bilpriser i Sverige och Tyskland per segment. Lönar det sig att importera? Break-even-analys, konkreta exempel och vilka märken som har störst prisskillnad.",
+      "Lönar det sig att köpa bil i Tyskland? Jämför samma bil i svenska och tyska annonser och lägg på importkostnaderna – steg för steg, med aktuella avgifter och källor.",
   },
 };
 
@@ -49,11 +63,14 @@ export default async function JamforPage({ params }: Props) {
   const comp = comparisons[slug];
   if (!comp) notFound();
 
+  const updatedDate = getLastUpdatedForPath(`/jamfor/${slug}`);
+
   // Avgifter ur data/cost-data.json. Hemkörning räknas med Skatteverkets
-  // schablon för bilkostnad (Tyskland ca 1 200 km) plus exportskyltar och -försäkring.
+  // schablon för bilkostnad plus exportskyltar och exportförsäkring.
   const fasta = feeTotal("bil");
   const hemkorning = bilkostnadForKm(HEMKORNING_KM) + exportKostnad().min;
   const totalt = { min: fasta.min + hemkorning, max: fasta.max + hemkorning };
+  const nyGrans = MOMS.moms_new_vehicle_threshold_km.toLocaleString("sv-SE");
 
   const breadcrumbs = [
     { name: "Hem", href: "/" },
@@ -61,343 +78,202 @@ export default async function JamforPage({ params }: Props) {
     { name: "Bilar i Tyskland vs Sverige" },
   ];
 
-  const segments = [
-    {
-      segment: "Mellanklass (BMW 3-serie, Audi A4, Mercedes C-klass)",
-      de: "220 000–280 000 kr",
-      se: "270 000–350 000 kr",
-      diff: "40 000–70 000 kr",
-      bedomning: "Ofta lönsamt",
-      bedomningColor: "text-green-700",
-    },
-    {
-      segment: "Premium-SUV (BMW X5, Mercedes GLE, Audi Q7)",
-      de: "380 000–550 000 kr",
-      se: "450 000–650 000 kr",
-      diff: "60 000–100 000 kr",
-      bedomning: "Ofta mycket lönsamt",
-      bedomningColor: "text-green-700",
-    },
-    {
-      segment: "Sportbil (Porsche 911, BMW M3, Mercedes AMG)",
-      de: "600 000–1 200 000 kr",
-      se: "700 000–1 400 000 kr",
-      diff: "80 000–150 000 kr",
-      bedomning: "Ofta mycket lönsamt",
-      bedomningColor: "text-green-700",
-    },
-    {
-      segment: "Kompaktklass (VW Golf, Audi A3, BMW 1-serie)",
-      de: "140 000–200 000 kr",
-      se: "160 000–240 000 kr",
-      diff: "15 000–40 000 kr",
-      bedomning: "Ibland lönsamt",
-      bedomningColor: "text-amber-600",
-    },
-    {
-      segment: "Volvo (V60, XC60, XC90)",
-      de: "220 000–450 000 kr",
-      se: "220 000–460 000 kr",
-      diff: "0–15 000 kr",
-      bedomning: "Sällan lönsamt",
-      bedomningColor: "text-gray-500",
-    },
-    {
-      segment: "Elbil (Tesla Model 3, VW ID.4, BMW iX)",
-      de: "200 000–500 000 kr",
-      se: "210 000–520 000 kr",
-      diff: "5 000–25 000 kr",
-      bedomning: "Sällan lönsamt",
-      bedomningColor: "text-gray-500",
-    },
-  ];
-
   return (
-    <>
-      <div className="mx-auto max-w-3xl px-4 py-10">
-        <Breadcrumbs items={breadcrumbs} siteUrl={SITE_URL} />
+    <div className="mx-auto max-w-3xl px-4 py-10">
+      <Breadcrumbs items={breadcrumbs} siteUrl={SITE_URL} />
 
-        <article>
-          <header className="mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-3">
-              Bilar billigare i Tyskland? – Prisjämförelse 2026
-            </h1>
-            <p className="text-gray-500 text-sm">
-              Uppdaterad: <time dateTime={UPDATED_DATE}>{formatDateSv(UPDATED_DATE)}</time>
-              {" "}· Källa: mobile.de, Bytbil.com, Blocket.se (schablonvärden)
-            </p>
-          </header>
-
-          <p className="text-gray-700 mb-4 text-lg">
-            Ja – tyska märken är generellt sett billigare i Tyskland än i Sverige,
-            ibland med 40 000–100 000 kr på mellanklass och premium-segment.
-            Men det gäller inte alla biltyper, och du måste alltid räkna in
-            importkostnaderna innan du bestämmer dig.
+      <article>
+        <header className="mb-8">
+          <h1 className="text-3xl font-bold text-gray-900 mb-3">{comp.h1}</h1>
+          <p className="text-gray-500 text-sm">
+            {updatedDate && (
+              <>
+                Uppdaterad: <time dateTime={updatedDate}>{formatDateSv(updatedDate)}</time>
+                {" "}·{" "}
+              </>
+            )}
+            Avgifter: Transportstyrelsen, Skatteverket och publicerade prislistor
           </p>
-          <p className="text-gray-700 mb-8">
-            Nedan hittar du en jämförelse per bilsegment, en break-even-analys
-            och en guide till hur du jämför priser praktiskt.
-          </p>
+        </header>
 
-          {/* Prisjämförelse per segment */}
-          <section className="mb-10">
-            <h2 className="text-xl font-bold text-gray-900 mb-3">
-              Prisskillnad per bilsegment
-            </h2>
-            <p className="text-gray-600 text-sm mb-4">
-              Priserna nedan är schablonvärden baserade på generella marknadslägen
-              för 3–5 år gamla bilar med normal körsträcka. Faktiska priser varierar –
-              kontrollera alltid aktuella priser på{" "}
-              <a
-                href="https://www.mobile.de"
-                className="text-blue-700 hover:underline"
-                target="_blank"
-                rel="nofollow"
-              >
-                mobile.de
-              </a>{" "}
-              och{" "}
-              <a
-                href="https://www.bytbil.com"
-                className="text-blue-700 hover:underline"
-                target="_blank"
-                rel="nofollow"
-              >
-                Bytbil.com
-              </a>
+        <p className="text-gray-700 mb-4 text-lg">
+          Det går inte att svara generellt – prisskillnaden beror på märke, modell, årsmodell,
+          utrustning och körsträcka, och den ändras hela tiden. Det som avgör är om just den bil du
+          tittar på är billigare i Tyskland <strong>när importkostnaderna är inräknade</strong>.
+        </p>
+        <p className="text-gray-700 mb-8">
+          Därför redovisar vi inga egna prisnivåer här. I stället får du en metod för att jämföra
+          själv, och de importkostnader du ska lägga på – med källa för varje belopp.
+        </p>
+
+        <section className="mb-10">
+          <h2 className="text-xl font-bold text-gray-900 mb-3">Så jämför du – fyra steg</h2>
+          <ol className="space-y-4 text-sm text-gray-700">
+            <li className="flex gap-3">
+              <span className="shrink-0 font-bold text-gray-900">1.</span>
+              <span>
+                <strong>Hitta bilen i Tyskland.</strong> Sök på{" "}
+                <a href="https://www.mobile.de" className="text-blue-700 hover:underline" target="_blank" rel="nofollow">mobile.de</a>{" "}
+                eller AutoScout24 och filtrera på märke, modell, årsmodell och högsta körsträcka.
+                Notera priset i euro. Läs om annonstermerna i guiden{" "}
+                <Link href="/guider/kopa-bil-mobile-de-autoscout24" className="text-blue-700 hover:underline">
+                  mobile.de på svenska
+                </Link>
+                .
+              </span>
+            </li>
+            <li className="flex gap-3">
+              <span className="shrink-0 font-bold text-gray-900">2.</span>
+              <span>
+                <strong>Hitta samma bil i Sverige.</strong> Sök med samma specifikation på{" "}
+                <a href="https://www.bytbil.com" className="text-blue-700 hover:underline" target="_blank" rel="nofollow">Bytbil.com</a>{" "}
+                eller{" "}
+                <a href="https://www.blocket.se/fordon" className="text-blue-700 hover:underline" target="_blank" rel="nofollow">Blocket</a>.
+                Jämför flera annonser, inte bara den billigaste – och kontrollera att utrustningen är
+                jämförbar.
+              </span>
+            </li>
+            <li className="flex gap-3">
+              <span className="shrink-0 font-bold text-gray-900">3.</span>
+              <span>
+                <strong>Lägg på importkostnaderna.</strong> Räkna om euro till kronor med aktuell kurs
+                och lägg till avgifterna nedan, transport och – om bilen räknas som ny – moms. En bil
+                räknas som ny om den köps inom {MOMS.moms_new_vehicle_threshold_months} månader från
+                första ibruktagande eller har körts högst {nyGrans} km.
+              </span>
+            </li>
+            <li className="flex gap-3">
+              <span className="shrink-0 font-bold text-gray-900">4.</span>
+              <span>
+                <strong>Jämför totalen.</strong> Är den tyska totalen tydligt lägre än det svenska
+                priset – med marginal för din egen tid, resa och oväntade kostnader – kan importen
+                vara värd att gå vidare med.
+              </span>
+            </li>
+          </ol>
+          <p className="text-sm text-gray-500 mt-4">
+            Steg 3 och 4 gör{" "}
+            <Link href="/kalkylator/bilimport" className="text-blue-700 hover:underline">
+              importkalkylatorn
+            </Link>{" "}
+            åt dig – fyll i det tyska priset och det svenska jämförpriset.
+          </p>
+        </section>
+
+        <section className="mb-10">
+          <h2 className="text-xl font-bold text-gray-900 mb-3">
+            Hur stor måste prisskillnaden vara?
+          </h2>
+          <p className="text-gray-700 mb-4">
+            Prisskillnaden måste minst täcka de avgifter som tillkommer vid varje import:
+          </p>
+          <CostTable vehicleType="bil" />
+          <p className="text-gray-700 text-sm mb-3">
+            Kör du hem bilen själv tillkommer bilkostnaden för resan och tyska exportskyltar med
+            exportförsäkring – för {HEMKORNING_KM.toLocaleString("sv-SE")} km ungefär{" "}
+            <strong>{formatKr(hemkorning)}</strong> (bilkostnad enligt{" "}
+            <a href={getCost("bilkostnad_per_mil").sourceUrl} className="text-blue-700 hover:underline" target="_blank" rel="noopener noreferrer">
+              Skatteverkets schablon
+            </a>
+            ). Med transportfirma gäller i stället det pris du får i offerten.
+          </p>
+          <p className="text-gray-700 text-sm">
+            Med hemkörning behöver bilen alltså vara mer än{" "}
+            <strong>{formatSekRange(totalt)}</strong> billigare i Tyskland för att importen ska gå
+            jämnt ut – innan du räknar in din egen tid och en marginal för oväntade kostnader.
+          </p>
+          <p className="text-xs text-gray-400 mt-2">Euro räknas om med {eurRateLine()}.</p>
+        </section>
+
+        <section className="mb-10">
+          <h2 className="text-xl font-bold text-gray-900 mb-3">Vad påverkar prisskillnaden?</h2>
+          <ul className="space-y-2 text-sm text-gray-700 list-disc list-inside">
+            <li>
+              <strong>Utrustning:</strong> samma modell kan ha olika standardutrustning i Tyskland
+              och Sverige. Jämför utrustning, inte bara modellnamn.
+            </li>
+            <li>
+              <strong>Moms:</strong> en nästan ny bil kan bli momspliktig i Sverige, vilket äter upp
+              en stor del av prisskillnaden. Läs om{" "}
+              <Link href="/guider/moms-vid-bilimport" className="text-blue-700 hover:underline">
+                moms vid bilimport
+              </Link>
               .
-            </p>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm border-collapse border border-gray-200 rounded">
-                <thead>
-                  <tr className="bg-gray-50">
-                    <th className="text-left p-3 font-semibold text-gray-700 border-b border-gray-200">Segment</th>
-                    <th className="text-right p-3 font-semibold text-gray-700 border-b border-gray-200">Tyskland</th>
-                    <th className="text-right p-3 font-semibold text-gray-700 border-b border-gray-200">Sverige</th>
-                    <th className="text-right p-3 font-semibold text-gray-700 border-b border-gray-200">Skillnad</th>
-                    <th className="text-left p-3 font-semibold text-gray-700 border-b border-gray-200">Bedömning</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-100">
-                  {segments.map((s) => (
-                    <tr key={s.segment}>
-                      <td className="p-3 text-gray-700 text-xs">{s.segment}</td>
-                      <td className="p-3 text-right text-gray-600 whitespace-nowrap text-xs">{s.de}</td>
-                      <td className="p-3 text-right text-gray-600 whitespace-nowrap text-xs">{s.se}</td>
-                      <td className="p-3 text-right font-medium whitespace-nowrap text-xs">{s.diff}</td>
-                      <td className={`p-3 text-xs font-medium ${s.bedomningColor}`}>{s.bedomning}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <p className="text-xs text-gray-400 mt-2">
-              Schablonvärden. Prisskillnaden varierar med modellår, utrustning och marknadsläge.
-            </p>
-          </section>
-
-          {/* Break-even */}
-          <section className="mb-10">
-            <h2 className="text-xl font-bold text-gray-900 mb-3">
-              Break-even: hur stor måste prisskillnaden vara?
-            </h2>
-            <p className="text-gray-700 mb-4">
-              Utöver bilpriset tillkommer fasta importkostnader. Du behöver hitta
-              en prisskillnad som överstiger dessa för att importen ska löna sig:
-            </p>
-            <CostTable vehicleType="bil" />
-            <p className="text-gray-700 text-sm mb-3">
-              Kör du hem bilen själv tillkommer bilkostnaden för resan och tyska exportskyltar med
-              exportförsäkring – för en sträcka på {HEMKORNING_KM.toLocaleString("sv-SE")} km
-              ungefär <strong>{formatKr(hemkorning)}</strong> (bilkostnad enligt{" "}
-              <a href={getCost("bilkostnad_per_mil").sourceUrl} className="text-blue-700 hover:underline" target="_blank" rel="noopener noreferrer">
-                Skatteverkets schablon
-              </a>
-              ). Med transportfirma gäller i stället det pris du får i offerten.
-            </p>
-            <p className="text-gray-700 text-sm">
-              Prisskillnaden mot Sverige behöver alltså vara större än{" "}
-              <strong>{formatSekRange(totalt)}</strong> för att importen ska gå jämnt ut – innan du
-              räknar in din egen tid, eventuell flygresa och en marginal för oväntade kostnader.
-            </p>
-          </section>
-
-          {/* Vilka märken lönar sig */}
-          <section className="mb-10">
-            <h2 className="text-xl font-bold text-gray-900 mb-3">
-              Vilka märken har störst prisskillnad?
-            </h2>
-
-            <div className="space-y-4">
-              <div>
-                <h3 className="font-semibold text-gray-900 mb-1">
-                  Störst skillnad – tyska premium-märken
-                </h3>
-                <p className="text-gray-700 text-sm">
-                  BMW, Mercedes-Benz, Audi och Porsche säljs i stora volymer
-                  på hemmamarknaden, vilket pressar priserna. Prisskillnaden mot
-                  Sverige är störst i mellanklass och premium-SUV-segmentet.
-                  En BMW 5-serie eller Mercedes E-klass kan vara 40 000–80 000 kr
-                  billigare i Tyskland.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-900 mb-1">
-                  Måttlig skillnad – VW-gruppen i kompaktklass
-                </h3>
-                <p className="text-gray-700 text-sm">
-                  Volkswagen Golf, Audi A3 och Skoda Octavia har viss prisskillnad
-                  men den är mer modest – ofta 15 000–35 000 kr. Bilen är vanligare
-                  och konkurrensen på begagnatmarknaden är hårdare, vilket minskar
-                  prisgapet.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-900 mb-1">
-                  Liten eller ingen skillnad – Volvo och elbilar
-                </h3>
-                <p className="text-gray-700 text-sm">
-                  Volvo är ett svenskt märke med stark hemmamarknad – priserna
-                  är jämförbara eller ibland lägre i Sverige. Elbilar handlas
-                  alltmer på en europeisk nivå och prisskillnaderna har minskat
-                  kraftigt de senaste åren. Import av elbil lönar sig sällan
-                  jämfört med tyska bensin- och dieselbilar.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* Hur du jämför priser */}
-          <section className="mb-10">
-            <h2 className="text-xl font-bold text-gray-900 mb-3">
-              Hur du jämför priser praktiskt
-            </h2>
-            <p className="text-gray-700 mb-4 text-sm">
-              Gör alltid en direkt jämförelse på samma modell, årsmodell och
-              ungefärlig körsträcka innan du bestämmer dig. Så här går du till väga:
-            </p>
-            <ol className="space-y-3 text-sm text-gray-700">
-              <li className="flex gap-3">
-                <span className="shrink-0 font-bold text-gray-900">1.</span>
-                <span>
-                  Hitta en bil på{" "}
-                  <a href="https://www.mobile.de" className="text-blue-700 hover:underline" target="_blank" rel="nofollow">mobile.de</a>{" "}
-                  – filtrera på märke, modell, årsmodell och max körsträcka.
-                  Notera priset i EUR.
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <span className="shrink-0 font-bold text-gray-900">2.</span>
-                <span>
-                  Sök på samma spec på{" "}
-                  <a href="https://www.bytbil.com" className="text-blue-700 hover:underline" target="_blank" rel="nofollow">Bytbil.com</a>{" "}
-                  eller{" "}
-                  <a href="https://www.blocket.se/fordon" className="text-blue-700 hover:underline" target="_blank" rel="nofollow">Blocket</a>.
-                  Jämför genomsnittspriset.
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <span className="shrink-0 font-bold text-gray-900">3.</span>
-                <span>
-                  Räkna om EUR till SEK med aktuell kurs och lägg på importkostnaderna
-                  ({formatSekRange(totalt)} med hemkörning och fasta avgifter).
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <span className="shrink-0 font-bold text-gray-900">4.</span>
-                <span>
-                  Är totalen tydligt lägre än det svenska priset – med marginal för din tid och
-                  oväntade kostnader – kan det vara värt att titta närmare.
-                </span>
-              </li>
-            </ol>
-            <p className="text-sm text-gray-500 mt-4">
-              Använd{" "}
-              <Link href="/kalkylator/bilimport" className="text-blue-700 hover:underline">
-                importkalkylatorn
-              </Link>{" "}
-              för att räkna ut totalkostnaden med aktuell växelkurs.
-            </p>
-          </section>
-
-          {/* FAQ */}
-          <section className="mb-10">
-            <h2 className="text-xl font-bold text-gray-900 mb-6">
-              Vanliga frågor
-            </h2>
-            <div className="space-y-6">
-              <div>
-                <h3 className="font-semibold text-gray-900 mb-1">
-                  Är det alltid billigare att köpa bil i Tyskland?
-                </h3>
-                <p className="text-gray-700 text-sm">
-                  Nej. Det beror helt på märke och modell. Tyska premiumbilar
-                  är ofta billigare i Tyskland, men svenska märken (Volvo), japanska
-                  märken och elbilar är sällan nämnvärt billigare. Jämför alltid
-                  konkret innan du bestämmer dig.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-900 mb-1">
-                  Kan jag lita på priserna på mobile.de?
-                </h3>
-                <p className="text-gray-700 text-sm">
-                  Mobile.de är Tysklands ledande bilsajt och priserna är verkliga
-                  utbud. Tänk dock på att annonserade priser kan vara förhandlingsbara,
-                  och att bilar hos professionella handlare ibland är dyrare än
-                  hos privatpersoner.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-900 mb-1">
-                  Spelar det roll om jag köper av privatperson eller handlare i Tyskland?
-                </h3>
-                <p className="text-gray-700 text-sm">
-                  Ja. Privatpersoner säljer ofta billigare men utan garanti.
-                  Handlare ger ofta garanti och har bättre koll på dokumentationen
-                  (COC-intyg, servicehistorik), men tar mer betalt. Importmässigt
-                  fungerar processen lika oavsett säljare.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-900 mb-1">
-                  Vad händer med garantin när jag importerar?
-                </h3>
-                <p className="text-gray-700 text-sm">
-                  En fabriksgaranti från ett EU-land gäller normalt inom hela EU,
-                  inklusive Sverige. Kontrollera med märkesimportören i Sverige
-                  i förväg – hanteringen varierar.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* CTA */}
-          <div className="bg-gray-50 rounded-lg p-5 border border-gray-200">
-            <h3 className="font-semibold text-gray-900 mb-2">
-              Redo att räkna på din specifika bil?
-            </h3>
-            <p className="text-sm text-gray-600 mb-3">
-              Fyll i pris, land och transportmetod i kalkylatorn för en
-              samlad bild med aktuell växelkurs.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <Link
-                href="/kalkylator/bilimport"
-                className="inline-block rounded bg-blue-700 px-4 py-2 text-sm font-medium text-white hover:bg-blue-800"
-              >
-                Öppna importkalkylatorn
+            </li>
+            <li>
+              <strong>Fordonsskatt:</strong> bensin- och dieselbilar med höga utsläpp betalar malus
+              de tre första åren, räknat från första registreringen i utlandet.
+            </li>
+            <li>
+              <strong>Garanti:</strong> en importerad bil saknar svensk vagnskadegaranti. Läs om{" "}
+              <Link href="/guider/garanti-vid-bilimport" className="text-blue-700 hover:underline">
+                garanti vid bilimport
               </Link>
-              <Link
-                href="/importera-bil/tyskland"
-                className="inline-block rounded border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
-              >
-                Läs hela importguiden
-              </Link>
+              .
+            </li>
+            <li>
+              <strong>Annonspris mot slutpris:</strong> annonserade priser är ofta förhandlingsbara
+              – i båda länderna.
+            </li>
+          </ul>
+        </section>
+
+        <section className="mb-10">
+          <h2 className="text-xl font-bold text-gray-900 mb-6">Vanliga frågor</h2>
+          <div className="space-y-6">
+            <div>
+              <h3 className="font-semibold text-gray-900 mb-1">
+                Är det alltid billigare att köpa bil i Tyskland?
+              </h3>
+              <p className="text-gray-700 text-sm">
+                Nej. Det beror på den enskilda bilen. Jämför samma modell, årsmodell och utrustning i
+                båda länderna och lägg på importkostnaderna innan du bestämmer dig.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-gray-900 mb-1">
+                Spelar det roll om jag köper av privatperson eller handlare?
+              </h3>
+              <p className="text-gray-700 text-sm">
+                Ja. En handlare har ofta bättre koll på dokumentationen (COC-intyg, servicehistorik)
+                och kan lämna garanti. Själva importprocessen i Sverige är densamma oavsett säljare.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-gray-900 mb-1">Vad händer med garantin när jag importerar?</h3>
+              <p className="text-gray-700 text-sm">
+                Kontrollera med märkesimportören i Sverige i förväg hur nybilsgarantin hanteras. Se{" "}
+                <Link href="/guider/garanti-vid-bilimport" className="text-blue-700 hover:underline">
+                  garanti vid bilimport
+                </Link>
+                .
+              </p>
             </div>
           </div>
-        </article>
-      </div>
-    </>
+        </section>
+
+        <div className="bg-gray-50 rounded-lg p-5 border border-gray-200">
+          <h2 className="font-semibold text-gray-900 mb-2">Räkna på din bil</h2>
+          <p className="text-sm text-gray-600 mb-3">
+            Fyll i det tyska priset och det svenska jämförpriset i kalkylatorn – den lägger på
+            avgifter, transport och eventuell moms.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/kalkylator/bilimport"
+              className="inline-block rounded bg-blue-700 px-4 py-2 text-sm font-medium text-white hover:bg-blue-800"
+            >
+              Öppna importkalkylatorn
+            </Link>
+            <Link
+              href="/importera-bil/tyskland"
+              className="inline-block rounded border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+            >
+              Läs hela importguiden
+            </Link>
+          </div>
+        </div>
+      </article>
+    </div>
   );
 }
