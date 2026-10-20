@@ -63,8 +63,30 @@
         "https://ystadbilbesiktning.se/priser/",
         "https://fordonsprovarna-kungalv.se/tjanster/priser/"
       ],
-      "checked": "2026-10-19",
-      "note": "De stora besiktningskedjorna publicerar inte pris för registreringsbesiktning. Intervallet bygger på två stationer som gör det, inklusive moms."
+      "checked": "2026-10-21",
+      "note": "Besiktningsföretagen sätter priset själva. Opus, Bilprovningen och Carspect publicerar inte pris för registreringsbesiktning utan hänvisar till kundtjänst (kontrollerat 2026-10-21); DEKRA:s webbplats saknar uppgift. Intervallet bygger därför på de två stationer som publicerar priset, inklusive moms.",
+      "kedjorUtanPubliceratPris": [
+        {
+          "kedja": "Opus Bilprovning",
+          "url": "https://opus.se/tjanster/registreringsbesiktning/",
+          "citat": "Du är alltid välkommen att ringa kundtjänst på telefonnummer 0775-500 300 för bokning och pris"
+        },
+        {
+          "kedja": "Bilprovningen",
+          "url": "https://www.bilprovningen.se/tjanster/registreringsbesiktning/oregistrerat-fordon",
+          "citat": "Priserna för registreringsbesiktningen varierar beroende på till exempel typ av registrering, fordon, årsmodell eller ursprungsland. Kontakta oss på telefon 0771-600 500"
+        },
+        {
+          "kedja": "Carspect",
+          "url": "https://www.carspect.se/priser",
+          "citat": "Priserna varierar beroende på till exempel typ av registreringsbesiktning och fordon. För prisfrågor om registreringsbesiktning ber vi dig därför att kontakta vår kundtjänst"
+        },
+        {
+          "kedja": "DEKRA",
+          "url": "https://www.dekra.se/",
+          "citat": "Ingen prisuppgift för registreringsbesiktning hittad på webbplatsen"
+        }
+      ]
     },
     "registreringsbesiktning_efterkontroll": {
       "label": "Efterkontroll efter underkänd registreringsbesiktning",
